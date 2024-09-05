@@ -373,16 +373,6 @@ export class BookHeading extends Message<BookHeading> {
    */
   chapterId = "";
 
-  /**
-   * @generated from field: repeated bible.v1.BookFootnote footnotes = 8;
-   */
-  footnotes: BookFootnote[] = [];
-
-  /**
-   * @generated from field: repeated bible.v1.BookReference references = 9;
-   */
-  references: BookReference[] = [];
-
   constructor(data?: PartialMessage<BookHeading>) {
     super();
     proto3.util.initPartial(data, this);
@@ -398,8 +388,6 @@ export class BookHeading extends Message<BookHeading> {
     { no: 5, name: "updated_at", kind: "message", T: Timestamp },
     { no: 6, name: "verse_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 7, name: "chapter_id", kind: "scalar", T: 9 /* ScalarType.STRING */ },
-    { no: 8, name: "footnotes", kind: "message", T: BookFootnote, repeated: true },
-    { no: 9, name: "references", kind: "message", T: BookReference, repeated: true },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): BookHeading {

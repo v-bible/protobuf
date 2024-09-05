@@ -381,20 +381,6 @@
         },
         "chapterId": {
           "type": "string"
-        },
-        "footnotes": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/v1BookFootnote"
-          }
-        },
-        "references": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/v1BookReference"
-          }
         }
       }
     },
