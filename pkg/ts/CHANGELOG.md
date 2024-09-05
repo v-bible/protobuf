@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.2.0...pkg/ts/v0.2.1) (2024-09-05)
+
+
+### Bug Fixes
+
+* **pkg/proto:** redundant fields ([4239468](https://github.com/v-bible/protobuf/commit/4239468821623119df3a0eb005b2d8a06d90dd0c))
+* **pkg/ts:** redundant fields ([4239468](https://github.com/v-bible/protobuf/commit/4239468821623119df3a0eb005b2d8a06d90dd0c))
+
 ## [0.2.0](https://github.com/v-bible/protobuf/compare/pkg/ts-v0.1.1...pkg/ts/v0.2.0) (2024-09-05)
 
 
