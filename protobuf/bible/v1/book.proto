@@ -106,8 +106,6 @@ message BookHeading {
   google.protobuf.Timestamp updated_at = 5;
   string verse_id = 6;
   string chapter_id = 7;
-  repeated BookFootnote footnotes = 8;
-  repeated BookReference references = 9;
 }
 
 message BookReference {
