@@ -1,0 +1,22 @@
+{
+  "name": "@v-bible/types",
+  "version": "0.1.1",
+  "author": "v-bible",
+  "description": "v-bible backend types",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/v-bible/backend.git"
+  },
+  "types": "index.ts",
+  "scripts": {
+    "prepublish": "barrelsby --delete"
+  },
+  "dependencies": {
+    "@bufbuild/buf": "^1.35.0",
+    "@bufbuild/protobuf": "^1.10.0"
+  },
+  "devDependencies": {
+    "barrelsby": "^2.8.1",
+    "typescript": "^5.5.4"
+  }
+}

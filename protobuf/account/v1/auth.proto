@@ -1,0 +1,146 @@
+syntax = "proto3";
+
+package account.v1;
+
+import "google/api/annotations.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+// Ref:
+// https://grpc-ecosystem.github.io/grpc-gateway/docs/development/grpc-gateway_v2_migration_guide/
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    version: "1.0.0"
+    title: "Bible Auth server API"
+    description: "Bible Auth server API"
+    contact: {
+      name: "DuckyMomo20012"
+      url: "https://github.com/DuckyMomo20012"
+    }
+  }
+  // NOTE: This is default mount point in internal/common/server/gateway.go
+  base_path: "/api"
+
+  security_definitions: {
+    security: {
+      key: "bearer"
+      value: {
+        type: TYPE_API_KEY
+        in: IN_HEADER
+        name: "Authorization"
+        description: "Authentication token, prefixed by Bearer: Bearer <token>"
+      }
+    }
+  }
+  security: {
+    security_requirement: {key: "bearer"}
+  }
+};
+
+service AuthService {
+  rpc Login(LoginRequest) returns (LoginResponse) {
+    option (google.api.http) = {
+      post: "/v1/auth/login"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      security: {} /* Disable security key */
+    };
+  }
+  rpc Register(RegisterRequest) returns (RegisterResponse) {
+    option (google.api.http) = {
+      post: "/v1/auth/register"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      security: {} /* Disable security key */
+    };
+  }
+  rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {
+    option (google.api.http) = {
+      post: "/v1/auth/refresh"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      security: {} /* Disable security key */
+    };
+  }
+  rpc RetrospectToken(RetrospectTokenRequest) returns (RetrospectTokenResponse) {
+    option (google.api.http) = {
+      post: "/v1/auth/retrospect"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      security: {} /* Disable security key */
+    };
+  }
+  rpc DecodeAccessToken(DecodeAccessTokenRequest) returns (DecodeAccessTokenResponse) {
+    option (google.api.http) = {
+      post: "/v1/auth/decode-access-token"
+      body: "*"
+    };
+    option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+      security: {} /* Disable security key */
+    };
+  }
+  rpc Logout(LogoutRequest) returns (LogoutResponse) {
+    option (google.api.http) = {
+      post: "/v1/auth/logout"
+      body: "*"
+    };
+  }
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string access_token = 1;
+  string refresh_token = 2;
+  int64 expires_in = 3;
+  int64 refresh_expires_in = 4;
+}
+
+message RegisterRequest {
+  string email = 1;
+  optional string first_name = 2;
+  string last_name = 3;
+  string password = 4;
+}
+
+message RegisterResponse {}
+
+message RefreshTokenRequest {
+  string refresh_token = 1;
+}
+
+message RefreshTokenResponse {
+  string access_token = 1;
+  int64 expires_in = 2;
+}
+
+message RetrospectTokenRequest {
+  string token = 1;
+}
+
+message RetrospectTokenResponse {
+  bool active = 1;
+}
+
+message DecodeAccessTokenRequest {
+  string access_token = 1;
+}
+
+message DecodeAccessTokenResponse {
+  string subject = 1;
+  string email = 2;
+  string first_name = 3;
+  string last_name = 4;
+}
+
+message LogoutRequest {
+  string refresh_token = 1;
+}
+
+message LogoutResponse {}

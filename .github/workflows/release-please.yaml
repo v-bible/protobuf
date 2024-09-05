@@ -1,0 +1,57 @@
+name: release-please
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  npm_publish:
+    runs-on: "ubuntu-22.04"
+
+    # NOTE: We have to give write contents and packages permissions to the token
+    permissions:
+      contents: write
+      packages: write
+      pull-requests: write
+
+    steps:
+      # NOTE: You have to turn on "Allow Github Actions to create and approve
+      # pull requests" in the org settings
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/checkout@v4
+        # NOTE: We are releasing per package so we have to prefix the output
+        # with "path--", as well as other values like major and minor
+        if: ${{ steps.release.outputs['pkg/ts--release_created' ]}}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+        if: ${{ steps.release.outputs['pkg/ts--release_created'] }}
+
+      - uses: actions/setup-node@v4
+        with:
+          # cache: "pnpm"
+          node-version: "latest"
+          registry-url: "https://npm.pkg.github.com/"
+          scope: "@v-bible"
+        # NOTE: Move env to higher step
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        if: ${{ steps.release.outputs['pkg/ts--release_created'] }}
+
+      - name: Install Dependencies
+        run: pnpm install
+        working-directory: pkg/ts
+        if: ${{ steps.release.outputs['pkg/ts--release_created'] }}
+
+        # NOTE: Release npm package
+      - name: Publish
+        run: pnpm publish
+        working-directory: pkg/ts
+        if: ${{ steps.release.outputs['pkg/ts--release_created'] }}
