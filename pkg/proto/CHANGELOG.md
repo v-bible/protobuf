@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.2.1...pkg/proto/v0.3.0) (2024-09-23)
+
+
+### Features
+
+* **bible:** add get biblical ref ([59e2435](https://github.com/v-bible/protobuf/commit/59e243502c61e758fb5c2f910520a18cf1ce20ea))
+
 ## [0.2.1](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.2.0...pkg/proto/v0.2.1) (2024-09-05)
 
 
