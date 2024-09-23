@@ -19,10 +19,12 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	BookService_GetAllBook_FullMethodName        = "/bible.v1.BookService/GetAllBook"
-	BookService_GetOneBook_FullMethodName        = "/bible.v1.BookService/GetOneBook"
-	BookService_GetOneChapter_FullMethodName     = "/bible.v1.BookService/GetOneChapter"
-	BookService_GetOneChapterText_FullMethodName = "/bible.v1.BookService/GetOneChapterText"
+	BookService_GetAllBook_FullMethodName               = "/bible.v1.BookService/GetAllBook"
+	BookService_GetOneBook_FullMethodName               = "/bible.v1.BookService/GetOneBook"
+	BookService_GetOneChapter_FullMethodName            = "/bible.v1.BookService/GetOneChapter"
+	BookService_GetOneChapterText_FullMethodName        = "/bible.v1.BookService/GetOneChapterText"
+	BookService_GetBiblicalReference_FullMethodName     = "/bible.v1.BookService/GetBiblicalReference"
+	BookService_GetBiblicalReferenceText_FullMethodName = "/bible.v1.BookService/GetBiblicalReferenceText"
 )
 
 // BookServiceClient is the client API for BookService service.
@@ -33,6 +35,8 @@ type BookServiceClient interface {
 	GetOneBook(ctx context.Context, in *GetOneBookRequest, opts ...grpc.CallOption) (*GetOneBookResponse, error)
 	GetOneChapter(ctx context.Context, in *GetOneChapterRequest, opts ...grpc.CallOption) (*GetOneChapterResponse, error)
 	GetOneChapterText(ctx context.Context, in *GetOneChapterTextRequest, opts ...grpc.CallOption) (*GetOneChapterTextResponse, error)
+	GetBiblicalReference(ctx context.Context, in *GetBiblicalReferenceRequest, opts ...grpc.CallOption) (*GetBiblicalReferenceResponse, error)
+	GetBiblicalReferenceText(ctx context.Context, in *GetBiblicalReferenceTextRequest, opts ...grpc.CallOption) (*GetBiblicalReferenceTextResponse, error)
 }
 
 type bookServiceClient struct {
@@ -79,6 +83,24 @@ func (c *bookServiceClient) GetOneChapterText(ctx context.Context, in *GetOneCha
 	return out, nil
 }
 
+func (c *bookServiceClient) GetBiblicalReference(ctx context.Context, in *GetBiblicalReferenceRequest, opts ...grpc.CallOption) (*GetBiblicalReferenceResponse, error) {
+	out := new(GetBiblicalReferenceResponse)
+	err := c.cc.Invoke(ctx, BookService_GetBiblicalReference_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *bookServiceClient) GetBiblicalReferenceText(ctx context.Context, in *GetBiblicalReferenceTextRequest, opts ...grpc.CallOption) (*GetBiblicalReferenceTextResponse, error) {
+	out := new(GetBiblicalReferenceTextResponse)
+	err := c.cc.Invoke(ctx, BookService_GetBiblicalReferenceText_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BookServiceServer is the server API for BookService service.
 // All implementations must embed UnimplementedBookServiceServer
 // for forward compatibility
@@ -87,6 +109,8 @@ type BookServiceServer interface {
 	GetOneBook(context.Context, *GetOneBookRequest) (*GetOneBookResponse, error)
 	GetOneChapter(context.Context, *GetOneChapterRequest) (*GetOneChapterResponse, error)
 	GetOneChapterText(context.Context, *GetOneChapterTextRequest) (*GetOneChapterTextResponse, error)
+	GetBiblicalReference(context.Context, *GetBiblicalReferenceRequest) (*GetBiblicalReferenceResponse, error)
+	GetBiblicalReferenceText(context.Context, *GetBiblicalReferenceTextRequest) (*GetBiblicalReferenceTextResponse, error)
 	mustEmbedUnimplementedBookServiceServer()
 }
 
@@ -105,6 +129,12 @@ func (UnimplementedBookServiceServer) GetOneChapter(context.Context, *GetOneChap
 }
 func (UnimplementedBookServiceServer) GetOneChapterText(context.Context, *GetOneChapterTextRequest) (*GetOneChapterTextResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOneChapterText not implemented")
+}
+func (UnimplementedBookServiceServer) GetBiblicalReference(context.Context, *GetBiblicalReferenceRequest) (*GetBiblicalReferenceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetBiblicalReference not implemented")
+}
+func (UnimplementedBookServiceServer) GetBiblicalReferenceText(context.Context, *GetBiblicalReferenceTextRequest) (*GetBiblicalReferenceTextResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetBiblicalReferenceText not implemented")
 }
 func (UnimplementedBookServiceServer) mustEmbedUnimplementedBookServiceServer() {}
 
@@ -191,6 +221,42 @@ func _BookService_GetOneChapterText_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _BookService_GetBiblicalReference_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBiblicalReferenceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BookServiceServer).GetBiblicalReference(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BookService_GetBiblicalReference_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BookServiceServer).GetBiblicalReference(ctx, req.(*GetBiblicalReferenceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _BookService_GetBiblicalReferenceText_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetBiblicalReferenceTextRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BookServiceServer).GetBiblicalReferenceText(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: BookService_GetBiblicalReferenceText_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BookServiceServer).GetBiblicalReferenceText(ctx, req.(*GetBiblicalReferenceTextRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // BookService_ServiceDesc is the grpc.ServiceDesc for BookService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -213,6 +279,14 @@ var BookService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetOneChapterText",
 			Handler:    _BookService_GetOneChapterText_Handler,
+		},
+		{
+			MethodName: "GetBiblicalReference",
+			Handler:    _BookService_GetBiblicalReference_Handler,
+		},
+		{
+			MethodName: "GetBiblicalReferenceText",
+			Handler:    _BookService_GetBiblicalReferenceText_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

@@ -22,6 +22,104 @@
     "application/json"
   ],
   "paths": {
+    "/v1/bible-ref/{query}": {
+      "get": {
+        "operationId": "BookService_GetBiblicalReference",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetBiblicalReferenceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "versionCode",
+            "description": "Query params",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "webOrigin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BookService"
+        ]
+      }
+    },
+    "/v1/bible-ref/{query}/text": {
+      "get": {
+        "operationId": "BookService_GetBiblicalReferenceText",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetBiblicalReferenceTextResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "versionCode",
+            "description": "Query params",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "webOrigin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BookService"
+        ]
+      }
+    },
     "/v1/book": {
       "get": {
         "operationId": "BookService_GetAllBook",
@@ -470,6 +568,61 @@
             "type": "object",
             "$ref": "#/definitions/v1Book"
           }
+        }
+      }
+    },
+    "v1GetBiblicalReferenceResponse": {
+      "type": "object",
+      "properties": {
+        "chapters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1BookChapter"
+          }
+        },
+        "verses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1BookVerse"
+          }
+        },
+        "footnotes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1BookFootnote"
+          }
+        },
+        "headings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1BookHeading"
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1BookReference"
+          }
+        },
+        "psalmMetadata": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1PsalmMetadata"
+          }
+        }
+      }
+    },
+    "v1GetBiblicalReferenceTextResponse": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
         }
       }
     },

@@ -965,3 +965,221 @@ export class GetOneChapterTextResponse extends Message<GetOneChapterTextResponse
   }
 }
 
+/**
+ * @generated from message bible.v1.GetBiblicalReferenceRequest
+ */
+export class GetBiblicalReferenceRequest extends Message<GetBiblicalReferenceRequest> {
+  /**
+   * @generated from field: string query = 1;
+   */
+  query = "";
+
+  /**
+   * Query params
+   *
+   * @generated from field: string version_code = 2;
+   */
+  versionCode = "";
+
+  /**
+   * @generated from field: string lang_code = 3;
+   */
+  langCode = "";
+
+  /**
+   * @generated from field: string web_origin = 4;
+   */
+  webOrigin = "";
+
+  constructor(data?: PartialMessage<GetBiblicalReferenceRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "bible.v1.GetBiblicalReferenceRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "query", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "version_code", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "lang_code", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "web_origin", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBiblicalReferenceRequest {
+    return new GetBiblicalReferenceRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetBiblicalReferenceRequest {
+    return new GetBiblicalReferenceRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetBiblicalReferenceRequest {
+    return new GetBiblicalReferenceRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: GetBiblicalReferenceRequest | PlainMessage<GetBiblicalReferenceRequest> | undefined, b: GetBiblicalReferenceRequest | PlainMessage<GetBiblicalReferenceRequest> | undefined): boolean {
+    return proto3.util.equals(GetBiblicalReferenceRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message bible.v1.GetBiblicalReferenceResponse
+ */
+export class GetBiblicalReferenceResponse extends Message<GetBiblicalReferenceResponse> {
+  /**
+   * @generated from field: repeated bible.v1.BookChapter chapters = 1;
+   */
+  chapters: BookChapter[] = [];
+
+  /**
+   * @generated from field: repeated bible.v1.BookVerse verses = 2;
+   */
+  verses: BookVerse[] = [];
+
+  /**
+   * @generated from field: repeated bible.v1.BookFootnote footnotes = 3;
+   */
+  footnotes: BookFootnote[] = [];
+
+  /**
+   * @generated from field: repeated bible.v1.BookHeading headings = 4;
+   */
+  headings: BookHeading[] = [];
+
+  /**
+   * @generated from field: repeated bible.v1.BookReference references = 5;
+   */
+  references: BookReference[] = [];
+
+  /**
+   * @generated from field: repeated bible.v1.PsalmMetadata psalm_metadata = 6;
+   */
+  psalmMetadata: PsalmMetadata[] = [];
+
+  constructor(data?: PartialMessage<GetBiblicalReferenceResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "bible.v1.GetBiblicalReferenceResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "chapters", kind: "message", T: BookChapter, repeated: true },
+    { no: 2, name: "verses", kind: "message", T: BookVerse, repeated: true },
+    { no: 3, name: "footnotes", kind: "message", T: BookFootnote, repeated: true },
+    { no: 4, name: "headings", kind: "message", T: BookHeading, repeated: true },
+    { no: 5, name: "references", kind: "message", T: BookReference, repeated: true },
+    { no: 6, name: "psalm_metadata", kind: "message", T: PsalmMetadata, repeated: true },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBiblicalReferenceResponse {
+    return new GetBiblicalReferenceResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetBiblicalReferenceResponse {
+    return new GetBiblicalReferenceResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetBiblicalReferenceResponse {
+    return new GetBiblicalReferenceResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: GetBiblicalReferenceResponse | PlainMessage<GetBiblicalReferenceResponse> | undefined, b: GetBiblicalReferenceResponse | PlainMessage<GetBiblicalReferenceResponse> | undefined): boolean {
+    return proto3.util.equals(GetBiblicalReferenceResponse, a, b);
+  }
+}
+
+/**
+ * @generated from message bible.v1.GetBiblicalReferenceTextRequest
+ */
+export class GetBiblicalReferenceTextRequest extends Message<GetBiblicalReferenceTextRequest> {
+  /**
+   * @generated from field: string query = 1;
+   */
+  query = "";
+
+  /**
+   * Query params
+   *
+   * @generated from field: string version_code = 2;
+   */
+  versionCode = "";
+
+  /**
+   * @generated from field: string lang_code = 3;
+   */
+  langCode = "";
+
+  /**
+   * @generated from field: string web_origin = 4;
+   */
+  webOrigin = "";
+
+  constructor(data?: PartialMessage<GetBiblicalReferenceTextRequest>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "bible.v1.GetBiblicalReferenceTextRequest";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "query", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 2, name: "version_code", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 3, name: "lang_code", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 4, name: "web_origin", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBiblicalReferenceTextRequest {
+    return new GetBiblicalReferenceTextRequest().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetBiblicalReferenceTextRequest {
+    return new GetBiblicalReferenceTextRequest().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetBiblicalReferenceTextRequest {
+    return new GetBiblicalReferenceTextRequest().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: GetBiblicalReferenceTextRequest | PlainMessage<GetBiblicalReferenceTextRequest> | undefined, b: GetBiblicalReferenceTextRequest | PlainMessage<GetBiblicalReferenceTextRequest> | undefined): boolean {
+    return proto3.util.equals(GetBiblicalReferenceTextRequest, a, b);
+  }
+}
+
+/**
+ * @generated from message bible.v1.GetBiblicalReferenceTextResponse
+ */
+export class GetBiblicalReferenceTextResponse extends Message<GetBiblicalReferenceTextResponse> {
+  /**
+   * @generated from field: string text = 1;
+   */
+  text = "";
+
+  constructor(data?: PartialMessage<GetBiblicalReferenceTextResponse>) {
+    super();
+    proto3.util.initPartial(data, this);
+  }
+
+  static readonly runtime: typeof proto3 = proto3;
+  static readonly typeName = "bible.v1.GetBiblicalReferenceTextResponse";
+  static readonly fields: FieldList = proto3.util.newFieldList(() => [
+    { no: 1, name: "text", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+  ]);
+
+  static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBiblicalReferenceTextResponse {
+    return new GetBiblicalReferenceTextResponse().fromBinary(bytes, options);
+  }
+
+  static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetBiblicalReferenceTextResponse {
+    return new GetBiblicalReferenceTextResponse().fromJson(jsonValue, options);
+  }
+
+  static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetBiblicalReferenceTextResponse {
+    return new GetBiblicalReferenceTextResponse().fromJsonString(jsonString, options);
+  }
+
+  static equals(a: GetBiblicalReferenceTextResponse | PlainMessage<GetBiblicalReferenceTextResponse> | undefined, b: GetBiblicalReferenceTextResponse | PlainMessage<GetBiblicalReferenceTextResponse> | undefined): boolean {
+    return proto3.util.equals(GetBiblicalReferenceTextResponse, a, b);
+  }
+}
+

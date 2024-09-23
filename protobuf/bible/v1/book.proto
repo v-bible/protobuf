@@ -50,6 +50,12 @@ service BookService {
   rpc GetOneChapterText(GetOneChapterTextRequest) returns (GetOneChapterTextResponse) {
     option (google.api.http) = {get: "/v1/book/{book_code}/chapter/{chapter_num}/text"};
   }
+  rpc GetBiblicalReference(GetBiblicalReferenceRequest) returns (GetBiblicalReferenceResponse) {
+    option (google.api.http) = {get: "/v1/bible-ref/{query}"};
+  }
+  rpc GetBiblicalReferenceText(GetBiblicalReferenceTextRequest) returns (GetBiblicalReferenceTextResponse) {
+    option (google.api.http) = {get: "/v1/bible-ref/{query}/text"};
+  }
 }
 
 message Book {
@@ -179,5 +185,34 @@ message GetOneChapterTextRequest {
 }
 
 message GetOneChapterTextResponse {
+  string text = 1;
+}
+
+message GetBiblicalReferenceRequest {
+  string query = 1;
+  // Query params
+  string version_code = 2;
+  string lang_code = 3;
+  string web_origin = 4;
+}
+
+message GetBiblicalReferenceResponse {
+  repeated BookChapter chapters = 1;
+  repeated BookVerse verses = 2;
+  repeated BookFootnote footnotes = 3;
+  repeated BookHeading headings = 4;
+  repeated BookReference references = 5;
+  repeated PsalmMetadata psalm_metadata = 6;
+}
+
+message GetBiblicalReferenceTextRequest {
+  string query = 1;
+  // Query params
+  string version_code = 2;
+  string lang_code = 3;
+  string web_origin = 4;
+}
+
+message GetBiblicalReferenceTextResponse {
   string text = 1;
 }
