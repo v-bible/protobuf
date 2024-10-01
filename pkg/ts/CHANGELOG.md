@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.3.0...pkg/ts/v0.3.1) (2024-10-01)
+
+
+### Bug Fixes
+
+* **pkg/proto, bible:** missing query format ([61b3fa9](https://github.com/v-bible/protobuf/commit/61b3fa95e689c38f6c5d74ca311a1b009cd8520d))
+
 ## [0.3.0](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.2.1...pkg/ts/v0.3.0) (2024-09-23)
 
 
