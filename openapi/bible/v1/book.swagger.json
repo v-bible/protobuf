@@ -64,6 +64,12 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -110,6 +116,12 @@
           },
           {
             "name": "webOrigin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "format",
             "in": "query",
             "required": false,
             "type": "string"

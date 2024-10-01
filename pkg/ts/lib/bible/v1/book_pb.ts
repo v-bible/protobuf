@@ -991,6 +991,11 @@ export class GetBiblicalReferenceRequest extends Message<GetBiblicalReferenceReq
    */
   webOrigin = "";
 
+  /**
+   * @generated from field: string format = 5;
+   */
+  format = "";
+
   constructor(data?: PartialMessage<GetBiblicalReferenceRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1003,6 +1008,7 @@ export class GetBiblicalReferenceRequest extends Message<GetBiblicalReferenceReq
     { no: 2, name: "version_code", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "lang_code", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "web_origin", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "format", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBiblicalReferenceRequest {
@@ -1115,6 +1121,11 @@ export class GetBiblicalReferenceTextRequest extends Message<GetBiblicalReferenc
    */
   webOrigin = "";
 
+  /**
+   * @generated from field: string format = 5;
+   */
+  format = "";
+
   constructor(data?: PartialMessage<GetBiblicalReferenceTextRequest>) {
     super();
     proto3.util.initPartial(data, this);
@@ -1127,6 +1138,7 @@ export class GetBiblicalReferenceTextRequest extends Message<GetBiblicalReferenc
     { no: 2, name: "version_code", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 3, name: "lang_code", kind: "scalar", T: 9 /* ScalarType.STRING */ },
     { no: 4, name: "web_origin", kind: "scalar", T: 9 /* ScalarType.STRING */ },
+    { no: 5, name: "format", kind: "scalar", T: 9 /* ScalarType.STRING */ },
   ]);
 
   static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetBiblicalReferenceTextRequest {

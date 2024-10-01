@@ -194,6 +194,7 @@ message GetBiblicalReferenceRequest {
   string version_code = 2;
   string lang_code = 3;
   string web_origin = 4;
+  string format = 5;
 }
 
 message GetBiblicalReferenceResponse {
@@ -211,6 +212,7 @@ message GetBiblicalReferenceTextRequest {
   string version_code = 2;
   string lang_code = 3;
   string web_origin = 4;
+  string format = 5;
 }
 
 message GetBiblicalReferenceTextResponse {
