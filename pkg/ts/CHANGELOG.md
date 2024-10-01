@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.4.0...pkg/ts/v0.4.1) (2024-10-01)
+
+
+### Bug Fixes
+
+* **pkg/proto:** update get biblical ref endpoints ([dbf4f74](https://github.com/v-bible/protobuf/commit/dbf4f743428f8e8c28b370060f5dd407d3c32dfc))
+
 ## [0.4.0](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.3.1...pkg/ts/v0.4.0) (2024-10-01)
 
 
