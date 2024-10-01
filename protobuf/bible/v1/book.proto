@@ -51,10 +51,10 @@ service BookService {
     option (google.api.http) = {get: "/v1/book/{book_code}/chapter/{chapter_num}/text"};
   }
   rpc GetBiblicalReference(GetBiblicalReferenceRequest) returns (GetBiblicalReferenceResponse) {
-    option (google.api.http) = {get: "/v1/ref/{query}"};
+    option (google.api.http) = {get: "/v1/crossrefs/{query}"};
   }
   rpc GetBiblicalReferenceText(GetBiblicalReferenceTextRequest) returns (GetBiblicalReferenceTextResponse) {
-    option (google.api.http) = {get: "/v1/ref/{query}/text"};
+    option (google.api.http) = {get: "/v1/crossrefs/{query}/text"};
   }
 }
 
