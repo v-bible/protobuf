@@ -224,7 +224,7 @@
         ]
       }
     },
-    "/v1/crossrefs/{query}": {
+    "/v1/crossref/{query}": {
       "get": {
         "operationId": "BookService_GetBiblicalReference",
         "responses": {
@@ -279,7 +279,7 @@
         ]
       }
     },
-    "/v1/crossrefs/{query}/text": {
+    "/v1/crossref/{query}/text": {
       "get": {
         "operationId": "BookService_GetBiblicalReferenceText",
         "responses": {
