@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.4.1...pkg/proto/v0.4.2) (2024-10-01)
+
+
+### Bug Fixes
+
+* update go.mod ([ea28087](https://github.com/v-bible/protobuf/commit/ea280871d5b369a0ab94a4750ebc010b74e9506b))
+
 ## [0.4.1](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.4.0...pkg/proto/v0.4.1) (2024-10-01)
 
 
