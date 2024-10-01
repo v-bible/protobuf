@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.3.1...pkg/proto/v0.4.0) (2024-10-01)
+
+
+### Features
+
+* bump buf ([ccc9146](https://github.com/v-bible/protobuf/commit/ccc91466595508636deaf147dff73754457d4926))
+
 ## [0.3.1](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.3.0...pkg/proto/v0.3.1) (2024-10-01)
 
 
