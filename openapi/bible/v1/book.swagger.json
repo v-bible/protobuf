@@ -22,116 +22,6 @@
     "application/json"
   ],
   "paths": {
-    "/v1/bible-ref/{query}": {
-      "get": {
-        "operationId": "BookService_GetBiblicalReference",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1GetBiblicalReferenceResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "query",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "versionCode",
-            "description": "Query params",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "langCode",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "webOrigin",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "format",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "BookService"
-        ]
-      }
-    },
-    "/v1/bible-ref/{query}/text": {
-      "get": {
-        "operationId": "BookService_GetBiblicalReferenceText",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1GetBiblicalReferenceTextResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "query",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "versionCode",
-            "description": "Query params",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "langCode",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "webOrigin",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "format",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "BookService"
-        ]
-      }
-    },
     "/v1/book": {
       "get": {
         "operationId": "BookService_GetAllBook",
@@ -324,6 +214,116 @@
           },
           {
             "name": "webOrigin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BookService"
+        ]
+      }
+    },
+    "/v1/ref/{query}": {
+      "get": {
+        "operationId": "BookService_GetBiblicalReference",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetBiblicalReferenceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "versionCode",
+            "description": "Query params",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "webOrigin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BookService"
+        ]
+      }
+    },
+    "/v1/ref/{query}/text": {
+      "get": {
+        "operationId": "BookService_GetBiblicalReferenceText",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetBiblicalReferenceTextResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "versionCode",
+            "description": "Query params",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "webOrigin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "format",
             "in": "query",
             "required": false,
             "type": "string"
