@@ -571,7 +571,7 @@ func RegisterBookServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/bible.v1.BookService/GetBiblicalReference", runtime.WithHTTPPathPattern("/v1/bible-ref/{query}"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/bible.v1.BookService/GetBiblicalReference", runtime.WithHTTPPathPattern("/v1/ref/{query}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -596,7 +596,7 @@ func RegisterBookServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/bible.v1.BookService/GetBiblicalReferenceText", runtime.WithHTTPPathPattern("/v1/bible-ref/{query}/text"))
+		annotatedContext, err = runtime.AnnotateIncomingContext(ctx, mux, req, "/bible.v1.BookService/GetBiblicalReferenceText", runtime.WithHTTPPathPattern("/v1/ref/{query}/text"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -748,7 +748,7 @@ func RegisterBookServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/bible.v1.BookService/GetBiblicalReference", runtime.WithHTTPPathPattern("/v1/bible-ref/{query}"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/bible.v1.BookService/GetBiblicalReference", runtime.WithHTTPPathPattern("/v1/ref/{query}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -770,7 +770,7 @@ func RegisterBookServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
 		var err error
 		var annotatedContext context.Context
-		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/bible.v1.BookService/GetBiblicalReferenceText", runtime.WithHTTPPathPattern("/v1/bible-ref/{query}/text"))
+		annotatedContext, err = runtime.AnnotateContext(ctx, mux, req, "/bible.v1.BookService/GetBiblicalReferenceText", runtime.WithHTTPPathPattern("/v1/ref/{query}/text"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -798,9 +798,9 @@ var (
 
 	pattern_BookService_GetOneChapterText_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3, 1, 0, 4, 1, 5, 4, 2, 5}, []string{"v1", "book", "book_code", "chapter", "chapter_num", "text"}, ""))
 
-	pattern_BookService_GetBiblicalReference_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "bible-ref", "query"}, ""))
+	pattern_BookService_GetBiblicalReference_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "ref", "query"}, ""))
 
-	pattern_BookService_GetBiblicalReferenceText_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "bible-ref", "query", "text"}, ""))
+	pattern_BookService_GetBiblicalReferenceText_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 2, 3}, []string{"v1", "ref", "query", "text"}, ""))
 )
 
 var (
