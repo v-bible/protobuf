@@ -1,4 +1,4 @@
-module github.com/v-bible/protobuf
+module github.com/v-bible/protobuf/pkg/proto
 
 go 1.22.3
 
