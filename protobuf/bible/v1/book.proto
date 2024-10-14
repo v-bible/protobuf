@@ -50,11 +50,17 @@ service BookService {
   rpc GetOneChapterText(GetOneChapterTextRequest) returns (GetOneChapterTextResponse) {
     option (google.api.http) = {get: "/v1/book/{book_code}/chapter/{chapter_num}/text"};
   }
+  rpc GetOneChapterHtml(GetOneChapterHtmlRequest) returns (GetOneChapterHtmlResponse) {
+    option (google.api.http) = {get: "/v1/book/{book_code}/chapter/{chapter_num}/html"};
+  }
   rpc GetBiblicalReference(GetBiblicalReferenceRequest) returns (GetBiblicalReferenceResponse) {
     option (google.api.http) = {get: "/v1/crossref/{query}"};
   }
   rpc GetBiblicalReferenceText(GetBiblicalReferenceTextRequest) returns (GetBiblicalReferenceTextResponse) {
     option (google.api.http) = {get: "/v1/crossref/{query}/text"};
+  }
+  rpc GetBiblicalReferenceHtml(GetBiblicalReferenceHtmlRequest) returns (GetBiblicalReferenceHtmlResponse) {
+    option (google.api.http) = {get: "/v1/crossref/{query}/html"};
   }
 }
 
@@ -188,6 +194,19 @@ message GetOneChapterTextResponse {
   string text = 1;
 }
 
+message GetOneChapterHtmlRequest {
+  string book_code = 1;
+  string chapter_num = 2;
+  // Query params
+  string version_code = 3;
+  string lang_code = 4;
+  string web_origin = 5;
+}
+
+message GetOneChapterHtmlResponse {
+  string html = 1;
+}
+
 message GetBiblicalReferenceRequest {
   string query = 1;
   // Query params
@@ -217,4 +236,17 @@ message GetBiblicalReferenceTextRequest {
 
 message GetBiblicalReferenceTextResponse {
   string text = 1;
+}
+
+message GetBiblicalReferenceHtmlRequest {
+  string query = 1;
+  // Query params
+  string version_code = 2;
+  string lang_code = 3;
+  string web_origin = 4;
+  string format = 5;
+}
+
+message GetBiblicalReferenceHtmlResponse {
+  string html = 1;
 }

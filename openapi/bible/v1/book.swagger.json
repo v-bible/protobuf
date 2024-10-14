@@ -169,6 +169,61 @@
         ]
       }
     },
+    "/v1/book/{bookCode}/chapter/{chapterNum}/html": {
+      "get": {
+        "operationId": "BookService_GetOneChapterHtml",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetOneChapterHtmlResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "bookCode",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "chapterNum",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "versionCode",
+            "description": "Query params",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "webOrigin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BookService"
+        ]
+      }
+    },
     "/v1/book/{bookCode}/chapter/{chapterNum}/text": {
       "get": {
         "operationId": "BookService_GetOneChapterText",
@@ -232,6 +287,61 @@
             "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/v1GetBiblicalReferenceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "query",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "versionCode",
+            "description": "Query params",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "langCode",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "webOrigin",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "BookService"
+        ]
+      }
+    },
+    "/v1/crossref/{query}/html": {
+      "get": {
+        "operationId": "BookService_GetBiblicalReferenceHtml",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetBiblicalReferenceHtmlResponse"
             }
           },
           "default": {
@@ -583,6 +693,14 @@
         }
       }
     },
+    "v1GetBiblicalReferenceHtmlResponse": {
+      "type": "object",
+      "properties": {
+        "html": {
+          "type": "string"
+        }
+      }
+    },
     "v1GetBiblicalReferenceResponse": {
       "type": "object",
       "properties": {
@@ -643,6 +761,14 @@
       "properties": {
         "book": {
           "$ref": "#/definitions/v1Book"
+        }
+      }
+    },
+    "v1GetOneChapterHtmlResponse": {
+      "type": "object",
+      "properties": {
+        "html": {
+          "type": "string"
         }
       }
     },
