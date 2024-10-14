@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.4.3...pkg/proto/v0.5.0) (2024-10-14)
+
+
+### Features
+
+* add get html chapter & ref ([c0f72c2](https://github.com/v-bible/protobuf/commit/c0f72c27d7fe459f53509f07d24008ce7d042106))
+
 ## [0.4.3](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.4.2...pkg/proto/v0.4.3) (2024-10-02)
 
 
