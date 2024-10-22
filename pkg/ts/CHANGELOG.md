@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.0...pkg/ts/v0.5.1) (2024-10-22)
+
+
+### Bug Fixes
+
+* gen proto ([626d667](https://github.com/v-bible/protobuf/commit/626d667e7334134566e27d8429224b3b87301ff6))
+
 ## [0.5.0](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.4.3...pkg/ts/v0.5.0) (2024-10-14)
 
 
