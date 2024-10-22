@@ -807,7 +807,11 @@
           }
         },
         "psalmMetadata": {
-          "$ref": "#/definitions/v1PsalmMetadata"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1PsalmMetadata"
+          }
         }
       }
     },
