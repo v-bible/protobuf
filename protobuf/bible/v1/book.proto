@@ -178,7 +178,7 @@ message GetOneChapterResponse {
   repeated BookFootnote footnotes = 3;
   repeated BookHeading headings = 4;
   repeated BookReference references = 5;
-  optional PsalmMetadata psalm_metadata = 6;
+  repeated PsalmMetadata psalm_metadata = 6;
 }
 
 message GetOneChapterTextRequest {
