@@ -113,11 +113,12 @@ message BookFootnote {
 message BookHeading {
   string id = 1;
   string content = 2;
-  int32 order = 3;
-  google.protobuf.Timestamp created_at = 4;
-  google.protobuf.Timestamp updated_at = 5;
-  string verse_id = 6;
-  string chapter_id = 7;
+  int32 level = 3;
+  int32 order = 4;
+  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp updated_at = 6;
+  string verse_id = 7;
+  string chapter_id = 8;
 }
 
 message BookReference {
