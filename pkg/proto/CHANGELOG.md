@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.2](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.5.1...pkg/proto/v0.5.2) (2025-02-27)
+
+
+### Bug Fixes
+
+* bump plugins version ([568cb33](https://github.com/v-bible/protobuf/commit/568cb33b211b18a12ff400705c0c178c85e501ce))
+* **proto, bible:** add book heading level ([f292e73](https://github.com/v-bible/protobuf/commit/f292e738d09949b3f070938de088aa929f45ed80))
+
 ## [0.5.1](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.5.0...pkg/proto/v0.5.1) (2024-10-22)
 
 
