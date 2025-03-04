@@ -37,217 +37,350 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   }
 };
 
+// Book service definition
 service BookService {
+  // Retrieve all books
   rpc GetAllBook(GetAllBookRequest) returns (GetAllBookResponse) {
     option (google.api.http) = {get: "/v1/book"};
   }
+  // Retrieve one book
   rpc GetOneBook(GetOneBookRequest) returns (GetOneBookResponse) {
     option (google.api.http) = {get: "/v1/book/{book_code}"};
   }
+  // Retrieve one chapter
   rpc GetOneChapter(GetOneChapterRequest) returns (GetOneChapterResponse) {
     option (google.api.http) = {get: "/v1/book/{book_code}/chapter/{chapter_num}"};
   }
+  // Retrieve one chapter converted to markdown text
   rpc GetOneChapterText(GetOneChapterTextRequest) returns (GetOneChapterTextResponse) {
     option (google.api.http) = {get: "/v1/book/{book_code}/chapter/{chapter_num}/text"};
   }
+  // Retrieve one chapter converted to HTML
   rpc GetOneChapterHtml(GetOneChapterHtmlRequest) returns (GetOneChapterHtmlResponse) {
     option (google.api.http) = {get: "/v1/book/{book_code}/chapter/{chapter_num}/html"};
   }
+  // Retrieve biblical reference
   rpc GetBiblicalReference(GetBiblicalReferenceRequest) returns (GetBiblicalReferenceResponse) {
     option (google.api.http) = {get: "/v1/crossref/{query}"};
   }
+  // Retrieve biblical reference converted to markdown text
   rpc GetBiblicalReferenceText(GetBiblicalReferenceTextRequest) returns (GetBiblicalReferenceTextResponse) {
     option (google.api.http) = {get: "/v1/crossref/{query}/text"};
   }
+  // Retrieve biblical reference converted to HTML
   rpc GetBiblicalReferenceHtml(GetBiblicalReferenceHtmlRequest) returns (GetBiblicalReferenceHtmlResponse) {
     option (google.api.http) = {get: "/v1/crossref/{query}/html"};
   }
 }
 
 message Book {
+  // Book ID
   string id = 1;
+  // Book code
   string code = 2;
+  // Book title
   string title = 3;
+  // Book canon
   string canon = 4;
+  // Book order
   int32 order = 5;
+  // Book creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 6;
+  // Book last update time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 7;
+  // Book chapters
   repeated BookChapter chapters = 8;
+  // Book version
   string version_id = 9;
 }
 
 message BookChapter {
+  // Chapter ID
   string id = 1;
+  // Chapter number
   int32 number = 2;
+  // Chapter source reference URL
   string ref = 3;
+  // Chapter creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 4;
+  // Chapter last update time
+  // Stored in UTC and follows RFC
   google.protobuf.Timestamp updated_at = 5;
+  // Book ID
   string book_id = 6;
 }
 
 message BookVerse {
+  // Verse ID
   string id = 1;
+  // Verse number
   int32 number = 2;
+  // Verse content
   string content = 3;
+  // Verse order
   int32 order = 4;
+  // Verse paragraph number
   int32 par_number = 5;
+  // Verse paragraph index
   int32 par_index = 6;
+  // Verse is poetry
   bool is_poetry = 7;
+  // Verse creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 8;
+  // Verse last update time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 9;
+  // Verse chapter ID
   string chapter_id = 10;
 }
 
 message BookFootnote {
+  // Footnote ID
   string id = 1;
+  // Footnote content
   string content = 2;
+  // Footnote position
   int32 position = 3;
+  // Footnote order
   int32 order = 4;
+  // Footnote creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 5;
+  // Footnote last update time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 6;
+  // Footnote verse ID
   optional string verse_id = 7;
+  // Footnote heading ID
   optional string heading_id = 8;
+  // Footnote chapter ID
   string chapter_id = 9;
 }
 
 message BookHeading {
+  // Heading ID
   string id = 1;
+  // Heading content
   string content = 2;
+  // Heading level. Start from 1
   int32 level = 3;
+  // Heading position
   int32 order = 4;
+  // Heading creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 5;
+  // Heading last update time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 6;
+  // Heading verse ID
   string verse_id = 7;
+  // Heading chapter ID
   string chapter_id = 8;
 }
 
 message BookReference {
+  // Reference ID
   string id = 1;
+  // Reference content
   string content = 2;
+  // Reference position
   optional int32 position = 3;
+  // Reference order
   int32 order = 4;
+  // Reference creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 5;
+  // Reference last update time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 6;
+  // Reference verse ID
   optional string verse_id = 7;
+  // Reference heading ID
   optional string heading_id = 8;
+  // Reference chapter ID
   string chapter_id = 9;
 }
 
 message PsalmMetadata {
+  // Psalm metadata ID
   string id = 1;
+  // Psalm metadata title
   string title = 2;
+  // Psalm creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 3;
+  // Psalm last update time
+  // Stored in UTC and follows RFC
   google.protobuf.Timestamp updated_at = 4;
+  // Psalm chapter ID
   string chapter_id = 5;
 }
 
 message GetAllBookRequest {
-  // Query params
+  // Version code query params
   string version_code = 1;
+  // Language code query params
   string lang_code = 2;
+  // Web origin query params
   string web_origin = 3;
 }
 
 message GetAllBookResponse {
+  // List of books
   repeated Book books = 1;
 }
 
 message GetOneBookRequest {
+  // Book code
   string book_code = 1;
-  // Query params
+
+  // Version code query params
   string version_code = 2;
+  // Language code query params
   string lang_code = 3;
+  // Web origin query params
   string web_origin = 4;
 }
 
 message GetOneBookResponse {
+  // Book object
   Book book = 1;
 }
 
 message GetOneChapterRequest {
+  // Book code
   string book_code = 1;
+  // Chapter number
   string chapter_num = 2;
-  // Query params
+
+  // Version code query params
   string version_code = 3;
+  // Language code query params
   string lang_code = 4;
+  // Web origin query params
   string web_origin = 5;
 }
 
 message GetOneChapterResponse {
+  // Chapter object
   BookChapter chapter = 1;
+  // Chapter verses
   repeated BookVerse verses = 2;
+  // Chapter footnotes
   repeated BookFootnote footnotes = 3;
+  // Chapter headings
   repeated BookHeading headings = 4;
+  // Chapter references
   repeated BookReference references = 5;
+  // Chapter psalm metadata
   repeated PsalmMetadata psalm_metadata = 6;
 }
 
 message GetOneChapterTextRequest {
+  // Book code
   string book_code = 1;
+  // Chapter number
   string chapter_num = 2;
-  // Query params
+
+  // Version code query params
   string version_code = 3;
+  // Language code query params
   string lang_code = 4;
+  // Web origin query params
   string web_origin = 5;
 }
 
 message GetOneChapterTextResponse {
+  // Chapter text in markdown format
   string text = 1;
 }
 
 message GetOneChapterHtmlRequest {
+  // Book code
   string book_code = 1;
+  // Chapter number
   string chapter_num = 2;
-  // Query params
+
+  // Version code query params
   string version_code = 3;
+  // Language code query params
   string lang_code = 4;
+  // Web origin query params
   string web_origin = 5;
 }
 
 message GetOneChapterHtmlResponse {
+  // Chapter text in HTML format
   string html = 1;
 }
 
 message GetBiblicalReferenceRequest {
+  // Query string
   string query = 1;
-  // Query params
+
+  // Version code query params
   string version_code = 2;
+  // Language code query params
   string lang_code = 3;
+  // Web origin query params
   string web_origin = 4;
+  // Format query params. E.g. us, eu.
   string format = 5;
 }
 
 message GetBiblicalReferenceResponse {
+  // Chapter object
   repeated BookChapter chapters = 1;
+  // Chapter verses
   repeated BookVerse verses = 2;
+  // Chapter footnotes
   repeated BookFootnote footnotes = 3;
+  // Chapter headings
   repeated BookHeading headings = 4;
+  // Chapter references
   repeated BookReference references = 5;
+  // Chapter psalm metadata
   repeated PsalmMetadata psalm_metadata = 6;
 }
 
 message GetBiblicalReferenceTextRequest {
+  // Query string
   string query = 1;
-  // Query params
+
+  // Version code query params
   string version_code = 2;
+  // Language code query params
   string lang_code = 3;
+  // Web origin query params
   string web_origin = 4;
+  // Format query params. E.g. us, eu.
   string format = 5;
 }
 
 message GetBiblicalReferenceTextResponse {
+  // Chapter text in markdown format
   string text = 1;
 }
 
 message GetBiblicalReferenceHtmlRequest {
+  // Query string
   string query = 1;
-  // Query params
+
+  // Version code query params
   string version_code = 2;
+  // Language code query params
   string lang_code = 3;
+  // Web origin query params
   string web_origin = 4;
+  // Format query params. E.g. us, eu.
   string format = 5;
 }
 
 message GetBiblicalReferenceHtmlResponse {
+  // Chapter text in HTML format
   string html = 1;
 }

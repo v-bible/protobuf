@@ -37,62 +37,97 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   }
 };
 
+// Version service definition
 service VersionService {
+  // Retrieve all languages
   rpc GetAllLanguage(GetAllLanguageRequest) returns (GetAllLanguageResponse) {
     option (google.api.http) = {get: "/v1/lang"};
   }
+  // Retrieve all versions
   rpc GetAllVersion(GetAllVersionRequest) returns (GetAllVersionResponse) {
     option (google.api.http) = {get: "/v1/version"};
   }
 }
 
 message Version {
+  // Version ID
   string id = 1;
+  // Version code
   string code = 2;
+  // Version name
   string name = 3;
+  // Version only NT
   bool only_nt = 4;
+  // Version only OT
   bool only_ot = 5;
+  // Version with apocrypha
   bool with_apocrypha = 6;
+  // Version creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 7;
+  // Version last update time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 8;
+  // Version formats
   repeated VersionFormat formats = 9;
+  // Language ID
   string language_id = 10;
 }
 
 message VersionFormat {
+  // Format ID
   string id = 1;
+  // Format type
   string type = 2;
+  // Format source reference URL
   string ref = 3;
+  // Format creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 4;
+  // Format last update time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 5;
+  // Version ID
   string version_id = 6;
 }
 
 message VersionLanguage {
+  // Language ID
   string id = 1;
+  // Language code
   string code = 2;
+  // Language name
   string name = 3;
+  // Language web origin
   string web_origin = 4;
+  // Language creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 5;
+  // Language last update time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 6;
 }
 
 message GetAllLanguageRequest {
-  // Query params
+  // Web origin query params
   optional string web_origin = 1;
 }
 
 message GetAllLanguageResponse {
+  // Language list
   repeated VersionLanguage languages = 1;
 }
 
 message GetAllVersionRequest {
-  // Query params
+  // Version code query params
   optional string version_code = 1;
+  // Language code query params
   optional string lang_code = 2;
+  // Web origin query params
   optional string web_origin = 3;
 }
 
 message GetAllVersionResponse {
+  // Version list
   repeated Version versions = 1;
 }

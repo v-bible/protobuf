@@ -36,7 +36,9 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   }
 };
 
+// Auth service definition
 service AuthService {
+  // Login with email and password
   rpc Login(LoginRequest) returns (LoginResponse) {
     option (google.api.http) = {
       post: "/v1/auth/login"
@@ -46,6 +48,7 @@ service AuthService {
       security: {} /* Disable security key */
     };
   }
+  // Register new account
   rpc Register(RegisterRequest) returns (RegisterResponse) {
     option (google.api.http) = {
       post: "/v1/auth/register"
@@ -55,6 +58,7 @@ service AuthService {
       security: {} /* Disable security key */
     };
   }
+  // Refresh access token
   rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse) {
     option (google.api.http) = {
       post: "/v1/auth/refresh"
@@ -64,6 +68,7 @@ service AuthService {
       security: {} /* Disable security key */
     };
   }
+  // Retrospect token
   rpc RetrospectToken(RetrospectTokenRequest) returns (RetrospectTokenResponse) {
     option (google.api.http) = {
       post: "/v1/auth/retrospect"
@@ -73,6 +78,7 @@ service AuthService {
       security: {} /* Disable security key */
     };
   }
+  // Decode access token
   rpc DecodeAccessToken(DecodeAccessTokenRequest) returns (DecodeAccessTokenResponse) {
     option (google.api.http) = {
       post: "/v1/auth/decode-access-token"
@@ -82,6 +88,7 @@ service AuthService {
       security: {} /* Disable security key */
     };
   }
+  // Logout
   rpc Logout(LogoutRequest) returns (LogoutResponse) {
     option (google.api.http) = {
       post: "/v1/auth/logout"
@@ -91,55 +98,76 @@ service AuthService {
 }
 
 message LoginRequest {
+  // Email address
   string email = 1;
+  // Password
   string password = 2;
 }
 
 message LoginResponse {
+  // Access token
   string access_token = 1;
+  // Refresh token
   string refresh_token = 2;
+  // Access token expiration time in seconds
   int64 expires_in = 3;
+  // Refresh token expiration time in seconds
   int64 refresh_expires_in = 4;
 }
 
 message RegisterRequest {
+  // Email address
   string email = 1;
+  // First name
   optional string first_name = 2;
+  // Last name
   string last_name = 3;
+  // Password
   string password = 4;
 }
 
 message RegisterResponse {}
 
 message RefreshTokenRequest {
+  // Refresh token
   string refresh_token = 1;
 }
 
 message RefreshTokenResponse {
+  // Access token
   string access_token = 1;
+  // Access token expiration time in seconds
   int64 expires_in = 2;
 }
 
 message RetrospectTokenRequest {
+  // Retrospect token
   string token = 1;
 }
 
 message RetrospectTokenResponse {
+  // Token subject
   bool active = 1;
 }
 
 message DecodeAccessTokenRequest {
+  // Access token
   string access_token = 1;
 }
 
 message DecodeAccessTokenResponse {
+  // Token subject
   string subject = 1;
+  // Email address
   string email = 2;
+  // First name
   string first_name = 3;
+  // Last name
   string last_name = 4;
 }
 
 message LogoutRequest {
+  // Refresh token
   string refresh_token = 1;
 }
 

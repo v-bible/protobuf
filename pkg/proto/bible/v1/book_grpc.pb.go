@@ -32,14 +32,24 @@ const (
 // BookServiceClient is the client API for BookService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+//
+// Book service definition
 type BookServiceClient interface {
+	// Retrieve all books
 	GetAllBook(ctx context.Context, in *GetAllBookRequest, opts ...grpc.CallOption) (*GetAllBookResponse, error)
+	// Retrieve one book
 	GetOneBook(ctx context.Context, in *GetOneBookRequest, opts ...grpc.CallOption) (*GetOneBookResponse, error)
+	// Retrieve one chapter
 	GetOneChapter(ctx context.Context, in *GetOneChapterRequest, opts ...grpc.CallOption) (*GetOneChapterResponse, error)
+	// Retrieve one chapter converted to markdown text
 	GetOneChapterText(ctx context.Context, in *GetOneChapterTextRequest, opts ...grpc.CallOption) (*GetOneChapterTextResponse, error)
+	// Retrieve one chapter converted to HTML
 	GetOneChapterHtml(ctx context.Context, in *GetOneChapterHtmlRequest, opts ...grpc.CallOption) (*GetOneChapterHtmlResponse, error)
+	// Retrieve biblical reference
 	GetBiblicalReference(ctx context.Context, in *GetBiblicalReferenceRequest, opts ...grpc.CallOption) (*GetBiblicalReferenceResponse, error)
+	// Retrieve biblical reference converted to markdown text
 	GetBiblicalReferenceText(ctx context.Context, in *GetBiblicalReferenceTextRequest, opts ...grpc.CallOption) (*GetBiblicalReferenceTextResponse, error)
+	// Retrieve biblical reference converted to HTML
 	GetBiblicalReferenceHtml(ctx context.Context, in *GetBiblicalReferenceHtmlRequest, opts ...grpc.CallOption) (*GetBiblicalReferenceHtmlResponse, error)
 }
 
@@ -134,14 +144,24 @@ func (c *bookServiceClient) GetBiblicalReferenceHtml(ctx context.Context, in *Ge
 // BookServiceServer is the server API for BookService service.
 // All implementations must embed UnimplementedBookServiceServer
 // for forward compatibility.
+//
+// Book service definition
 type BookServiceServer interface {
+	// Retrieve all books
 	GetAllBook(context.Context, *GetAllBookRequest) (*GetAllBookResponse, error)
+	// Retrieve one book
 	GetOneBook(context.Context, *GetOneBookRequest) (*GetOneBookResponse, error)
+	// Retrieve one chapter
 	GetOneChapter(context.Context, *GetOneChapterRequest) (*GetOneChapterResponse, error)
+	// Retrieve one chapter converted to markdown text
 	GetOneChapterText(context.Context, *GetOneChapterTextRequest) (*GetOneChapterTextResponse, error)
+	// Retrieve one chapter converted to HTML
 	GetOneChapterHtml(context.Context, *GetOneChapterHtmlRequest) (*GetOneChapterHtmlResponse, error)
+	// Retrieve biblical reference
 	GetBiblicalReference(context.Context, *GetBiblicalReferenceRequest) (*GetBiblicalReferenceResponse, error)
+	// Retrieve biblical reference converted to markdown text
 	GetBiblicalReferenceText(context.Context, *GetBiblicalReferenceTextRequest) (*GetBiblicalReferenceTextResponse, error)
+	// Retrieve biblical reference converted to HTML
 	GetBiblicalReferenceHtml(context.Context, *GetBiblicalReferenceHtmlRequest) (*GetBiblicalReferenceHtmlResponse, error)
 	mustEmbedUnimplementedBookServiceServer()
 }
