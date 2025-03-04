@@ -25,17 +25,29 @@ const (
 )
 
 type Version struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Code          string                 `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
-	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	OnlyNt        bool                   `protobuf:"varint,4,opt,name=only_nt,json=onlyNt,proto3" json:"only_nt,omitempty"`
-	OnlyOt        bool                   `protobuf:"varint,5,opt,name=only_ot,json=onlyOt,proto3" json:"only_ot,omitempty"`
-	WithApocrypha bool                   `protobuf:"varint,6,opt,name=with_apocrypha,json=withApocrypha,proto3" json:"with_apocrypha,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	Formats       []*VersionFormat       `protobuf:"bytes,9,rep,name=formats,proto3" json:"formats,omitempty"`
-	LanguageId    string                 `protobuf:"bytes,10,opt,name=language_id,json=languageId,proto3" json:"language_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Version ID
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Version code
+	Code string `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
+	// Version name
+	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	// Version only NT
+	OnlyNt bool `protobuf:"varint,4,opt,name=only_nt,json=onlyNt,proto3" json:"only_nt,omitempty"`
+	// Version only OT
+	OnlyOt bool `protobuf:"varint,5,opt,name=only_ot,json=onlyOt,proto3" json:"only_ot,omitempty"`
+	// Version with apocrypha
+	WithApocrypha bool `protobuf:"varint,6,opt,name=with_apocrypha,json=withApocrypha,proto3" json:"with_apocrypha,omitempty"`
+	// Version creation time
+	// Stored in UTC and follows RFC 3339 format
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Version last update time
+	// Stored in UTC and follows RFC 3339 format
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Version formats
+	Formats []*VersionFormat `protobuf:"bytes,9,rep,name=formats,proto3" json:"formats,omitempty"`
+	// Language ID
+	LanguageId    string `protobuf:"bytes,10,opt,name=language_id,json=languageId,proto3" json:"language_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -141,13 +153,21 @@ func (x *Version) GetLanguageId() string {
 }
 
 type VersionFormat struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Type          string                 `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	Ref           string                 `protobuf:"bytes,3,opt,name=ref,proto3" json:"ref,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	VersionId     string                 `protobuf:"bytes,6,opt,name=version_id,json=versionId,proto3" json:"version_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Format ID
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Format type
+	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
+	// Format source reference URL
+	Ref string `protobuf:"bytes,3,opt,name=ref,proto3" json:"ref,omitempty"`
+	// Format creation time
+	// Stored in UTC and follows RFC 3339 format
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Format last update time
+	// Stored in UTC and follows RFC 3339 format
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Version ID
+	VersionId     string `protobuf:"bytes,6,opt,name=version_id,json=versionId,proto3" json:"version_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -225,12 +245,20 @@ func (x *VersionFormat) GetVersionId() string {
 }
 
 type VersionLanguage struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Code          string                 `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
-	Name          string                 `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	WebOrigin     string                 `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Language ID
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Language code
+	Code string `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
+	// Language name
+	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	// Language web origin
+	WebOrigin string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Language creation time
+	// Stored in UTC and follows RFC 3339 format
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Language last update time
+	// Stored in UTC and follows RFC 3339 format
 	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -310,7 +338,7 @@ func (x *VersionLanguage) GetUpdatedAt() *timestamppb.Timestamp {
 
 type GetAllLanguageRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Query params
+	// Web origin query params
 	WebOrigin     *string `protobuf:"bytes,1,opt,name=web_origin,json=webOrigin,proto3,oneof" json:"web_origin,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -354,8 +382,9 @@ func (x *GetAllLanguageRequest) GetWebOrigin() string {
 }
 
 type GetAllLanguageResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Languages     []*VersionLanguage     `protobuf:"bytes,1,rep,name=languages,proto3" json:"languages,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Language list
+	Languages     []*VersionLanguage `protobuf:"bytes,1,rep,name=languages,proto3" json:"languages,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -399,9 +428,11 @@ func (x *GetAllLanguageResponse) GetLanguages() []*VersionLanguage {
 
 type GetAllVersionRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Query params
-	VersionCode   *string `protobuf:"bytes,1,opt,name=version_code,json=versionCode,proto3,oneof" json:"version_code,omitempty"`
-	LangCode      *string `protobuf:"bytes,2,opt,name=lang_code,json=langCode,proto3,oneof" json:"lang_code,omitempty"`
+	// Version code query params
+	VersionCode *string `protobuf:"bytes,1,opt,name=version_code,json=versionCode,proto3,oneof" json:"version_code,omitempty"`
+	// Language code query params
+	LangCode *string `protobuf:"bytes,2,opt,name=lang_code,json=langCode,proto3,oneof" json:"lang_code,omitempty"`
+	// Web origin query params
 	WebOrigin     *string `protobuf:"bytes,3,opt,name=web_origin,json=webOrigin,proto3,oneof" json:"web_origin,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -459,8 +490,9 @@ func (x *GetAllVersionRequest) GetWebOrigin() string {
 }
 
 type GetAllVersionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Versions      []*Version             `protobuf:"bytes,1,rep,name=versions,proto3" json:"versions,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Version list
+	Versions      []*Version `protobuf:"bytes,1,rep,name=versions,proto3" json:"versions,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }

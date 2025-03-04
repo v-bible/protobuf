@@ -19,11 +19,15 @@ export const file_account_v1_auth: GenFile = /*@__PURE__*/
  */
 export type LoginRequest = Message<"account.v1.LoginRequest"> & {
   /**
+   * Email address
+   *
    * @generated from field: string email = 1;
    */
   email: string;
 
   /**
+   * Password
+   *
    * @generated from field: string password = 2;
    */
   password: string;
@@ -41,21 +45,29 @@ export const LoginRequestSchema: GenMessage<LoginRequest> = /*@__PURE__*/
  */
 export type LoginResponse = Message<"account.v1.LoginResponse"> & {
   /**
+   * Access token
+   *
    * @generated from field: string access_token = 1;
    */
   accessToken: string;
 
   /**
+   * Refresh token
+   *
    * @generated from field: string refresh_token = 2;
    */
   refreshToken: string;
 
   /**
+   * Access token expiration time in seconds
+   *
    * @generated from field: int64 expires_in = 3;
    */
   expiresIn: bigint;
 
   /**
+   * Refresh token expiration time in seconds
+   *
    * @generated from field: int64 refresh_expires_in = 4;
    */
   refreshExpiresIn: bigint;
@@ -73,21 +85,29 @@ export const LoginResponseSchema: GenMessage<LoginResponse> = /*@__PURE__*/
  */
 export type RegisterRequest = Message<"account.v1.RegisterRequest"> & {
   /**
+   * Email address
+   *
    * @generated from field: string email = 1;
    */
   email: string;
 
   /**
+   * First name
+   *
    * @generated from field: optional string first_name = 2;
    */
   firstName?: string;
 
   /**
+   * Last name
+   *
    * @generated from field: string last_name = 3;
    */
   lastName: string;
 
   /**
+   * Password
+   *
    * @generated from field: string password = 4;
    */
   password: string;
@@ -118,6 +138,8 @@ export const RegisterResponseSchema: GenMessage<RegisterResponse> = /*@__PURE__*
  */
 export type RefreshTokenRequest = Message<"account.v1.RefreshTokenRequest"> & {
   /**
+   * Refresh token
+   *
    * @generated from field: string refresh_token = 1;
    */
   refreshToken: string;
@@ -135,11 +157,15 @@ export const RefreshTokenRequestSchema: GenMessage<RefreshTokenRequest> = /*@__P
  */
 export type RefreshTokenResponse = Message<"account.v1.RefreshTokenResponse"> & {
   /**
+   * Access token
+   *
    * @generated from field: string access_token = 1;
    */
   accessToken: string;
 
   /**
+   * Access token expiration time in seconds
+   *
    * @generated from field: int64 expires_in = 2;
    */
   expiresIn: bigint;
@@ -157,6 +183,8 @@ export const RefreshTokenResponseSchema: GenMessage<RefreshTokenResponse> = /*@_
  */
 export type RetrospectTokenRequest = Message<"account.v1.RetrospectTokenRequest"> & {
   /**
+   * Retrospect token
+   *
    * @generated from field: string token = 1;
    */
   token: string;
@@ -174,6 +202,8 @@ export const RetrospectTokenRequestSchema: GenMessage<RetrospectTokenRequest> = 
  */
 export type RetrospectTokenResponse = Message<"account.v1.RetrospectTokenResponse"> & {
   /**
+   * Token subject
+   *
    * @generated from field: bool active = 1;
    */
   active: boolean;
@@ -191,6 +221,8 @@ export const RetrospectTokenResponseSchema: GenMessage<RetrospectTokenResponse> 
  */
 export type DecodeAccessTokenRequest = Message<"account.v1.DecodeAccessTokenRequest"> & {
   /**
+   * Access token
+   *
    * @generated from field: string access_token = 1;
    */
   accessToken: string;
@@ -208,21 +240,29 @@ export const DecodeAccessTokenRequestSchema: GenMessage<DecodeAccessTokenRequest
  */
 export type DecodeAccessTokenResponse = Message<"account.v1.DecodeAccessTokenResponse"> & {
   /**
+   * Token subject
+   *
    * @generated from field: string subject = 1;
    */
   subject: string;
 
   /**
+   * Email address
+   *
    * @generated from field: string email = 2;
    */
   email: string;
 
   /**
+   * First name
+   *
    * @generated from field: string first_name = 3;
    */
   firstName: string;
 
   /**
+   * Last name
+   *
    * @generated from field: string last_name = 4;
    */
   lastName: string;
@@ -240,6 +280,8 @@ export const DecodeAccessTokenResponseSchema: GenMessage<DecodeAccessTokenRespon
  */
 export type LogoutRequest = Message<"account.v1.LogoutRequest"> & {
   /**
+   * Refresh token
+   *
    * @generated from field: string refresh_token = 1;
    */
   refreshToken: string;
@@ -266,10 +308,14 @@ export const LogoutResponseSchema: GenMessage<LogoutResponse> = /*@__PURE__*/
   messageDesc(file_account_v1_auth, 11);
 
 /**
+ * Auth service definition
+ *
  * @generated from service account.v1.AuthService
  */
 export const AuthService: GenService<{
   /**
+   * Login with email and password
+   *
    * @generated from rpc account.v1.AuthService.Login
    */
   login: {
@@ -278,6 +324,8 @@ export const AuthService: GenService<{
     output: typeof LoginResponseSchema;
   },
   /**
+   * Register new account
+   *
    * @generated from rpc account.v1.AuthService.Register
    */
   register: {
@@ -286,6 +334,8 @@ export const AuthService: GenService<{
     output: typeof RegisterResponseSchema;
   },
   /**
+   * Refresh access token
+   *
    * @generated from rpc account.v1.AuthService.RefreshToken
    */
   refreshToken: {
@@ -294,6 +344,8 @@ export const AuthService: GenService<{
     output: typeof RefreshTokenResponseSchema;
   },
   /**
+   * Retrospect token
+   *
    * @generated from rpc account.v1.AuthService.RetrospectToken
    */
   retrospectToken: {
@@ -302,6 +354,8 @@ export const AuthService: GenService<{
     output: typeof RetrospectTokenResponseSchema;
   },
   /**
+   * Decode access token
+   *
    * @generated from rpc account.v1.AuthService.DecodeAccessToken
    */
   decodeAccessToken: {
@@ -310,6 +364,8 @@ export const AuthService: GenService<{
     output: typeof DecodeAccessTokenResponseSchema;
   },
   /**
+   * Logout
+   *
    * @generated from rpc account.v1.AuthService.Logout
    */
   logout: {

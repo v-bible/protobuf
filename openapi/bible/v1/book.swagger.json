@@ -24,6 +24,7 @@
   "paths": {
     "/v1/book": {
       "get": {
+        "summary": "Retrieve all books",
         "operationId": "BookService_GetAllBook",
         "responses": {
           "200": {
@@ -42,19 +43,21 @@
         "parameters": [
           {
             "name": "versionCode",
-            "description": "Query params",
+            "description": "Version code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "langCode",
+            "description": "Language code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "webOrigin",
+            "description": "Web origin query params",
             "in": "query",
             "required": false,
             "type": "string"
@@ -67,6 +70,7 @@
     },
     "/v1/book/{bookCode}": {
       "get": {
+        "summary": "Retrieve one book",
         "operationId": "BookService_GetOneBook",
         "responses": {
           "200": {
@@ -85,25 +89,28 @@
         "parameters": [
           {
             "name": "bookCode",
+            "description": "Book code",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Query params",
+            "description": "Version code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "langCode",
+            "description": "Language code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "webOrigin",
+            "description": "Web origin query params",
             "in": "query",
             "required": false,
             "type": "string"
@@ -116,6 +123,7 @@
     },
     "/v1/book/{bookCode}/chapter/{chapterNum}": {
       "get": {
+        "summary": "Retrieve one chapter",
         "operationId": "BookService_GetOneChapter",
         "responses": {
           "200": {
@@ -134,31 +142,35 @@
         "parameters": [
           {
             "name": "bookCode",
+            "description": "Book code",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "chapterNum",
+            "description": "Chapter number",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Query params",
+            "description": "Version code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "langCode",
+            "description": "Language code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "webOrigin",
+            "description": "Web origin query params",
             "in": "query",
             "required": false,
             "type": "string"
@@ -171,6 +183,7 @@
     },
     "/v1/book/{bookCode}/chapter/{chapterNum}/html": {
       "get": {
+        "summary": "Retrieve one chapter converted to HTML",
         "operationId": "BookService_GetOneChapterHtml",
         "responses": {
           "200": {
@@ -189,31 +202,35 @@
         "parameters": [
           {
             "name": "bookCode",
+            "description": "Book code",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "chapterNum",
+            "description": "Chapter number",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Query params",
+            "description": "Version code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "langCode",
+            "description": "Language code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "webOrigin",
+            "description": "Web origin query params",
             "in": "query",
             "required": false,
             "type": "string"
@@ -226,6 +243,7 @@
     },
     "/v1/book/{bookCode}/chapter/{chapterNum}/text": {
       "get": {
+        "summary": "Retrieve one chapter converted to markdown text",
         "operationId": "BookService_GetOneChapterText",
         "responses": {
           "200": {
@@ -244,31 +262,35 @@
         "parameters": [
           {
             "name": "bookCode",
+            "description": "Book code",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "chapterNum",
+            "description": "Chapter number",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Query params",
+            "description": "Version code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "langCode",
+            "description": "Language code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "webOrigin",
+            "description": "Web origin query params",
             "in": "query",
             "required": false,
             "type": "string"
@@ -281,6 +303,7 @@
     },
     "/v1/crossref/{query}": {
       "get": {
+        "summary": "Retrieve biblical reference",
         "operationId": "BookService_GetBiblicalReference",
         "responses": {
           "200": {
@@ -299,31 +322,35 @@
         "parameters": [
           {
             "name": "query",
+            "description": "Query string",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Query params",
+            "description": "Version code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "langCode",
+            "description": "Language code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "webOrigin",
+            "description": "Web origin query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "format",
+            "description": "Format query params. E.g. us, eu.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -336,6 +363,7 @@
     },
     "/v1/crossref/{query}/html": {
       "get": {
+        "summary": "Retrieve biblical reference converted to HTML",
         "operationId": "BookService_GetBiblicalReferenceHtml",
         "responses": {
           "200": {
@@ -354,31 +382,35 @@
         "parameters": [
           {
             "name": "query",
+            "description": "Query string",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Query params",
+            "description": "Version code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "langCode",
+            "description": "Language code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "webOrigin",
+            "description": "Web origin query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "format",
+            "description": "Format query params. E.g. us, eu.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -391,6 +423,7 @@
     },
     "/v1/crossref/{query}/text": {
       "get": {
+        "summary": "Retrieve biblical reference converted to markdown text",
         "operationId": "BookService_GetBiblicalReferenceText",
         "responses": {
           "200": {
@@ -409,31 +442,35 @@
         "parameters": [
           {
             "name": "query",
+            "description": "Query string",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Query params",
+            "description": "Version code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "langCode",
+            "description": "Language code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "webOrigin",
+            "description": "Web origin query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "format",
+            "description": "Format query params. E.g. us, eu.",
             "in": "query",
             "required": false,
             "type": "string"
@@ -478,38 +515,47 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "title": "Book ID"
         },
         "code": {
-          "type": "string"
+          "type": "string",
+          "title": "Book code"
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "title": "Book title"
         },
         "canon": {
-          "type": "string"
+          "type": "string",
+          "title": "Book canon"
         },
         "order": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Book order"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Book creation time\nStored in UTC and follows RFC 3339 format"
         },
         "updatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Book last update time\nStored in UTC and follows RFC 3339 format"
         },
         "chapters": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1BookChapter"
-          }
+          },
+          "title": "Book chapters"
         },
         "versionId": {
-          "type": "string"
+          "type": "string",
+          "title": "Book version"
         }
       }
     },
@@ -517,25 +563,31 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "title": "Chapter ID"
         },
         "number": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Chapter number"
         },
         "ref": {
-          "type": "string"
+          "type": "string",
+          "title": "Chapter source reference URL"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Chapter creation time\nStored in UTC and follows RFC 3339 format"
         },
         "updatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Chapter last update time\nStored in UTC and follows RFC"
         },
         "bookId": {
-          "type": "string"
+          "type": "string",
+          "title": "Book ID"
         }
       }
     },
@@ -543,35 +595,44 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "title": "Footnote ID"
         },
         "content": {
-          "type": "string"
+          "type": "string",
+          "title": "Footnote content"
         },
         "position": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Footnote position"
         },
         "order": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Footnote order"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Footnote creation time\nStored in UTC and follows RFC 3339 format"
         },
         "updatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Footnote last update time\nStored in UTC and follows RFC 3339 format"
         },
         "verseId": {
-          "type": "string"
+          "type": "string",
+          "title": "Footnote verse ID"
         },
         "headingId": {
-          "type": "string"
+          "type": "string",
+          "title": "Footnote heading ID"
         },
         "chapterId": {
-          "type": "string"
+          "type": "string",
+          "title": "Footnote chapter ID"
         }
       }
     },
@@ -579,32 +640,40 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "title": "Heading ID"
         },
         "content": {
-          "type": "string"
+          "type": "string",
+          "title": "Heading content"
         },
         "level": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Heading level. Start from 1"
         },
         "order": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Heading position"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Heading creation time\nStored in UTC and follows RFC 3339 format"
         },
         "updatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Heading last update time\nStored in UTC and follows RFC 3339 format"
         },
         "verseId": {
-          "type": "string"
+          "type": "string",
+          "title": "Heading verse ID"
         },
         "chapterId": {
-          "type": "string"
+          "type": "string",
+          "title": "Heading chapter ID"
         }
       }
     },
@@ -612,35 +681,44 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "title": "Reference ID"
         },
         "content": {
-          "type": "string"
+          "type": "string",
+          "title": "Reference content"
         },
         "position": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Reference position"
         },
         "order": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Reference order"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Reference creation time\nStored in UTC and follows RFC 3339 format"
         },
         "updatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Reference last update time\nStored in UTC and follows RFC 3339 format"
         },
         "verseId": {
-          "type": "string"
+          "type": "string",
+          "title": "Reference verse ID"
         },
         "headingId": {
-          "type": "string"
+          "type": "string",
+          "title": "Reference heading ID"
         },
         "chapterId": {
-          "type": "string"
+          "type": "string",
+          "title": "Reference chapter ID"
         }
       }
     },
@@ -648,40 +726,50 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "title": "Verse ID"
         },
         "number": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Verse number"
         },
         "content": {
-          "type": "string"
+          "type": "string",
+          "title": "Verse content"
         },
         "order": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Verse order"
         },
         "parNumber": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Verse paragraph number"
         },
         "parIndex": {
           "type": "integer",
-          "format": "int32"
+          "format": "int32",
+          "title": "Verse paragraph index"
         },
         "isPoetry": {
-          "type": "boolean"
+          "type": "boolean",
+          "title": "Verse is poetry"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Verse creation time\nStored in UTC and follows RFC 3339 format"
         },
         "updatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Verse last update time\nStored in UTC and follows RFC 3339 format"
         },
         "chapterId": {
-          "type": "string"
+          "type": "string",
+          "title": "Verse chapter ID"
         }
       }
     },
@@ -693,7 +781,8 @@
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1Book"
-          }
+          },
+          "title": "List of books"
         }
       }
     },
@@ -701,7 +790,8 @@
       "type": "object",
       "properties": {
         "html": {
-          "type": "string"
+          "type": "string",
+          "title": "Chapter text in HTML format"
         }
       }
     },
@@ -713,42 +803,48 @@
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1BookChapter"
-          }
+          },
+          "title": "Chapter object"
         },
         "verses": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1BookVerse"
-          }
+          },
+          "title": "Chapter verses"
         },
         "footnotes": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1BookFootnote"
-          }
+          },
+          "title": "Chapter footnotes"
         },
         "headings": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1BookHeading"
-          }
+          },
+          "title": "Chapter headings"
         },
         "references": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1BookReference"
-          }
+          },
+          "title": "Chapter references"
         },
         "psalmMetadata": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1PsalmMetadata"
-          }
+          },
+          "title": "Chapter psalm metadata"
         }
       }
     },
@@ -756,7 +852,8 @@
       "type": "object",
       "properties": {
         "text": {
-          "type": "string"
+          "type": "string",
+          "title": "Chapter text in markdown format"
         }
       }
     },
@@ -764,7 +861,8 @@
       "type": "object",
       "properties": {
         "book": {
-          "$ref": "#/definitions/v1Book"
+          "$ref": "#/definitions/v1Book",
+          "title": "Book object"
         }
       }
     },
@@ -772,7 +870,8 @@
       "type": "object",
       "properties": {
         "html": {
-          "type": "string"
+          "type": "string",
+          "title": "Chapter text in HTML format"
         }
       }
     },
@@ -780,42 +879,48 @@
       "type": "object",
       "properties": {
         "chapter": {
-          "$ref": "#/definitions/v1BookChapter"
+          "$ref": "#/definitions/v1BookChapter",
+          "title": "Chapter object"
         },
         "verses": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1BookVerse"
-          }
+          },
+          "title": "Chapter verses"
         },
         "footnotes": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1BookFootnote"
-          }
+          },
+          "title": "Chapter footnotes"
         },
         "headings": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1BookHeading"
-          }
+          },
+          "title": "Chapter headings"
         },
         "references": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1BookReference"
-          }
+          },
+          "title": "Chapter references"
         },
         "psalmMetadata": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1PsalmMetadata"
-          }
+          },
+          "title": "Chapter psalm metadata"
         }
       }
     },
@@ -823,7 +928,8 @@
       "type": "object",
       "properties": {
         "text": {
-          "type": "string"
+          "type": "string",
+          "title": "Chapter text in markdown format"
         }
       }
     },
@@ -831,21 +937,26 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "title": "Psalm metadata ID"
         },
         "title": {
-          "type": "string"
+          "type": "string",
+          "title": "Psalm metadata title"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Psalm creation time\nStored in UTC and follows RFC 3339 format"
         },
         "updatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Psalm last update time\nStored in UTC and follows RFC"
         },
         "chapterId": {
-          "type": "string"
+          "type": "string",
+          "title": "Psalm chapter ID"
         }
       }
     }

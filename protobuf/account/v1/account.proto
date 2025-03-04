@@ -37,92 +37,125 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   }
 };
 
+// Account service definition
 service AccountService {
+  // Retrieve account by ID
   rpc GetAccountById(GetAccountByIdRequest) returns (GetAccountByIdResponse) {
     option (google.api.http) = {get: "/v1/account/{account_id}"};
   }
+  // Retrieve account session by ID
   rpc GetAccountSession(GetAccountSessionRequest) returns (GetAccountSessionResponse) {
     option (google.api.http) = {get: "/v1/account/{account_id}/session"};
   }
+  // Update account by ID
   rpc UpdateAccount(UpdateAccountRequest) returns (UpdateAccountResponse) {
     option (google.api.http) = {
       put: "/v1/account/{account_id}"
       body: "body"
     };
   }
+  // Update account password by ID
   rpc UpdateAccountPassword(UpdateAccountPasswordRequest) returns (UpdateAccountPasswordResponse) {
     option (google.api.http) = {
       put: "/v1/account/{account_id}/password"
       body: "body"
     };
   }
+  // Delete account by ID
   rpc DeleteAccount(DeleteAccountRequest) returns (DeleteAccountResponse) {
     option (google.api.http) = {delete: "/v1/account/{account_id}"};
   }
 }
 
 message Account {
+  // Account ID
   string account_id = 1;
+  // Account email
   string email = 2;
+  // Account first name
   string first_name = 3;
+  // Account last name
   string last_name = 4;
+  // Account creation time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 5;
 }
 
 message AccountSession {
+  // Account ID
   string account_id = 1;
+  // Account session start time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp start = 2;
+  // Account session last access time
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp last_access = 3;
+  // Account session IP address
   string ip_address = 4;
 }
 
 message GetAccountByIdRequest {
+  // Account ID
   string account_id = 1;
 }
 
 message GetAccountByIdResponse {
+  // Account object
   Account account = 1;
 }
 
 message GetAccountSessionRequest {
+  // Account ID
   string account_id = 1;
 }
 
 message GetAccountSessionResponse {
+  // Account session object
   repeated AccountSession session = 1;
 }
 
 message UpdateAccountRequest {
+  // Request body message
   message Body {
+    // Account first name
     optional string first_name = 1;
+    // Account last name
     optional string last_name = 2;
   }
+  // Account ID
   string account_id = 1;
   // Request body
   Body body = 2;
 }
 
 message UpdateAccountResponse {
+  // Account object
   Account account = 1;
 }
 
 message UpdateAccountPasswordRequest {
+  // Request body message
   message Body {
+    // Account password
     string password = 1;
   }
+  // Account ID
   string account_id = 1;
   // Request body
   Body body = 2;
 }
 
 message UpdateAccountPasswordResponse {
+  // Account object
   Account account = 1;
 }
 
 message DeleteAccountRequest {
+  // Account ID
   string account_id = 1;
 }
 
 message DeleteAccountResponse {
+  // Account object
   Account account = 1;
 }

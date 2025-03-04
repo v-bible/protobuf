@@ -25,16 +25,27 @@ const (
 )
 
 type Book struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Code          string                 `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
-	Title         string                 `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
-	Canon         string                 `protobuf:"bytes,4,opt,name=canon,proto3" json:"canon,omitempty"`
-	Order         int32                  `protobuf:"varint,5,opt,name=order,proto3" json:"order,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	Chapters      []*BookChapter         `protobuf:"bytes,8,rep,name=chapters,proto3" json:"chapters,omitempty"`
-	VersionId     string                 `protobuf:"bytes,9,opt,name=version_id,json=versionId,proto3" json:"version_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Book ID
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Book code
+	Code string `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
+	// Book title
+	Title string `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
+	// Book canon
+	Canon string `protobuf:"bytes,4,opt,name=canon,proto3" json:"canon,omitempty"`
+	// Book order
+	Order int32 `protobuf:"varint,5,opt,name=order,proto3" json:"order,omitempty"`
+	// Book creation time
+	// Stored in UTC and follows RFC 3339 format
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Book last update time
+	// Stored in UTC and follows RFC 3339 format
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Book chapters
+	Chapters []*BookChapter `protobuf:"bytes,8,rep,name=chapters,proto3" json:"chapters,omitempty"`
+	// Book version
+	VersionId     string `protobuf:"bytes,9,opt,name=version_id,json=versionId,proto3" json:"version_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -133,13 +144,21 @@ func (x *Book) GetVersionId() string {
 }
 
 type BookChapter struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Number        int32                  `protobuf:"varint,2,opt,name=number,proto3" json:"number,omitempty"`
-	Ref           string                 `protobuf:"bytes,3,opt,name=ref,proto3" json:"ref,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	BookId        string                 `protobuf:"bytes,6,opt,name=book_id,json=bookId,proto3" json:"book_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Chapter ID
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Chapter number
+	Number int32 `protobuf:"varint,2,opt,name=number,proto3" json:"number,omitempty"`
+	// Chapter source reference URL
+	Ref string `protobuf:"bytes,3,opt,name=ref,proto3" json:"ref,omitempty"`
+	// Chapter creation time
+	// Stored in UTC and follows RFC 3339 format
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Chapter last update time
+	// Stored in UTC and follows RFC
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Book ID
+	BookId        string `protobuf:"bytes,6,opt,name=book_id,json=bookId,proto3" json:"book_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -217,17 +236,29 @@ func (x *BookChapter) GetBookId() string {
 }
 
 type BookVerse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Number        int32                  `protobuf:"varint,2,opt,name=number,proto3" json:"number,omitempty"`
-	Content       string                 `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
-	Order         int32                  `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
-	ParNumber     int32                  `protobuf:"varint,5,opt,name=par_number,json=parNumber,proto3" json:"par_number,omitempty"`
-	ParIndex      int32                  `protobuf:"varint,6,opt,name=par_index,json=parIndex,proto3" json:"par_index,omitempty"`
-	IsPoetry      bool                   `protobuf:"varint,7,opt,name=is_poetry,json=isPoetry,proto3" json:"is_poetry,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	ChapterId     string                 `protobuf:"bytes,10,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Verse ID
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Verse number
+	Number int32 `protobuf:"varint,2,opt,name=number,proto3" json:"number,omitempty"`
+	// Verse content
+	Content string `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
+	// Verse order
+	Order int32 `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
+	// Verse paragraph number
+	ParNumber int32 `protobuf:"varint,5,opt,name=par_number,json=parNumber,proto3" json:"par_number,omitempty"`
+	// Verse paragraph index
+	ParIndex int32 `protobuf:"varint,6,opt,name=par_index,json=parIndex,proto3" json:"par_index,omitempty"`
+	// Verse is poetry
+	IsPoetry bool `protobuf:"varint,7,opt,name=is_poetry,json=isPoetry,proto3" json:"is_poetry,omitempty"`
+	// Verse creation time
+	// Stored in UTC and follows RFC 3339 format
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Verse last update time
+	// Stored in UTC and follows RFC 3339 format
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Verse chapter ID
+	ChapterId     string `protobuf:"bytes,10,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -333,16 +364,27 @@ func (x *BookVerse) GetChapterId() string {
 }
 
 type BookFootnote struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Content       string                 `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
-	Position      int32                  `protobuf:"varint,3,opt,name=position,proto3" json:"position,omitempty"`
-	Order         int32                  `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	VerseId       *string                `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3,oneof" json:"verse_id,omitempty"`
-	HeadingId     *string                `protobuf:"bytes,8,opt,name=heading_id,json=headingId,proto3,oneof" json:"heading_id,omitempty"`
-	ChapterId     string                 `protobuf:"bytes,9,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Footnote ID
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Footnote content
+	Content string `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+	// Footnote position
+	Position int32 `protobuf:"varint,3,opt,name=position,proto3" json:"position,omitempty"`
+	// Footnote order
+	Order int32 `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
+	// Footnote creation time
+	// Stored in UTC and follows RFC 3339 format
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Footnote last update time
+	// Stored in UTC and follows RFC 3339 format
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Footnote verse ID
+	VerseId *string `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3,oneof" json:"verse_id,omitempty"`
+	// Footnote heading ID
+	HeadingId *string `protobuf:"bytes,8,opt,name=heading_id,json=headingId,proto3,oneof" json:"heading_id,omitempty"`
+	// Footnote chapter ID
+	ChapterId     string `protobuf:"bytes,9,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -441,15 +483,25 @@ func (x *BookFootnote) GetChapterId() string {
 }
 
 type BookHeading struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Content       string                 `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
-	Level         int32                  `protobuf:"varint,3,opt,name=level,proto3" json:"level,omitempty"`
-	Order         int32                  `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	VerseId       string                 `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3" json:"verse_id,omitempty"`
-	ChapterId     string                 `protobuf:"bytes,8,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Heading ID
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Heading content
+	Content string `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+	// Heading level. Start from 1
+	Level int32 `protobuf:"varint,3,opt,name=level,proto3" json:"level,omitempty"`
+	// Heading position
+	Order int32 `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
+	// Heading creation time
+	// Stored in UTC and follows RFC 3339 format
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Heading last update time
+	// Stored in UTC and follows RFC 3339 format
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Heading verse ID
+	VerseId string `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3" json:"verse_id,omitempty"`
+	// Heading chapter ID
+	ChapterId     string `protobuf:"bytes,8,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -541,16 +593,27 @@ func (x *BookHeading) GetChapterId() string {
 }
 
 type BookReference struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Content       string                 `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
-	Position      *int32                 `protobuf:"varint,3,opt,name=position,proto3,oneof" json:"position,omitempty"`
-	Order         int32                  `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	VerseId       *string                `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3,oneof" json:"verse_id,omitempty"`
-	HeadingId     *string                `protobuf:"bytes,8,opt,name=heading_id,json=headingId,proto3,oneof" json:"heading_id,omitempty"`
-	ChapterId     string                 `protobuf:"bytes,9,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Reference ID
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Reference content
+	Content string `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+	// Reference position
+	Position *int32 `protobuf:"varint,3,opt,name=position,proto3,oneof" json:"position,omitempty"`
+	// Reference order
+	Order int32 `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
+	// Reference creation time
+	// Stored in UTC and follows RFC 3339 format
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Reference last update time
+	// Stored in UTC and follows RFC 3339 format
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Reference verse ID
+	VerseId *string `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3,oneof" json:"verse_id,omitempty"`
+	// Reference heading ID
+	HeadingId *string `protobuf:"bytes,8,opt,name=heading_id,json=headingId,proto3,oneof" json:"heading_id,omitempty"`
+	// Reference chapter ID
+	ChapterId     string `protobuf:"bytes,9,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -649,12 +712,19 @@ func (x *BookReference) GetChapterId() string {
 }
 
 type PsalmMetadata struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
-	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	ChapterId     string                 `protobuf:"bytes,5,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Psalm metadata ID
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Psalm metadata title
+	Title string `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	// Psalm creation time
+	// Stored in UTC and follows RFC 3339 format
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	// Psalm last update time
+	// Stored in UTC and follows RFC
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	// Psalm chapter ID
+	ChapterId     string `protobuf:"bytes,5,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -726,9 +796,11 @@ func (x *PsalmMetadata) GetChapterId() string {
 
 type GetAllBookRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Query params
-	VersionCode   string `protobuf:"bytes,1,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	LangCode      string `protobuf:"bytes,2,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	// Version code query params
+	VersionCode string `protobuf:"bytes,1,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
+	// Language code query params
+	LangCode string `protobuf:"bytes,2,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	// Web origin query params
 	WebOrigin     string `protobuf:"bytes,3,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -786,8 +858,9 @@ func (x *GetAllBookRequest) GetWebOrigin() string {
 }
 
 type GetAllBookResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Books         []*Book                `protobuf:"bytes,1,rep,name=books,proto3" json:"books,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// List of books
+	Books         []*Book `protobuf:"bytes,1,rep,name=books,proto3" json:"books,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -830,11 +903,14 @@ func (x *GetAllBookResponse) GetBooks() []*Book {
 }
 
 type GetOneBookRequest struct {
-	state    protoimpl.MessageState `protogen:"open.v1"`
-	BookCode string                 `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
-	// Query params
-	VersionCode   string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	LangCode      string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Book code
+	BookCode string `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
+	// Version code query params
+	VersionCode string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
+	// Language code query params
+	LangCode string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	// Web origin query params
 	WebOrigin     string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -899,8 +975,9 @@ func (x *GetOneBookRequest) GetWebOrigin() string {
 }
 
 type GetOneBookResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Book          *Book                  `protobuf:"bytes,1,opt,name=book,proto3" json:"book,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Book object
+	Book          *Book `protobuf:"bytes,1,opt,name=book,proto3" json:"book,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -943,12 +1020,16 @@ func (x *GetOneBookResponse) GetBook() *Book {
 }
 
 type GetOneChapterRequest struct {
-	state      protoimpl.MessageState `protogen:"open.v1"`
-	BookCode   string                 `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
-	ChapterNum string                 `protobuf:"bytes,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
-	// Query params
-	VersionCode   string `protobuf:"bytes,3,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	LangCode      string `protobuf:"bytes,4,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Book code
+	BookCode string `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
+	// Chapter number
+	ChapterNum string `protobuf:"bytes,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
+	// Version code query params
+	VersionCode string `protobuf:"bytes,3,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
+	// Language code query params
+	LangCode string `protobuf:"bytes,4,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	// Web origin query params
 	WebOrigin     string `protobuf:"bytes,5,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1020,13 +1101,19 @@ func (x *GetOneChapterRequest) GetWebOrigin() string {
 }
 
 type GetOneChapterResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Chapter       *BookChapter           `protobuf:"bytes,1,opt,name=chapter,proto3" json:"chapter,omitempty"`
-	Verses        []*BookVerse           `protobuf:"bytes,2,rep,name=verses,proto3" json:"verses,omitempty"`
-	Footnotes     []*BookFootnote        `protobuf:"bytes,3,rep,name=footnotes,proto3" json:"footnotes,omitempty"`
-	Headings      []*BookHeading         `protobuf:"bytes,4,rep,name=headings,proto3" json:"headings,omitempty"`
-	References    []*BookReference       `protobuf:"bytes,5,rep,name=references,proto3" json:"references,omitempty"`
-	PsalmMetadata []*PsalmMetadata       `protobuf:"bytes,6,rep,name=psalm_metadata,json=psalmMetadata,proto3" json:"psalm_metadata,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Chapter object
+	Chapter *BookChapter `protobuf:"bytes,1,opt,name=chapter,proto3" json:"chapter,omitempty"`
+	// Chapter verses
+	Verses []*BookVerse `protobuf:"bytes,2,rep,name=verses,proto3" json:"verses,omitempty"`
+	// Chapter footnotes
+	Footnotes []*BookFootnote `protobuf:"bytes,3,rep,name=footnotes,proto3" json:"footnotes,omitempty"`
+	// Chapter headings
+	Headings []*BookHeading `protobuf:"bytes,4,rep,name=headings,proto3" json:"headings,omitempty"`
+	// Chapter references
+	References []*BookReference `protobuf:"bytes,5,rep,name=references,proto3" json:"references,omitempty"`
+	// Chapter psalm metadata
+	PsalmMetadata []*PsalmMetadata `protobuf:"bytes,6,rep,name=psalm_metadata,json=psalmMetadata,proto3" json:"psalm_metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1104,12 +1191,16 @@ func (x *GetOneChapterResponse) GetPsalmMetadata() []*PsalmMetadata {
 }
 
 type GetOneChapterTextRequest struct {
-	state      protoimpl.MessageState `protogen:"open.v1"`
-	BookCode   string                 `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
-	ChapterNum string                 `protobuf:"bytes,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
-	// Query params
-	VersionCode   string `protobuf:"bytes,3,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	LangCode      string `protobuf:"bytes,4,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Book code
+	BookCode string `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
+	// Chapter number
+	ChapterNum string `protobuf:"bytes,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
+	// Version code query params
+	VersionCode string `protobuf:"bytes,3,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
+	// Language code query params
+	LangCode string `protobuf:"bytes,4,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	// Web origin query params
 	WebOrigin     string `protobuf:"bytes,5,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1181,8 +1272,9 @@ func (x *GetOneChapterTextRequest) GetWebOrigin() string {
 }
 
 type GetOneChapterTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Text          string                 `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Chapter text in markdown format
+	Text          string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1225,12 +1317,16 @@ func (x *GetOneChapterTextResponse) GetText() string {
 }
 
 type GetOneChapterHtmlRequest struct {
-	state      protoimpl.MessageState `protogen:"open.v1"`
-	BookCode   string                 `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
-	ChapterNum string                 `protobuf:"bytes,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
-	// Query params
-	VersionCode   string `protobuf:"bytes,3,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	LangCode      string `protobuf:"bytes,4,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Book code
+	BookCode string `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
+	// Chapter number
+	ChapterNum string `protobuf:"bytes,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
+	// Version code query params
+	VersionCode string `protobuf:"bytes,3,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
+	// Language code query params
+	LangCode string `protobuf:"bytes,4,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	// Web origin query params
 	WebOrigin     string `protobuf:"bytes,5,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1302,8 +1398,9 @@ func (x *GetOneChapterHtmlRequest) GetWebOrigin() string {
 }
 
 type GetOneChapterHtmlResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Html          string                 `protobuf:"bytes,1,opt,name=html,proto3" json:"html,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Chapter text in HTML format
+	Html          string `protobuf:"bytes,1,opt,name=html,proto3" json:"html,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1347,11 +1444,15 @@ func (x *GetOneChapterHtmlResponse) GetHtml() string {
 
 type GetBiblicalReferenceRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	Query string                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
-	// Query params
-	VersionCode   string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	LangCode      string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	WebOrigin     string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Query string
+	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+	// Version code query params
+	VersionCode string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
+	// Language code query params
+	LangCode string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	// Web origin query params
+	WebOrigin string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Format query params. E.g. us, eu.
 	Format        string `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1423,13 +1524,19 @@ func (x *GetBiblicalReferenceRequest) GetFormat() string {
 }
 
 type GetBiblicalReferenceResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Chapters      []*BookChapter         `protobuf:"bytes,1,rep,name=chapters,proto3" json:"chapters,omitempty"`
-	Verses        []*BookVerse           `protobuf:"bytes,2,rep,name=verses,proto3" json:"verses,omitempty"`
-	Footnotes     []*BookFootnote        `protobuf:"bytes,3,rep,name=footnotes,proto3" json:"footnotes,omitempty"`
-	Headings      []*BookHeading         `protobuf:"bytes,4,rep,name=headings,proto3" json:"headings,omitempty"`
-	References    []*BookReference       `protobuf:"bytes,5,rep,name=references,proto3" json:"references,omitempty"`
-	PsalmMetadata []*PsalmMetadata       `protobuf:"bytes,6,rep,name=psalm_metadata,json=psalmMetadata,proto3" json:"psalm_metadata,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Chapter object
+	Chapters []*BookChapter `protobuf:"bytes,1,rep,name=chapters,proto3" json:"chapters,omitempty"`
+	// Chapter verses
+	Verses []*BookVerse `protobuf:"bytes,2,rep,name=verses,proto3" json:"verses,omitempty"`
+	// Chapter footnotes
+	Footnotes []*BookFootnote `protobuf:"bytes,3,rep,name=footnotes,proto3" json:"footnotes,omitempty"`
+	// Chapter headings
+	Headings []*BookHeading `protobuf:"bytes,4,rep,name=headings,proto3" json:"headings,omitempty"`
+	// Chapter references
+	References []*BookReference `protobuf:"bytes,5,rep,name=references,proto3" json:"references,omitempty"`
+	// Chapter psalm metadata
+	PsalmMetadata []*PsalmMetadata `protobuf:"bytes,6,rep,name=psalm_metadata,json=psalmMetadata,proto3" json:"psalm_metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1508,11 +1615,15 @@ func (x *GetBiblicalReferenceResponse) GetPsalmMetadata() []*PsalmMetadata {
 
 type GetBiblicalReferenceTextRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	Query string                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
-	// Query params
-	VersionCode   string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	LangCode      string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	WebOrigin     string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Query string
+	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+	// Version code query params
+	VersionCode string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
+	// Language code query params
+	LangCode string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	// Web origin query params
+	WebOrigin string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Format query params. E.g. us, eu.
 	Format        string `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1584,8 +1695,9 @@ func (x *GetBiblicalReferenceTextRequest) GetFormat() string {
 }
 
 type GetBiblicalReferenceTextResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Text          string                 `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Chapter text in markdown format
+	Text          string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1629,11 +1741,15 @@ func (x *GetBiblicalReferenceTextResponse) GetText() string {
 
 type GetBiblicalReferenceHtmlRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	Query string                 `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
-	// Query params
-	VersionCode   string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	LangCode      string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	WebOrigin     string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Query string
+	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
+	// Version code query params
+	VersionCode string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
+	// Language code query params
+	LangCode string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
+	// Web origin query params
+	WebOrigin string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Format query params. E.g. us, eu.
 	Format        string `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1705,8 +1821,9 @@ func (x *GetBiblicalReferenceHtmlRequest) GetFormat() string {
 }
 
 type GetBiblicalReferenceHtmlResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Html          string                 `protobuf:"bytes,1,opt,name=html,proto3" json:"html,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Chapter text in HTML format
+	Html          string `protobuf:"bytes,1,opt,name=html,proto3" json:"html,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }

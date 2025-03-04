@@ -21,26 +21,37 @@ export const file_account_v1_account: GenFile = /*@__PURE__*/
  */
 export type Account = Message<"account.v1.Account"> & {
   /**
+   * Account ID
+   *
    * @generated from field: string account_id = 1;
    */
   accountId: string;
 
   /**
+   * Account email
+   *
    * @generated from field: string email = 2;
    */
   email: string;
 
   /**
+   * Account first name
+   *
    * @generated from field: string first_name = 3;
    */
   firstName: string;
 
   /**
+   * Account last name
+   *
    * @generated from field: string last_name = 4;
    */
   lastName: string;
 
   /**
+   * Account creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 5;
    */
   createdAt?: Timestamp;
@@ -58,21 +69,31 @@ export const AccountSchema: GenMessage<Account> = /*@__PURE__*/
  */
 export type AccountSession = Message<"account.v1.AccountSession"> & {
   /**
+   * Account ID
+   *
    * @generated from field: string account_id = 1;
    */
   accountId: string;
 
   /**
+   * Account session start time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp start = 2;
    */
   start?: Timestamp;
 
   /**
+   * Account session last access time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp last_access = 3;
    */
   lastAccess?: Timestamp;
 
   /**
+   * Account session IP address
+   *
    * @generated from field: string ip_address = 4;
    */
   ipAddress: string;
@@ -90,6 +111,8 @@ export const AccountSessionSchema: GenMessage<AccountSession> = /*@__PURE__*/
  */
 export type GetAccountByIdRequest = Message<"account.v1.GetAccountByIdRequest"> & {
   /**
+   * Account ID
+   *
    * @generated from field: string account_id = 1;
    */
   accountId: string;
@@ -107,6 +130,8 @@ export const GetAccountByIdRequestSchema: GenMessage<GetAccountByIdRequest> = /*
  */
 export type GetAccountByIdResponse = Message<"account.v1.GetAccountByIdResponse"> & {
   /**
+   * Account object
+   *
    * @generated from field: account.v1.Account account = 1;
    */
   account?: Account;
@@ -124,6 +149,8 @@ export const GetAccountByIdResponseSchema: GenMessage<GetAccountByIdResponse> = 
  */
 export type GetAccountSessionRequest = Message<"account.v1.GetAccountSessionRequest"> & {
   /**
+   * Account ID
+   *
    * @generated from field: string account_id = 1;
    */
   accountId: string;
@@ -141,6 +168,8 @@ export const GetAccountSessionRequestSchema: GenMessage<GetAccountSessionRequest
  */
 export type GetAccountSessionResponse = Message<"account.v1.GetAccountSessionResponse"> & {
   /**
+   * Account session object
+   *
    * @generated from field: repeated account.v1.AccountSession session = 1;
    */
   session: AccountSession[];
@@ -158,6 +187,8 @@ export const GetAccountSessionResponseSchema: GenMessage<GetAccountSessionRespon
  */
 export type UpdateAccountRequest = Message<"account.v1.UpdateAccountRequest"> & {
   /**
+   * Account ID
+   *
    * @generated from field: string account_id = 1;
    */
   accountId: string;
@@ -178,15 +209,21 @@ export const UpdateAccountRequestSchema: GenMessage<UpdateAccountRequest> = /*@_
   messageDesc(file_account_v1_account, 6);
 
 /**
+ * Request body message
+ *
  * @generated from message account.v1.UpdateAccountRequest.Body
  */
 export type UpdateAccountRequest_Body = Message<"account.v1.UpdateAccountRequest.Body"> & {
   /**
+   * Account first name
+   *
    * @generated from field: optional string first_name = 1;
    */
   firstName?: string;
 
   /**
+   * Account last name
+   *
    * @generated from field: optional string last_name = 2;
    */
   lastName?: string;
@@ -204,6 +241,8 @@ export const UpdateAccountRequest_BodySchema: GenMessage<UpdateAccountRequest_Bo
  */
 export type UpdateAccountResponse = Message<"account.v1.UpdateAccountResponse"> & {
   /**
+   * Account object
+   *
    * @generated from field: account.v1.Account account = 1;
    */
   account?: Account;
@@ -221,6 +260,8 @@ export const UpdateAccountResponseSchema: GenMessage<UpdateAccountResponse> = /*
  */
 export type UpdateAccountPasswordRequest = Message<"account.v1.UpdateAccountPasswordRequest"> & {
   /**
+   * Account ID
+   *
    * @generated from field: string account_id = 1;
    */
   accountId: string;
@@ -241,10 +282,14 @@ export const UpdateAccountPasswordRequestSchema: GenMessage<UpdateAccountPasswor
   messageDesc(file_account_v1_account, 8);
 
 /**
+ * Request body message
+ *
  * @generated from message account.v1.UpdateAccountPasswordRequest.Body
  */
 export type UpdateAccountPasswordRequest_Body = Message<"account.v1.UpdateAccountPasswordRequest.Body"> & {
   /**
+   * Account password
+   *
    * @generated from field: string password = 1;
    */
   password: string;
@@ -262,6 +307,8 @@ export const UpdateAccountPasswordRequest_BodySchema: GenMessage<UpdateAccountPa
  */
 export type UpdateAccountPasswordResponse = Message<"account.v1.UpdateAccountPasswordResponse"> & {
   /**
+   * Account object
+   *
    * @generated from field: account.v1.Account account = 1;
    */
   account?: Account;
@@ -279,6 +326,8 @@ export const UpdateAccountPasswordResponseSchema: GenMessage<UpdateAccountPasswo
  */
 export type DeleteAccountRequest = Message<"account.v1.DeleteAccountRequest"> & {
   /**
+   * Account ID
+   *
    * @generated from field: string account_id = 1;
    */
   accountId: string;
@@ -296,6 +345,8 @@ export const DeleteAccountRequestSchema: GenMessage<DeleteAccountRequest> = /*@_
  */
 export type DeleteAccountResponse = Message<"account.v1.DeleteAccountResponse"> & {
   /**
+   * Account object
+   *
    * @generated from field: account.v1.Account account = 1;
    */
   account?: Account;
@@ -309,10 +360,14 @@ export const DeleteAccountResponseSchema: GenMessage<DeleteAccountResponse> = /*
   messageDesc(file_account_v1_account, 11);
 
 /**
+ * Account service definition
+ *
  * @generated from service account.v1.AccountService
  */
 export const AccountService: GenService<{
   /**
+   * Retrieve account by ID
+   *
    * @generated from rpc account.v1.AccountService.GetAccountById
    */
   getAccountById: {
@@ -321,6 +376,8 @@ export const AccountService: GenService<{
     output: typeof GetAccountByIdResponseSchema;
   },
   /**
+   * Retrieve account session by ID
+   *
    * @generated from rpc account.v1.AccountService.GetAccountSession
    */
   getAccountSession: {
@@ -329,6 +386,8 @@ export const AccountService: GenService<{
     output: typeof GetAccountSessionResponseSchema;
   },
   /**
+   * Update account by ID
+   *
    * @generated from rpc account.v1.AccountService.UpdateAccount
    */
   updateAccount: {
@@ -337,6 +396,8 @@ export const AccountService: GenService<{
     output: typeof UpdateAccountResponseSchema;
   },
   /**
+   * Update account password by ID
+   *
    * @generated from rpc account.v1.AccountService.UpdateAccountPassword
    */
   updateAccountPassword: {
@@ -345,6 +406,8 @@ export const AccountService: GenService<{
     output: typeof UpdateAccountPasswordResponseSchema;
   },
   /**
+   * Delete account by ID
+   *
    * @generated from rpc account.v1.AccountService.DeleteAccount
    */
   deleteAccount: {

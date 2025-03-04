@@ -21,46 +21,66 @@ export const file_bible_v1_book: GenFile = /*@__PURE__*/
  */
 export type Book = Message<"bible.v1.Book"> & {
   /**
+   * Book ID
+   *
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
+   * Book code
+   *
    * @generated from field: string code = 2;
    */
   code: string;
 
   /**
+   * Book title
+   *
    * @generated from field: string title = 3;
    */
   title: string;
 
   /**
+   * Book canon
+   *
    * @generated from field: string canon = 4;
    */
   canon: string;
 
   /**
+   * Book order
+   *
    * @generated from field: int32 order = 5;
    */
   order: number;
 
   /**
+   * Book creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 6;
    */
   createdAt?: Timestamp;
 
   /**
+   * Book last update time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp updated_at = 7;
    */
   updatedAt?: Timestamp;
 
   /**
+   * Book chapters
+   *
    * @generated from field: repeated bible.v1.BookChapter chapters = 8;
    */
   chapters: BookChapter[];
 
   /**
+   * Book version
+   *
    * @generated from field: string version_id = 9;
    */
   versionId: string;
@@ -78,31 +98,45 @@ export const BookSchema: GenMessage<Book> = /*@__PURE__*/
  */
 export type BookChapter = Message<"bible.v1.BookChapter"> & {
   /**
+   * Chapter ID
+   *
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
+   * Chapter number
+   *
    * @generated from field: int32 number = 2;
    */
   number: number;
 
   /**
+   * Chapter source reference URL
+   *
    * @generated from field: string ref = 3;
    */
   ref: string;
 
   /**
+   * Chapter creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 4;
    */
   createdAt?: Timestamp;
 
   /**
+   * Chapter last update time
+   * Stored in UTC and follows RFC
+   *
    * @generated from field: google.protobuf.Timestamp updated_at = 5;
    */
   updatedAt?: Timestamp;
 
   /**
+   * Book ID
+   *
    * @generated from field: string book_id = 6;
    */
   bookId: string;
@@ -120,51 +154,73 @@ export const BookChapterSchema: GenMessage<BookChapter> = /*@__PURE__*/
  */
 export type BookVerse = Message<"bible.v1.BookVerse"> & {
   /**
+   * Verse ID
+   *
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
+   * Verse number
+   *
    * @generated from field: int32 number = 2;
    */
   number: number;
 
   /**
+   * Verse content
+   *
    * @generated from field: string content = 3;
    */
   content: string;
 
   /**
+   * Verse order
+   *
    * @generated from field: int32 order = 4;
    */
   order: number;
 
   /**
+   * Verse paragraph number
+   *
    * @generated from field: int32 par_number = 5;
    */
   parNumber: number;
 
   /**
+   * Verse paragraph index
+   *
    * @generated from field: int32 par_index = 6;
    */
   parIndex: number;
 
   /**
+   * Verse is poetry
+   *
    * @generated from field: bool is_poetry = 7;
    */
   isPoetry: boolean;
 
   /**
+   * Verse creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 8;
    */
   createdAt?: Timestamp;
 
   /**
+   * Verse last update time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp updated_at = 9;
    */
   updatedAt?: Timestamp;
 
   /**
+   * Verse chapter ID
+   *
    * @generated from field: string chapter_id = 10;
    */
   chapterId: string;
@@ -182,46 +238,66 @@ export const BookVerseSchema: GenMessage<BookVerse> = /*@__PURE__*/
  */
 export type BookFootnote = Message<"bible.v1.BookFootnote"> & {
   /**
+   * Footnote ID
+   *
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
+   * Footnote content
+   *
    * @generated from field: string content = 2;
    */
   content: string;
 
   /**
+   * Footnote position
+   *
    * @generated from field: int32 position = 3;
    */
   position: number;
 
   /**
+   * Footnote order
+   *
    * @generated from field: int32 order = 4;
    */
   order: number;
 
   /**
+   * Footnote creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 5;
    */
   createdAt?: Timestamp;
 
   /**
+   * Footnote last update time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp updated_at = 6;
    */
   updatedAt?: Timestamp;
 
   /**
+   * Footnote verse ID
+   *
    * @generated from field: optional string verse_id = 7;
    */
   verseId?: string;
 
   /**
+   * Footnote heading ID
+   *
    * @generated from field: optional string heading_id = 8;
    */
   headingId?: string;
 
   /**
+   * Footnote chapter ID
+   *
    * @generated from field: string chapter_id = 9;
    */
   chapterId: string;
@@ -239,41 +315,59 @@ export const BookFootnoteSchema: GenMessage<BookFootnote> = /*@__PURE__*/
  */
 export type BookHeading = Message<"bible.v1.BookHeading"> & {
   /**
+   * Heading ID
+   *
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
+   * Heading content
+   *
    * @generated from field: string content = 2;
    */
   content: string;
 
   /**
+   * Heading level. Start from 1
+   *
    * @generated from field: int32 level = 3;
    */
   level: number;
 
   /**
+   * Heading position
+   *
    * @generated from field: int32 order = 4;
    */
   order: number;
 
   /**
+   * Heading creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 5;
    */
   createdAt?: Timestamp;
 
   /**
+   * Heading last update time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp updated_at = 6;
    */
   updatedAt?: Timestamp;
 
   /**
+   * Heading verse ID
+   *
    * @generated from field: string verse_id = 7;
    */
   verseId: string;
 
   /**
+   * Heading chapter ID
+   *
    * @generated from field: string chapter_id = 8;
    */
   chapterId: string;
@@ -291,46 +385,66 @@ export const BookHeadingSchema: GenMessage<BookHeading> = /*@__PURE__*/
  */
 export type BookReference = Message<"bible.v1.BookReference"> & {
   /**
+   * Reference ID
+   *
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
+   * Reference content
+   *
    * @generated from field: string content = 2;
    */
   content: string;
 
   /**
+   * Reference position
+   *
    * @generated from field: optional int32 position = 3;
    */
   position?: number;
 
   /**
+   * Reference order
+   *
    * @generated from field: int32 order = 4;
    */
   order: number;
 
   /**
+   * Reference creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 5;
    */
   createdAt?: Timestamp;
 
   /**
+   * Reference last update time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp updated_at = 6;
    */
   updatedAt?: Timestamp;
 
   /**
+   * Reference verse ID
+   *
    * @generated from field: optional string verse_id = 7;
    */
   verseId?: string;
 
   /**
+   * Reference heading ID
+   *
    * @generated from field: optional string heading_id = 8;
    */
   headingId?: string;
 
   /**
+   * Reference chapter ID
+   *
    * @generated from field: string chapter_id = 9;
    */
   chapterId: string;
@@ -348,26 +462,38 @@ export const BookReferenceSchema: GenMessage<BookReference> = /*@__PURE__*/
  */
 export type PsalmMetadata = Message<"bible.v1.PsalmMetadata"> & {
   /**
+   * Psalm metadata ID
+   *
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
+   * Psalm metadata title
+   *
    * @generated from field: string title = 2;
    */
   title: string;
 
   /**
+   * Psalm creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 3;
    */
   createdAt?: Timestamp;
 
   /**
+   * Psalm last update time
+   * Stored in UTC and follows RFC
+   *
    * @generated from field: google.protobuf.Timestamp updated_at = 4;
    */
   updatedAt?: Timestamp;
 
   /**
+   * Psalm chapter ID
+   *
    * @generated from field: string chapter_id = 5;
    */
   chapterId: string;
@@ -385,18 +511,22 @@ export const PsalmMetadataSchema: GenMessage<PsalmMetadata> = /*@__PURE__*/
  */
 export type GetAllBookRequest = Message<"bible.v1.GetAllBookRequest"> & {
   /**
-   * Query params
+   * Version code query params
    *
    * @generated from field: string version_code = 1;
    */
   versionCode: string;
 
   /**
+   * Language code query params
+   *
    * @generated from field: string lang_code = 2;
    */
   langCode: string;
 
   /**
+   * Web origin query params
+   *
    * @generated from field: string web_origin = 3;
    */
   webOrigin: string;
@@ -414,6 +544,8 @@ export const GetAllBookRequestSchema: GenMessage<GetAllBookRequest> = /*@__PURE_
  */
 export type GetAllBookResponse = Message<"bible.v1.GetAllBookResponse"> & {
   /**
+   * List of books
+   *
    * @generated from field: repeated bible.v1.Book books = 1;
    */
   books: Book[];
@@ -431,23 +563,29 @@ export const GetAllBookResponseSchema: GenMessage<GetAllBookResponse> = /*@__PUR
  */
 export type GetOneBookRequest = Message<"bible.v1.GetOneBookRequest"> & {
   /**
+   * Book code
+   *
    * @generated from field: string book_code = 1;
    */
   bookCode: string;
 
   /**
-   * Query params
+   * Version code query params
    *
    * @generated from field: string version_code = 2;
    */
   versionCode: string;
 
   /**
+   * Language code query params
+   *
    * @generated from field: string lang_code = 3;
    */
   langCode: string;
 
   /**
+   * Web origin query params
+   *
    * @generated from field: string web_origin = 4;
    */
   webOrigin: string;
@@ -465,6 +603,8 @@ export const GetOneBookRequestSchema: GenMessage<GetOneBookRequest> = /*@__PURE_
  */
 export type GetOneBookResponse = Message<"bible.v1.GetOneBookResponse"> & {
   /**
+   * Book object
+   *
    * @generated from field: bible.v1.Book book = 1;
    */
   book?: Book;
@@ -482,28 +622,36 @@ export const GetOneBookResponseSchema: GenMessage<GetOneBookResponse> = /*@__PUR
  */
 export type GetOneChapterRequest = Message<"bible.v1.GetOneChapterRequest"> & {
   /**
+   * Book code
+   *
    * @generated from field: string book_code = 1;
    */
   bookCode: string;
 
   /**
+   * Chapter number
+   *
    * @generated from field: string chapter_num = 2;
    */
   chapterNum: string;
 
   /**
-   * Query params
+   * Version code query params
    *
    * @generated from field: string version_code = 3;
    */
   versionCode: string;
 
   /**
+   * Language code query params
+   *
    * @generated from field: string lang_code = 4;
    */
   langCode: string;
 
   /**
+   * Web origin query params
+   *
    * @generated from field: string web_origin = 5;
    */
   webOrigin: string;
@@ -521,31 +669,43 @@ export const GetOneChapterRequestSchema: GenMessage<GetOneChapterRequest> = /*@_
  */
 export type GetOneChapterResponse = Message<"bible.v1.GetOneChapterResponse"> & {
   /**
+   * Chapter object
+   *
    * @generated from field: bible.v1.BookChapter chapter = 1;
    */
   chapter?: BookChapter;
 
   /**
+   * Chapter verses
+   *
    * @generated from field: repeated bible.v1.BookVerse verses = 2;
    */
   verses: BookVerse[];
 
   /**
+   * Chapter footnotes
+   *
    * @generated from field: repeated bible.v1.BookFootnote footnotes = 3;
    */
   footnotes: BookFootnote[];
 
   /**
+   * Chapter headings
+   *
    * @generated from field: repeated bible.v1.BookHeading headings = 4;
    */
   headings: BookHeading[];
 
   /**
+   * Chapter references
+   *
    * @generated from field: repeated bible.v1.BookReference references = 5;
    */
   references: BookReference[];
 
   /**
+   * Chapter psalm metadata
+   *
    * @generated from field: repeated bible.v1.PsalmMetadata psalm_metadata = 6;
    */
   psalmMetadata: PsalmMetadata[];
@@ -563,28 +723,36 @@ export const GetOneChapterResponseSchema: GenMessage<GetOneChapterResponse> = /*
  */
 export type GetOneChapterTextRequest = Message<"bible.v1.GetOneChapterTextRequest"> & {
   /**
+   * Book code
+   *
    * @generated from field: string book_code = 1;
    */
   bookCode: string;
 
   /**
+   * Chapter number
+   *
    * @generated from field: string chapter_num = 2;
    */
   chapterNum: string;
 
   /**
-   * Query params
+   * Version code query params
    *
    * @generated from field: string version_code = 3;
    */
   versionCode: string;
 
   /**
+   * Language code query params
+   *
    * @generated from field: string lang_code = 4;
    */
   langCode: string;
 
   /**
+   * Web origin query params
+   *
    * @generated from field: string web_origin = 5;
    */
   webOrigin: string;
@@ -602,6 +770,8 @@ export const GetOneChapterTextRequestSchema: GenMessage<GetOneChapterTextRequest
  */
 export type GetOneChapterTextResponse = Message<"bible.v1.GetOneChapterTextResponse"> & {
   /**
+   * Chapter text in markdown format
+   *
    * @generated from field: string text = 1;
    */
   text: string;
@@ -619,28 +789,36 @@ export const GetOneChapterTextResponseSchema: GenMessage<GetOneChapterTextRespon
  */
 export type GetOneChapterHtmlRequest = Message<"bible.v1.GetOneChapterHtmlRequest"> & {
   /**
+   * Book code
+   *
    * @generated from field: string book_code = 1;
    */
   bookCode: string;
 
   /**
+   * Chapter number
+   *
    * @generated from field: string chapter_num = 2;
    */
   chapterNum: string;
 
   /**
-   * Query params
+   * Version code query params
    *
    * @generated from field: string version_code = 3;
    */
   versionCode: string;
 
   /**
+   * Language code query params
+   *
    * @generated from field: string lang_code = 4;
    */
   langCode: string;
 
   /**
+   * Web origin query params
+   *
    * @generated from field: string web_origin = 5;
    */
   webOrigin: string;
@@ -658,6 +836,8 @@ export const GetOneChapterHtmlRequestSchema: GenMessage<GetOneChapterHtmlRequest
  */
 export type GetOneChapterHtmlResponse = Message<"bible.v1.GetOneChapterHtmlResponse"> & {
   /**
+   * Chapter text in HTML format
+   *
    * @generated from field: string html = 1;
    */
   html: string;
@@ -675,28 +855,36 @@ export const GetOneChapterHtmlResponseSchema: GenMessage<GetOneChapterHtmlRespon
  */
 export type GetBiblicalReferenceRequest = Message<"bible.v1.GetBiblicalReferenceRequest"> & {
   /**
+   * Query string
+   *
    * @generated from field: string query = 1;
    */
   query: string;
 
   /**
-   * Query params
+   * Version code query params
    *
    * @generated from field: string version_code = 2;
    */
   versionCode: string;
 
   /**
+   * Language code query params
+   *
    * @generated from field: string lang_code = 3;
    */
   langCode: string;
 
   /**
+   * Web origin query params
+   *
    * @generated from field: string web_origin = 4;
    */
   webOrigin: string;
 
   /**
+   * Format query params. E.g. us, eu.
+   *
    * @generated from field: string format = 5;
    */
   format: string;
@@ -714,31 +902,43 @@ export const GetBiblicalReferenceRequestSchema: GenMessage<GetBiblicalReferenceR
  */
 export type GetBiblicalReferenceResponse = Message<"bible.v1.GetBiblicalReferenceResponse"> & {
   /**
+   * Chapter object
+   *
    * @generated from field: repeated bible.v1.BookChapter chapters = 1;
    */
   chapters: BookChapter[];
 
   /**
+   * Chapter verses
+   *
    * @generated from field: repeated bible.v1.BookVerse verses = 2;
    */
   verses: BookVerse[];
 
   /**
+   * Chapter footnotes
+   *
    * @generated from field: repeated bible.v1.BookFootnote footnotes = 3;
    */
   footnotes: BookFootnote[];
 
   /**
+   * Chapter headings
+   *
    * @generated from field: repeated bible.v1.BookHeading headings = 4;
    */
   headings: BookHeading[];
 
   /**
+   * Chapter references
+   *
    * @generated from field: repeated bible.v1.BookReference references = 5;
    */
   references: BookReference[];
 
   /**
+   * Chapter psalm metadata
+   *
    * @generated from field: repeated bible.v1.PsalmMetadata psalm_metadata = 6;
    */
   psalmMetadata: PsalmMetadata[];
@@ -756,28 +956,36 @@ export const GetBiblicalReferenceResponseSchema: GenMessage<GetBiblicalReference
  */
 export type GetBiblicalReferenceTextRequest = Message<"bible.v1.GetBiblicalReferenceTextRequest"> & {
   /**
+   * Query string
+   *
    * @generated from field: string query = 1;
    */
   query: string;
 
   /**
-   * Query params
+   * Version code query params
    *
    * @generated from field: string version_code = 2;
    */
   versionCode: string;
 
   /**
+   * Language code query params
+   *
    * @generated from field: string lang_code = 3;
    */
   langCode: string;
 
   /**
+   * Web origin query params
+   *
    * @generated from field: string web_origin = 4;
    */
   webOrigin: string;
 
   /**
+   * Format query params. E.g. us, eu.
+   *
    * @generated from field: string format = 5;
    */
   format: string;
@@ -795,6 +1003,8 @@ export const GetBiblicalReferenceTextRequestSchema: GenMessage<GetBiblicalRefere
  */
 export type GetBiblicalReferenceTextResponse = Message<"bible.v1.GetBiblicalReferenceTextResponse"> & {
   /**
+   * Chapter text in markdown format
+   *
    * @generated from field: string text = 1;
    */
   text: string;
@@ -812,28 +1022,36 @@ export const GetBiblicalReferenceTextResponseSchema: GenMessage<GetBiblicalRefer
  */
 export type GetBiblicalReferenceHtmlRequest = Message<"bible.v1.GetBiblicalReferenceHtmlRequest"> & {
   /**
+   * Query string
+   *
    * @generated from field: string query = 1;
    */
   query: string;
 
   /**
-   * Query params
+   * Version code query params
    *
    * @generated from field: string version_code = 2;
    */
   versionCode: string;
 
   /**
+   * Language code query params
+   *
    * @generated from field: string lang_code = 3;
    */
   langCode: string;
 
   /**
+   * Web origin query params
+   *
    * @generated from field: string web_origin = 4;
    */
   webOrigin: string;
 
   /**
+   * Format query params. E.g. us, eu.
+   *
    * @generated from field: string format = 5;
    */
   format: string;
@@ -851,6 +1069,8 @@ export const GetBiblicalReferenceHtmlRequestSchema: GenMessage<GetBiblicalRefere
  */
 export type GetBiblicalReferenceHtmlResponse = Message<"bible.v1.GetBiblicalReferenceHtmlResponse"> & {
   /**
+   * Chapter text in HTML format
+   *
    * @generated from field: string html = 1;
    */
   html: string;
@@ -864,10 +1084,14 @@ export const GetBiblicalReferenceHtmlResponseSchema: GenMessage<GetBiblicalRefer
   messageDesc(file_bible_v1_book, 22);
 
 /**
+ * Book service definition
+ *
  * @generated from service bible.v1.BookService
  */
 export const BookService: GenService<{
   /**
+   * Retrieve all books
+   *
    * @generated from rpc bible.v1.BookService.GetAllBook
    */
   getAllBook: {
@@ -876,6 +1100,8 @@ export const BookService: GenService<{
     output: typeof GetAllBookResponseSchema;
   },
   /**
+   * Retrieve one book
+   *
    * @generated from rpc bible.v1.BookService.GetOneBook
    */
   getOneBook: {
@@ -884,6 +1110,8 @@ export const BookService: GenService<{
     output: typeof GetOneBookResponseSchema;
   },
   /**
+   * Retrieve one chapter
+   *
    * @generated from rpc bible.v1.BookService.GetOneChapter
    */
   getOneChapter: {
@@ -892,6 +1120,8 @@ export const BookService: GenService<{
     output: typeof GetOneChapterResponseSchema;
   },
   /**
+   * Retrieve one chapter converted to markdown text
+   *
    * @generated from rpc bible.v1.BookService.GetOneChapterText
    */
   getOneChapterText: {
@@ -900,6 +1130,8 @@ export const BookService: GenService<{
     output: typeof GetOneChapterTextResponseSchema;
   },
   /**
+   * Retrieve one chapter converted to HTML
+   *
    * @generated from rpc bible.v1.BookService.GetOneChapterHtml
    */
   getOneChapterHtml: {
@@ -908,6 +1140,8 @@ export const BookService: GenService<{
     output: typeof GetOneChapterHtmlResponseSchema;
   },
   /**
+   * Retrieve biblical reference
+   *
    * @generated from rpc bible.v1.BookService.GetBiblicalReference
    */
   getBiblicalReference: {
@@ -916,6 +1150,8 @@ export const BookService: GenService<{
     output: typeof GetBiblicalReferenceResponseSchema;
   },
   /**
+   * Retrieve biblical reference converted to markdown text
+   *
    * @generated from rpc bible.v1.BookService.GetBiblicalReferenceText
    */
   getBiblicalReferenceText: {
@@ -924,6 +1160,8 @@ export const BookService: GenService<{
     output: typeof GetBiblicalReferenceTextResponseSchema;
   },
   /**
+   * Retrieve biblical reference converted to HTML
+   *
    * @generated from rpc bible.v1.BookService.GetBiblicalReferenceHtml
    */
   getBiblicalReferenceHtml: {

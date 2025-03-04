@@ -24,6 +24,7 @@
   "paths": {
     "/v1/lang": {
       "get": {
+        "summary": "Retrieve all languages",
         "operationId": "VersionService_GetAllLanguage",
         "responses": {
           "200": {
@@ -42,7 +43,7 @@
         "parameters": [
           {
             "name": "webOrigin",
-            "description": "Query params",
+            "description": "Web origin query params",
             "in": "query",
             "required": false,
             "type": "string"
@@ -55,6 +56,7 @@
     },
     "/v1/version": {
       "get": {
+        "summary": "Retrieve all versions",
         "operationId": "VersionService_GetAllVersion",
         "responses": {
           "200": {
@@ -73,19 +75,21 @@
         "parameters": [
           {
             "name": "versionCode",
-            "description": "Query params",
+            "description": "Version code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "langCode",
+            "description": "Language code query params",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "webOrigin",
+            "description": "Web origin query params",
             "in": "query",
             "required": false,
             "type": "string"
@@ -134,7 +138,8 @@
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1VersionLanguage"
-          }
+          },
+          "title": "Language list"
         }
       }
     },
@@ -146,7 +151,8 @@
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1Version"
-          }
+          },
+          "title": "Version list"
         }
       }
     },
@@ -154,40 +160,50 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "title": "Version ID"
         },
         "code": {
-          "type": "string"
+          "type": "string",
+          "title": "Version code"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "Version name"
         },
         "onlyNt": {
-          "type": "boolean"
+          "type": "boolean",
+          "title": "Version only NT"
         },
         "onlyOt": {
-          "type": "boolean"
+          "type": "boolean",
+          "title": "Version only OT"
         },
         "withApocrypha": {
-          "type": "boolean"
+          "type": "boolean",
+          "title": "Version with apocrypha"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Version creation time\nStored in UTC and follows RFC 3339 format"
         },
         "updatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Version last update time\nStored in UTC and follows RFC 3339 format"
         },
         "formats": {
           "type": "array",
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1VersionFormat"
-          }
+          },
+          "title": "Version formats"
         },
         "languageId": {
-          "type": "string"
+          "type": "string",
+          "title": "Language ID"
         }
       }
     },
@@ -195,24 +211,30 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "title": "Format ID"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "title": "Format type"
         },
         "ref": {
-          "type": "string"
+          "type": "string",
+          "title": "Format source reference URL"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Format creation time\nStored in UTC and follows RFC 3339 format"
         },
         "updatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Format last update time\nStored in UTC and follows RFC 3339 format"
         },
         "versionId": {
-          "type": "string"
+          "type": "string",
+          "title": "Version ID"
         }
       }
     },
@@ -220,24 +242,30 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "title": "Language ID"
         },
         "code": {
-          "type": "string"
+          "type": "string",
+          "title": "Language code"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "title": "Language name"
         },
         "webOrigin": {
-          "type": "string"
+          "type": "string",
+          "title": "Language web origin"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Language creation time\nStored in UTC and follows RFC 3339 format"
         },
         "updatedAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Language last update time\nStored in UTC and follows RFC 3339 format"
         }
       }
     }

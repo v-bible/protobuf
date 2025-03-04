@@ -24,6 +24,7 @@
   "paths": {
     "/v1/auth/decode-access-token": {
       "post": {
+        "summary": "Decode access token",
         "operationId": "AuthService_DecodeAccessToken",
         "responses": {
           "200": {
@@ -57,6 +58,7 @@
     },
     "/v1/auth/login": {
       "post": {
+        "summary": "Login with email and password",
         "operationId": "AuthService_Login",
         "responses": {
           "200": {
@@ -90,6 +92,7 @@
     },
     "/v1/auth/logout": {
       "post": {
+        "summary": "Logout",
         "operationId": "AuthService_Logout",
         "responses": {
           "200": {
@@ -122,6 +125,7 @@
     },
     "/v1/auth/refresh": {
       "post": {
+        "summary": "Refresh access token",
         "operationId": "AuthService_RefreshToken",
         "responses": {
           "200": {
@@ -155,6 +159,7 @@
     },
     "/v1/auth/register": {
       "post": {
+        "summary": "Register new account",
         "operationId": "AuthService_Register",
         "responses": {
           "200": {
@@ -188,6 +193,7 @@
     },
     "/v1/auth/retrospect": {
       "post": {
+        "summary": "Retrospect token",
         "operationId": "AuthService_RetrospectToken",
         "responses": {
           "200": {
@@ -253,7 +259,8 @@
       "type": "object",
       "properties": {
         "accessToken": {
-          "type": "string"
+          "type": "string",
+          "title": "Access token"
         }
       }
     },
@@ -261,16 +268,20 @@
       "type": "object",
       "properties": {
         "subject": {
-          "type": "string"
+          "type": "string",
+          "title": "Token subject"
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "title": "Email address"
         },
         "firstName": {
-          "type": "string"
+          "type": "string",
+          "title": "First name"
         },
         "lastName": {
-          "type": "string"
+          "type": "string",
+          "title": "Last name"
         }
       }
     },
@@ -278,10 +289,12 @@
       "type": "object",
       "properties": {
         "email": {
-          "type": "string"
+          "type": "string",
+          "title": "Email address"
         },
         "password": {
-          "type": "string"
+          "type": "string",
+          "title": "Password"
         }
       }
     },
@@ -289,18 +302,22 @@
       "type": "object",
       "properties": {
         "accessToken": {
-          "type": "string"
+          "type": "string",
+          "title": "Access token"
         },
         "refreshToken": {
-          "type": "string"
+          "type": "string",
+          "title": "Refresh token"
         },
         "expiresIn": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "Access token expiration time in seconds"
         },
         "refreshExpiresIn": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "Refresh token expiration time in seconds"
         }
       }
     },
@@ -308,7 +325,8 @@
       "type": "object",
       "properties": {
         "refreshToken": {
-          "type": "string"
+          "type": "string",
+          "title": "Refresh token"
         }
       }
     },
@@ -319,7 +337,8 @@
       "type": "object",
       "properties": {
         "refreshToken": {
-          "type": "string"
+          "type": "string",
+          "title": "Refresh token"
         }
       }
     },
@@ -327,11 +346,13 @@
       "type": "object",
       "properties": {
         "accessToken": {
-          "type": "string"
+          "type": "string",
+          "title": "Access token"
         },
         "expiresIn": {
           "type": "string",
-          "format": "int64"
+          "format": "int64",
+          "title": "Access token expiration time in seconds"
         }
       }
     },
@@ -339,16 +360,20 @@
       "type": "object",
       "properties": {
         "email": {
-          "type": "string"
+          "type": "string",
+          "title": "Email address"
         },
         "firstName": {
-          "type": "string"
+          "type": "string",
+          "title": "First name"
         },
         "lastName": {
-          "type": "string"
+          "type": "string",
+          "title": "Last name"
         },
         "password": {
-          "type": "string"
+          "type": "string",
+          "title": "Password"
         }
       }
     },
@@ -359,7 +384,8 @@
       "type": "object",
       "properties": {
         "token": {
-          "type": "string"
+          "type": "string",
+          "title": "Retrospect token"
         }
       }
     },
@@ -367,7 +393,8 @@
       "type": "object",
       "properties": {
         "active": {
-          "type": "boolean"
+          "type": "boolean",
+          "title": "Token subject"
         }
       }
     }

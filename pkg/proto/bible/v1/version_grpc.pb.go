@@ -26,8 +26,12 @@ const (
 // VersionServiceClient is the client API for VersionService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+//
+// Version service definition
 type VersionServiceClient interface {
+	// Retrieve all languages
 	GetAllLanguage(ctx context.Context, in *GetAllLanguageRequest, opts ...grpc.CallOption) (*GetAllLanguageResponse, error)
+	// Retrieve all versions
 	GetAllVersion(ctx context.Context, in *GetAllVersionRequest, opts ...grpc.CallOption) (*GetAllVersionResponse, error)
 }
 
@@ -62,8 +66,12 @@ func (c *versionServiceClient) GetAllVersion(ctx context.Context, in *GetAllVers
 // VersionServiceServer is the server API for VersionService service.
 // All implementations must embed UnimplementedVersionServiceServer
 // for forward compatibility.
+//
+// Version service definition
 type VersionServiceServer interface {
+	// Retrieve all languages
 	GetAllLanguage(context.Context, *GetAllLanguageRequest) (*GetAllLanguageResponse, error)
+	// Retrieve all versions
 	GetAllVersion(context.Context, *GetAllVersionRequest) (*GetAllVersionResponse, error)
 	mustEmbedUnimplementedVersionServiceServer()
 }

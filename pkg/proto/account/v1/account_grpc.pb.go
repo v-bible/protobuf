@@ -29,11 +29,18 @@ const (
 // AccountServiceClient is the client API for AccountService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+//
+// Account service definition
 type AccountServiceClient interface {
+	// Retrieve account by ID
 	GetAccountById(ctx context.Context, in *GetAccountByIdRequest, opts ...grpc.CallOption) (*GetAccountByIdResponse, error)
+	// Retrieve account session by ID
 	GetAccountSession(ctx context.Context, in *GetAccountSessionRequest, opts ...grpc.CallOption) (*GetAccountSessionResponse, error)
+	// Update account by ID
 	UpdateAccount(ctx context.Context, in *UpdateAccountRequest, opts ...grpc.CallOption) (*UpdateAccountResponse, error)
+	// Update account password by ID
 	UpdateAccountPassword(ctx context.Context, in *UpdateAccountPasswordRequest, opts ...grpc.CallOption) (*UpdateAccountPasswordResponse, error)
+	// Delete account by ID
 	DeleteAccount(ctx context.Context, in *DeleteAccountRequest, opts ...grpc.CallOption) (*DeleteAccountResponse, error)
 }
 
@@ -98,11 +105,18 @@ func (c *accountServiceClient) DeleteAccount(ctx context.Context, in *DeleteAcco
 // AccountServiceServer is the server API for AccountService service.
 // All implementations must embed UnimplementedAccountServiceServer
 // for forward compatibility.
+//
+// Account service definition
 type AccountServiceServer interface {
+	// Retrieve account by ID
 	GetAccountById(context.Context, *GetAccountByIdRequest) (*GetAccountByIdResponse, error)
+	// Retrieve account session by ID
 	GetAccountSession(context.Context, *GetAccountSessionRequest) (*GetAccountSessionResponse, error)
+	// Update account by ID
 	UpdateAccount(context.Context, *UpdateAccountRequest) (*UpdateAccountResponse, error)
+	// Update account password by ID
 	UpdateAccountPassword(context.Context, *UpdateAccountPasswordRequest) (*UpdateAccountPasswordResponse, error)
+	// Delete account by ID
 	DeleteAccount(context.Context, *DeleteAccountRequest) (*DeleteAccountResponse, error)
 	mustEmbedUnimplementedAccountServiceServer()
 }

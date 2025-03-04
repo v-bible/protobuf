@@ -24,6 +24,7 @@
   "paths": {
     "/v1/account/{accountId}": {
       "get": {
+        "summary": "Retrieve account by ID",
         "operationId": "AccountService_GetAccountById",
         "responses": {
           "200": {
@@ -42,6 +43,7 @@
         "parameters": [
           {
             "name": "accountId",
+            "description": "Account ID",
             "in": "path",
             "required": true,
             "type": "string"
@@ -52,6 +54,7 @@
         ]
       },
       "delete": {
+        "summary": "Delete account by ID",
         "operationId": "AccountService_DeleteAccount",
         "responses": {
           "200": {
@@ -70,6 +73,7 @@
         "parameters": [
           {
             "name": "accountId",
+            "description": "Account ID",
             "in": "path",
             "required": true,
             "type": "string"
@@ -80,6 +84,7 @@
         ]
       },
       "put": {
+        "summary": "Update account by ID",
         "operationId": "AccountService_UpdateAccount",
         "responses": {
           "200": {
@@ -98,6 +103,7 @@
         "parameters": [
           {
             "name": "accountId",
+            "description": "Account ID",
             "in": "path",
             "required": true,
             "type": "string"
@@ -119,6 +125,7 @@
     },
     "/v1/account/{accountId}/password": {
       "put": {
+        "summary": "Update account password by ID",
         "operationId": "AccountService_UpdateAccountPassword",
         "responses": {
           "200": {
@@ -137,6 +144,7 @@
         "parameters": [
           {
             "name": "accountId",
+            "description": "Account ID",
             "in": "path",
             "required": true,
             "type": "string"
@@ -158,6 +166,7 @@
     },
     "/v1/account/{accountId}/session": {
       "get": {
+        "summary": "Retrieve account session by ID",
         "operationId": "AccountService_GetAccountSession",
         "responses": {
           "200": {
@@ -176,6 +185,7 @@
         "parameters": [
           {
             "name": "accountId",
+            "description": "Account ID",
             "in": "path",
             "required": true,
             "type": "string"
@@ -220,20 +230,25 @@
       "type": "object",
       "properties": {
         "accountId": {
-          "type": "string"
+          "type": "string",
+          "title": "Account ID"
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "title": "Account email"
         },
         "firstName": {
-          "type": "string"
+          "type": "string",
+          "title": "Account first name"
         },
         "lastName": {
-          "type": "string"
+          "type": "string",
+          "title": "Account last name"
         },
         "createdAt": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Account creation time\nStored in UTC and follows RFC 3339 format"
         }
       }
     },
@@ -241,18 +256,22 @@
       "type": "object",
       "properties": {
         "accountId": {
-          "type": "string"
+          "type": "string",
+          "title": "Account ID"
         },
         "start": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Account session start time\nStored in UTC and follows RFC 3339 format"
         },
         "lastAccess": {
           "type": "string",
-          "format": "date-time"
+          "format": "date-time",
+          "title": "Account session last access time\nStored in UTC and follows RFC 3339 format"
         },
         "ipAddress": {
-          "type": "string"
+          "type": "string",
+          "title": "Account session IP address"
         }
       }
     },
@@ -260,7 +279,8 @@
       "type": "object",
       "properties": {
         "account": {
-          "$ref": "#/definitions/v1Account"
+          "$ref": "#/definitions/v1Account",
+          "title": "Account object"
         }
       }
     },
@@ -268,7 +288,8 @@
       "type": "object",
       "properties": {
         "account": {
-          "$ref": "#/definitions/v1Account"
+          "$ref": "#/definitions/v1Account",
+          "title": "Account object"
         }
       }
     },
@@ -280,7 +301,8 @@
           "items": {
             "type": "object",
             "$ref": "#/definitions/v1AccountSession"
-          }
+          },
+          "title": "Account session object"
         }
       }
     },
@@ -288,15 +310,18 @@
       "type": "object",
       "properties": {
         "password": {
-          "type": "string"
+          "type": "string",
+          "title": "Account password"
         }
-      }
+      },
+      "title": "Request body message"
     },
     "v1UpdateAccountPasswordResponse": {
       "type": "object",
       "properties": {
         "account": {
-          "$ref": "#/definitions/v1Account"
+          "$ref": "#/definitions/v1Account",
+          "title": "Account object"
         }
       }
     },
@@ -304,18 +329,22 @@
       "type": "object",
       "properties": {
         "firstName": {
-          "type": "string"
+          "type": "string",
+          "title": "Account first name"
         },
         "lastName": {
-          "type": "string"
+          "type": "string",
+          "title": "Account last name"
         }
-      }
+      },
+      "title": "Request body message"
     },
     "v1UpdateAccountResponse": {
       "type": "object",
       "properties": {
         "account": {
-          "$ref": "#/definitions/v1Account"
+          "$ref": "#/definitions/v1Account",
+          "title": "Account object"
         }
       }
     }

@@ -21,51 +21,73 @@ export const file_bible_v1_version: GenFile = /*@__PURE__*/
  */
 export type Version = Message<"bible.v1.Version"> & {
   /**
+   * Version ID
+   *
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
+   * Version code
+   *
    * @generated from field: string code = 2;
    */
   code: string;
 
   /**
+   * Version name
+   *
    * @generated from field: string name = 3;
    */
   name: string;
 
   /**
+   * Version only NT
+   *
    * @generated from field: bool only_nt = 4;
    */
   onlyNt: boolean;
 
   /**
+   * Version only OT
+   *
    * @generated from field: bool only_ot = 5;
    */
   onlyOt: boolean;
 
   /**
+   * Version with apocrypha
+   *
    * @generated from field: bool with_apocrypha = 6;
    */
   withApocrypha: boolean;
 
   /**
+   * Version creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 7;
    */
   createdAt?: Timestamp;
 
   /**
+   * Version last update time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp updated_at = 8;
    */
   updatedAt?: Timestamp;
 
   /**
+   * Version formats
+   *
    * @generated from field: repeated bible.v1.VersionFormat formats = 9;
    */
   formats: VersionFormat[];
 
   /**
+   * Language ID
+   *
    * @generated from field: string language_id = 10;
    */
   languageId: string;
@@ -83,31 +105,45 @@ export const VersionSchema: GenMessage<Version> = /*@__PURE__*/
  */
 export type VersionFormat = Message<"bible.v1.VersionFormat"> & {
   /**
+   * Format ID
+   *
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
+   * Format type
+   *
    * @generated from field: string type = 2;
    */
   type: string;
 
   /**
+   * Format source reference URL
+   *
    * @generated from field: string ref = 3;
    */
   ref: string;
 
   /**
+   * Format creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 4;
    */
   createdAt?: Timestamp;
 
   /**
+   * Format last update time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp updated_at = 5;
    */
   updatedAt?: Timestamp;
 
   /**
+   * Version ID
+   *
    * @generated from field: string version_id = 6;
    */
   versionId: string;
@@ -125,31 +161,45 @@ export const VersionFormatSchema: GenMessage<VersionFormat> = /*@__PURE__*/
  */
 export type VersionLanguage = Message<"bible.v1.VersionLanguage"> & {
   /**
+   * Language ID
+   *
    * @generated from field: string id = 1;
    */
   id: string;
 
   /**
+   * Language code
+   *
    * @generated from field: string code = 2;
    */
   code: string;
 
   /**
+   * Language name
+   *
    * @generated from field: string name = 3;
    */
   name: string;
 
   /**
+   * Language web origin
+   *
    * @generated from field: string web_origin = 4;
    */
   webOrigin: string;
 
   /**
+   * Language creation time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp created_at = 5;
    */
   createdAt?: Timestamp;
 
   /**
+   * Language last update time
+   * Stored in UTC and follows RFC 3339 format
+   *
    * @generated from field: google.protobuf.Timestamp updated_at = 6;
    */
   updatedAt?: Timestamp;
@@ -167,7 +217,7 @@ export const VersionLanguageSchema: GenMessage<VersionLanguage> = /*@__PURE__*/
  */
 export type GetAllLanguageRequest = Message<"bible.v1.GetAllLanguageRequest"> & {
   /**
-   * Query params
+   * Web origin query params
    *
    * @generated from field: optional string web_origin = 1;
    */
@@ -186,6 +236,8 @@ export const GetAllLanguageRequestSchema: GenMessage<GetAllLanguageRequest> = /*
  */
 export type GetAllLanguageResponse = Message<"bible.v1.GetAllLanguageResponse"> & {
   /**
+   * Language list
+   *
    * @generated from field: repeated bible.v1.VersionLanguage languages = 1;
    */
   languages: VersionLanguage[];
@@ -203,18 +255,22 @@ export const GetAllLanguageResponseSchema: GenMessage<GetAllLanguageResponse> = 
  */
 export type GetAllVersionRequest = Message<"bible.v1.GetAllVersionRequest"> & {
   /**
-   * Query params
+   * Version code query params
    *
    * @generated from field: optional string version_code = 1;
    */
   versionCode?: string;
 
   /**
+   * Language code query params
+   *
    * @generated from field: optional string lang_code = 2;
    */
   langCode?: string;
 
   /**
+   * Web origin query params
+   *
    * @generated from field: optional string web_origin = 3;
    */
   webOrigin?: string;
@@ -232,6 +288,8 @@ export const GetAllVersionRequestSchema: GenMessage<GetAllVersionRequest> = /*@_
  */
 export type GetAllVersionResponse = Message<"bible.v1.GetAllVersionResponse"> & {
   /**
+   * Version list
+   *
    * @generated from field: repeated bible.v1.Version versions = 1;
    */
   versions: Version[];
@@ -245,10 +303,14 @@ export const GetAllVersionResponseSchema: GenMessage<GetAllVersionResponse> = /*
   messageDesc(file_bible_v1_version, 6);
 
 /**
+ * Version service definition
+ *
  * @generated from service bible.v1.VersionService
  */
 export const VersionService: GenService<{
   /**
+   * Retrieve all languages
+   *
    * @generated from rpc bible.v1.VersionService.GetAllLanguage
    */
   getAllLanguage: {
@@ -257,6 +319,8 @@ export const VersionService: GenService<{
     output: typeof GetAllLanguageResponseSchema;
   },
   /**
+   * Retrieve all versions
+   *
    * @generated from rpc bible.v1.VersionService.GetAllVersion
    */
   getAllVersion: {

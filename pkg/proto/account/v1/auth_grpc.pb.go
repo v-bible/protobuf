@@ -30,12 +30,20 @@ const (
 // AuthServiceClient is the client API for AuthService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+//
+// Auth service definition
 type AuthServiceClient interface {
+	// Login with email and password
 	Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*LoginResponse, error)
+	// Register new account
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
+	// Refresh access token
 	RefreshToken(ctx context.Context, in *RefreshTokenRequest, opts ...grpc.CallOption) (*RefreshTokenResponse, error)
+	// Retrospect token
 	RetrospectToken(ctx context.Context, in *RetrospectTokenRequest, opts ...grpc.CallOption) (*RetrospectTokenResponse, error)
+	// Decode access token
 	DecodeAccessToken(ctx context.Context, in *DecodeAccessTokenRequest, opts ...grpc.CallOption) (*DecodeAccessTokenResponse, error)
+	// Logout
 	Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error)
 }
 
@@ -110,12 +118,20 @@ func (c *authServiceClient) Logout(ctx context.Context, in *LogoutRequest, opts 
 // AuthServiceServer is the server API for AuthService service.
 // All implementations must embed UnimplementedAuthServiceServer
 // for forward compatibility.
+//
+// Auth service definition
 type AuthServiceServer interface {
+	// Login with email and password
 	Login(context.Context, *LoginRequest) (*LoginResponse, error)
+	// Register new account
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
+	// Refresh access token
 	RefreshToken(context.Context, *RefreshTokenRequest) (*RefreshTokenResponse, error)
+	// Retrospect token
 	RetrospectToken(context.Context, *RetrospectTokenRequest) (*RetrospectTokenResponse, error)
+	// Decode access token
 	DecodeAccessToken(context.Context, *DecodeAccessTokenRequest) (*DecodeAccessTokenResponse, error)
+	// Logout
 	Logout(context.Context, *LogoutRequest) (*LogoutResponse, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }

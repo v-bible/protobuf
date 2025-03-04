@@ -25,11 +25,17 @@ const (
 )
 
 type Account struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccountId     string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
-	Email         string                 `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
-	FirstName     string                 `protobuf:"bytes,3,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
-	LastName      string                 `protobuf:"bytes,4,opt,name=last_name,json=lastName,proto3" json:"last_name,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account ID
+	AccountId string `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	// Account email
+	Email string `protobuf:"bytes,2,opt,name=email,proto3" json:"email,omitempty"`
+	// Account first name
+	FirstName string `protobuf:"bytes,3,opt,name=first_name,json=firstName,proto3" json:"first_name,omitempty"`
+	// Account last name
+	LastName string `protobuf:"bytes,4,opt,name=last_name,json=lastName,proto3" json:"last_name,omitempty"`
+	// Account creation time
+	// Stored in UTC and follows RFC 3339 format
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -101,11 +107,17 @@ func (x *Account) GetCreatedAt() *timestamppb.Timestamp {
 }
 
 type AccountSession struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccountId     string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
-	Start         *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=start,proto3" json:"start,omitempty"`
-	LastAccess    *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=last_access,json=lastAccess,proto3" json:"last_access,omitempty"`
-	IpAddress     string                 `protobuf:"bytes,4,opt,name=ip_address,json=ipAddress,proto3" json:"ip_address,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account ID
+	AccountId string `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	// Account session start time
+	// Stored in UTC and follows RFC 3339 format
+	Start *timestamppb.Timestamp `protobuf:"bytes,2,opt,name=start,proto3" json:"start,omitempty"`
+	// Account session last access time
+	// Stored in UTC and follows RFC 3339 format
+	LastAccess *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=last_access,json=lastAccess,proto3" json:"last_access,omitempty"`
+	// Account session IP address
+	IpAddress     string `protobuf:"bytes,4,opt,name=ip_address,json=ipAddress,proto3" json:"ip_address,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -169,8 +181,9 @@ func (x *AccountSession) GetIpAddress() string {
 }
 
 type GetAccountByIdRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccountId     string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account ID
+	AccountId     string `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -213,8 +226,9 @@ func (x *GetAccountByIdRequest) GetAccountId() string {
 }
 
 type GetAccountByIdResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Account       *Account               `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account object
+	Account       *Account `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -257,8 +271,9 @@ func (x *GetAccountByIdResponse) GetAccount() *Account {
 }
 
 type GetAccountSessionRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccountId     string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account ID
+	AccountId     string `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -301,8 +316,9 @@ func (x *GetAccountSessionRequest) GetAccountId() string {
 }
 
 type GetAccountSessionResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Session       []*AccountSession      `protobuf:"bytes,1,rep,name=session,proto3" json:"session,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account session object
+	Session       []*AccountSession `protobuf:"bytes,1,rep,name=session,proto3" json:"session,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -345,8 +361,9 @@ func (x *GetAccountSessionResponse) GetSession() []*AccountSession {
 }
 
 type UpdateAccountRequest struct {
-	state     protoimpl.MessageState `protogen:"open.v1"`
-	AccountId string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account ID
+	AccountId string `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	// Request body
 	Body          *UpdateAccountRequest_Body `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -398,8 +415,9 @@ func (x *UpdateAccountRequest) GetBody() *UpdateAccountRequest_Body {
 }
 
 type UpdateAccountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Account       *Account               `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account object
+	Account       *Account `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -442,8 +460,9 @@ func (x *UpdateAccountResponse) GetAccount() *Account {
 }
 
 type UpdateAccountPasswordRequest struct {
-	state     protoimpl.MessageState `protogen:"open.v1"`
-	AccountId string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account ID
+	AccountId string `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	// Request body
 	Body          *UpdateAccountPasswordRequest_Body `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -495,8 +514,9 @@ func (x *UpdateAccountPasswordRequest) GetBody() *UpdateAccountPasswordRequest_B
 }
 
 type UpdateAccountPasswordResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Account       *Account               `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account object
+	Account       *Account `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -539,8 +559,9 @@ func (x *UpdateAccountPasswordResponse) GetAccount() *Account {
 }
 
 type DeleteAccountRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccountId     string                 `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account ID
+	AccountId     string `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -583,8 +604,9 @@ func (x *DeleteAccountRequest) GetAccountId() string {
 }
 
 type DeleteAccountResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Account       *Account               `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account object
+	Account       *Account `protobuf:"bytes,1,opt,name=account,proto3" json:"account,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -626,10 +648,13 @@ func (x *DeleteAccountResponse) GetAccount() *Account {
 	return nil
 }
 
+// Request body message
 type UpdateAccountRequest_Body struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	FirstName     *string                `protobuf:"bytes,1,opt,name=first_name,json=firstName,proto3,oneof" json:"first_name,omitempty"`
-	LastName      *string                `protobuf:"bytes,2,opt,name=last_name,json=lastName,proto3,oneof" json:"last_name,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account first name
+	FirstName *string `protobuf:"bytes,1,opt,name=first_name,json=firstName,proto3,oneof" json:"first_name,omitempty"`
+	// Account last name
+	LastName      *string `protobuf:"bytes,2,opt,name=last_name,json=lastName,proto3,oneof" json:"last_name,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -678,9 +703,11 @@ func (x *UpdateAccountRequest_Body) GetLastName() string {
 	return ""
 }
 
+// Request body message
 type UpdateAccountPasswordRequest_Body struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Password      string                 `protobuf:"bytes,1,opt,name=password,proto3" json:"password,omitempty"`
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Account password
+	Password      string `protobuf:"bytes,1,opt,name=password,proto3" json:"password,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
