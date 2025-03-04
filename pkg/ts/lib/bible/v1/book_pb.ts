@@ -128,7 +128,7 @@ export type BookChapter = Message<"bible.v1.BookChapter"> & {
 
   /**
    * Chapter last update time
-   * Stored in UTC and follows RFC
+   * Stored in UTC and follows RFC 3339 format
    *
    * @generated from field: google.protobuf.Timestamp updated_at = 5;
    */
