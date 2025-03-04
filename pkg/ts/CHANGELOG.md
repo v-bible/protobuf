@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.3](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.2...pkg/ts/v0.5.3) (2025-03-04)
+
+
+### Bug Fixes
+
+* **proto:** force publish ([1ca6a1c](https://github.com/v-bible/protobuf/commit/1ca6a1c9648860cd5f1b7434a319cbf9ced4ac40))
+
 ## [0.5.2](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.1...pkg/ts/v0.5.2) (2025-02-27)
 
 
