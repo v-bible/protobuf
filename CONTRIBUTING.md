@@ -48,6 +48,14 @@ Thank you for your interest in contributing! 🎉 This project is open to improv
 - Format code **consistently**.
 - Write **self-explanatory** and **well-structured** code.
 
+### Adding New Service
+
+When you add a new service, ensure that it:
+
+- Imports are updated in `pkg/ts/index.ts`.
+- Update service `URLS` environment in `docker-compose.yaml`.
+- Run Makefile `make gen-proto` to generate the service code.
+
 ## 💬 Need Help?
 
 If you have any questions or need guidance, feel free to:
