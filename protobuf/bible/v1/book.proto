@@ -107,7 +107,7 @@ message BookChapter {
   // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 4;
   // Chapter last update time
-  // Stored in UTC and follows RFC
+  // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 5;
   // Book ID
   string book_id = 6;

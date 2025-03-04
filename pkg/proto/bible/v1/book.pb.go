@@ -155,7 +155,7 @@ type BookChapter struct {
 	// Stored in UTC and follows RFC 3339 format
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Chapter last update time
-	// Stored in UTC and follows RFC
+	// Stored in UTC and follows RFC 3339 format
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Book ID
 	BookId        string `protobuf:"bytes,6,opt,name=book_id,json=bookId,proto3" json:"book_id,omitempty"`
