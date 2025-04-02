@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.5](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.5.4...pkg/proto/v0.5.5) (2025-04-02)
+
+
+### Miscellaneous Chores
+
+* **pkg/proto:** Synchronize protobuf versions
+
 ## [0.5.4](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.5.3...pkg/proto/v0.5.4) (2025-04-02)
 
 

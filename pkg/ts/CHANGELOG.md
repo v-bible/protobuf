@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.5](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.4...pkg/ts/v0.5.5) (2025-04-02)
+
+
+### Bug Fixes
+
+* move index.js to lib ([b3b6d66](https://github.com/v-bible/protobuf/commit/b3b6d66f73cda31ba18b033e2afbe33f4be959c2))
+* move index.js to lib ([4104cbb](https://github.com/v-bible/protobuf/commit/4104cbb45f3d69524c4608002118640500fde7af))
+
 ## [0.5.4](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.3...pkg/ts/v0.5.4) (2025-04-02)
 
 
