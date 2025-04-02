@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.6](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.5...pkg/ts/v0.5.6) (2025-04-02)
+
+
+### Bug Fixes
+
+* update publish ci/cd ([d807015](https://github.com/v-bible/protobuf/commit/d807015302919faf6056731ad0b4d3a2c23322c8))
+* update publish ci/cd ([adedacc](https://github.com/v-bible/protobuf/commit/adedacc856606ab6480efcbd4382dca9422a2ad6))
+
 ## [0.5.5](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.4...pkg/ts/v0.5.5) (2025-04-02)
 
 
