@@ -42,6 +42,7 @@ func request_VersionService_GetAllLanguage_0(ctx context.Context, marshaler runt
 		protoReq GetAllLanguageRequest
 		metadata runtime.ServerMetadata
 	)
+	io.Copy(io.Discard, req.Body)
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
@@ -74,6 +75,7 @@ func request_VersionService_GetAllVersion_0(ctx context.Context, marshaler runti
 		protoReq GetAllVersionRequest
 		metadata runtime.ServerMetadata
 	)
+	io.Copy(io.Discard, req.Body)
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
