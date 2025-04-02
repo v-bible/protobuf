@@ -8,10 +8,14 @@
     "url": "git+https://github.com/v-bible/backend.git"
   },
   "type": "module",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": "./lib/index.js"
+  },
   "scripts": {
-    "prepublish": "tsc"
+    "build": "tsc",
+    "prepublish": "npm run build"
   },
   "dependencies": {
     "@bufbuild/buf": "1.51.0",
