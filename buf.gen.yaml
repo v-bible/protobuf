@@ -25,9 +25,10 @@ plugins:
       # - generate_unbound_methods=true
   - remote: buf.build/grpc-ecosystem/openapiv2:v2.26.1
     out: ../openapi
-  - remote: buf.build/bufbuild/es:v2.2.5
+  - remote: buf.build/bufbuild/es:v2.2.4
     opt:
       - target=ts
+      - import_extension=js
     out: ./pkg/ts/lib
     include_imports: true
 
