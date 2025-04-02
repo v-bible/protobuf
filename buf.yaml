@@ -1,11 +1,12 @@
 version: v2
-name: buf.build/v-bible/backend
+modules:
+  - path: protobuf
 deps:
   - buf.build/googleapis/googleapis
   - buf.build/grpc-ecosystem/grpc-gateway
 lint:
   use:
-    - DEFAULT
+    - STANDARD
   except:
     - FIELD_NOT_REQUIRED
     - PACKAGE_NO_IMPORT_CYCLE
