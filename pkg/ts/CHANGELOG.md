@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.5.4](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.3...pkg/ts/v0.5.4) (2025-04-02)
+
+
+### Bug Fixes
+
+* manual export in index ([5462bc4](https://github.com/v-bible/protobuf/commit/5462bc4871b53b8f25259ae3d75f0235c0f79181))
+* **pkg:** add missing dep files for ts gen proto ([0d947c4](https://github.com/v-bible/protobuf/commit/0d947c41f6469febd80ab94551a60d6f298e21a4))
+* **pkg:** add missing dep files for ts gen proto ([4ca64ab](https://github.com/v-bible/protobuf/commit/4ca64ab58fea53e835c1efdfaf0105b650811f18))
+* **pkg:** bump packages ([f5ca0a1](https://github.com/v-bible/protobuf/commit/f5ca0a11513a05c54d8d9eaa6ca1d551c1943ba6))
+
 ## [0.5.3](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.2...pkg/ts/v0.5.3) (2025-03-04)
 
 
