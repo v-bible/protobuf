@@ -8,16 +8,16 @@
     "url": "git+https://github.com/v-bible/backend.git"
   },
   "type": "module",
-  "types": "index.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "prepublish": "barrelsby --delete"
+    "prepublish": "tsc"
   },
   "dependencies": {
     "@bufbuild/buf": "1.51.0",
     "@bufbuild/protobuf": "2.2.4"
   },
   "devDependencies": {
-    "barrelsby": "^2.8.1",
     "typescript": "5.8.2"
   },
   "pnpm": {
