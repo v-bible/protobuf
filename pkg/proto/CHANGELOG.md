@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.4](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.5.3...pkg/proto/v0.5.4) (2025-04-02)
+
+
+### Bug Fixes
+
+* **pkg:** add missing dep files for ts gen proto ([0d947c4](https://github.com/v-bible/protobuf/commit/0d947c41f6469febd80ab94551a60d6f298e21a4))
+* **pkg:** add missing dep files for ts gen proto ([4ca64ab](https://github.com/v-bible/protobuf/commit/4ca64ab58fea53e835c1efdfaf0105b650811f18))
+
 ## [0.5.3](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.5.2...pkg/proto/v0.5.3) (2025-03-04)
 
 
