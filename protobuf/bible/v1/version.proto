@@ -98,14 +98,16 @@ message VersionLanguage {
   string code = 2;
   // Language name
   string name = 3;
+  // Language web origin short name
+  string origin = 4;
   // Language web origin
-  string web_origin = 4;
+  string web_origin = 5;
   // Language creation time
   // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp created_at = 6;
   // Language last update time
   // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp updated_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
 }
 
 message GetAllLanguageRequest {

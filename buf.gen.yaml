@@ -15,7 +15,7 @@ plugins:
   - remote: buf.build/grpc/go:v1.5.1
     out: ./pkg/proto
     opt: paths=source_relative
-  - remote: buf.build/protocolbuffers/go:v1.36.5
+  - remote: buf.build/protocolbuffers/go:v1.36.6
     out: ./pkg/proto
     opt: paths=source_relative
   - remote: buf.build/grpc-ecosystem/gateway:v2.26.3
@@ -23,9 +23,9 @@ plugins:
     opt:
       - paths=source_relative
       # - generate_unbound_methods=true
-  - remote: buf.build/grpc-ecosystem/openapiv2:v2.26.1
+  - remote: buf.build/grpc-ecosystem/openapiv2:v2.26.3
     out: ../openapi
-  - remote: buf.build/bufbuild/es:v2.2.4
+  - remote: buf.build/bufbuild/es:v2.2.5
     opt:
       - target=ts
       - import_extension=js

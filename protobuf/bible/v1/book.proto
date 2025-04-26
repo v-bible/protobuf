@@ -154,9 +154,9 @@ message BookFootnote {
   // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 6;
   // Footnote verse ID
-  optional string verse_id = 7;
+  string verse_id = 7;
   // Footnote heading ID
-  optional string heading_id = 8;
+  string heading_id = 8;
   // Footnote chapter ID
   string chapter_id = 9;
 }
@@ -198,9 +198,9 @@ message BookReference {
   // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 6;
   // Reference verse ID
-  optional string verse_id = 7;
+  string verse_id = 7;
   // Reference heading ID
-  optional string heading_id = 8;
+  string heading_id = 8;
   // Reference chapter ID
   string chapter_id = 9;
 }
