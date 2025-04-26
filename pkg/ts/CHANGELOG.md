@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.7](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.6...pkg/ts/v0.5.7) (2025-04-26)
+
+
+### Bug Fixes
+
+* **protobuf:** add origin field ([d26332f](https://github.com/v-bible/protobuf/commit/d26332f2c07e05b1e10e5f5be8b03d150215da03))
+* **protobuf:** fn & ref requires verseId & headingId ([c4d4ac6](https://github.com/v-bible/protobuf/commit/c4d4ac6d21ef2f682f4aeda5f58df5ed8f079d03))
+* **protobuf:** fn & ref requires verseId & headingId ([d26332f](https://github.com/v-bible/protobuf/commit/d26332f2c07e05b1e10e5f5be8b03d150215da03))
+
 ## [0.5.6](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.5...pkg/ts/v0.5.6) (2025-04-02)
 
 
