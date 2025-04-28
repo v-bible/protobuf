@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.8](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.7...pkg/ts/v0.5.8) (2025-04-28)
+
+
+### Bug Fixes
+
+* **protobuf:** revert book fn & ref fields ([d94f087](https://github.com/v-bible/protobuf/commit/d94f0873c7cd818e810bd7b67c8a52b7e887f46f))
+* **protobuf:** revert book fn & ref fields ([4bf5595](https://github.com/v-bible/protobuf/commit/4bf5595dbeecedce6124bc7ad86e2df1875273be))
+
 ## [0.5.7](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.6...pkg/ts/v0.5.7) (2025-04-26)
 
 
