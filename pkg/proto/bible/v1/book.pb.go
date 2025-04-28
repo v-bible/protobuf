@@ -380,9 +380,9 @@ type BookFootnote struct {
 	// Stored in UTC and follows RFC 3339 format
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Footnote verse ID
-	VerseId string `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3" json:"verse_id,omitempty"`
+	VerseId *string `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3,oneof" json:"verse_id,omitempty"`
 	// Footnote heading ID
-	HeadingId string `protobuf:"bytes,8,opt,name=heading_id,json=headingId,proto3" json:"heading_id,omitempty"`
+	HeadingId *string `protobuf:"bytes,8,opt,name=heading_id,json=headingId,proto3,oneof" json:"heading_id,omitempty"`
 	// Footnote chapter ID
 	ChapterId     string `protobuf:"bytes,9,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -462,15 +462,15 @@ func (x *BookFootnote) GetUpdatedAt() *timestamppb.Timestamp {
 }
 
 func (x *BookFootnote) GetVerseId() string {
-	if x != nil {
-		return x.VerseId
+	if x != nil && x.VerseId != nil {
+		return *x.VerseId
 	}
 	return ""
 }
 
 func (x *BookFootnote) GetHeadingId() string {
-	if x != nil {
-		return x.HeadingId
+	if x != nil && x.HeadingId != nil {
+		return *x.HeadingId
 	}
 	return ""
 }
@@ -609,9 +609,9 @@ type BookReference struct {
 	// Stored in UTC and follows RFC 3339 format
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Reference verse ID
-	VerseId string `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3" json:"verse_id,omitempty"`
+	VerseId *string `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3,oneof" json:"verse_id,omitempty"`
 	// Reference heading ID
-	HeadingId string `protobuf:"bytes,8,opt,name=heading_id,json=headingId,proto3" json:"heading_id,omitempty"`
+	HeadingId *string `protobuf:"bytes,8,opt,name=heading_id,json=headingId,proto3,oneof" json:"heading_id,omitempty"`
 	// Reference chapter ID
 	ChapterId     string `protobuf:"bytes,9,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -691,15 +691,15 @@ func (x *BookReference) GetUpdatedAt() *timestamppb.Timestamp {
 }
 
 func (x *BookReference) GetVerseId() string {
-	if x != nil {
-		return x.VerseId
+	if x != nil && x.VerseId != nil {
+		return *x.VerseId
 	}
 	return ""
 }
 
 func (x *BookReference) GetHeadingId() string {
-	if x != nil {
-		return x.HeadingId
+	if x != nil && x.HeadingId != nil {
+		return *x.HeadingId
 	}
 	return ""
 }
@@ -1907,7 +1907,7 @@ const file_bible_v1_book_proto_rawDesc = "" +
 	"updated_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1d\n" +
 	"\n" +
 	"chapter_id\x18\n" +
-	" \x01(\tR\tchapterId\"\xb9\x02\n" +
+	" \x01(\tR\tchapterId\"\xdf\x02\n" +
 	"\fBookFootnote\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n" +
 	"\acontent\x18\x02 \x01(\tR\acontent\x12\x1a\n" +
@@ -1916,12 +1916,14 @@ const file_bible_v1_book_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x19\n" +
-	"\bverse_id\x18\a \x01(\tR\averseId\x12\x1d\n" +
+	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1e\n" +
+	"\bverse_id\x18\a \x01(\tH\x00R\averseId\x88\x01\x01\x12\"\n" +
 	"\n" +
-	"heading_id\x18\b \x01(\tR\theadingId\x12\x1d\n" +
+	"heading_id\x18\b \x01(\tH\x01R\theadingId\x88\x01\x01\x12\x1d\n" +
 	"\n" +
-	"chapter_id\x18\t \x01(\tR\tchapterId\"\x93\x02\n" +
+	"chapter_id\x18\t \x01(\tR\tchapterIdB\v\n" +
+	"\t_verse_idB\r\n" +
+	"\v_heading_id\"\x93\x02\n" +
 	"\vBookHeading\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n" +
 	"\acontent\x18\x02 \x01(\tR\acontent\x12\x14\n" +
@@ -1933,7 +1935,7 @@ const file_bible_v1_book_proto_rawDesc = "" +
 	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x19\n" +
 	"\bverse_id\x18\a \x01(\tR\averseId\x12\x1d\n" +
 	"\n" +
-	"chapter_id\x18\b \x01(\tR\tchapterId\"\xcc\x02\n" +
+	"chapter_id\x18\b \x01(\tR\tchapterId\"\xf2\x02\n" +
 	"\rBookReference\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n" +
 	"\acontent\x18\x02 \x01(\tR\acontent\x12\x1f\n" +
@@ -1942,13 +1944,15 @@ const file_bible_v1_book_proto_rawDesc = "" +
 	"\n" +
 	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x19\n" +
-	"\bverse_id\x18\a \x01(\tR\averseId\x12\x1d\n" +
+	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1e\n" +
+	"\bverse_id\x18\a \x01(\tH\x01R\averseId\x88\x01\x01\x12\"\n" +
 	"\n" +
-	"heading_id\x18\b \x01(\tR\theadingId\x12\x1d\n" +
+	"heading_id\x18\b \x01(\tH\x02R\theadingId\x88\x01\x01\x12\x1d\n" +
 	"\n" +
 	"chapter_id\x18\t \x01(\tR\tchapterIdB\v\n" +
-	"\t_position\"\xca\x01\n" +
+	"\t_positionB\v\n" +
+	"\t_verse_idB\r\n" +
+	"\v_heading_id\"\xca\x01\n" +
 	"\rPsalmMetadata\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x129\n" +
@@ -2162,6 +2166,7 @@ func file_bible_v1_book_proto_init() {
 	if File_bible_v1_book_proto != nil {
 		return
 	}
+	file_bible_v1_book_proto_msgTypes[3].OneofWrappers = []any{}
 	file_bible_v1_book_proto_msgTypes[5].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
