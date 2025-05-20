@@ -278,6 +278,8 @@ message GetOneChapterResponse {
   repeated BookReference references = 5;
   // Chapter psalm metadata
   repeated PsalmMetadata psalm_metadata = 6;
+  // Book object
+  Book book = 7;
 }
 
 message GetOneChapterTextRequest {

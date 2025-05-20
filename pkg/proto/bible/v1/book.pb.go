@@ -1114,6 +1114,8 @@ type GetOneChapterResponse struct {
 	References []*BookReference `protobuf:"bytes,5,rep,name=references,proto3" json:"references,omitempty"`
 	// Chapter psalm metadata
 	PsalmMetadata []*PsalmMetadata `protobuf:"bytes,6,rep,name=psalm_metadata,json=psalmMetadata,proto3" json:"psalm_metadata,omitempty"`
+	// Book object
+	Book          *Book `protobuf:"bytes,7,opt,name=book,proto3" json:"book,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -1186,6 +1188,13 @@ func (x *GetOneChapterResponse) GetReferences() []*BookReference {
 func (x *GetOneChapterResponse) GetPsalmMetadata() []*PsalmMetadata {
 	if x != nil {
 		return x.PsalmMetadata
+	}
+	return nil
+}
+
+func (x *GetOneChapterResponse) GetBook() *Book {
+	if x != nil {
+		return x.Book
 	}
 	return nil
 }
@@ -1984,7 +1993,7 @@ const file_bible_v1_book_proto_rawDesc = "" +
 	"\fversion_code\x18\x03 \x01(\tR\vversionCode\x12\x1b\n" +
 	"\tlang_code\x18\x04 \x01(\tR\blangCode\x12\x1d\n" +
 	"\n" +
-	"web_origin\x18\x05 \x01(\tR\twebOrigin\"\xd7\x02\n" +
+	"web_origin\x18\x05 \x01(\tR\twebOrigin\"\xfb\x02\n" +
 	"\x15GetOneChapterResponse\x12/\n" +
 	"\achapter\x18\x01 \x01(\v2\x15.bible.v1.BookChapterR\achapter\x12+\n" +
 	"\x06verses\x18\x02 \x03(\v2\x13.bible.v1.BookVerseR\x06verses\x124\n" +
@@ -1993,7 +2002,8 @@ const file_bible_v1_book_proto_rawDesc = "" +
 	"\n" +
 	"references\x18\x05 \x03(\v2\x17.bible.v1.BookReferenceR\n" +
 	"references\x12>\n" +
-	"\x0epsalm_metadata\x18\x06 \x03(\v2\x17.bible.v1.PsalmMetadataR\rpsalmMetadata\"\xb7\x01\n" +
+	"\x0epsalm_metadata\x18\x06 \x03(\v2\x17.bible.v1.PsalmMetadataR\rpsalmMetadata\x12\"\n" +
+	"\x04book\x18\a \x01(\v2\x0e.bible.v1.BookR\x04book\"\xb7\x01\n" +
 	"\x18GetOneChapterTextRequest\x12\x1b\n" +
 	"\tbook_code\x18\x01 \x01(\tR\bbookCode\x12\x1f\n" +
 	"\vchapter_num\x18\x02 \x01(\tR\n" +
@@ -2132,33 +2142,34 @@ var file_bible_v1_book_proto_depIdxs = []int32{
 	4,  // 20: bible.v1.GetOneChapterResponse.headings:type_name -> bible.v1.BookHeading
 	5,  // 21: bible.v1.GetOneChapterResponse.references:type_name -> bible.v1.BookReference
 	6,  // 22: bible.v1.GetOneChapterResponse.psalm_metadata:type_name -> bible.v1.PsalmMetadata
-	1,  // 23: bible.v1.GetBiblicalReferenceResponse.chapters:type_name -> bible.v1.BookChapter
-	2,  // 24: bible.v1.GetBiblicalReferenceResponse.verses:type_name -> bible.v1.BookVerse
-	3,  // 25: bible.v1.GetBiblicalReferenceResponse.footnotes:type_name -> bible.v1.BookFootnote
-	4,  // 26: bible.v1.GetBiblicalReferenceResponse.headings:type_name -> bible.v1.BookHeading
-	5,  // 27: bible.v1.GetBiblicalReferenceResponse.references:type_name -> bible.v1.BookReference
-	6,  // 28: bible.v1.GetBiblicalReferenceResponse.psalm_metadata:type_name -> bible.v1.PsalmMetadata
-	7,  // 29: bible.v1.BookService.GetAllBook:input_type -> bible.v1.GetAllBookRequest
-	9,  // 30: bible.v1.BookService.GetOneBook:input_type -> bible.v1.GetOneBookRequest
-	11, // 31: bible.v1.BookService.GetOneChapter:input_type -> bible.v1.GetOneChapterRequest
-	13, // 32: bible.v1.BookService.GetOneChapterText:input_type -> bible.v1.GetOneChapterTextRequest
-	15, // 33: bible.v1.BookService.GetOneChapterHtml:input_type -> bible.v1.GetOneChapterHtmlRequest
-	17, // 34: bible.v1.BookService.GetBiblicalReference:input_type -> bible.v1.GetBiblicalReferenceRequest
-	19, // 35: bible.v1.BookService.GetBiblicalReferenceText:input_type -> bible.v1.GetBiblicalReferenceTextRequest
-	21, // 36: bible.v1.BookService.GetBiblicalReferenceHtml:input_type -> bible.v1.GetBiblicalReferenceHtmlRequest
-	8,  // 37: bible.v1.BookService.GetAllBook:output_type -> bible.v1.GetAllBookResponse
-	10, // 38: bible.v1.BookService.GetOneBook:output_type -> bible.v1.GetOneBookResponse
-	12, // 39: bible.v1.BookService.GetOneChapter:output_type -> bible.v1.GetOneChapterResponse
-	14, // 40: bible.v1.BookService.GetOneChapterText:output_type -> bible.v1.GetOneChapterTextResponse
-	16, // 41: bible.v1.BookService.GetOneChapterHtml:output_type -> bible.v1.GetOneChapterHtmlResponse
-	18, // 42: bible.v1.BookService.GetBiblicalReference:output_type -> bible.v1.GetBiblicalReferenceResponse
-	20, // 43: bible.v1.BookService.GetBiblicalReferenceText:output_type -> bible.v1.GetBiblicalReferenceTextResponse
-	22, // 44: bible.v1.BookService.GetBiblicalReferenceHtml:output_type -> bible.v1.GetBiblicalReferenceHtmlResponse
-	37, // [37:45] is the sub-list for method output_type
-	29, // [29:37] is the sub-list for method input_type
-	29, // [29:29] is the sub-list for extension type_name
-	29, // [29:29] is the sub-list for extension extendee
-	0,  // [0:29] is the sub-list for field type_name
+	0,  // 23: bible.v1.GetOneChapterResponse.book:type_name -> bible.v1.Book
+	1,  // 24: bible.v1.GetBiblicalReferenceResponse.chapters:type_name -> bible.v1.BookChapter
+	2,  // 25: bible.v1.GetBiblicalReferenceResponse.verses:type_name -> bible.v1.BookVerse
+	3,  // 26: bible.v1.GetBiblicalReferenceResponse.footnotes:type_name -> bible.v1.BookFootnote
+	4,  // 27: bible.v1.GetBiblicalReferenceResponse.headings:type_name -> bible.v1.BookHeading
+	5,  // 28: bible.v1.GetBiblicalReferenceResponse.references:type_name -> bible.v1.BookReference
+	6,  // 29: bible.v1.GetBiblicalReferenceResponse.psalm_metadata:type_name -> bible.v1.PsalmMetadata
+	7,  // 30: bible.v1.BookService.GetAllBook:input_type -> bible.v1.GetAllBookRequest
+	9,  // 31: bible.v1.BookService.GetOneBook:input_type -> bible.v1.GetOneBookRequest
+	11, // 32: bible.v1.BookService.GetOneChapter:input_type -> bible.v1.GetOneChapterRequest
+	13, // 33: bible.v1.BookService.GetOneChapterText:input_type -> bible.v1.GetOneChapterTextRequest
+	15, // 34: bible.v1.BookService.GetOneChapterHtml:input_type -> bible.v1.GetOneChapterHtmlRequest
+	17, // 35: bible.v1.BookService.GetBiblicalReference:input_type -> bible.v1.GetBiblicalReferenceRequest
+	19, // 36: bible.v1.BookService.GetBiblicalReferenceText:input_type -> bible.v1.GetBiblicalReferenceTextRequest
+	21, // 37: bible.v1.BookService.GetBiblicalReferenceHtml:input_type -> bible.v1.GetBiblicalReferenceHtmlRequest
+	8,  // 38: bible.v1.BookService.GetAllBook:output_type -> bible.v1.GetAllBookResponse
+	10, // 39: bible.v1.BookService.GetOneBook:output_type -> bible.v1.GetOneBookResponse
+	12, // 40: bible.v1.BookService.GetOneChapter:output_type -> bible.v1.GetOneChapterResponse
+	14, // 41: bible.v1.BookService.GetOneChapterText:output_type -> bible.v1.GetOneChapterTextResponse
+	16, // 42: bible.v1.BookService.GetOneChapterHtml:output_type -> bible.v1.GetOneChapterHtmlResponse
+	18, // 43: bible.v1.BookService.GetBiblicalReference:output_type -> bible.v1.GetBiblicalReferenceResponse
+	20, // 44: bible.v1.BookService.GetBiblicalReferenceText:output_type -> bible.v1.GetBiblicalReferenceTextResponse
+	22, // 45: bible.v1.BookService.GetBiblicalReferenceHtml:output_type -> bible.v1.GetBiblicalReferenceHtmlResponse
+	38, // [38:46] is the sub-list for method output_type
+	30, // [30:38] is the sub-list for method input_type
+	30, // [30:30] is the sub-list for extension type_name
+	30, // [30:30] is the sub-list for extension extendee
+	0,  // [0:30] is the sub-list for field type_name
 }
 
 func init() { file_bible_v1_book_proto_init() }
