@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.9](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.8...pkg/ts/v0.5.9) (2025-05-20)
+
+
+### Bug Fixes
+
+* **protobuf:** update get one chapter response ([dd01b95](https://github.com/v-bible/protobuf/commit/dd01b95a8b407d3a0b20784518480acaf01b2d51))
+* **protobuf:** update get one chapter response ([8793631](https://github.com/v-bible/protobuf/commit/87936319d7d7412dfd23412f0b2be85def5f4027))
+
 ## [0.5.8](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.7...pkg/ts/v0.5.8) (2025-04-28)
 
 
