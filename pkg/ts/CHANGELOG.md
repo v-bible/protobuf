@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.5.11](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.10...pkg/ts/v0.5.11) (2025-06-18)
+
+
+### Bug Fixes
+
+* **protobuf:** mismatch versions ([4bb215a](https://github.com/v-bible/protobuf/commit/4bb215ac48f868523e4ba30a61d60ba93b01bbd3))
+* **protobuf:** mismatch versions ([56aacd6](https://github.com/v-bible/protobuf/commit/56aacd6d2d35272e14cca05ae3186c80e54c8426))
+
 ## [0.5.10](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.9...pkg/ts/v0.5.10) (2025-06-18)
 
 
