@@ -49,6 +49,7 @@
   - [Prerequisites](#bangbang-prerequisites)
   - [Run Locally](#running-run-locally)
 - [Usage](#eyes-usage)
+  - [Protobuf References](#protobuf-references)
   - [Makefile Targets](#makefile-targets)
   - [Swagger UI](#swagger-ui)
 - [Contributing](#wave-contributing)
@@ -92,6 +93,11 @@ go mod download
 <!-- Usage -->
 
 ## :eyes: Usage
+
+### Protobuf References
+
+Please go to file [docs/proto_references.md](./docs/proto_references.md) for
+more information about protobuf references.
 
 ### Makefile Targets
 
