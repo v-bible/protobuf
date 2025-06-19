@@ -921,6 +921,10 @@
             "$ref": "#/definitions/v1PsalmMetadata"
           },
           "title": "Chapter psalm metadata"
+        },
+        "book": {
+          "$ref": "#/definitions/v1Book",
+          "title": "Book object"
         }
       }
     },

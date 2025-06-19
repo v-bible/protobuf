@@ -253,6 +253,10 @@
           "type": "string",
           "title": "Language name"
         },
+        "origin": {
+          "type": "string",
+          "title": "Language web origin short name"
+        },
         "webOrigin": {
           "type": "string",
           "title": "Language web origin"

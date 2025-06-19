@@ -66,7 +66,11 @@
 
 ### :bangbang: Prerequisites
 
-- Go: `1.22.3`.
+- `asdf` environment: Please setup `asdf` to install corresponding dependencies
+  specified in `.tool-versions` file.
+
+  - nodejs: `https://github.com/asdf-vm/asdf-nodejs.git`.
+  - golang: `https://github.com/asdf-community/asdf-golang.git`.
 
 <!-- Run Locally -->
 
