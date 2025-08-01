@@ -140,7 +140,7 @@ func request_BookService_GetOneChapter_0(ctx context.Context, marshaler runtime.
 	if !ok {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "chapter_num")
 	}
-	protoReq.ChapterNum, err = runtime.String(val)
+	protoReq.ChapterNum, err = runtime.Int32(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "chapter_num", err)
 	}
@@ -172,7 +172,7 @@ func local_request_BookService_GetOneChapter_0(ctx context.Context, marshaler ru
 	if !ok {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "chapter_num")
 	}
-	protoReq.ChapterNum, err = runtime.String(val)
+	protoReq.ChapterNum, err = runtime.Int32(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "chapter_num", err)
 	}
@@ -207,7 +207,7 @@ func request_BookService_GetOneChapterText_0(ctx context.Context, marshaler runt
 	if !ok {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "chapter_num")
 	}
-	protoReq.ChapterNum, err = runtime.String(val)
+	protoReq.ChapterNum, err = runtime.Int32(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "chapter_num", err)
 	}
@@ -239,7 +239,7 @@ func local_request_BookService_GetOneChapterText_0(ctx context.Context, marshale
 	if !ok {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "chapter_num")
 	}
-	protoReq.ChapterNum, err = runtime.String(val)
+	protoReq.ChapterNum, err = runtime.Int32(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "chapter_num", err)
 	}
@@ -274,7 +274,7 @@ func request_BookService_GetOneChapterHtml_0(ctx context.Context, marshaler runt
 	if !ok {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "chapter_num")
 	}
-	protoReq.ChapterNum, err = runtime.String(val)
+	protoReq.ChapterNum, err = runtime.Int32(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "chapter_num", err)
 	}
@@ -306,7 +306,7 @@ func local_request_BookService_GetOneChapterHtml_0(ctx context.Context, marshale
 	if !ok {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "chapter_num")
 	}
-	protoReq.ChapterNum, err = runtime.String(val)
+	protoReq.ChapterNum, err = runtime.Int32(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "chapter_num", err)
 	}

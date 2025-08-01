@@ -32,22 +32,26 @@ type Version struct {
 	Code string `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
 	// Version name
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	// Version only NT
-	OnlyNt bool `protobuf:"varint,4,opt,name=only_nt,json=onlyNt,proto3" json:"only_nt,omitempty"`
-	// Version only OT
-	OnlyOt bool `protobuf:"varint,5,opt,name=only_ot,json=onlyOt,proto3" json:"only_ot,omitempty"`
-	// Version with apocrypha
-	WithApocrypha bool `protobuf:"varint,6,opt,name=with_apocrypha,json=withApocrypha,proto3" json:"with_apocrypha,omitempty"`
+	// Version language
+	Language string `protobuf:"bytes,4,opt,name=language,proto3" json:"language,omitempty"`
+	// Version source
+	Source string `protobuf:"bytes,5,opt,name=source,proto3" json:"source,omitempty"`
+	// Version format type
+	FormatType string `protobuf:"bytes,6,opt,name=format_type,json=formatType,proto3" json:"format_type,omitempty"`
+	// Version source URL
+	SourceUrl string `protobuf:"bytes,7,opt,name=source_url,json=sourceUrl,proto3" json:"source_url,omitempty"`
+	// Version has old testament
+	HasOldTestament bool `protobuf:"varint,8,opt,name=has_old_testament,json=hasOldTestament,proto3" json:"has_old_testament,omitempty"`
+	// Version has new testament
+	HasNewTestament bool `protobuf:"varint,9,opt,name=has_new_testament,json=hasNewTestament,proto3" json:"has_new_testament,omitempty"`
+	// Version has apocrypha
+	HasApocrypha bool `protobuf:"varint,10,opt,name=has_apocrypha,json=hasApocrypha,proto3" json:"has_apocrypha,omitempty"`
 	// Version creation time
 	// Stored in UTC and follows RFC 3339 format
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Version last update time
 	// Stored in UTC and follows RFC 3339 format
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Version formats
-	Formats []*VersionFormat `protobuf:"bytes,9,rep,name=formats,proto3" json:"formats,omitempty"`
-	// Language ID
-	LanguageId    string `protobuf:"bytes,10,opt,name=language_id,json=languageId,proto3" json:"language_id,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,12,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -103,23 +107,51 @@ func (x *Version) GetName() string {
 	return ""
 }
 
-func (x *Version) GetOnlyNt() bool {
+func (x *Version) GetLanguage() string {
 	if x != nil {
-		return x.OnlyNt
+		return x.Language
+	}
+	return ""
+}
+
+func (x *Version) GetSource() string {
+	if x != nil {
+		return x.Source
+	}
+	return ""
+}
+
+func (x *Version) GetFormatType() string {
+	if x != nil {
+		return x.FormatType
+	}
+	return ""
+}
+
+func (x *Version) GetSourceUrl() string {
+	if x != nil {
+		return x.SourceUrl
+	}
+	return ""
+}
+
+func (x *Version) GetHasOldTestament() bool {
+	if x != nil {
+		return x.HasOldTestament
 	}
 	return false
 }
 
-func (x *Version) GetOnlyOt() bool {
+func (x *Version) GetHasNewTestament() bool {
 	if x != nil {
-		return x.OnlyOt
+		return x.HasNewTestament
 	}
 	return false
 }
 
-func (x *Version) GetWithApocrypha() bool {
+func (x *Version) GetHasApocrypha() bool {
 	if x != nil {
-		return x.WithApocrypha
+		return x.HasApocrypha
 	}
 	return false
 }
@@ -138,318 +170,21 @@ func (x *Version) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Version) GetFormats() []*VersionFormat {
-	if x != nil {
-		return x.Formats
-	}
-	return nil
-}
-
-func (x *Version) GetLanguageId() string {
-	if x != nil {
-		return x.LanguageId
-	}
-	return ""
-}
-
-type VersionFormat struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Format ID
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Format type
-	Type string `protobuf:"bytes,2,opt,name=type,proto3" json:"type,omitempty"`
-	// Format source reference URL
-	Ref string `protobuf:"bytes,3,opt,name=ref,proto3" json:"ref,omitempty"`
-	// Format creation time
-	// Stored in UTC and follows RFC 3339 format
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Format last update time
-	// Stored in UTC and follows RFC 3339 format
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Version ID
-	VersionId     string `protobuf:"bytes,6,opt,name=version_id,json=versionId,proto3" json:"version_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *VersionFormat) Reset() {
-	*x = VersionFormat{}
-	mi := &file_bible_v1_version_proto_msgTypes[1]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *VersionFormat) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*VersionFormat) ProtoMessage() {}
-
-func (x *VersionFormat) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_version_proto_msgTypes[1]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use VersionFormat.ProtoReflect.Descriptor instead.
-func (*VersionFormat) Descriptor() ([]byte, []int) {
-	return file_bible_v1_version_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *VersionFormat) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *VersionFormat) GetType() string {
-	if x != nil {
-		return x.Type
-	}
-	return ""
-}
-
-func (x *VersionFormat) GetRef() string {
-	if x != nil {
-		return x.Ref
-	}
-	return ""
-}
-
-func (x *VersionFormat) GetCreatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return nil
-}
-
-func (x *VersionFormat) GetUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return nil
-}
-
-func (x *VersionFormat) GetVersionId() string {
-	if x != nil {
-		return x.VersionId
-	}
-	return ""
-}
-
-type VersionLanguage struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Language ID
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Language code
-	Code string `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
-	// Language name
-	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
-	// Language web origin short name
-	Origin string `protobuf:"bytes,4,opt,name=origin,proto3" json:"origin,omitempty"`
-	// Language web origin
-	WebOrigin string `protobuf:"bytes,5,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
-	// Language creation time
-	// Stored in UTC and follows RFC 3339 format
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Language last update time
-	// Stored in UTC and follows RFC 3339 format
-	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *VersionLanguage) Reset() {
-	*x = VersionLanguage{}
-	mi := &file_bible_v1_version_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *VersionLanguage) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*VersionLanguage) ProtoMessage() {}
-
-func (x *VersionLanguage) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_version_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use VersionLanguage.ProtoReflect.Descriptor instead.
-func (*VersionLanguage) Descriptor() ([]byte, []int) {
-	return file_bible_v1_version_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *VersionLanguage) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *VersionLanguage) GetCode() string {
-	if x != nil {
-		return x.Code
-	}
-	return ""
-}
-
-func (x *VersionLanguage) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *VersionLanguage) GetOrigin() string {
-	if x != nil {
-		return x.Origin
-	}
-	return ""
-}
-
-func (x *VersionLanguage) GetWebOrigin() string {
-	if x != nil {
-		return x.WebOrigin
-	}
-	return ""
-}
-
-func (x *VersionLanguage) GetCreatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return nil
-}
-
-func (x *VersionLanguage) GetUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return nil
-}
-
-type GetAllLanguageRequest struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Web origin query params
-	WebOrigin     *string `protobuf:"bytes,1,opt,name=web_origin,json=webOrigin,proto3,oneof" json:"web_origin,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllLanguageRequest) Reset() {
-	*x = GetAllLanguageRequest{}
-	mi := &file_bible_v1_version_proto_msgTypes[3]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllLanguageRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllLanguageRequest) ProtoMessage() {}
-
-func (x *GetAllLanguageRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_version_proto_msgTypes[3]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllLanguageRequest.ProtoReflect.Descriptor instead.
-func (*GetAllLanguageRequest) Descriptor() ([]byte, []int) {
-	return file_bible_v1_version_proto_rawDescGZIP(), []int{3}
-}
-
-func (x *GetAllLanguageRequest) GetWebOrigin() string {
-	if x != nil && x.WebOrigin != nil {
-		return *x.WebOrigin
-	}
-	return ""
-}
-
-type GetAllLanguageResponse struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Language list
-	Languages     []*VersionLanguage `protobuf:"bytes,1,rep,name=languages,proto3" json:"languages,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetAllLanguageResponse) Reset() {
-	*x = GetAllLanguageResponse{}
-	mi := &file_bible_v1_version_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetAllLanguageResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetAllLanguageResponse) ProtoMessage() {}
-
-func (x *GetAllLanguageResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_version_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetAllLanguageResponse.ProtoReflect.Descriptor instead.
-func (*GetAllLanguageResponse) Descriptor() ([]byte, []int) {
-	return file_bible_v1_version_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *GetAllLanguageResponse) GetLanguages() []*VersionLanguage {
-	if x != nil {
-		return x.Languages
-	}
-	return nil
-}
-
 type GetAllVersionRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Version code query params
-	VersionCode *string `protobuf:"bytes,1,opt,name=version_code,json=versionCode,proto3,oneof" json:"version_code,omitempty"`
-	// Language code query params
-	LangCode *string `protobuf:"bytes,2,opt,name=lang_code,json=langCode,proto3,oneof" json:"lang_code,omitempty"`
-	// Web origin query params
-	WebOrigin     *string `protobuf:"bytes,3,opt,name=web_origin,json=webOrigin,proto3,oneof" json:"web_origin,omitempty"`
+	// Language filter (optional - indexed in Prisma)
+	Language *string `protobuf:"bytes,1,opt,name=language,proto3,oneof" json:"language,omitempty"`
+	// Source filter (optional - indexed in Prisma)
+	Source *string `protobuf:"bytes,2,opt,name=source,proto3,oneof" json:"source,omitempty"`
+	// Format type filter (optional - indexed in Prisma)
+	FormatType    *string `protobuf:"bytes,3,opt,name=format_type,json=formatType,proto3,oneof" json:"format_type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetAllVersionRequest) Reset() {
 	*x = GetAllVersionRequest{}
-	mi := &file_bible_v1_version_proto_msgTypes[5]
+	mi := &file_bible_v1_version_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -461,7 +196,7 @@ func (x *GetAllVersionRequest) String() string {
 func (*GetAllVersionRequest) ProtoMessage() {}
 
 func (x *GetAllVersionRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_version_proto_msgTypes[5]
+	mi := &file_bible_v1_version_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -474,26 +209,26 @@ func (x *GetAllVersionRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllVersionRequest.ProtoReflect.Descriptor instead.
 func (*GetAllVersionRequest) Descriptor() ([]byte, []int) {
-	return file_bible_v1_version_proto_rawDescGZIP(), []int{5}
+	return file_bible_v1_version_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *GetAllVersionRequest) GetVersionCode() string {
-	if x != nil && x.VersionCode != nil {
-		return *x.VersionCode
+func (x *GetAllVersionRequest) GetLanguage() string {
+	if x != nil && x.Language != nil {
+		return *x.Language
 	}
 	return ""
 }
 
-func (x *GetAllVersionRequest) GetLangCode() string {
-	if x != nil && x.LangCode != nil {
-		return *x.LangCode
+func (x *GetAllVersionRequest) GetSource() string {
+	if x != nil && x.Source != nil {
+		return *x.Source
 	}
 	return ""
 }
 
-func (x *GetAllVersionRequest) GetWebOrigin() string {
-	if x != nil && x.WebOrigin != nil {
-		return *x.WebOrigin
+func (x *GetAllVersionRequest) GetFormatType() string {
+	if x != nil && x.FormatType != nil {
+		return *x.FormatType
 	}
 	return ""
 }
@@ -508,7 +243,7 @@ type GetAllVersionResponse struct {
 
 func (x *GetAllVersionResponse) Reset() {
 	*x = GetAllVersionResponse{}
-	mi := &file_bible_v1_version_proto_msgTypes[6]
+	mi := &file_bible_v1_version_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -520,7 +255,7 @@ func (x *GetAllVersionResponse) String() string {
 func (*GetAllVersionResponse) ProtoMessage() {}
 
 func (x *GetAllVersionResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_version_proto_msgTypes[6]
+	mi := &file_bible_v1_version_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -533,7 +268,7 @@ func (x *GetAllVersionResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllVersionResponse.ProtoReflect.Descriptor instead.
 func (*GetAllVersionResponse) Descriptor() ([]byte, []int) {
-	return file_bible_v1_version_proto_rawDescGZIP(), []int{6}
+	return file_bible_v1_version_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetAllVersionResponse) GetVersions() []*Version {
@@ -543,68 +278,156 @@ func (x *GetAllVersionResponse) GetVersions() []*Version {
 	return nil
 }
 
+type GetOneVersionRequest struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Version code (required - part of unique constraint)
+	VersionCode string `protobuf:"bytes,1,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
+	// Language code (required - part of unique constraint)
+	Language string `protobuf:"bytes,2,opt,name=language,proto3" json:"language,omitempty"`
+	// Source (required - part of unique constraint)
+	Source        string `protobuf:"bytes,3,opt,name=source,proto3" json:"source,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOneVersionRequest) Reset() {
+	*x = GetOneVersionRequest{}
+	mi := &file_bible_v1_version_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOneVersionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOneVersionRequest) ProtoMessage() {}
+
+func (x *GetOneVersionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_bible_v1_version_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOneVersionRequest.ProtoReflect.Descriptor instead.
+func (*GetOneVersionRequest) Descriptor() ([]byte, []int) {
+	return file_bible_v1_version_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetOneVersionRequest) GetVersionCode() string {
+	if x != nil {
+		return x.VersionCode
+	}
+	return ""
+}
+
+func (x *GetOneVersionRequest) GetLanguage() string {
+	if x != nil {
+		return x.Language
+	}
+	return ""
+}
+
+func (x *GetOneVersionRequest) GetSource() string {
+	if x != nil {
+		return x.Source
+	}
+	return ""
+}
+
+type GetOneVersionResponse struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Version object
+	Version       *Version `protobuf:"bytes,1,opt,name=version,proto3" json:"version,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOneVersionResponse) Reset() {
+	*x = GetOneVersionResponse{}
+	mi := &file_bible_v1_version_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOneVersionResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOneVersionResponse) ProtoMessage() {}
+
+func (x *GetOneVersionResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_bible_v1_version_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOneVersionResponse.ProtoReflect.Descriptor instead.
+func (*GetOneVersionResponse) Descriptor() ([]byte, []int) {
+	return file_bible_v1_version_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetOneVersionResponse) GetVersion() *Version {
+	if x != nil {
+		return x.Version
+	}
+	return nil
+}
+
 var File_bible_v1_version_proto protoreflect.FileDescriptor
 
 const file_bible_v1_version_proto_rawDesc = "" +
 	"\n" +
-	"\x16bible/v1/version.proto\x12\bbible.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"\xe4\x02\n" +
+	"\x16bible/v1/version.proto\x12\bbible.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"\xa8\x03\n" +
 	"\aVersion\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
 	"\x04code\x18\x02 \x01(\tR\x04code\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\x12\x17\n" +
-	"\aonly_nt\x18\x04 \x01(\bR\x06onlyNt\x12\x17\n" +
-	"\aonly_ot\x18\x05 \x01(\bR\x06onlyOt\x12%\n" +
-	"\x0ewith_apocrypha\x18\x06 \x01(\bR\rwithApocrypha\x129\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x12\x1a\n" +
+	"\blanguage\x18\x04 \x01(\tR\blanguage\x12\x16\n" +
+	"\x06source\x18\x05 \x01(\tR\x06source\x12\x1f\n" +
+	"\vformat_type\x18\x06 \x01(\tR\n" +
+	"formatType\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"source_url\x18\a \x01(\tR\tsourceUrl\x12*\n" +
+	"\x11has_old_testament\x18\b \x01(\bR\x0fhasOldTestament\x12*\n" +
+	"\x11has_new_testament\x18\t \x01(\bR\x0fhasNewTestament\x12#\n" +
+	"\rhas_apocrypha\x18\n" +
+	" \x01(\bR\fhasApocrypha\x129\n" +
 	"\n" +
-	"updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x121\n" +
-	"\aformats\x18\t \x03(\v2\x17.bible.v1.VersionFormatR\aformats\x12\x1f\n" +
-	"\vlanguage_id\x18\n" +
-	" \x01(\tR\n" +
-	"languageId\"\xda\x01\n" +
-	"\rVersionFormat\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
-	"\x04type\x18\x02 \x01(\tR\x04type\x12\x10\n" +
-	"\x03ref\x18\x03 \x01(\tR\x03ref\x129\n" +
+	"created_at\x18\v \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"created_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
-	"\n" +
-	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1d\n" +
-	"\n" +
-	"version_id\x18\x06 \x01(\tR\tversionId\"\xf6\x01\n" +
-	"\x0fVersionLanguage\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
-	"\x04code\x18\x02 \x01(\tR\x04code\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04name\x12\x16\n" +
-	"\x06origin\x18\x04 \x01(\tR\x06origin\x12\x1d\n" +
-	"\n" +
-	"web_origin\x18\x05 \x01(\tR\twebOrigin\x129\n" +
-	"\n" +
-	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
-	"\n" +
-	"updated_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"J\n" +
-	"\x15GetAllLanguageRequest\x12\"\n" +
-	"\n" +
-	"web_origin\x18\x01 \x01(\tH\x00R\twebOrigin\x88\x01\x01B\r\n" +
-	"\v_web_origin\"Q\n" +
-	"\x16GetAllLanguageResponse\x127\n" +
-	"\tlanguages\x18\x01 \x03(\v2\x19.bible.v1.VersionLanguageR\tlanguages\"\xb2\x01\n" +
-	"\x14GetAllVersionRequest\x12&\n" +
-	"\fversion_code\x18\x01 \x01(\tH\x00R\vversionCode\x88\x01\x01\x12 \n" +
-	"\tlang_code\x18\x02 \x01(\tH\x01R\blangCode\x88\x01\x01\x12\"\n" +
-	"\n" +
-	"web_origin\x18\x03 \x01(\tH\x02R\twebOrigin\x88\x01\x01B\x0f\n" +
-	"\r_version_codeB\f\n" +
-	"\n" +
-	"_lang_codeB\r\n" +
-	"\v_web_origin\"F\n" +
+	"updated_at\x18\f \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"\xa2\x01\n" +
+	"\x14GetAllVersionRequest\x12\x1f\n" +
+	"\blanguage\x18\x01 \x01(\tH\x00R\blanguage\x88\x01\x01\x12\x1b\n" +
+	"\x06source\x18\x02 \x01(\tH\x01R\x06source\x88\x01\x01\x12$\n" +
+	"\vformat_type\x18\x03 \x01(\tH\x02R\n" +
+	"formatType\x88\x01\x01B\v\n" +
+	"\t_languageB\t\n" +
+	"\a_sourceB\x0e\n" +
+	"\f_format_type\"F\n" +
 	"\x15GetAllVersionResponse\x12-\n" +
-	"\bversions\x18\x01 \x03(\v2\x11.bible.v1.VersionR\bversions2\xde\x01\n" +
+	"\bversions\x18\x01 \x03(\v2\x11.bible.v1.VersionR\bversions\"m\n" +
+	"\x14GetOneVersionRequest\x12!\n" +
+	"\fversion_code\x18\x01 \x01(\tR\vversionCode\x12\x1a\n" +
+	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x16\n" +
+	"\x06source\x18\x03 \x01(\tR\x06source\"D\n" +
+	"\x15GetOneVersionResponse\x12+\n" +
+	"\aversion\x18\x01 \x01(\v2\x11.bible.v1.VersionR\aversion2\x82\x02\n" +
 	"\x0eVersionService\x12e\n" +
-	"\x0eGetAllLanguage\x12\x1f.bible.v1.GetAllLanguageRequest\x1a .bible.v1.GetAllLanguageResponse\"\x10\x82\xd3\xe4\x93\x02\n" +
-	"\x12\b/v1/lang\x12e\n" +
-	"\rGetAllVersion\x12\x1e.bible.v1.GetAllVersionRequest\x1a\x1f.bible.v1.GetAllVersionResponse\"\x13\x82\xd3\xe4\x93\x02\r\x12\v/v1/versionB\xfa\x02\x92A\xe1\x01\x12p\n" +
+	"\rGetAllVersion\x12\x1e.bible.v1.GetAllVersionRequest\x1a\x1f.bible.v1.GetAllVersionResponse\"\x13\x82\xd3\xe4\x93\x02\r\x12\v/v1/version\x12\x88\x01\n" +
+	"\rGetOneVersion\x12\x1e.bible.v1.GetOneVersionRequest\x1a\x1f.bible.v1.GetOneVersionResponse\"6\x82\xd3\xe4\x93\x020\x12./v1/version/{version_code}/{language}/{source}B\xfa\x02\x92A\xe1\x01\x12p\n" +
 	"\x18Bible Version server API\x12\x18Bible Version server API\"3\n" +
 	"\x0eDuckyMomo20012\x12!https://github.com/DuckyMomo200122\x051.0.0\"\x04/apiZY\n" +
 	"W\n" +
@@ -626,36 +449,29 @@ func file_bible_v1_version_proto_rawDescGZIP() []byte {
 	return file_bible_v1_version_proto_rawDescData
 }
 
-var file_bible_v1_version_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_bible_v1_version_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_bible_v1_version_proto_goTypes = []any{
-	(*Version)(nil),                // 0: bible.v1.Version
-	(*VersionFormat)(nil),          // 1: bible.v1.VersionFormat
-	(*VersionLanguage)(nil),        // 2: bible.v1.VersionLanguage
-	(*GetAllLanguageRequest)(nil),  // 3: bible.v1.GetAllLanguageRequest
-	(*GetAllLanguageResponse)(nil), // 4: bible.v1.GetAllLanguageResponse
-	(*GetAllVersionRequest)(nil),   // 5: bible.v1.GetAllVersionRequest
-	(*GetAllVersionResponse)(nil),  // 6: bible.v1.GetAllVersionResponse
-	(*timestamppb.Timestamp)(nil),  // 7: google.protobuf.Timestamp
+	(*Version)(nil),               // 0: bible.v1.Version
+	(*GetAllVersionRequest)(nil),  // 1: bible.v1.GetAllVersionRequest
+	(*GetAllVersionResponse)(nil), // 2: bible.v1.GetAllVersionResponse
+	(*GetOneVersionRequest)(nil),  // 3: bible.v1.GetOneVersionRequest
+	(*GetOneVersionResponse)(nil), // 4: bible.v1.GetOneVersionResponse
+	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 }
 var file_bible_v1_version_proto_depIdxs = []int32{
-	7,  // 0: bible.v1.Version.created_at:type_name -> google.protobuf.Timestamp
-	7,  // 1: bible.v1.Version.updated_at:type_name -> google.protobuf.Timestamp
-	1,  // 2: bible.v1.Version.formats:type_name -> bible.v1.VersionFormat
-	7,  // 3: bible.v1.VersionFormat.created_at:type_name -> google.protobuf.Timestamp
-	7,  // 4: bible.v1.VersionFormat.updated_at:type_name -> google.protobuf.Timestamp
-	7,  // 5: bible.v1.VersionLanguage.created_at:type_name -> google.protobuf.Timestamp
-	7,  // 6: bible.v1.VersionLanguage.updated_at:type_name -> google.protobuf.Timestamp
-	2,  // 7: bible.v1.GetAllLanguageResponse.languages:type_name -> bible.v1.VersionLanguage
-	0,  // 8: bible.v1.GetAllVersionResponse.versions:type_name -> bible.v1.Version
-	3,  // 9: bible.v1.VersionService.GetAllLanguage:input_type -> bible.v1.GetAllLanguageRequest
-	5,  // 10: bible.v1.VersionService.GetAllVersion:input_type -> bible.v1.GetAllVersionRequest
-	4,  // 11: bible.v1.VersionService.GetAllLanguage:output_type -> bible.v1.GetAllLanguageResponse
-	6,  // 12: bible.v1.VersionService.GetAllVersion:output_type -> bible.v1.GetAllVersionResponse
-	11, // [11:13] is the sub-list for method output_type
-	9,  // [9:11] is the sub-list for method input_type
-	9,  // [9:9] is the sub-list for extension type_name
-	9,  // [9:9] is the sub-list for extension extendee
-	0,  // [0:9] is the sub-list for field type_name
+	5, // 0: bible.v1.Version.created_at:type_name -> google.protobuf.Timestamp
+	5, // 1: bible.v1.Version.updated_at:type_name -> google.protobuf.Timestamp
+	0, // 2: bible.v1.GetAllVersionResponse.versions:type_name -> bible.v1.Version
+	0, // 3: bible.v1.GetOneVersionResponse.version:type_name -> bible.v1.Version
+	1, // 4: bible.v1.VersionService.GetAllVersion:input_type -> bible.v1.GetAllVersionRequest
+	3, // 5: bible.v1.VersionService.GetOneVersion:input_type -> bible.v1.GetOneVersionRequest
+	2, // 6: bible.v1.VersionService.GetAllVersion:output_type -> bible.v1.GetAllVersionResponse
+	4, // 7: bible.v1.VersionService.GetOneVersion:output_type -> bible.v1.GetOneVersionResponse
+	6, // [6:8] is the sub-list for method output_type
+	4, // [4:6] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_bible_v1_version_proto_init() }
@@ -663,15 +479,14 @@ func file_bible_v1_version_proto_init() {
 	if File_bible_v1_version_proto != nil {
 		return
 	}
-	file_bible_v1_version_proto_msgTypes[3].OneofWrappers = []any{}
-	file_bible_v1_version_proto_msgTypes[5].OneofWrappers = []any{}
+	file_bible_v1_version_proto_msgTypes[1].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bible_v1_version_proto_rawDesc), len(file_bible_v1_version_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

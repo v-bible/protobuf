@@ -43,21 +43,28 @@
         "parameters": [
           {
             "name": "versionCode",
-            "description": "Version code query params",
+            "description": "Version code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "langCode",
-            "description": "Language code query params",
+            "name": "language",
+            "description": "Language code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "webOrigin",
-            "description": "Web origin query params",
+            "name": "source",
+            "description": "Source (required - part of unique constraint)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "testament",
+            "description": "Testament filter (optional: ot, nt, apocrypha)",
             "in": "query",
             "required": false,
             "type": "string"
@@ -89,28 +96,28 @@
         "parameters": [
           {
             "name": "bookCode",
-            "description": "Book code",
+            "description": "Book code (required)",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Version code query params",
+            "description": "Version code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "langCode",
-            "description": "Language code query params",
+            "name": "language",
+            "description": "Language code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "webOrigin",
-            "description": "Web origin query params",
+            "name": "source",
+            "description": "Source (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
@@ -142,35 +149,36 @@
         "parameters": [
           {
             "name": "bookCode",
-            "description": "Book code",
+            "description": "Book code (required)",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "chapterNum",
-            "description": "Chapter number",
+            "description": "Chapter number (required)",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "format": "int32"
           },
           {
             "name": "versionCode",
-            "description": "Version code query params",
+            "description": "Version code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "langCode",
-            "description": "Language code query params",
+            "name": "language",
+            "description": "Language code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "webOrigin",
-            "description": "Web origin query params",
+            "name": "source",
+            "description": "Source (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
@@ -202,35 +210,36 @@
         "parameters": [
           {
             "name": "bookCode",
-            "description": "Book code",
+            "description": "Book code (required)",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "chapterNum",
-            "description": "Chapter number",
+            "description": "Chapter number (required)",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "format": "int32"
           },
           {
             "name": "versionCode",
-            "description": "Version code query params",
+            "description": "Version code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "langCode",
-            "description": "Language code query params",
+            "name": "language",
+            "description": "Language code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "webOrigin",
-            "description": "Web origin query params",
+            "name": "source",
+            "description": "Source (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
@@ -262,35 +271,36 @@
         "parameters": [
           {
             "name": "bookCode",
-            "description": "Book code",
+            "description": "Book code (required)",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "chapterNum",
-            "description": "Chapter number",
+            "description": "Chapter number (required)",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "integer",
+            "format": "int32"
           },
           {
             "name": "versionCode",
-            "description": "Version code query params",
+            "description": "Version code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "langCode",
-            "description": "Language code query params",
+            "name": "language",
+            "description": "Language code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "webOrigin",
-            "description": "Web origin query params",
+            "name": "source",
+            "description": "Source (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
@@ -322,28 +332,28 @@
         "parameters": [
           {
             "name": "query",
-            "description": "Query string",
+            "description": "Query string (e.g., \"John 3:16\", \"Genesis 1:1-3\")",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Version code query params",
+            "description": "Version code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "langCode",
-            "description": "Language code query params",
+            "name": "language",
+            "description": "Language code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "webOrigin",
-            "description": "Web origin query params",
+            "name": "source",
+            "description": "Source (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
@@ -382,28 +392,28 @@
         "parameters": [
           {
             "name": "query",
-            "description": "Query string",
+            "description": "Query string (e.g., \"John 3:16\", \"Genesis 1:1-3\")",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Version code query params",
+            "description": "Version code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "langCode",
-            "description": "Language code query params",
+            "name": "language",
+            "description": "Language code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "webOrigin",
-            "description": "Web origin query params",
+            "name": "source",
+            "description": "Source (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
@@ -442,28 +452,28 @@
         "parameters": [
           {
             "name": "query",
-            "description": "Query string",
+            "description": "Query string (e.g., \"John 3:16\", \"Genesis 1:1-3\")",
             "in": "path",
             "required": true,
             "type": "string"
           },
           {
             "name": "versionCode",
-            "description": "Version code query params",
+            "description": "Version code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "langCode",
-            "description": "Language code query params",
+            "name": "language",
+            "description": "Language code (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
-            "name": "webOrigin",
-            "description": "Web origin query params",
+            "name": "source",
+            "description": "Source (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
@@ -522,15 +532,15 @@
           "type": "string",
           "title": "Book code"
         },
-        "title": {
+        "name": {
           "type": "string",
-          "title": "Book title"
+          "title": "Book name"
         },
-        "canon": {
+        "testament": {
           "type": "string",
-          "title": "Book canon"
+          "title": "Book testament"
         },
-        "order": {
+        "bookOrder": {
           "type": "integer",
           "format": "int32",
           "title": "Book order"
@@ -549,17 +559,17 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/v1BookChapter"
+            "$ref": "#/definitions/v1Chapter"
           },
           "title": "Book chapters"
         },
         "versionId": {
           "type": "string",
-          "title": "Book version"
+          "title": "Book version ID"
         }
       }
     },
-    "v1BookChapter": {
+    "v1Chapter": {
       "type": "object",
       "properties": {
         "id": {
@@ -571,9 +581,9 @@
           "format": "int32",
           "title": "Chapter number"
         },
-        "ref": {
+        "audioUrl": {
           "type": "string",
-          "title": "Chapter source reference URL"
+          "title": "Chapter audio URL"
         },
         "createdAt": {
           "type": "string",
@@ -591,26 +601,35 @@
         }
       }
     },
-    "v1BookFootnote": {
+    "v1Footnote": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string",
           "title": "Footnote ID"
         },
-        "content": {
+        "text": {
           "type": "string",
-          "title": "Footnote content"
+          "title": "Footnote text"
+        },
+        "type": {
+          "type": "string",
+          "description": "e.g. \"footnote\", \"reference\"",
+          "title": "Footnote type"
+        },
+        "label": {
+          "type": "string",
+          "title": "Footnote label"
+        },
+        "sortOrder": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Footnote sort order"
         },
         "position": {
           "type": "integer",
           "format": "int32",
           "title": "Footnote position"
-        },
-        "order": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Footnote order"
         },
         "createdAt": {
           "type": "string",
@@ -636,143 +655,6 @@
         }
       }
     },
-    "v1BookHeading": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "title": "Heading ID"
-        },
-        "content": {
-          "type": "string",
-          "title": "Heading content"
-        },
-        "level": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Heading level. Start from 1"
-        },
-        "order": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Heading position"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Heading creation time\nStored in UTC and follows RFC 3339 format"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Heading last update time\nStored in UTC and follows RFC 3339 format"
-        },
-        "verseId": {
-          "type": "string",
-          "title": "Heading verse ID"
-        },
-        "chapterId": {
-          "type": "string",
-          "title": "Heading chapter ID"
-        }
-      }
-    },
-    "v1BookReference": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "title": "Reference ID"
-        },
-        "content": {
-          "type": "string",
-          "title": "Reference content"
-        },
-        "position": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Reference position"
-        },
-        "order": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Reference order"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Reference creation time\nStored in UTC and follows RFC 3339 format"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Reference last update time\nStored in UTC and follows RFC 3339 format"
-        },
-        "verseId": {
-          "type": "string",
-          "title": "Reference verse ID"
-        },
-        "headingId": {
-          "type": "string",
-          "title": "Reference heading ID"
-        },
-        "chapterId": {
-          "type": "string",
-          "title": "Reference chapter ID"
-        }
-      }
-    },
-    "v1BookVerse": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "title": "Verse ID"
-        },
-        "number": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Verse number"
-        },
-        "content": {
-          "type": "string",
-          "title": "Verse content"
-        },
-        "order": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Verse order"
-        },
-        "parNumber": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Verse paragraph number"
-        },
-        "parIndex": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Verse paragraph index"
-        },
-        "isPoetry": {
-          "type": "boolean",
-          "title": "Verse is poetry"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Verse creation time\nStored in UTC and follows RFC 3339 format"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Verse last update time\nStored in UTC and follows RFC 3339 format"
-        },
-        "chapterId": {
-          "type": "string",
-          "title": "Verse chapter ID"
-        }
-      }
-    },
     "v1GetAllBookResponse": {
       "type": "object",
       "properties": {
@@ -791,7 +673,7 @@
       "properties": {
         "html": {
           "type": "string",
-          "title": "Chapter text in HTML format"
+          "title": "Referenced text in HTML format"
         }
       }
     },
@@ -802,41 +684,33 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/v1BookChapter"
+            "$ref": "#/definitions/v1Chapter"
           },
-          "title": "Chapter object"
+          "title": "Referenced chapters"
         },
         "verses": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/v1BookVerse"
+            "$ref": "#/definitions/v1Verse"
           },
-          "title": "Chapter verses"
+          "title": "Referenced verses"
         },
         "footnotes": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/v1BookFootnote"
+            "$ref": "#/definitions/v1Footnote"
           },
-          "title": "Chapter footnotes"
+          "title": "Related footnotes"
         },
         "headings": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/v1BookHeading"
+            "$ref": "#/definitions/v1Heading"
           },
-          "title": "Chapter headings"
-        },
-        "references": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/v1BookReference"
-          },
-          "title": "Chapter references"
+          "title": "Related headings"
         },
         "psalmMetadata": {
           "type": "array",
@@ -853,7 +727,7 @@
       "properties": {
         "text": {
           "type": "string",
-          "title": "Chapter text in markdown format"
+          "title": "Referenced text in markdown format"
         }
       }
     },
@@ -879,14 +753,14 @@
       "type": "object",
       "properties": {
         "chapter": {
-          "$ref": "#/definitions/v1BookChapter",
+          "$ref": "#/definitions/v1Chapter",
           "title": "Chapter object"
         },
         "verses": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/v1BookVerse"
+            "$ref": "#/definitions/v1Verse"
           },
           "title": "Chapter verses"
         },
@@ -894,7 +768,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/v1BookFootnote"
+            "$ref": "#/definitions/v1Footnote"
           },
           "title": "Chapter footnotes"
         },
@@ -902,17 +776,9 @@
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/v1BookHeading"
+            "$ref": "#/definitions/v1Heading"
           },
           "title": "Chapter headings"
-        },
-        "references": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/v1BookReference"
-          },
-          "title": "Chapter references"
         },
         "psalmMetadata": {
           "type": "array",
@@ -924,7 +790,7 @@
         },
         "book": {
           "$ref": "#/definitions/v1Book",
-          "title": "Book object"
+          "title": "Book object for context"
         }
       }
     },
@@ -934,6 +800,47 @@
         "text": {
           "type": "string",
           "title": "Chapter text in markdown format"
+        }
+      }
+    },
+    "v1Heading": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Heading ID"
+        },
+        "text": {
+          "type": "string",
+          "title": "Heading text"
+        },
+        "level": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Heading level. Start from 1"
+        },
+        "sortOrder": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Heading sort order"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Heading creation time\nStored in UTC and follows RFC 3339 format"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Heading last update time\nStored in UTC and follows RFC 3339 format"
+        },
+        "verseId": {
+          "type": "string",
+          "title": "Heading verse ID"
+        },
+        "chapterId": {
+          "type": "string",
+          "title": "Heading chapter ID"
         }
       }
     },
@@ -961,6 +868,65 @@
         "chapterId": {
           "type": "string",
           "title": "Psalm chapter ID"
+        }
+      }
+    },
+    "v1Verse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Verse ID"
+        },
+        "text": {
+          "type": "string",
+          "title": "Verse text"
+        },
+        "label": {
+          "type": "string",
+          "title": "Verse label"
+        },
+        "number": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Verse number"
+        },
+        "subVerseIndex": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Verse sub-verse index"
+        },
+        "paragraphNumber": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Verse paragraph number"
+        },
+        "paragraphIndex": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Verse paragraph index"
+        },
+        "isPoetry": {
+          "type": "boolean",
+          "title": "Verse is poetry"
+        },
+        "audioUrl": {
+          "type": "string",
+          "title": "Verse audio URL"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Verse creation time\nStored in UTC and follows RFC 3339 format"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Verse last update time\nStored in UTC and follows RFC 3339 format"
+        },
+        "chapterId": {
+          "type": "string",
+          "title": "Verse chapter ID"
         }
       }
     }

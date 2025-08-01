@@ -14,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file bible/v1/book.proto.
  */
 export const file_bible_v1_book: GenFile = /*@__PURE__*/
-  fileDesc("ChNiaWJsZS92MS9ib29rLnByb3RvEghiaWJsZS52MSLqAQoEQm9vaxIKCgJpZBgBIAEoCRIMCgRjb2RlGAIgASgJEg0KBXRpdGxlGAMgASgJEg0KBWNhbm9uGAQgASgJEg0KBW9yZGVyGAUgASgFEi4KCmNyZWF0ZWRfYXQYBiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEicKCGNoYXB0ZXJzGAggAygLMhUuYmlibGUudjEuQm9va0NoYXB0ZXISEgoKdmVyc2lvbl9pZBgJIAEoCSKnAQoLQm9va0NoYXB0ZXISCgoCaWQYASABKAkSDgoGbnVtYmVyGAIgASgFEgsKA3JlZhgDIAEoCRIuCgpjcmVhdGVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIPCgdib29rX2lkGAYgASgJIvUBCglCb29rVmVyc2USCgoCaWQYASABKAkSDgoGbnVtYmVyGAIgASgFEg8KB2NvbnRlbnQYAyABKAkSDQoFb3JkZXIYBCABKAUSEgoKcGFyX251bWJlchgFIAEoBRIRCglwYXJfaW5kZXgYBiABKAUSEQoJaXNfcG9ldHJ5GAcgASgIEi4KCmNyZWF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYCSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhIKCmNoYXB0ZXJfaWQYCiABKAkijAIKDEJvb2tGb290bm90ZRIKCgJpZBgBIAEoCRIPCgdjb250ZW50GAIgASgJEhAKCHBvc2l0aW9uGAMgASgFEg0KBW9yZGVyGAQgASgFEi4KCmNyZWF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYBiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhUKCHZlcnNlX2lkGAcgASgJSACIAQESFwoKaGVhZGluZ19pZBgIIAEoCUgBiAEBEhIKCmNoYXB0ZXJfaWQYCSABKAlCCwoJX3ZlcnNlX2lkQg0KC19oZWFkaW5nX2lkIs4BCgtCb29rSGVhZGluZxIKCgJpZBgBIAEoCRIPCgdjb250ZW50GAIgASgJEg0KBWxldmVsGAMgASgFEg0KBW9yZGVyGAQgASgFEi4KCmNyZWF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYBiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhAKCHZlcnNlX2lkGAcgASgJEhIKCmNoYXB0ZXJfaWQYCCABKAkinwIKDUJvb2tSZWZlcmVuY2USCgoCaWQYASABKAkSDwoHY29udGVudBgCIAEoCRIVCghwb3NpdGlvbhgDIAEoBUgAiAEBEg0KBW9yZGVyGAQgASgFEi4KCmNyZWF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYBiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhUKCHZlcnNlX2lkGAcgASgJSAGIAQESFwoKaGVhZGluZ19pZBgIIAEoCUgCiAEBEhIKCmNoYXB0ZXJfaWQYCSABKAlCCwoJX3Bvc2l0aW9uQgsKCV92ZXJzZV9pZEINCgtfaGVhZGluZ19pZCKeAQoNUHNhbG1NZXRhZGF0YRIKCgJpZBgBIAEoCRINCgV0aXRsZRgCIAEoCRIuCgpjcmVhdGVkX2F0GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBISCgpjaGFwdGVyX2lkGAUgASgJIlAKEUdldEFsbEJvb2tSZXF1ZXN0EhQKDHZlcnNpb25fY29kZRgBIAEoCRIRCglsYW5nX2NvZGUYAiABKAkSEgoKd2ViX29yaWdpbhgDIAEoCSIzChJHZXRBbGxCb29rUmVzcG9uc2USHQoFYm9va3MYASADKAsyDi5iaWJsZS52MS5Cb29rImMKEUdldE9uZUJvb2tSZXF1ZXN0EhEKCWJvb2tfY29kZRgBIAEoCRIUCgx2ZXJzaW9uX2NvZGUYAiABKAkSEQoJbGFuZ19jb2RlGAMgASgJEhIKCndlYl9vcmlnaW4YBCABKAkiMgoSR2V0T25lQm9va1Jlc3BvbnNlEhwKBGJvb2sYASABKAsyDi5iaWJsZS52MS5Cb29rInsKFEdldE9uZUNoYXB0ZXJSZXF1ZXN0EhEKCWJvb2tfY29kZRgBIAEoCRITCgtjaGFwdGVyX251bRgCIAEoCRIUCgx2ZXJzaW9uX2NvZGUYAyABKAkSEQoJbGFuZ19jb2RlGAQgASgJEhIKCndlYl9vcmlnaW4YBSABKAkitAIKFUdldE9uZUNoYXB0ZXJSZXNwb25zZRImCgdjaGFwdGVyGAEgASgLMhUuYmlibGUudjEuQm9va0NoYXB0ZXISIwoGdmVyc2VzGAIgAygLMhMuYmlibGUudjEuQm9va1ZlcnNlEikKCWZvb3Rub3RlcxgDIAMoCzIWLmJpYmxlLnYxLkJvb2tGb290bm90ZRInCghoZWFkaW5ncxgEIAMoCzIVLmJpYmxlLnYxLkJvb2tIZWFkaW5nEisKCnJlZmVyZW5jZXMYBSADKAsyFy5iaWJsZS52MS5Cb29rUmVmZXJlbmNlEi8KDnBzYWxtX21ldGFkYXRhGAYgAygLMhcuYmlibGUudjEuUHNhbG1NZXRhZGF0YRIcCgRib29rGAcgASgLMg4uYmlibGUudjEuQm9vayJ/ChhHZXRPbmVDaGFwdGVyVGV4dFJlcXVlc3QSEQoJYm9va19jb2RlGAEgASgJEhMKC2NoYXB0ZXJfbnVtGAIgASgJEhQKDHZlcnNpb25fY29kZRgDIAEoCRIRCglsYW5nX2NvZGUYBCABKAkSEgoKd2ViX29yaWdpbhgFIAEoCSIpChlHZXRPbmVDaGFwdGVyVGV4dFJlc3BvbnNlEgwKBHRleHQYASABKAkifwoYR2V0T25lQ2hhcHRlckh0bWxSZXF1ZXN0EhEKCWJvb2tfY29kZRgBIAEoCRITCgtjaGFwdGVyX251bRgCIAEoCRIUCgx2ZXJzaW9uX2NvZGUYAyABKAkSEQoJbGFuZ19jb2RlGAQgASgJEhIKCndlYl9vcmlnaW4YBSABKAkiKQoZR2V0T25lQ2hhcHRlckh0bWxSZXNwb25zZRIMCgRodG1sGAEgASgJInkKG0dldEJpYmxpY2FsUmVmZXJlbmNlUmVxdWVzdBINCgVxdWVyeRgBIAEoCRIUCgx2ZXJzaW9uX2NvZGUYAiABKAkSEQoJbGFuZ19jb2RlGAMgASgJEhIKCndlYl9vcmlnaW4YBCABKAkSDgoGZm9ybWF0GAUgASgJIp4CChxHZXRCaWJsaWNhbFJlZmVyZW5jZVJlc3BvbnNlEicKCGNoYXB0ZXJzGAEgAygLMhUuYmlibGUudjEuQm9va0NoYXB0ZXISIwoGdmVyc2VzGAIgAygLMhMuYmlibGUudjEuQm9va1ZlcnNlEikKCWZvb3Rub3RlcxgDIAMoCzIWLmJpYmxlLnYxLkJvb2tGb290bm90ZRInCghoZWFkaW5ncxgEIAMoCzIVLmJpYmxlLnYxLkJvb2tIZWFkaW5nEisKCnJlZmVyZW5jZXMYBSADKAsyFy5iaWJsZS52MS5Cb29rUmVmZXJlbmNlEi8KDnBzYWxtX21ldGFkYXRhGAYgAygLMhcuYmlibGUudjEuUHNhbG1NZXRhZGF0YSJ9Ch9HZXRCaWJsaWNhbFJlZmVyZW5jZVRleHRSZXF1ZXN0Eg0KBXF1ZXJ5GAEgASgJEhQKDHZlcnNpb25fY29kZRgCIAEoCRIRCglsYW5nX2NvZGUYAyABKAkSEgoKd2ViX29yaWdpbhgEIAEoCRIOCgZmb3JtYXQYBSABKAkiMAogR2V0QmlibGljYWxSZWZlcmVuY2VUZXh0UmVzcG9uc2USDAoEdGV4dBgBIAEoCSJ9Ch9HZXRCaWJsaWNhbFJlZmVyZW5jZUh0bWxSZXF1ZXN0Eg0KBXF1ZXJ5GAEgASgJEhQKDHZlcnNpb25fY29kZRgCIAEoCRIRCglsYW5nX2NvZGUYAyABKAkSEgoKd2ViX29yaWdpbhgEIAEoCRIOCgZmb3JtYXQYBSABKAkiMAogR2V0QmlibGljYWxSZWZlcmVuY2VIdG1sUmVzcG9uc2USDAoEaHRtbBgBIAEoCTK6CAoLQm9va1NlcnZpY2USWQoKR2V0QWxsQm9vaxIbLmJpYmxlLnYxLkdldEFsbEJvb2tSZXF1ZXN0GhwuYmlibGUudjEuR2V0QWxsQm9va1Jlc3BvbnNlIhCC0+STAgoSCC92MS9ib29rEmUKCkdldE9uZUJvb2sSGy5iaWJsZS52MS5HZXRPbmVCb29rUmVxdWVzdBocLmJpYmxlLnYxLkdldE9uZUJvb2tSZXNwb25zZSIcgtPkkwIWEhQvdjEvYm9vay97Ym9va19jb2RlfRKEAQoNR2V0T25lQ2hhcHRlchIeLmJpYmxlLnYxLkdldE9uZUNoYXB0ZXJSZXF1ZXN0Gh8uYmlibGUudjEuR2V0T25lQ2hhcHRlclJlc3BvbnNlIjKC0+STAiwSKi92MS9ib29rL3tib29rX2NvZGV9L2NoYXB0ZXIve2NoYXB0ZXJfbnVtfRKVAQoRR2V0T25lQ2hhcHRlclRleHQSIi5iaWJsZS52MS5HZXRPbmVDaGFwdGVyVGV4dFJlcXVlc3QaIy5iaWJsZS52MS5HZXRPbmVDaGFwdGVyVGV4dFJlc3BvbnNlIjeC0+STAjESLy92MS9ib29rL3tib29rX2NvZGV9L2NoYXB0ZXIve2NoYXB0ZXJfbnVtfS90ZXh0EpUBChFHZXRPbmVDaGFwdGVySHRtbBIiLmJpYmxlLnYxLkdldE9uZUNoYXB0ZXJIdG1sUmVxdWVzdBojLmJpYmxlLnYxLkdldE9uZUNoYXB0ZXJIdG1sUmVzcG9uc2UiN4LT5JMCMRIvL3YxL2Jvb2sve2Jvb2tfY29kZX0vY2hhcHRlci97Y2hhcHRlcl9udW19L2h0bWwSgwEKFEdldEJpYmxpY2FsUmVmZXJlbmNlEiUuYmlibGUudjEuR2V0QmlibGljYWxSZWZlcmVuY2VSZXF1ZXN0GiYuYmlibGUudjEuR2V0QmlibGljYWxSZWZlcmVuY2VSZXNwb25zZSIcgtPkkwIWEhQvdjEvY3Jvc3NyZWYve3F1ZXJ5fRKUAQoYR2V0QmlibGljYWxSZWZlcmVuY2VUZXh0EikuYmlibGUudjEuR2V0QmlibGljYWxSZWZlcmVuY2VUZXh0UmVxdWVzdBoqLmJpYmxlLnYxLkdldEJpYmxpY2FsUmVmZXJlbmNlVGV4dFJlc3BvbnNlIiGC0+STAhsSGS92MS9jcm9zc3JlZi97cXVlcnl9L3RleHQSlAEKGEdldEJpYmxpY2FsUmVmZXJlbmNlSHRtbBIpLmJpYmxlLnYxLkdldEJpYmxpY2FsUmVmZXJlbmNlSHRtbFJlcXVlc3QaKi5iaWJsZS52MS5HZXRCaWJsaWNhbFJlZmVyZW5jZUh0bWxSZXNwb25zZSIhgtPkkwIbEhkvdjEvY3Jvc3NyZWYve3F1ZXJ5fS9odG1sQvECCgxjb20uYmlibGUudjFCCUJvb2tQcm90b1ABWjZnaXRodWIuY29tL3YtYmlibGUvcHJvdG9idWYvcGtnL3Byb3RvL2JpYmxlL3YxO2JpYmxldjGiAgNCWFiqAghCaWJsZS5WMcoCCEJpYmxlXFYx4gIUQmlibGVcVjFcR1BCTWV0YWRhdGHqAglCaWJsZTo6VjGSQdsBEmoKFUJpYmxlIEJvb2sgc2VydmVyIEFQSRIVQmlibGUgQm9vayBzZXJ2ZXIgQVBJIjMKDkR1Y2t5TW9tbzIwMDEyEiFodHRwczovL2dpdGh1Yi5jb20vRHVja3lNb21vMjAwMTIyBTEuMC4wIgQvYXBpWlkKVwoGYmVhcmVyEk0IAhI4QXV0aGVudGljYXRpb24gdG9rZW4sIHByZWZpeGVkIGJ5IEJlYXJlcjogQmVhcmVyIDx0b2tlbj4aDUF1dGhvcml6YXRpb24gAmIMCgoKBmJlYXJlchIAYgZwcm90bzM", [file_google_api_annotations, file_google_protobuf_timestamp, file_protoc_gen_openapiv2_options_annotations]);
+  fileDesc("ChNiaWJsZS92MS9ib29rLnByb3RvEghiaWJsZS52MSLuAQoEQm9vaxIKCgJpZBgBIAEoCRIMCgRjb2RlGAIgASgJEgwKBG5hbWUYAyABKAkSEQoJdGVzdGFtZW50GAQgASgJEhIKCmJvb2tfb3JkZXIYBSABKAUSLgoKY3JlYXRlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoKdXBkYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASIwoIY2hhcHRlcnMYCCADKAsyES5iaWJsZS52MS5DaGFwdGVyEhIKCnZlcnNpb25faWQYCSABKAkivAEKB0NoYXB0ZXISCgoCaWQYASABKAkSDgoGbnVtYmVyGAIgASgFEhYKCWF1ZGlvX3VybBgDIAEoCUgAiAEBEi4KCmNyZWF0ZWRfYXQYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEg8KB2Jvb2tfaWQYBiABKAlCDAoKX2F1ZGlvX3VybCK5AgoFVmVyc2USCgoCaWQYASABKAkSDAoEdGV4dBgCIAEoCRINCgVsYWJlbBgDIAEoCRIOCgZudW1iZXIYBCABKAUSFwoPc3ViX3ZlcnNlX2luZGV4GAUgASgFEhgKEHBhcmFncmFwaF9udW1iZXIYBiABKAUSFwoPcGFyYWdyYXBoX2luZGV4GAcgASgFEhEKCWlzX3BvZXRyeRgIIAEoCBIWCglhdWRpb191cmwYCSABKAlIAIgBARIuCgpjcmVhdGVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBISCgpjaGFwdGVyX2lkGAwgASgJQgwKCl9hdWRpb191cmwipwIKCEZvb3Rub3RlEgoKAmlkGAEgASgJEgwKBHRleHQYAiABKAkSDAoEdHlwZRgDIAEoCRINCgVsYWJlbBgEIAEoCRISCgpzb3J0X29yZGVyGAUgASgFEhAKCHBvc2l0aW9uGAYgASgFEi4KCmNyZWF0ZWRfYXQYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhUKCHZlcnNlX2lkGAkgASgJSACIAQESFwoKaGVhZGluZ19pZBgKIAEoCUgBiAEBEhIKCmNoYXB0ZXJfaWQYCyABKAlCCwoJX3ZlcnNlX2lkQg0KC19oZWFkaW5nX2lkIswBCgdIZWFkaW5nEgoKAmlkGAEgASgJEgwKBHRleHQYAiABKAkSDQoFbGV2ZWwYAyABKAUSEgoKc29ydF9vcmRlchgEIAEoBRIuCgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIQCgh2ZXJzZV9pZBgHIAEoCRISCgpjaGFwdGVyX2lkGAggASgJIp4BCg1Qc2FsbU1ldGFkYXRhEgoKAmlkGAEgASgJEg0KBXRpdGxlGAIgASgJEi4KCmNyZWF0ZWRfYXQYAyABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhIKCmNoYXB0ZXJfaWQYBSABKAkicQoRR2V0QWxsQm9va1JlcXVlc3QSFAoMdmVyc2lvbl9jb2RlGAEgASgJEhAKCGxhbmd1YWdlGAIgASgJEg4KBnNvdXJjZRgDIAEoCRIWCgl0ZXN0YW1lbnQYBCABKAlIAIgBAUIMCgpfdGVzdGFtZW50IjMKEkdldEFsbEJvb2tSZXNwb25zZRIdCgVib29rcxgBIAMoCzIOLmJpYmxlLnYxLkJvb2siXgoRR2V0T25lQm9va1JlcXVlc3QSEQoJYm9va19jb2RlGAEgASgJEhQKDHZlcnNpb25fY29kZRgCIAEoCRIQCghsYW5ndWFnZRgDIAEoCRIOCgZzb3VyY2UYBCABKAkiMgoSR2V0T25lQm9va1Jlc3BvbnNlEhwKBGJvb2sYASABKAsyDi5iaWJsZS52MS5Cb29rInYKFEdldE9uZUNoYXB0ZXJSZXF1ZXN0EhEKCWJvb2tfY29kZRgBIAEoCRITCgtjaGFwdGVyX251bRgCIAEoBRIUCgx2ZXJzaW9uX2NvZGUYAyABKAkSEAoIbGFuZ3VhZ2UYBCABKAkSDgoGc291cmNlGAUgASgJIvcBChVHZXRPbmVDaGFwdGVyUmVzcG9uc2USIgoHY2hhcHRlchgBIAEoCzIRLmJpYmxlLnYxLkNoYXB0ZXISHwoGdmVyc2VzGAIgAygLMg8uYmlibGUudjEuVmVyc2USJQoJZm9vdG5vdGVzGAMgAygLMhIuYmlibGUudjEuRm9vdG5vdGUSIwoIaGVhZGluZ3MYBCADKAsyES5iaWJsZS52MS5IZWFkaW5nEi8KDnBzYWxtX21ldGFkYXRhGAUgAygLMhcuYmlibGUudjEuUHNhbG1NZXRhZGF0YRIcCgRib29rGAYgASgLMg4uYmlibGUudjEuQm9vayJ6ChhHZXRPbmVDaGFwdGVyVGV4dFJlcXVlc3QSEQoJYm9va19jb2RlGAEgASgJEhMKC2NoYXB0ZXJfbnVtGAIgASgFEhQKDHZlcnNpb25fY29kZRgDIAEoCRIQCghsYW5ndWFnZRgEIAEoCRIOCgZzb3VyY2UYBSABKAkiKQoZR2V0T25lQ2hhcHRlclRleHRSZXNwb25zZRIMCgR0ZXh0GAEgASgJInoKGEdldE9uZUNoYXB0ZXJIdG1sUmVxdWVzdBIRCglib29rX2NvZGUYASABKAkSEwoLY2hhcHRlcl9udW0YAiABKAUSFAoMdmVyc2lvbl9jb2RlGAMgASgJEhAKCGxhbmd1YWdlGAQgASgJEg4KBnNvdXJjZRgFIAEoCSIpChlHZXRPbmVDaGFwdGVySHRtbFJlc3BvbnNlEgwKBGh0bWwYASABKAkidAobR2V0QmlibGljYWxSZWZlcmVuY2VSZXF1ZXN0Eg0KBXF1ZXJ5GAEgASgJEhQKDHZlcnNpb25fY29kZRgCIAEoCRIQCghsYW5ndWFnZRgDIAEoCRIOCgZzb3VyY2UYBCABKAkSDgoGZm9ybWF0GAUgASgJIuEBChxHZXRCaWJsaWNhbFJlZmVyZW5jZVJlc3BvbnNlEiMKCGNoYXB0ZXJzGAEgAygLMhEuYmlibGUudjEuQ2hhcHRlchIfCgZ2ZXJzZXMYAiADKAsyDy5iaWJsZS52MS5WZXJzZRIlCglmb290bm90ZXMYAyADKAsyEi5iaWJsZS52MS5Gb290bm90ZRIjCghoZWFkaW5ncxgEIAMoCzIRLmJpYmxlLnYxLkhlYWRpbmcSLwoOcHNhbG1fbWV0YWRhdGEYBSADKAsyFy5iaWJsZS52MS5Qc2FsbU1ldGFkYXRhIngKH0dldEJpYmxpY2FsUmVmZXJlbmNlVGV4dFJlcXVlc3QSDQoFcXVlcnkYASABKAkSFAoMdmVyc2lvbl9jb2RlGAIgASgJEhAKCGxhbmd1YWdlGAMgASgJEg4KBnNvdXJjZRgEIAEoCRIOCgZmb3JtYXQYBSABKAkiMAogR2V0QmlibGljYWxSZWZlcmVuY2VUZXh0UmVzcG9uc2USDAoEdGV4dBgBIAEoCSJ4Ch9HZXRCaWJsaWNhbFJlZmVyZW5jZUh0bWxSZXF1ZXN0Eg0KBXF1ZXJ5GAEgASgJEhQKDHZlcnNpb25fY29kZRgCIAEoCRIQCghsYW5ndWFnZRgDIAEoCRIOCgZzb3VyY2UYBCABKAkSDgoGZm9ybWF0GAUgASgJIjAKIEdldEJpYmxpY2FsUmVmZXJlbmNlSHRtbFJlc3BvbnNlEgwKBGh0bWwYASABKAkyuggKC0Jvb2tTZXJ2aWNlElkKCkdldEFsbEJvb2sSGy5iaWJsZS52MS5HZXRBbGxCb29rUmVxdWVzdBocLmJpYmxlLnYxLkdldEFsbEJvb2tSZXNwb25zZSIQgtPkkwIKEggvdjEvYm9vaxJlCgpHZXRPbmVCb29rEhsuYmlibGUudjEuR2V0T25lQm9va1JlcXVlc3QaHC5iaWJsZS52MS5HZXRPbmVCb29rUmVzcG9uc2UiHILT5JMCFhIUL3YxL2Jvb2sve2Jvb2tfY29kZX0ShAEKDUdldE9uZUNoYXB0ZXISHi5iaWJsZS52MS5HZXRPbmVDaGFwdGVyUmVxdWVzdBofLmJpYmxlLnYxLkdldE9uZUNoYXB0ZXJSZXNwb25zZSIygtPkkwIsEiovdjEvYm9vay97Ym9va19jb2RlfS9jaGFwdGVyL3tjaGFwdGVyX251bX0SlQEKEUdldE9uZUNoYXB0ZXJUZXh0EiIuYmlibGUudjEuR2V0T25lQ2hhcHRlclRleHRSZXF1ZXN0GiMuYmlibGUudjEuR2V0T25lQ2hhcHRlclRleHRSZXNwb25zZSI3gtPkkwIxEi8vdjEvYm9vay97Ym9va19jb2RlfS9jaGFwdGVyL3tjaGFwdGVyX251bX0vdGV4dBKVAQoRR2V0T25lQ2hhcHRlckh0bWwSIi5iaWJsZS52MS5HZXRPbmVDaGFwdGVySHRtbFJlcXVlc3QaIy5iaWJsZS52MS5HZXRPbmVDaGFwdGVySHRtbFJlc3BvbnNlIjeC0+STAjESLy92MS9ib29rL3tib29rX2NvZGV9L2NoYXB0ZXIve2NoYXB0ZXJfbnVtfS9odG1sEoMBChRHZXRCaWJsaWNhbFJlZmVyZW5jZRIlLmJpYmxlLnYxLkdldEJpYmxpY2FsUmVmZXJlbmNlUmVxdWVzdBomLmJpYmxlLnYxLkdldEJpYmxpY2FsUmVmZXJlbmNlUmVzcG9uc2UiHILT5JMCFhIUL3YxL2Nyb3NzcmVmL3txdWVyeX0SlAEKGEdldEJpYmxpY2FsUmVmZXJlbmNlVGV4dBIpLmJpYmxlLnYxLkdldEJpYmxpY2FsUmVmZXJlbmNlVGV4dFJlcXVlc3QaKi5iaWJsZS52MS5HZXRCaWJsaWNhbFJlZmVyZW5jZVRleHRSZXNwb25zZSIhgtPkkwIbEhkvdjEvY3Jvc3NyZWYve3F1ZXJ5fS90ZXh0EpQBChhHZXRCaWJsaWNhbFJlZmVyZW5jZUh0bWwSKS5iaWJsZS52MS5HZXRCaWJsaWNhbFJlZmVyZW5jZUh0bWxSZXF1ZXN0GiouYmlibGUudjEuR2V0QmlibGljYWxSZWZlcmVuY2VIdG1sUmVzcG9uc2UiIYLT5JMCGxIZL3YxL2Nyb3NzcmVmL3txdWVyeX0vaHRtbELxAgoMY29tLmJpYmxlLnYxQglCb29rUHJvdG9QAVo2Z2l0aHViLmNvbS92LWJpYmxlL3Byb3RvYnVmL3BrZy9wcm90by9iaWJsZS92MTtiaWJsZXYxogIDQlhYqgIIQmlibGUuVjHKAghCaWJsZVxWMeICFEJpYmxlXFYxXEdQQk1ldGFkYXRh6gIJQmlibGU6OlYxkkHbARJqChVCaWJsZSBCb29rIHNlcnZlciBBUEkSFUJpYmxlIEJvb2sgc2VydmVyIEFQSSIzCg5EdWNreU1vbW8yMDAxMhIhaHR0cHM6Ly9naXRodWIuY29tL0R1Y2t5TW9tbzIwMDEyMgUxLjAuMCIEL2FwaVpZClcKBmJlYXJlchJNCAISOEF1dGhlbnRpY2F0aW9uIHRva2VuLCBwcmVmaXhlZCBieSBCZWFyZXI6IEJlYXJlciA8dG9rZW4+Gg1BdXRob3JpemF0aW9uIAJiDAoKCgZiZWFyZXISAGIGcHJvdG8z", [file_google_api_annotations, file_google_protobuf_timestamp, file_protoc_gen_openapiv2_options_annotations]);
 
 /**
  * @generated from message bible.v1.Book
@@ -35,25 +35,25 @@ export type Book = Message<"bible.v1.Book"> & {
   code: string;
 
   /**
-   * Book title
+   * Book name
    *
-   * @generated from field: string title = 3;
+   * @generated from field: string name = 3;
    */
-  title: string;
+  name: string;
 
   /**
-   * Book canon
+   * Book testament
    *
-   * @generated from field: string canon = 4;
+   * @generated from field: string testament = 4;
    */
-  canon: string;
+  testament: string;
 
   /**
    * Book order
    *
-   * @generated from field: int32 order = 5;
+   * @generated from field: int32 book_order = 5;
    */
-  order: number;
+  bookOrder: number;
 
   /**
    * Book creation time
@@ -74,12 +74,12 @@ export type Book = Message<"bible.v1.Book"> & {
   /**
    * Book chapters
    *
-   * @generated from field: repeated bible.v1.BookChapter chapters = 8;
+   * @generated from field: repeated bible.v1.Chapter chapters = 8;
    */
-  chapters: BookChapter[];
+  chapters: Chapter[];
 
   /**
-   * Book version
+   * Book version ID
    *
    * @generated from field: string version_id = 9;
    */
@@ -94,9 +94,9 @@ export const BookSchema: GenMessage<Book> = /*@__PURE__*/
   messageDesc(file_bible_v1_book, 0);
 
 /**
- * @generated from message bible.v1.BookChapter
+ * @generated from message bible.v1.Chapter
  */
-export type BookChapter = Message<"bible.v1.BookChapter"> & {
+export type Chapter = Message<"bible.v1.Chapter"> & {
   /**
    * Chapter ID
    *
@@ -112,11 +112,11 @@ export type BookChapter = Message<"bible.v1.BookChapter"> & {
   number: number;
 
   /**
-   * Chapter source reference URL
+   * Chapter audio URL
    *
-   * @generated from field: string ref = 3;
+   * @generated from field: optional string audio_url = 3;
    */
-  ref: string;
+  audioUrl?: string;
 
   /**
    * Chapter creation time
@@ -143,16 +143,16 @@ export type BookChapter = Message<"bible.v1.BookChapter"> & {
 };
 
 /**
- * Describes the message bible.v1.BookChapter.
- * Use `create(BookChapterSchema)` to create a new message.
+ * Describes the message bible.v1.Chapter.
+ * Use `create(ChapterSchema)` to create a new message.
  */
-export const BookChapterSchema: GenMessage<BookChapter> = /*@__PURE__*/
+export const ChapterSchema: GenMessage<Chapter> = /*@__PURE__*/
   messageDesc(file_bible_v1_book, 1);
 
 /**
- * @generated from message bible.v1.BookVerse
+ * @generated from message bible.v1.Verse
  */
-export type BookVerse = Message<"bible.v1.BookVerse"> & {
+export type Verse = Message<"bible.v1.Verse"> & {
   /**
    * Verse ID
    *
@@ -161,52 +161,66 @@ export type BookVerse = Message<"bible.v1.BookVerse"> & {
   id: string;
 
   /**
+   * Verse text
+   *
+   * @generated from field: string text = 2;
+   */
+  text: string;
+
+  /**
+   * Verse label
+   *
+   * @generated from field: string label = 3;
+   */
+  label: string;
+
+  /**
    * Verse number
    *
-   * @generated from field: int32 number = 2;
+   * @generated from field: int32 number = 4;
    */
   number: number;
 
   /**
-   * Verse content
+   * Verse sub-verse index
    *
-   * @generated from field: string content = 3;
+   * @generated from field: int32 sub_verse_index = 5;
    */
-  content: string;
-
-  /**
-   * Verse order
-   *
-   * @generated from field: int32 order = 4;
-   */
-  order: number;
+  subVerseIndex: number;
 
   /**
    * Verse paragraph number
    *
-   * @generated from field: int32 par_number = 5;
+   * @generated from field: int32 paragraph_number = 6;
    */
-  parNumber: number;
+  paragraphNumber: number;
 
   /**
    * Verse paragraph index
    *
-   * @generated from field: int32 par_index = 6;
+   * @generated from field: int32 paragraph_index = 7;
    */
-  parIndex: number;
+  paragraphIndex: number;
 
   /**
    * Verse is poetry
    *
-   * @generated from field: bool is_poetry = 7;
+   * @generated from field: bool is_poetry = 8;
    */
   isPoetry: boolean;
+
+  /**
+   * Verse audio URL
+   *
+   * @generated from field: optional string audio_url = 9;
+   */
+  audioUrl?: string;
 
   /**
    * Verse creation time
    * Stored in UTC and follows RFC 3339 format
    *
-   * @generated from field: google.protobuf.Timestamp created_at = 8;
+   * @generated from field: google.protobuf.Timestamp created_at = 10;
    */
   createdAt?: Timestamp;
 
@@ -214,29 +228,29 @@ export type BookVerse = Message<"bible.v1.BookVerse"> & {
    * Verse last update time
    * Stored in UTC and follows RFC 3339 format
    *
-   * @generated from field: google.protobuf.Timestamp updated_at = 9;
+   * @generated from field: google.protobuf.Timestamp updated_at = 11;
    */
   updatedAt?: Timestamp;
 
   /**
    * Verse chapter ID
    *
-   * @generated from field: string chapter_id = 10;
+   * @generated from field: string chapter_id = 12;
    */
   chapterId: string;
 };
 
 /**
- * Describes the message bible.v1.BookVerse.
- * Use `create(BookVerseSchema)` to create a new message.
+ * Describes the message bible.v1.Verse.
+ * Use `create(VerseSchema)` to create a new message.
  */
-export const BookVerseSchema: GenMessage<BookVerse> = /*@__PURE__*/
+export const VerseSchema: GenMessage<Verse> = /*@__PURE__*/
   messageDesc(file_bible_v1_book, 2);
 
 /**
- * @generated from message bible.v1.BookFootnote
+ * @generated from message bible.v1.Footnote
  */
-export type BookFootnote = Message<"bible.v1.BookFootnote"> & {
+export type Footnote = Message<"bible.v1.Footnote"> & {
   /**
    * Footnote ID
    *
@@ -245,31 +259,47 @@ export type BookFootnote = Message<"bible.v1.BookFootnote"> & {
   id: string;
 
   /**
-   * Footnote content
+   * Footnote text
    *
-   * @generated from field: string content = 2;
+   * @generated from field: string text = 2;
    */
-  content: string;
+  text: string;
+
+  /**
+   * Footnote type
+   *
+   * e.g. "footnote", "reference"
+   *
+   * @generated from field: string type = 3;
+   */
+  type: string;
+
+  /**
+   * Footnote label
+   *
+   * @generated from field: string label = 4;
+   */
+  label: string;
+
+  /**
+   * Footnote sort order
+   *
+   * @generated from field: int32 sort_order = 5;
+   */
+  sortOrder: number;
 
   /**
    * Footnote position
    *
-   * @generated from field: int32 position = 3;
+   * @generated from field: int32 position = 6;
    */
   position: number;
-
-  /**
-   * Footnote order
-   *
-   * @generated from field: int32 order = 4;
-   */
-  order: number;
 
   /**
    * Footnote creation time
    * Stored in UTC and follows RFC 3339 format
    *
-   * @generated from field: google.protobuf.Timestamp created_at = 5;
+   * @generated from field: google.protobuf.Timestamp created_at = 7;
    */
   createdAt?: Timestamp;
 
@@ -277,43 +307,43 @@ export type BookFootnote = Message<"bible.v1.BookFootnote"> & {
    * Footnote last update time
    * Stored in UTC and follows RFC 3339 format
    *
-   * @generated from field: google.protobuf.Timestamp updated_at = 6;
+   * @generated from field: google.protobuf.Timestamp updated_at = 8;
    */
   updatedAt?: Timestamp;
 
   /**
    * Footnote verse ID
    *
-   * @generated from field: optional string verse_id = 7;
+   * @generated from field: optional string verse_id = 9;
    */
   verseId?: string;
 
   /**
    * Footnote heading ID
    *
-   * @generated from field: optional string heading_id = 8;
+   * @generated from field: optional string heading_id = 10;
    */
   headingId?: string;
 
   /**
    * Footnote chapter ID
    *
-   * @generated from field: string chapter_id = 9;
+   * @generated from field: string chapter_id = 11;
    */
   chapterId: string;
 };
 
 /**
- * Describes the message bible.v1.BookFootnote.
- * Use `create(BookFootnoteSchema)` to create a new message.
+ * Describes the message bible.v1.Footnote.
+ * Use `create(FootnoteSchema)` to create a new message.
  */
-export const BookFootnoteSchema: GenMessage<BookFootnote> = /*@__PURE__*/
+export const FootnoteSchema: GenMessage<Footnote> = /*@__PURE__*/
   messageDesc(file_bible_v1_book, 3);
 
 /**
- * @generated from message bible.v1.BookHeading
+ * @generated from message bible.v1.Heading
  */
-export type BookHeading = Message<"bible.v1.BookHeading"> & {
+export type Heading = Message<"bible.v1.Heading"> & {
   /**
    * Heading ID
    *
@@ -322,11 +352,11 @@ export type BookHeading = Message<"bible.v1.BookHeading"> & {
   id: string;
 
   /**
-   * Heading content
+   * Heading text
    *
-   * @generated from field: string content = 2;
+   * @generated from field: string text = 2;
    */
-  content: string;
+  text: string;
 
   /**
    * Heading level. Start from 1
@@ -336,11 +366,11 @@ export type BookHeading = Message<"bible.v1.BookHeading"> & {
   level: number;
 
   /**
-   * Heading position
+   * Heading sort order
    *
-   * @generated from field: int32 order = 4;
+   * @generated from field: int32 sort_order = 4;
    */
-  order: number;
+  sortOrder: number;
 
   /**
    * Heading creation time
@@ -374,88 +404,11 @@ export type BookHeading = Message<"bible.v1.BookHeading"> & {
 };
 
 /**
- * Describes the message bible.v1.BookHeading.
- * Use `create(BookHeadingSchema)` to create a new message.
+ * Describes the message bible.v1.Heading.
+ * Use `create(HeadingSchema)` to create a new message.
  */
-export const BookHeadingSchema: GenMessage<BookHeading> = /*@__PURE__*/
+export const HeadingSchema: GenMessage<Heading> = /*@__PURE__*/
   messageDesc(file_bible_v1_book, 4);
-
-/**
- * @generated from message bible.v1.BookReference
- */
-export type BookReference = Message<"bible.v1.BookReference"> & {
-  /**
-   * Reference ID
-   *
-   * @generated from field: string id = 1;
-   */
-  id: string;
-
-  /**
-   * Reference content
-   *
-   * @generated from field: string content = 2;
-   */
-  content: string;
-
-  /**
-   * Reference position
-   *
-   * @generated from field: optional int32 position = 3;
-   */
-  position?: number;
-
-  /**
-   * Reference order
-   *
-   * @generated from field: int32 order = 4;
-   */
-  order: number;
-
-  /**
-   * Reference creation time
-   * Stored in UTC and follows RFC 3339 format
-   *
-   * @generated from field: google.protobuf.Timestamp created_at = 5;
-   */
-  createdAt?: Timestamp;
-
-  /**
-   * Reference last update time
-   * Stored in UTC and follows RFC 3339 format
-   *
-   * @generated from field: google.protobuf.Timestamp updated_at = 6;
-   */
-  updatedAt?: Timestamp;
-
-  /**
-   * Reference verse ID
-   *
-   * @generated from field: optional string verse_id = 7;
-   */
-  verseId?: string;
-
-  /**
-   * Reference heading ID
-   *
-   * @generated from field: optional string heading_id = 8;
-   */
-  headingId?: string;
-
-  /**
-   * Reference chapter ID
-   *
-   * @generated from field: string chapter_id = 9;
-   */
-  chapterId: string;
-};
-
-/**
- * Describes the message bible.v1.BookReference.
- * Use `create(BookReferenceSchema)` to create a new message.
- */
-export const BookReferenceSchema: GenMessage<BookReference> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 5);
 
 /**
  * @generated from message bible.v1.PsalmMetadata
@@ -504,32 +457,39 @@ export type PsalmMetadata = Message<"bible.v1.PsalmMetadata"> & {
  * Use `create(PsalmMetadataSchema)` to create a new message.
  */
 export const PsalmMetadataSchema: GenMessage<PsalmMetadata> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 6);
+  messageDesc(file_bible_v1_book, 5);
 
 /**
  * @generated from message bible.v1.GetAllBookRequest
  */
 export type GetAllBookRequest = Message<"bible.v1.GetAllBookRequest"> & {
   /**
-   * Version code query params
+   * Version code (required - part of unique constraint)
    *
    * @generated from field: string version_code = 1;
    */
   versionCode: string;
 
   /**
-   * Language code query params
+   * Language code (required - part of unique constraint)
    *
-   * @generated from field: string lang_code = 2;
+   * @generated from field: string language = 2;
    */
-  langCode: string;
+  language: string;
 
   /**
-   * Web origin query params
+   * Source (required - part of unique constraint)
    *
-   * @generated from field: string web_origin = 3;
+   * @generated from field: string source = 3;
    */
-  webOrigin: string;
+  source: string;
+
+  /**
+   * Testament filter (optional: ot, nt, apocrypha)
+   *
+   * @generated from field: optional string testament = 4;
+   */
+  testament?: string;
 };
 
 /**
@@ -537,7 +497,7 @@ export type GetAllBookRequest = Message<"bible.v1.GetAllBookRequest"> & {
  * Use `create(GetAllBookRequestSchema)` to create a new message.
  */
 export const GetAllBookRequestSchema: GenMessage<GetAllBookRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 7);
+  messageDesc(file_bible_v1_book, 6);
 
 /**
  * @generated from message bible.v1.GetAllBookResponse
@@ -556,39 +516,39 @@ export type GetAllBookResponse = Message<"bible.v1.GetAllBookResponse"> & {
  * Use `create(GetAllBookResponseSchema)` to create a new message.
  */
 export const GetAllBookResponseSchema: GenMessage<GetAllBookResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 8);
+  messageDesc(file_bible_v1_book, 7);
 
 /**
  * @generated from message bible.v1.GetOneBookRequest
  */
 export type GetOneBookRequest = Message<"bible.v1.GetOneBookRequest"> & {
   /**
-   * Book code
+   * Book code (required)
    *
    * @generated from field: string book_code = 1;
    */
   bookCode: string;
 
   /**
-   * Version code query params
+   * Version code (required - part of unique constraint)
    *
    * @generated from field: string version_code = 2;
    */
   versionCode: string;
 
   /**
-   * Language code query params
+   * Language code (required - part of unique constraint)
    *
-   * @generated from field: string lang_code = 3;
+   * @generated from field: string language = 3;
    */
-  langCode: string;
+  language: string;
 
   /**
-   * Web origin query params
+   * Source (required - part of unique constraint)
    *
-   * @generated from field: string web_origin = 4;
+   * @generated from field: string source = 4;
    */
-  webOrigin: string;
+  source: string;
 };
 
 /**
@@ -596,7 +556,7 @@ export type GetOneBookRequest = Message<"bible.v1.GetOneBookRequest"> & {
  * Use `create(GetOneBookRequestSchema)` to create a new message.
  */
 export const GetOneBookRequestSchema: GenMessage<GetOneBookRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 9);
+  messageDesc(file_bible_v1_book, 8);
 
 /**
  * @generated from message bible.v1.GetOneBookResponse
@@ -615,46 +575,46 @@ export type GetOneBookResponse = Message<"bible.v1.GetOneBookResponse"> & {
  * Use `create(GetOneBookResponseSchema)` to create a new message.
  */
 export const GetOneBookResponseSchema: GenMessage<GetOneBookResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 10);
+  messageDesc(file_bible_v1_book, 9);
 
 /**
  * @generated from message bible.v1.GetOneChapterRequest
  */
 export type GetOneChapterRequest = Message<"bible.v1.GetOneChapterRequest"> & {
   /**
-   * Book code
+   * Book code (required)
    *
    * @generated from field: string book_code = 1;
    */
   bookCode: string;
 
   /**
-   * Chapter number
+   * Chapter number (required)
    *
-   * @generated from field: string chapter_num = 2;
+   * @generated from field: int32 chapter_num = 2;
    */
-  chapterNum: string;
+  chapterNum: number;
 
   /**
-   * Version code query params
+   * Version code (required - part of unique constraint)
    *
    * @generated from field: string version_code = 3;
    */
   versionCode: string;
 
   /**
-   * Language code query params
+   * Language code (required - part of unique constraint)
    *
-   * @generated from field: string lang_code = 4;
+   * @generated from field: string language = 4;
    */
-  langCode: string;
+  language: string;
 
   /**
-   * Web origin query params
+   * Source (required - part of unique constraint)
    *
-   * @generated from field: string web_origin = 5;
+   * @generated from field: string source = 5;
    */
-  webOrigin: string;
+  source: string;
 };
 
 /**
@@ -662,7 +622,7 @@ export type GetOneChapterRequest = Message<"bible.v1.GetOneChapterRequest"> & {
  * Use `create(GetOneChapterRequestSchema)` to create a new message.
  */
 export const GetOneChapterRequestSchema: GenMessage<GetOneChapterRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 11);
+  messageDesc(file_bible_v1_book, 10);
 
 /**
  * @generated from message bible.v1.GetOneChapterResponse
@@ -671,49 +631,42 @@ export type GetOneChapterResponse = Message<"bible.v1.GetOneChapterResponse"> & 
   /**
    * Chapter object
    *
-   * @generated from field: bible.v1.BookChapter chapter = 1;
+   * @generated from field: bible.v1.Chapter chapter = 1;
    */
-  chapter?: BookChapter;
+  chapter?: Chapter;
 
   /**
    * Chapter verses
    *
-   * @generated from field: repeated bible.v1.BookVerse verses = 2;
+   * @generated from field: repeated bible.v1.Verse verses = 2;
    */
-  verses: BookVerse[];
+  verses: Verse[];
 
   /**
    * Chapter footnotes
    *
-   * @generated from field: repeated bible.v1.BookFootnote footnotes = 3;
+   * @generated from field: repeated bible.v1.Footnote footnotes = 3;
    */
-  footnotes: BookFootnote[];
+  footnotes: Footnote[];
 
   /**
    * Chapter headings
    *
-   * @generated from field: repeated bible.v1.BookHeading headings = 4;
+   * @generated from field: repeated bible.v1.Heading headings = 4;
    */
-  headings: BookHeading[];
-
-  /**
-   * Chapter references
-   *
-   * @generated from field: repeated bible.v1.BookReference references = 5;
-   */
-  references: BookReference[];
+  headings: Heading[];
 
   /**
    * Chapter psalm metadata
    *
-   * @generated from field: repeated bible.v1.PsalmMetadata psalm_metadata = 6;
+   * @generated from field: repeated bible.v1.PsalmMetadata psalm_metadata = 5;
    */
   psalmMetadata: PsalmMetadata[];
 
   /**
-   * Book object
+   * Book object for context
    *
-   * @generated from field: bible.v1.Book book = 7;
+   * @generated from field: bible.v1.Book book = 6;
    */
   book?: Book;
 };
@@ -723,46 +676,46 @@ export type GetOneChapterResponse = Message<"bible.v1.GetOneChapterResponse"> & 
  * Use `create(GetOneChapterResponseSchema)` to create a new message.
  */
 export const GetOneChapterResponseSchema: GenMessage<GetOneChapterResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 12);
+  messageDesc(file_bible_v1_book, 11);
 
 /**
  * @generated from message bible.v1.GetOneChapterTextRequest
  */
 export type GetOneChapterTextRequest = Message<"bible.v1.GetOneChapterTextRequest"> & {
   /**
-   * Book code
+   * Book code (required)
    *
    * @generated from field: string book_code = 1;
    */
   bookCode: string;
 
   /**
-   * Chapter number
+   * Chapter number (required)
    *
-   * @generated from field: string chapter_num = 2;
+   * @generated from field: int32 chapter_num = 2;
    */
-  chapterNum: string;
+  chapterNum: number;
 
   /**
-   * Version code query params
+   * Version code (required - part of unique constraint)
    *
    * @generated from field: string version_code = 3;
    */
   versionCode: string;
 
   /**
-   * Language code query params
+   * Language code (required - part of unique constraint)
    *
-   * @generated from field: string lang_code = 4;
+   * @generated from field: string language = 4;
    */
-  langCode: string;
+  language: string;
 
   /**
-   * Web origin query params
+   * Source (required - part of unique constraint)
    *
-   * @generated from field: string web_origin = 5;
+   * @generated from field: string source = 5;
    */
-  webOrigin: string;
+  source: string;
 };
 
 /**
@@ -770,7 +723,7 @@ export type GetOneChapterTextRequest = Message<"bible.v1.GetOneChapterTextReques
  * Use `create(GetOneChapterTextRequestSchema)` to create a new message.
  */
 export const GetOneChapterTextRequestSchema: GenMessage<GetOneChapterTextRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 13);
+  messageDesc(file_bible_v1_book, 12);
 
 /**
  * @generated from message bible.v1.GetOneChapterTextResponse
@@ -789,46 +742,46 @@ export type GetOneChapterTextResponse = Message<"bible.v1.GetOneChapterTextRespo
  * Use `create(GetOneChapterTextResponseSchema)` to create a new message.
  */
 export const GetOneChapterTextResponseSchema: GenMessage<GetOneChapterTextResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 14);
+  messageDesc(file_bible_v1_book, 13);
 
 /**
  * @generated from message bible.v1.GetOneChapterHtmlRequest
  */
 export type GetOneChapterHtmlRequest = Message<"bible.v1.GetOneChapterHtmlRequest"> & {
   /**
-   * Book code
+   * Book code (required)
    *
    * @generated from field: string book_code = 1;
    */
   bookCode: string;
 
   /**
-   * Chapter number
+   * Chapter number (required)
    *
-   * @generated from field: string chapter_num = 2;
+   * @generated from field: int32 chapter_num = 2;
    */
-  chapterNum: string;
+  chapterNum: number;
 
   /**
-   * Version code query params
+   * Version code (required - part of unique constraint)
    *
    * @generated from field: string version_code = 3;
    */
   versionCode: string;
 
   /**
-   * Language code query params
+   * Language code (required - part of unique constraint)
    *
-   * @generated from field: string lang_code = 4;
+   * @generated from field: string language = 4;
    */
-  langCode: string;
+  language: string;
 
   /**
-   * Web origin query params
+   * Source (required - part of unique constraint)
    *
-   * @generated from field: string web_origin = 5;
+   * @generated from field: string source = 5;
    */
-  webOrigin: string;
+  source: string;
 };
 
 /**
@@ -836,7 +789,7 @@ export type GetOneChapterHtmlRequest = Message<"bible.v1.GetOneChapterHtmlReques
  * Use `create(GetOneChapterHtmlRequestSchema)` to create a new message.
  */
 export const GetOneChapterHtmlRequestSchema: GenMessage<GetOneChapterHtmlRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 15);
+  messageDesc(file_bible_v1_book, 14);
 
 /**
  * @generated from message bible.v1.GetOneChapterHtmlResponse
@@ -855,39 +808,39 @@ export type GetOneChapterHtmlResponse = Message<"bible.v1.GetOneChapterHtmlRespo
  * Use `create(GetOneChapterHtmlResponseSchema)` to create a new message.
  */
 export const GetOneChapterHtmlResponseSchema: GenMessage<GetOneChapterHtmlResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 16);
+  messageDesc(file_bible_v1_book, 15);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceRequest
  */
 export type GetBiblicalReferenceRequest = Message<"bible.v1.GetBiblicalReferenceRequest"> & {
   /**
-   * Query string
+   * Query string (e.g., "John 3:16", "Genesis 1:1-3")
    *
    * @generated from field: string query = 1;
    */
   query: string;
 
   /**
-   * Version code query params
+   * Version code (required - part of unique constraint)
    *
    * @generated from field: string version_code = 2;
    */
   versionCode: string;
 
   /**
-   * Language code query params
+   * Language code (required - part of unique constraint)
    *
-   * @generated from field: string lang_code = 3;
+   * @generated from field: string language = 3;
    */
-  langCode: string;
+  language: string;
 
   /**
-   * Web origin query params
+   * Source (required - part of unique constraint)
    *
-   * @generated from field: string web_origin = 4;
+   * @generated from field: string source = 4;
    */
-  webOrigin: string;
+  source: string;
 
   /**
    * Format query params. E.g. us, eu.
@@ -902,51 +855,44 @@ export type GetBiblicalReferenceRequest = Message<"bible.v1.GetBiblicalReference
  * Use `create(GetBiblicalReferenceRequestSchema)` to create a new message.
  */
 export const GetBiblicalReferenceRequestSchema: GenMessage<GetBiblicalReferenceRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 17);
+  messageDesc(file_bible_v1_book, 16);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceResponse
  */
 export type GetBiblicalReferenceResponse = Message<"bible.v1.GetBiblicalReferenceResponse"> & {
   /**
-   * Chapter object
+   * Referenced chapters
    *
-   * @generated from field: repeated bible.v1.BookChapter chapters = 1;
+   * @generated from field: repeated bible.v1.Chapter chapters = 1;
    */
-  chapters: BookChapter[];
+  chapters: Chapter[];
 
   /**
-   * Chapter verses
+   * Referenced verses
    *
-   * @generated from field: repeated bible.v1.BookVerse verses = 2;
+   * @generated from field: repeated bible.v1.Verse verses = 2;
    */
-  verses: BookVerse[];
+  verses: Verse[];
 
   /**
-   * Chapter footnotes
+   * Related footnotes
    *
-   * @generated from field: repeated bible.v1.BookFootnote footnotes = 3;
+   * @generated from field: repeated bible.v1.Footnote footnotes = 3;
    */
-  footnotes: BookFootnote[];
+  footnotes: Footnote[];
 
   /**
-   * Chapter headings
+   * Related headings
    *
-   * @generated from field: repeated bible.v1.BookHeading headings = 4;
+   * @generated from field: repeated bible.v1.Heading headings = 4;
    */
-  headings: BookHeading[];
-
-  /**
-   * Chapter references
-   *
-   * @generated from field: repeated bible.v1.BookReference references = 5;
-   */
-  references: BookReference[];
+  headings: Heading[];
 
   /**
    * Chapter psalm metadata
    *
-   * @generated from field: repeated bible.v1.PsalmMetadata psalm_metadata = 6;
+   * @generated from field: repeated bible.v1.PsalmMetadata psalm_metadata = 5;
    */
   psalmMetadata: PsalmMetadata[];
 };
@@ -956,39 +902,39 @@ export type GetBiblicalReferenceResponse = Message<"bible.v1.GetBiblicalReferenc
  * Use `create(GetBiblicalReferenceResponseSchema)` to create a new message.
  */
 export const GetBiblicalReferenceResponseSchema: GenMessage<GetBiblicalReferenceResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 18);
+  messageDesc(file_bible_v1_book, 17);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceTextRequest
  */
 export type GetBiblicalReferenceTextRequest = Message<"bible.v1.GetBiblicalReferenceTextRequest"> & {
   /**
-   * Query string
+   * Query string (e.g., "John 3:16", "Genesis 1:1-3")
    *
    * @generated from field: string query = 1;
    */
   query: string;
 
   /**
-   * Version code query params
+   * Version code (required - part of unique constraint)
    *
    * @generated from field: string version_code = 2;
    */
   versionCode: string;
 
   /**
-   * Language code query params
+   * Language code (required - part of unique constraint)
    *
-   * @generated from field: string lang_code = 3;
+   * @generated from field: string language = 3;
    */
-  langCode: string;
+  language: string;
 
   /**
-   * Web origin query params
+   * Source (required - part of unique constraint)
    *
-   * @generated from field: string web_origin = 4;
+   * @generated from field: string source = 4;
    */
-  webOrigin: string;
+  source: string;
 
   /**
    * Format query params. E.g. us, eu.
@@ -1003,14 +949,14 @@ export type GetBiblicalReferenceTextRequest = Message<"bible.v1.GetBiblicalRefer
  * Use `create(GetBiblicalReferenceTextRequestSchema)` to create a new message.
  */
 export const GetBiblicalReferenceTextRequestSchema: GenMessage<GetBiblicalReferenceTextRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 19);
+  messageDesc(file_bible_v1_book, 18);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceTextResponse
  */
 export type GetBiblicalReferenceTextResponse = Message<"bible.v1.GetBiblicalReferenceTextResponse"> & {
   /**
-   * Chapter text in markdown format
+   * Referenced text in markdown format
    *
    * @generated from field: string text = 1;
    */
@@ -1022,39 +968,39 @@ export type GetBiblicalReferenceTextResponse = Message<"bible.v1.GetBiblicalRefe
  * Use `create(GetBiblicalReferenceTextResponseSchema)` to create a new message.
  */
 export const GetBiblicalReferenceTextResponseSchema: GenMessage<GetBiblicalReferenceTextResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 20);
+  messageDesc(file_bible_v1_book, 19);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceHtmlRequest
  */
 export type GetBiblicalReferenceHtmlRequest = Message<"bible.v1.GetBiblicalReferenceHtmlRequest"> & {
   /**
-   * Query string
+   * Query string (e.g., "John 3:16", "Genesis 1:1-3")
    *
    * @generated from field: string query = 1;
    */
   query: string;
 
   /**
-   * Version code query params
+   * Version code (required - part of unique constraint)
    *
    * @generated from field: string version_code = 2;
    */
   versionCode: string;
 
   /**
-   * Language code query params
+   * Language code (required - part of unique constraint)
    *
-   * @generated from field: string lang_code = 3;
+   * @generated from field: string language = 3;
    */
-  langCode: string;
+  language: string;
 
   /**
-   * Web origin query params
+   * Source (required - part of unique constraint)
    *
-   * @generated from field: string web_origin = 4;
+   * @generated from field: string source = 4;
    */
-  webOrigin: string;
+  source: string;
 
   /**
    * Format query params. E.g. us, eu.
@@ -1069,14 +1015,14 @@ export type GetBiblicalReferenceHtmlRequest = Message<"bible.v1.GetBiblicalRefer
  * Use `create(GetBiblicalReferenceHtmlRequestSchema)` to create a new message.
  */
 export const GetBiblicalReferenceHtmlRequestSchema: GenMessage<GetBiblicalReferenceHtmlRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 21);
+  messageDesc(file_bible_v1_book, 20);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceHtmlResponse
  */
 export type GetBiblicalReferenceHtmlResponse = Message<"bible.v1.GetBiblicalReferenceHtmlResponse"> & {
   /**
-   * Chapter text in HTML format
+   * Referenced text in HTML format
    *
    * @generated from field: string html = 1;
    */
@@ -1088,7 +1034,7 @@ export type GetBiblicalReferenceHtmlResponse = Message<"bible.v1.GetBiblicalRefe
  * Use `create(GetBiblicalReferenceHtmlResponseSchema)` to create a new message.
  */
 export const GetBiblicalReferenceHtmlResponseSchema: GenMessage<GetBiblicalReferenceHtmlResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 22);
+  messageDesc(file_bible_v1_book, 21);
 
 /**
  * Book service definition
