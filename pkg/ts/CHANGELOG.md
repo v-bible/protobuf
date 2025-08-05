@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.11...pkg/ts/v0.6.0) (2025-08-05)
+
+
+### Miscellaneous Chores
+
+* **pkg/ts:** Synchronize protobuf versions
+
 ## [0.5.11](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.5.10...pkg/ts/v0.5.11) (2025-06-18)
 
 
