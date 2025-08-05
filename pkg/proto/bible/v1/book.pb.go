@@ -30,12 +30,12 @@ type Book struct {
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Book code
 	Code string `protobuf:"bytes,2,opt,name=code,proto3" json:"code,omitempty"`
-	// Book title
-	Title string `protobuf:"bytes,3,opt,name=title,proto3" json:"title,omitempty"`
-	// Book canon
-	Canon string `protobuf:"bytes,4,opt,name=canon,proto3" json:"canon,omitempty"`
+	// Book name
+	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
+	// Book testament
+	Testament string `protobuf:"bytes,4,opt,name=testament,proto3" json:"testament,omitempty"`
 	// Book order
-	Order int32 `protobuf:"varint,5,opt,name=order,proto3" json:"order,omitempty"`
+	BookOrder int32 `protobuf:"varint,5,opt,name=book_order,json=bookOrder,proto3" json:"book_order,omitempty"`
 	// Book creation time
 	// Stored in UTC and follows RFC 3339 format
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
@@ -43,8 +43,8 @@ type Book struct {
 	// Stored in UTC and follows RFC 3339 format
 	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Book chapters
-	Chapters []*BookChapter `protobuf:"bytes,8,rep,name=chapters,proto3" json:"chapters,omitempty"`
-	// Book version
+	Chapters []*Chapter `protobuf:"bytes,8,rep,name=chapters,proto3" json:"chapters,omitempty"`
+	// Book version ID
 	VersionId     string `protobuf:"bytes,9,opt,name=version_id,json=versionId,proto3" json:"version_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -94,23 +94,23 @@ func (x *Book) GetCode() string {
 	return ""
 }
 
-func (x *Book) GetTitle() string {
+func (x *Book) GetName() string {
 	if x != nil {
-		return x.Title
+		return x.Name
 	}
 	return ""
 }
 
-func (x *Book) GetCanon() string {
+func (x *Book) GetTestament() string {
 	if x != nil {
-		return x.Canon
+		return x.Testament
 	}
 	return ""
 }
 
-func (x *Book) GetOrder() int32 {
+func (x *Book) GetBookOrder() int32 {
 	if x != nil {
-		return x.Order
+		return x.BookOrder
 	}
 	return 0
 }
@@ -129,7 +129,7 @@ func (x *Book) GetUpdatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
-func (x *Book) GetChapters() []*BookChapter {
+func (x *Book) GetChapters() []*Chapter {
 	if x != nil {
 		return x.Chapters
 	}
@@ -143,14 +143,14 @@ func (x *Book) GetVersionId() string {
 	return ""
 }
 
-type BookChapter struct {
+type Chapter struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Chapter ID
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Chapter number
 	Number int32 `protobuf:"varint,2,opt,name=number,proto3" json:"number,omitempty"`
-	// Chapter source reference URL
-	Ref string `protobuf:"bytes,3,opt,name=ref,proto3" json:"ref,omitempty"`
+	// Chapter audio URL
+	AudioUrl *string `protobuf:"bytes,3,opt,name=audio_url,json=audioUrl,proto3,oneof" json:"audio_url,omitempty"`
 	// Chapter creation time
 	// Stored in UTC and follows RFC 3339 format
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
@@ -163,20 +163,20 @@ type BookChapter struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *BookChapter) Reset() {
-	*x = BookChapter{}
+func (x *Chapter) Reset() {
+	*x = Chapter{}
 	mi := &file_bible_v1_book_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *BookChapter) String() string {
+func (x *Chapter) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*BookChapter) ProtoMessage() {}
+func (*Chapter) ProtoMessage() {}
 
-func (x *BookChapter) ProtoReflect() protoreflect.Message {
+func (x *Chapter) ProtoReflect() protoreflect.Message {
 	mi := &file_bible_v1_book_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -188,95 +188,99 @@ func (x *BookChapter) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use BookChapter.ProtoReflect.Descriptor instead.
-func (*BookChapter) Descriptor() ([]byte, []int) {
+// Deprecated: Use Chapter.ProtoReflect.Descriptor instead.
+func (*Chapter) Descriptor() ([]byte, []int) {
 	return file_bible_v1_book_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *BookChapter) GetId() string {
+func (x *Chapter) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *BookChapter) GetNumber() int32 {
+func (x *Chapter) GetNumber() int32 {
 	if x != nil {
 		return x.Number
 	}
 	return 0
 }
 
-func (x *BookChapter) GetRef() string {
-	if x != nil {
-		return x.Ref
+func (x *Chapter) GetAudioUrl() string {
+	if x != nil && x.AudioUrl != nil {
+		return *x.AudioUrl
 	}
 	return ""
 }
 
-func (x *BookChapter) GetCreatedAt() *timestamppb.Timestamp {
+func (x *Chapter) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.CreatedAt
 	}
 	return nil
 }
 
-func (x *BookChapter) GetUpdatedAt() *timestamppb.Timestamp {
+func (x *Chapter) GetUpdatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.UpdatedAt
 	}
 	return nil
 }
 
-func (x *BookChapter) GetBookId() string {
+func (x *Chapter) GetBookId() string {
 	if x != nil {
 		return x.BookId
 	}
 	return ""
 }
 
-type BookVerse struct {
+type Verse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Verse ID
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	// Verse text
+	Text string `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
+	// Verse label
+	Label string `protobuf:"bytes,3,opt,name=label,proto3" json:"label,omitempty"`
 	// Verse number
-	Number int32 `protobuf:"varint,2,opt,name=number,proto3" json:"number,omitempty"`
-	// Verse content
-	Content string `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
-	// Verse order
-	Order int32 `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
+	Number int32 `protobuf:"varint,4,opt,name=number,proto3" json:"number,omitempty"`
+	// Verse sub-verse index
+	SubVerseIndex int32 `protobuf:"varint,5,opt,name=sub_verse_index,json=subVerseIndex,proto3" json:"sub_verse_index,omitempty"`
 	// Verse paragraph number
-	ParNumber int32 `protobuf:"varint,5,opt,name=par_number,json=parNumber,proto3" json:"par_number,omitempty"`
+	ParagraphNumber int32 `protobuf:"varint,6,opt,name=paragraph_number,json=paragraphNumber,proto3" json:"paragraph_number,omitempty"`
 	// Verse paragraph index
-	ParIndex int32 `protobuf:"varint,6,opt,name=par_index,json=parIndex,proto3" json:"par_index,omitempty"`
+	ParagraphIndex int32 `protobuf:"varint,7,opt,name=paragraph_index,json=paragraphIndex,proto3" json:"paragraph_index,omitempty"`
 	// Verse is poetry
-	IsPoetry bool `protobuf:"varint,7,opt,name=is_poetry,json=isPoetry,proto3" json:"is_poetry,omitempty"`
+	IsPoetry bool `protobuf:"varint,8,opt,name=is_poetry,json=isPoetry,proto3" json:"is_poetry,omitempty"`
+	// Verse audio URL
+	AudioUrl *string `protobuf:"bytes,9,opt,name=audio_url,json=audioUrl,proto3,oneof" json:"audio_url,omitempty"`
 	// Verse creation time
 	// Stored in UTC and follows RFC 3339 format
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,10,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Verse last update time
 	// Stored in UTC and follows RFC 3339 format
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,11,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Verse chapter ID
-	ChapterId     string `protobuf:"bytes,10,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
+	ChapterId     string `protobuf:"bytes,12,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *BookVerse) Reset() {
-	*x = BookVerse{}
+func (x *Verse) Reset() {
+	*x = Verse{}
 	mi := &file_bible_v1_book_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *BookVerse) String() string {
+func (x *Verse) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*BookVerse) ProtoMessage() {}
+func (*Verse) ProtoMessage() {}
 
-func (x *BookVerse) ProtoReflect() protoreflect.Message {
+func (x *Verse) ProtoReflect() protoreflect.Message {
 	mi := &file_bible_v1_book_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -288,121 +292,139 @@ func (x *BookVerse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use BookVerse.ProtoReflect.Descriptor instead.
-func (*BookVerse) Descriptor() ([]byte, []int) {
+// Deprecated: Use Verse.ProtoReflect.Descriptor instead.
+func (*Verse) Descriptor() ([]byte, []int) {
 	return file_bible_v1_book_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *BookVerse) GetId() string {
+func (x *Verse) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *BookVerse) GetNumber() int32 {
+func (x *Verse) GetText() string {
+	if x != nil {
+		return x.Text
+	}
+	return ""
+}
+
+func (x *Verse) GetLabel() string {
+	if x != nil {
+		return x.Label
+	}
+	return ""
+}
+
+func (x *Verse) GetNumber() int32 {
 	if x != nil {
 		return x.Number
 	}
 	return 0
 }
 
-func (x *BookVerse) GetContent() string {
+func (x *Verse) GetSubVerseIndex() int32 {
 	if x != nil {
-		return x.Content
-	}
-	return ""
-}
-
-func (x *BookVerse) GetOrder() int32 {
-	if x != nil {
-		return x.Order
+		return x.SubVerseIndex
 	}
 	return 0
 }
 
-func (x *BookVerse) GetParNumber() int32 {
+func (x *Verse) GetParagraphNumber() int32 {
 	if x != nil {
-		return x.ParNumber
+		return x.ParagraphNumber
 	}
 	return 0
 }
 
-func (x *BookVerse) GetParIndex() int32 {
+func (x *Verse) GetParagraphIndex() int32 {
 	if x != nil {
-		return x.ParIndex
+		return x.ParagraphIndex
 	}
 	return 0
 }
 
-func (x *BookVerse) GetIsPoetry() bool {
+func (x *Verse) GetIsPoetry() bool {
 	if x != nil {
 		return x.IsPoetry
 	}
 	return false
 }
 
-func (x *BookVerse) GetCreatedAt() *timestamppb.Timestamp {
+func (x *Verse) GetAudioUrl() string {
+	if x != nil && x.AudioUrl != nil {
+		return *x.AudioUrl
+	}
+	return ""
+}
+
+func (x *Verse) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.CreatedAt
 	}
 	return nil
 }
 
-func (x *BookVerse) GetUpdatedAt() *timestamppb.Timestamp {
+func (x *Verse) GetUpdatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.UpdatedAt
 	}
 	return nil
 }
 
-func (x *BookVerse) GetChapterId() string {
+func (x *Verse) GetChapterId() string {
 	if x != nil {
 		return x.ChapterId
 	}
 	return ""
 }
 
-type BookFootnote struct {
+type Footnote struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Footnote ID
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Footnote content
-	Content string `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+	// Footnote text
+	Text string `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
+	// Footnote type
+	Type string `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty"` // e.g. "footnote", "reference"
+	// Footnote label
+	Label string `protobuf:"bytes,4,opt,name=label,proto3" json:"label,omitempty"`
+	// Footnote sort order
+	SortOrder int32 `protobuf:"varint,5,opt,name=sort_order,json=sortOrder,proto3" json:"sort_order,omitempty"`
 	// Footnote position
-	Position int32 `protobuf:"varint,3,opt,name=position,proto3" json:"position,omitempty"`
-	// Footnote order
-	Order int32 `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
+	Position int32 `protobuf:"varint,6,opt,name=position,proto3" json:"position,omitempty"`
 	// Footnote creation time
 	// Stored in UTC and follows RFC 3339 format
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Footnote last update time
 	// Stored in UTC and follows RFC 3339 format
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Footnote verse ID
-	VerseId *string `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3,oneof" json:"verse_id,omitempty"`
+	VerseId *string `protobuf:"bytes,9,opt,name=verse_id,json=verseId,proto3,oneof" json:"verse_id,omitempty"`
 	// Footnote heading ID
-	HeadingId *string `protobuf:"bytes,8,opt,name=heading_id,json=headingId,proto3,oneof" json:"heading_id,omitempty"`
+	HeadingId *string `protobuf:"bytes,10,opt,name=heading_id,json=headingId,proto3,oneof" json:"heading_id,omitempty"`
 	// Footnote chapter ID
-	ChapterId     string `protobuf:"bytes,9,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
+	ChapterId     string `protobuf:"bytes,11,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *BookFootnote) Reset() {
-	*x = BookFootnote{}
+func (x *Footnote) Reset() {
+	*x = Footnote{}
 	mi := &file_bible_v1_book_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *BookFootnote) String() string {
+func (x *Footnote) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*BookFootnote) ProtoMessage() {}
+func (*Footnote) ProtoMessage() {}
 
-func (x *BookFootnote) ProtoReflect() protoreflect.Message {
+func (x *Footnote) ProtoReflect() protoreflect.Message {
 	mi := &file_bible_v1_book_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -414,84 +436,98 @@ func (x *BookFootnote) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use BookFootnote.ProtoReflect.Descriptor instead.
-func (*BookFootnote) Descriptor() ([]byte, []int) {
+// Deprecated: Use Footnote.ProtoReflect.Descriptor instead.
+func (*Footnote) Descriptor() ([]byte, []int) {
 	return file_bible_v1_book_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *BookFootnote) GetId() string {
+func (x *Footnote) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *BookFootnote) GetContent() string {
+func (x *Footnote) GetText() string {
 	if x != nil {
-		return x.Content
+		return x.Text
 	}
 	return ""
 }
 
-func (x *BookFootnote) GetPosition() int32 {
+func (x *Footnote) GetType() string {
+	if x != nil {
+		return x.Type
+	}
+	return ""
+}
+
+func (x *Footnote) GetLabel() string {
+	if x != nil {
+		return x.Label
+	}
+	return ""
+}
+
+func (x *Footnote) GetSortOrder() int32 {
+	if x != nil {
+		return x.SortOrder
+	}
+	return 0
+}
+
+func (x *Footnote) GetPosition() int32 {
 	if x != nil {
 		return x.Position
 	}
 	return 0
 }
 
-func (x *BookFootnote) GetOrder() int32 {
-	if x != nil {
-		return x.Order
-	}
-	return 0
-}
-
-func (x *BookFootnote) GetCreatedAt() *timestamppb.Timestamp {
+func (x *Footnote) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.CreatedAt
 	}
 	return nil
 }
 
-func (x *BookFootnote) GetUpdatedAt() *timestamppb.Timestamp {
+func (x *Footnote) GetUpdatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.UpdatedAt
 	}
 	return nil
 }
 
-func (x *BookFootnote) GetVerseId() string {
+func (x *Footnote) GetVerseId() string {
 	if x != nil && x.VerseId != nil {
 		return *x.VerseId
 	}
 	return ""
 }
 
-func (x *BookFootnote) GetHeadingId() string {
+func (x *Footnote) GetHeadingId() string {
 	if x != nil && x.HeadingId != nil {
 		return *x.HeadingId
 	}
 	return ""
 }
 
-func (x *BookFootnote) GetChapterId() string {
+func (x *Footnote) GetChapterId() string {
 	if x != nil {
 		return x.ChapterId
 	}
 	return ""
 }
 
-type BookHeading struct {
+type Heading struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Heading ID
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Heading content
-	Content string `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
+	// Heading text
+	Text string `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
 	// Heading level. Start from 1
 	Level int32 `protobuf:"varint,3,opt,name=level,proto3" json:"level,omitempty"`
-	// Heading position
-	Order int32 `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
+	// Heading sort order
+	SortOrder int32 `protobuf:"varint,4,opt,name=sort_order,json=sortOrder,proto3" json:"sort_order,omitempty"`
 	// Heading creation time
 	// Stored in UTC and follows RFC 3339 format
 	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
@@ -506,20 +542,20 @@ type BookHeading struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *BookHeading) Reset() {
-	*x = BookHeading{}
+func (x *Heading) Reset() {
+	*x = Heading{}
 	mi := &file_bible_v1_book_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *BookHeading) String() string {
+func (x *Heading) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*BookHeading) ProtoMessage() {}
+func (*Heading) ProtoMessage() {}
 
-func (x *BookHeading) ProtoReflect() protoreflect.Message {
+func (x *Heading) ProtoReflect() protoreflect.Message {
 	mi := &file_bible_v1_book_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -531,180 +567,61 @@ func (x *BookHeading) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use BookHeading.ProtoReflect.Descriptor instead.
-func (*BookHeading) Descriptor() ([]byte, []int) {
+// Deprecated: Use Heading.ProtoReflect.Descriptor instead.
+func (*Heading) Descriptor() ([]byte, []int) {
 	return file_bible_v1_book_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *BookHeading) GetId() string {
+func (x *Heading) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *BookHeading) GetContent() string {
+func (x *Heading) GetText() string {
 	if x != nil {
-		return x.Content
+		return x.Text
 	}
 	return ""
 }
 
-func (x *BookHeading) GetLevel() int32 {
+func (x *Heading) GetLevel() int32 {
 	if x != nil {
 		return x.Level
 	}
 	return 0
 }
 
-func (x *BookHeading) GetOrder() int32 {
+func (x *Heading) GetSortOrder() int32 {
 	if x != nil {
-		return x.Order
+		return x.SortOrder
 	}
 	return 0
 }
 
-func (x *BookHeading) GetCreatedAt() *timestamppb.Timestamp {
+func (x *Heading) GetCreatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.CreatedAt
 	}
 	return nil
 }
 
-func (x *BookHeading) GetUpdatedAt() *timestamppb.Timestamp {
+func (x *Heading) GetUpdatedAt() *timestamppb.Timestamp {
 	if x != nil {
 		return x.UpdatedAt
 	}
 	return nil
 }
 
-func (x *BookHeading) GetVerseId() string {
+func (x *Heading) GetVerseId() string {
 	if x != nil {
 		return x.VerseId
 	}
 	return ""
 }
 
-func (x *BookHeading) GetChapterId() string {
-	if x != nil {
-		return x.ChapterId
-	}
-	return ""
-}
-
-type BookReference struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// Reference ID
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Reference content
-	Content string `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
-	// Reference position
-	Position *int32 `protobuf:"varint,3,opt,name=position,proto3,oneof" json:"position,omitempty"`
-	// Reference order
-	Order int32 `protobuf:"varint,4,opt,name=order,proto3" json:"order,omitempty"`
-	// Reference creation time
-	// Stored in UTC and follows RFC 3339 format
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
-	// Reference last update time
-	// Stored in UTC and follows RFC 3339 format
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
-	// Reference verse ID
-	VerseId *string `protobuf:"bytes,7,opt,name=verse_id,json=verseId,proto3,oneof" json:"verse_id,omitempty"`
-	// Reference heading ID
-	HeadingId *string `protobuf:"bytes,8,opt,name=heading_id,json=headingId,proto3,oneof" json:"heading_id,omitempty"`
-	// Reference chapter ID
-	ChapterId     string `protobuf:"bytes,9,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *BookReference) Reset() {
-	*x = BookReference{}
-	mi := &file_bible_v1_book_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *BookReference) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*BookReference) ProtoMessage() {}
-
-func (x *BookReference) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use BookReference.ProtoReflect.Descriptor instead.
-func (*BookReference) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *BookReference) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-func (x *BookReference) GetContent() string {
-	if x != nil {
-		return x.Content
-	}
-	return ""
-}
-
-func (x *BookReference) GetPosition() int32 {
-	if x != nil && x.Position != nil {
-		return *x.Position
-	}
-	return 0
-}
-
-func (x *BookReference) GetOrder() int32 {
-	if x != nil {
-		return x.Order
-	}
-	return 0
-}
-
-func (x *BookReference) GetCreatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.CreatedAt
-	}
-	return nil
-}
-
-func (x *BookReference) GetUpdatedAt() *timestamppb.Timestamp {
-	if x != nil {
-		return x.UpdatedAt
-	}
-	return nil
-}
-
-func (x *BookReference) GetVerseId() string {
-	if x != nil && x.VerseId != nil {
-		return *x.VerseId
-	}
-	return ""
-}
-
-func (x *BookReference) GetHeadingId() string {
-	if x != nil && x.HeadingId != nil {
-		return *x.HeadingId
-	}
-	return ""
-}
-
-func (x *BookReference) GetChapterId() string {
+func (x *Heading) GetChapterId() string {
 	if x != nil {
 		return x.ChapterId
 	}
@@ -731,7 +648,7 @@ type PsalmMetadata struct {
 
 func (x *PsalmMetadata) Reset() {
 	*x = PsalmMetadata{}
-	mi := &file_bible_v1_book_proto_msgTypes[6]
+	mi := &file_bible_v1_book_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -743,7 +660,7 @@ func (x *PsalmMetadata) String() string {
 func (*PsalmMetadata) ProtoMessage() {}
 
 func (x *PsalmMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[6]
+	mi := &file_bible_v1_book_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -756,7 +673,7 @@ func (x *PsalmMetadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PsalmMetadata.ProtoReflect.Descriptor instead.
 func (*PsalmMetadata) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{6}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *PsalmMetadata) GetId() string {
@@ -796,19 +713,21 @@ func (x *PsalmMetadata) GetChapterId() string {
 
 type GetAllBookRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Version code query params
+	// Version code (required - part of unique constraint)
 	VersionCode string `protobuf:"bytes,1,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	// Language code query params
-	LangCode string `protobuf:"bytes,2,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	// Web origin query params
-	WebOrigin     string `protobuf:"bytes,3,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Language code (required - part of unique constraint)
+	Language string `protobuf:"bytes,2,opt,name=language,proto3" json:"language,omitempty"`
+	// Source (required - part of unique constraint)
+	Source string `protobuf:"bytes,3,opt,name=source,proto3" json:"source,omitempty"`
+	// Testament filter (optional: ot, nt, apocrypha)
+	Testament     *string `protobuf:"bytes,4,opt,name=testament,proto3,oneof" json:"testament,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetAllBookRequest) Reset() {
 	*x = GetAllBookRequest{}
-	mi := &file_bible_v1_book_proto_msgTypes[7]
+	mi := &file_bible_v1_book_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -820,7 +739,7 @@ func (x *GetAllBookRequest) String() string {
 func (*GetAllBookRequest) ProtoMessage() {}
 
 func (x *GetAllBookRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[7]
+	mi := &file_bible_v1_book_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -833,7 +752,7 @@ func (x *GetAllBookRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllBookRequest.ProtoReflect.Descriptor instead.
 func (*GetAllBookRequest) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{7}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetAllBookRequest) GetVersionCode() string {
@@ -843,16 +762,23 @@ func (x *GetAllBookRequest) GetVersionCode() string {
 	return ""
 }
 
-func (x *GetAllBookRequest) GetLangCode() string {
+func (x *GetAllBookRequest) GetLanguage() string {
 	if x != nil {
-		return x.LangCode
+		return x.Language
 	}
 	return ""
 }
 
-func (x *GetAllBookRequest) GetWebOrigin() string {
+func (x *GetAllBookRequest) GetSource() string {
 	if x != nil {
-		return x.WebOrigin
+		return x.Source
+	}
+	return ""
+}
+
+func (x *GetAllBookRequest) GetTestament() string {
+	if x != nil && x.Testament != nil {
+		return *x.Testament
 	}
 	return ""
 }
@@ -867,7 +793,7 @@ type GetAllBookResponse struct {
 
 func (x *GetAllBookResponse) Reset() {
 	*x = GetAllBookResponse{}
-	mi := &file_bible_v1_book_proto_msgTypes[8]
+	mi := &file_bible_v1_book_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -879,7 +805,7 @@ func (x *GetAllBookResponse) String() string {
 func (*GetAllBookResponse) ProtoMessage() {}
 
 func (x *GetAllBookResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[8]
+	mi := &file_bible_v1_book_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -892,7 +818,7 @@ func (x *GetAllBookResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllBookResponse.ProtoReflect.Descriptor instead.
 func (*GetAllBookResponse) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{8}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetAllBookResponse) GetBooks() []*Book {
@@ -904,21 +830,21 @@ func (x *GetAllBookResponse) GetBooks() []*Book {
 
 type GetOneBookRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Book code
+	// Book code (required)
 	BookCode string `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
-	// Version code query params
+	// Version code (required - part of unique constraint)
 	VersionCode string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	// Language code query params
-	LangCode string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	// Web origin query params
-	WebOrigin     string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Language code (required - part of unique constraint)
+	Language string `protobuf:"bytes,3,opt,name=language,proto3" json:"language,omitempty"`
+	// Source (required - part of unique constraint)
+	Source        string `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetOneBookRequest) Reset() {
 	*x = GetOneBookRequest{}
-	mi := &file_bible_v1_book_proto_msgTypes[9]
+	mi := &file_bible_v1_book_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -930,7 +856,7 @@ func (x *GetOneBookRequest) String() string {
 func (*GetOneBookRequest) ProtoMessage() {}
 
 func (x *GetOneBookRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[9]
+	mi := &file_bible_v1_book_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -943,7 +869,7 @@ func (x *GetOneBookRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneBookRequest.ProtoReflect.Descriptor instead.
 func (*GetOneBookRequest) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{9}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetOneBookRequest) GetBookCode() string {
@@ -960,16 +886,16 @@ func (x *GetOneBookRequest) GetVersionCode() string {
 	return ""
 }
 
-func (x *GetOneBookRequest) GetLangCode() string {
+func (x *GetOneBookRequest) GetLanguage() string {
 	if x != nil {
-		return x.LangCode
+		return x.Language
 	}
 	return ""
 }
 
-func (x *GetOneBookRequest) GetWebOrigin() string {
+func (x *GetOneBookRequest) GetSource() string {
 	if x != nil {
-		return x.WebOrigin
+		return x.Source
 	}
 	return ""
 }
@@ -984,7 +910,7 @@ type GetOneBookResponse struct {
 
 func (x *GetOneBookResponse) Reset() {
 	*x = GetOneBookResponse{}
-	mi := &file_bible_v1_book_proto_msgTypes[10]
+	mi := &file_bible_v1_book_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -996,7 +922,7 @@ func (x *GetOneBookResponse) String() string {
 func (*GetOneBookResponse) ProtoMessage() {}
 
 func (x *GetOneBookResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[10]
+	mi := &file_bible_v1_book_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1009,7 +935,7 @@ func (x *GetOneBookResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneBookResponse.ProtoReflect.Descriptor instead.
 func (*GetOneBookResponse) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{10}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetOneBookResponse) GetBook() *Book {
@@ -1021,23 +947,23 @@ func (x *GetOneBookResponse) GetBook() *Book {
 
 type GetOneChapterRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Book code
+	// Book code (required)
 	BookCode string `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
-	// Chapter number
-	ChapterNum string `protobuf:"bytes,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
-	// Version code query params
+	// Chapter number (required)
+	ChapterNum int32 `protobuf:"varint,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
+	// Version code (required - part of unique constraint)
 	VersionCode string `protobuf:"bytes,3,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	// Language code query params
-	LangCode string `protobuf:"bytes,4,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	// Web origin query params
-	WebOrigin     string `protobuf:"bytes,5,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Language code (required - part of unique constraint)
+	Language string `protobuf:"bytes,4,opt,name=language,proto3" json:"language,omitempty"`
+	// Source (required - part of unique constraint)
+	Source        string `protobuf:"bytes,5,opt,name=source,proto3" json:"source,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetOneChapterRequest) Reset() {
 	*x = GetOneChapterRequest{}
-	mi := &file_bible_v1_book_proto_msgTypes[11]
+	mi := &file_bible_v1_book_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1049,7 +975,7 @@ func (x *GetOneChapterRequest) String() string {
 func (*GetOneChapterRequest) ProtoMessage() {}
 
 func (x *GetOneChapterRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[11]
+	mi := &file_bible_v1_book_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1062,7 +988,7 @@ func (x *GetOneChapterRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneChapterRequest.ProtoReflect.Descriptor instead.
 func (*GetOneChapterRequest) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{11}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetOneChapterRequest) GetBookCode() string {
@@ -1072,11 +998,11 @@ func (x *GetOneChapterRequest) GetBookCode() string {
 	return ""
 }
 
-func (x *GetOneChapterRequest) GetChapterNum() string {
+func (x *GetOneChapterRequest) GetChapterNum() int32 {
 	if x != nil {
 		return x.ChapterNum
 	}
-	return ""
+	return 0
 }
 
 func (x *GetOneChapterRequest) GetVersionCode() string {
@@ -1086,16 +1012,16 @@ func (x *GetOneChapterRequest) GetVersionCode() string {
 	return ""
 }
 
-func (x *GetOneChapterRequest) GetLangCode() string {
+func (x *GetOneChapterRequest) GetLanguage() string {
 	if x != nil {
-		return x.LangCode
+		return x.Language
 	}
 	return ""
 }
 
-func (x *GetOneChapterRequest) GetWebOrigin() string {
+func (x *GetOneChapterRequest) GetSource() string {
 	if x != nil {
-		return x.WebOrigin
+		return x.Source
 	}
 	return ""
 }
@@ -1103,26 +1029,24 @@ func (x *GetOneChapterRequest) GetWebOrigin() string {
 type GetOneChapterResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Chapter object
-	Chapter *BookChapter `protobuf:"bytes,1,opt,name=chapter,proto3" json:"chapter,omitempty"`
+	Chapter *Chapter `protobuf:"bytes,1,opt,name=chapter,proto3" json:"chapter,omitempty"`
 	// Chapter verses
-	Verses []*BookVerse `protobuf:"bytes,2,rep,name=verses,proto3" json:"verses,omitempty"`
+	Verses []*Verse `protobuf:"bytes,2,rep,name=verses,proto3" json:"verses,omitempty"`
 	// Chapter footnotes
-	Footnotes []*BookFootnote `protobuf:"bytes,3,rep,name=footnotes,proto3" json:"footnotes,omitempty"`
+	Footnotes []*Footnote `protobuf:"bytes,3,rep,name=footnotes,proto3" json:"footnotes,omitempty"`
 	// Chapter headings
-	Headings []*BookHeading `protobuf:"bytes,4,rep,name=headings,proto3" json:"headings,omitempty"`
-	// Chapter references
-	References []*BookReference `protobuf:"bytes,5,rep,name=references,proto3" json:"references,omitempty"`
+	Headings []*Heading `protobuf:"bytes,4,rep,name=headings,proto3" json:"headings,omitempty"`
 	// Chapter psalm metadata
-	PsalmMetadata []*PsalmMetadata `protobuf:"bytes,6,rep,name=psalm_metadata,json=psalmMetadata,proto3" json:"psalm_metadata,omitempty"`
-	// Book object
-	Book          *Book `protobuf:"bytes,7,opt,name=book,proto3" json:"book,omitempty"`
+	PsalmMetadata []*PsalmMetadata `protobuf:"bytes,5,rep,name=psalm_metadata,json=psalmMetadata,proto3" json:"psalm_metadata,omitempty"`
+	// Book object for context
+	Book          *Book `protobuf:"bytes,6,opt,name=book,proto3" json:"book,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetOneChapterResponse) Reset() {
 	*x = GetOneChapterResponse{}
-	mi := &file_bible_v1_book_proto_msgTypes[12]
+	mi := &file_bible_v1_book_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1134,7 +1058,7 @@ func (x *GetOneChapterResponse) String() string {
 func (*GetOneChapterResponse) ProtoMessage() {}
 
 func (x *GetOneChapterResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[12]
+	mi := &file_bible_v1_book_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1147,40 +1071,33 @@ func (x *GetOneChapterResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneChapterResponse.ProtoReflect.Descriptor instead.
 func (*GetOneChapterResponse) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{12}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{11}
 }
 
-func (x *GetOneChapterResponse) GetChapter() *BookChapter {
+func (x *GetOneChapterResponse) GetChapter() *Chapter {
 	if x != nil {
 		return x.Chapter
 	}
 	return nil
 }
 
-func (x *GetOneChapterResponse) GetVerses() []*BookVerse {
+func (x *GetOneChapterResponse) GetVerses() []*Verse {
 	if x != nil {
 		return x.Verses
 	}
 	return nil
 }
 
-func (x *GetOneChapterResponse) GetFootnotes() []*BookFootnote {
+func (x *GetOneChapterResponse) GetFootnotes() []*Footnote {
 	if x != nil {
 		return x.Footnotes
 	}
 	return nil
 }
 
-func (x *GetOneChapterResponse) GetHeadings() []*BookHeading {
+func (x *GetOneChapterResponse) GetHeadings() []*Heading {
 	if x != nil {
 		return x.Headings
-	}
-	return nil
-}
-
-func (x *GetOneChapterResponse) GetReferences() []*BookReference {
-	if x != nil {
-		return x.References
 	}
 	return nil
 }
@@ -1201,23 +1118,23 @@ func (x *GetOneChapterResponse) GetBook() *Book {
 
 type GetOneChapterTextRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Book code
+	// Book code (required)
 	BookCode string `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
-	// Chapter number
-	ChapterNum string `protobuf:"bytes,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
-	// Version code query params
+	// Chapter number (required)
+	ChapterNum int32 `protobuf:"varint,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
+	// Version code (required - part of unique constraint)
 	VersionCode string `protobuf:"bytes,3,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	// Language code query params
-	LangCode string `protobuf:"bytes,4,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	// Web origin query params
-	WebOrigin     string `protobuf:"bytes,5,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Language code (required - part of unique constraint)
+	Language string `protobuf:"bytes,4,opt,name=language,proto3" json:"language,omitempty"`
+	// Source (required - part of unique constraint)
+	Source        string `protobuf:"bytes,5,opt,name=source,proto3" json:"source,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetOneChapterTextRequest) Reset() {
 	*x = GetOneChapterTextRequest{}
-	mi := &file_bible_v1_book_proto_msgTypes[13]
+	mi := &file_bible_v1_book_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1229,7 +1146,7 @@ func (x *GetOneChapterTextRequest) String() string {
 func (*GetOneChapterTextRequest) ProtoMessage() {}
 
 func (x *GetOneChapterTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[13]
+	mi := &file_bible_v1_book_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1242,7 +1159,7 @@ func (x *GetOneChapterTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneChapterTextRequest.ProtoReflect.Descriptor instead.
 func (*GetOneChapterTextRequest) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{13}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *GetOneChapterTextRequest) GetBookCode() string {
@@ -1252,11 +1169,11 @@ func (x *GetOneChapterTextRequest) GetBookCode() string {
 	return ""
 }
 
-func (x *GetOneChapterTextRequest) GetChapterNum() string {
+func (x *GetOneChapterTextRequest) GetChapterNum() int32 {
 	if x != nil {
 		return x.ChapterNum
 	}
-	return ""
+	return 0
 }
 
 func (x *GetOneChapterTextRequest) GetVersionCode() string {
@@ -1266,16 +1183,16 @@ func (x *GetOneChapterTextRequest) GetVersionCode() string {
 	return ""
 }
 
-func (x *GetOneChapterTextRequest) GetLangCode() string {
+func (x *GetOneChapterTextRequest) GetLanguage() string {
 	if x != nil {
-		return x.LangCode
+		return x.Language
 	}
 	return ""
 }
 
-func (x *GetOneChapterTextRequest) GetWebOrigin() string {
+func (x *GetOneChapterTextRequest) GetSource() string {
 	if x != nil {
-		return x.WebOrigin
+		return x.Source
 	}
 	return ""
 }
@@ -1290,7 +1207,7 @@ type GetOneChapterTextResponse struct {
 
 func (x *GetOneChapterTextResponse) Reset() {
 	*x = GetOneChapterTextResponse{}
-	mi := &file_bible_v1_book_proto_msgTypes[14]
+	mi := &file_bible_v1_book_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1302,7 +1219,7 @@ func (x *GetOneChapterTextResponse) String() string {
 func (*GetOneChapterTextResponse) ProtoMessage() {}
 
 func (x *GetOneChapterTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[14]
+	mi := &file_bible_v1_book_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1315,7 +1232,7 @@ func (x *GetOneChapterTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneChapterTextResponse.ProtoReflect.Descriptor instead.
 func (*GetOneChapterTextResponse) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{14}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *GetOneChapterTextResponse) GetText() string {
@@ -1327,23 +1244,23 @@ func (x *GetOneChapterTextResponse) GetText() string {
 
 type GetOneChapterHtmlRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Book code
+	// Book code (required)
 	BookCode string `protobuf:"bytes,1,opt,name=book_code,json=bookCode,proto3" json:"book_code,omitempty"`
-	// Chapter number
-	ChapterNum string `protobuf:"bytes,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
-	// Version code query params
+	// Chapter number (required)
+	ChapterNum int32 `protobuf:"varint,2,opt,name=chapter_num,json=chapterNum,proto3" json:"chapter_num,omitempty"`
+	// Version code (required - part of unique constraint)
 	VersionCode string `protobuf:"bytes,3,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	// Language code query params
-	LangCode string `protobuf:"bytes,4,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	// Web origin query params
-	WebOrigin     string `protobuf:"bytes,5,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Language code (required - part of unique constraint)
+	Language string `protobuf:"bytes,4,opt,name=language,proto3" json:"language,omitempty"`
+	// Source (required - part of unique constraint)
+	Source        string `protobuf:"bytes,5,opt,name=source,proto3" json:"source,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetOneChapterHtmlRequest) Reset() {
 	*x = GetOneChapterHtmlRequest{}
-	mi := &file_bible_v1_book_proto_msgTypes[15]
+	mi := &file_bible_v1_book_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1355,7 +1272,7 @@ func (x *GetOneChapterHtmlRequest) String() string {
 func (*GetOneChapterHtmlRequest) ProtoMessage() {}
 
 func (x *GetOneChapterHtmlRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[15]
+	mi := &file_bible_v1_book_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1368,7 +1285,7 @@ func (x *GetOneChapterHtmlRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneChapterHtmlRequest.ProtoReflect.Descriptor instead.
 func (*GetOneChapterHtmlRequest) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{15}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *GetOneChapterHtmlRequest) GetBookCode() string {
@@ -1378,11 +1295,11 @@ func (x *GetOneChapterHtmlRequest) GetBookCode() string {
 	return ""
 }
 
-func (x *GetOneChapterHtmlRequest) GetChapterNum() string {
+func (x *GetOneChapterHtmlRequest) GetChapterNum() int32 {
 	if x != nil {
 		return x.ChapterNum
 	}
-	return ""
+	return 0
 }
 
 func (x *GetOneChapterHtmlRequest) GetVersionCode() string {
@@ -1392,16 +1309,16 @@ func (x *GetOneChapterHtmlRequest) GetVersionCode() string {
 	return ""
 }
 
-func (x *GetOneChapterHtmlRequest) GetLangCode() string {
+func (x *GetOneChapterHtmlRequest) GetLanguage() string {
 	if x != nil {
-		return x.LangCode
+		return x.Language
 	}
 	return ""
 }
 
-func (x *GetOneChapterHtmlRequest) GetWebOrigin() string {
+func (x *GetOneChapterHtmlRequest) GetSource() string {
 	if x != nil {
-		return x.WebOrigin
+		return x.Source
 	}
 	return ""
 }
@@ -1416,7 +1333,7 @@ type GetOneChapterHtmlResponse struct {
 
 func (x *GetOneChapterHtmlResponse) Reset() {
 	*x = GetOneChapterHtmlResponse{}
-	mi := &file_bible_v1_book_proto_msgTypes[16]
+	mi := &file_bible_v1_book_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1428,7 +1345,7 @@ func (x *GetOneChapterHtmlResponse) String() string {
 func (*GetOneChapterHtmlResponse) ProtoMessage() {}
 
 func (x *GetOneChapterHtmlResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[16]
+	mi := &file_bible_v1_book_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1441,7 +1358,7 @@ func (x *GetOneChapterHtmlResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneChapterHtmlResponse.ProtoReflect.Descriptor instead.
 func (*GetOneChapterHtmlResponse) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{16}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *GetOneChapterHtmlResponse) GetHtml() string {
@@ -1453,14 +1370,14 @@ func (x *GetOneChapterHtmlResponse) GetHtml() string {
 
 type GetBiblicalReferenceRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Query string
+	// Query string (e.g., "John 3:16", "Genesis 1:1-3")
 	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
-	// Version code query params
+	// Version code (required - part of unique constraint)
 	VersionCode string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	// Language code query params
-	LangCode string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	// Web origin query params
-	WebOrigin string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Language code (required - part of unique constraint)
+	Language string `protobuf:"bytes,3,opt,name=language,proto3" json:"language,omitempty"`
+	// Source (required - part of unique constraint)
+	Source string `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty"`
 	// Format query params. E.g. us, eu.
 	Format        string `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -1469,7 +1386,7 @@ type GetBiblicalReferenceRequest struct {
 
 func (x *GetBiblicalReferenceRequest) Reset() {
 	*x = GetBiblicalReferenceRequest{}
-	mi := &file_bible_v1_book_proto_msgTypes[17]
+	mi := &file_bible_v1_book_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1481,7 +1398,7 @@ func (x *GetBiblicalReferenceRequest) String() string {
 func (*GetBiblicalReferenceRequest) ProtoMessage() {}
 
 func (x *GetBiblicalReferenceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[17]
+	mi := &file_bible_v1_book_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1494,7 +1411,7 @@ func (x *GetBiblicalReferenceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBiblicalReferenceRequest.ProtoReflect.Descriptor instead.
 func (*GetBiblicalReferenceRequest) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{17}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetBiblicalReferenceRequest) GetQuery() string {
@@ -1511,16 +1428,16 @@ func (x *GetBiblicalReferenceRequest) GetVersionCode() string {
 	return ""
 }
 
-func (x *GetBiblicalReferenceRequest) GetLangCode() string {
+func (x *GetBiblicalReferenceRequest) GetLanguage() string {
 	if x != nil {
-		return x.LangCode
+		return x.Language
 	}
 	return ""
 }
 
-func (x *GetBiblicalReferenceRequest) GetWebOrigin() string {
+func (x *GetBiblicalReferenceRequest) GetSource() string {
 	if x != nil {
-		return x.WebOrigin
+		return x.Source
 	}
 	return ""
 }
@@ -1534,25 +1451,23 @@ func (x *GetBiblicalReferenceRequest) GetFormat() string {
 
 type GetBiblicalReferenceResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Chapter object
-	Chapters []*BookChapter `protobuf:"bytes,1,rep,name=chapters,proto3" json:"chapters,omitempty"`
-	// Chapter verses
-	Verses []*BookVerse `protobuf:"bytes,2,rep,name=verses,proto3" json:"verses,omitempty"`
-	// Chapter footnotes
-	Footnotes []*BookFootnote `protobuf:"bytes,3,rep,name=footnotes,proto3" json:"footnotes,omitempty"`
-	// Chapter headings
-	Headings []*BookHeading `protobuf:"bytes,4,rep,name=headings,proto3" json:"headings,omitempty"`
-	// Chapter references
-	References []*BookReference `protobuf:"bytes,5,rep,name=references,proto3" json:"references,omitempty"`
+	// Referenced chapters
+	Chapters []*Chapter `protobuf:"bytes,1,rep,name=chapters,proto3" json:"chapters,omitempty"`
+	// Referenced verses
+	Verses []*Verse `protobuf:"bytes,2,rep,name=verses,proto3" json:"verses,omitempty"`
+	// Related footnotes
+	Footnotes []*Footnote `protobuf:"bytes,3,rep,name=footnotes,proto3" json:"footnotes,omitempty"`
+	// Related headings
+	Headings []*Heading `protobuf:"bytes,4,rep,name=headings,proto3" json:"headings,omitempty"`
 	// Chapter psalm metadata
-	PsalmMetadata []*PsalmMetadata `protobuf:"bytes,6,rep,name=psalm_metadata,json=psalmMetadata,proto3" json:"psalm_metadata,omitempty"`
+	PsalmMetadata []*PsalmMetadata `protobuf:"bytes,5,rep,name=psalm_metadata,json=psalmMetadata,proto3" json:"psalm_metadata,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetBiblicalReferenceResponse) Reset() {
 	*x = GetBiblicalReferenceResponse{}
-	mi := &file_bible_v1_book_proto_msgTypes[18]
+	mi := &file_bible_v1_book_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1564,7 +1479,7 @@ func (x *GetBiblicalReferenceResponse) String() string {
 func (*GetBiblicalReferenceResponse) ProtoMessage() {}
 
 func (x *GetBiblicalReferenceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[18]
+	mi := &file_bible_v1_book_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1577,40 +1492,33 @@ func (x *GetBiblicalReferenceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBiblicalReferenceResponse.ProtoReflect.Descriptor instead.
 func (*GetBiblicalReferenceResponse) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{18}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{17}
 }
 
-func (x *GetBiblicalReferenceResponse) GetChapters() []*BookChapter {
+func (x *GetBiblicalReferenceResponse) GetChapters() []*Chapter {
 	if x != nil {
 		return x.Chapters
 	}
 	return nil
 }
 
-func (x *GetBiblicalReferenceResponse) GetVerses() []*BookVerse {
+func (x *GetBiblicalReferenceResponse) GetVerses() []*Verse {
 	if x != nil {
 		return x.Verses
 	}
 	return nil
 }
 
-func (x *GetBiblicalReferenceResponse) GetFootnotes() []*BookFootnote {
+func (x *GetBiblicalReferenceResponse) GetFootnotes() []*Footnote {
 	if x != nil {
 		return x.Footnotes
 	}
 	return nil
 }
 
-func (x *GetBiblicalReferenceResponse) GetHeadings() []*BookHeading {
+func (x *GetBiblicalReferenceResponse) GetHeadings() []*Heading {
 	if x != nil {
 		return x.Headings
-	}
-	return nil
-}
-
-func (x *GetBiblicalReferenceResponse) GetReferences() []*BookReference {
-	if x != nil {
-		return x.References
 	}
 	return nil
 }
@@ -1624,14 +1532,14 @@ func (x *GetBiblicalReferenceResponse) GetPsalmMetadata() []*PsalmMetadata {
 
 type GetBiblicalReferenceTextRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Query string
+	// Query string (e.g., "John 3:16", "Genesis 1:1-3")
 	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
-	// Version code query params
+	// Version code (required - part of unique constraint)
 	VersionCode string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	// Language code query params
-	LangCode string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	// Web origin query params
-	WebOrigin string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Language code (required - part of unique constraint)
+	Language string `protobuf:"bytes,3,opt,name=language,proto3" json:"language,omitempty"`
+	// Source (required - part of unique constraint)
+	Source string `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty"`
 	// Format query params. E.g. us, eu.
 	Format        string `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -1640,7 +1548,7 @@ type GetBiblicalReferenceTextRequest struct {
 
 func (x *GetBiblicalReferenceTextRequest) Reset() {
 	*x = GetBiblicalReferenceTextRequest{}
-	mi := &file_bible_v1_book_proto_msgTypes[19]
+	mi := &file_bible_v1_book_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1652,7 +1560,7 @@ func (x *GetBiblicalReferenceTextRequest) String() string {
 func (*GetBiblicalReferenceTextRequest) ProtoMessage() {}
 
 func (x *GetBiblicalReferenceTextRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[19]
+	mi := &file_bible_v1_book_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1665,7 +1573,7 @@ func (x *GetBiblicalReferenceTextRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBiblicalReferenceTextRequest.ProtoReflect.Descriptor instead.
 func (*GetBiblicalReferenceTextRequest) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{19}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *GetBiblicalReferenceTextRequest) GetQuery() string {
@@ -1682,16 +1590,16 @@ func (x *GetBiblicalReferenceTextRequest) GetVersionCode() string {
 	return ""
 }
 
-func (x *GetBiblicalReferenceTextRequest) GetLangCode() string {
+func (x *GetBiblicalReferenceTextRequest) GetLanguage() string {
 	if x != nil {
-		return x.LangCode
+		return x.Language
 	}
 	return ""
 }
 
-func (x *GetBiblicalReferenceTextRequest) GetWebOrigin() string {
+func (x *GetBiblicalReferenceTextRequest) GetSource() string {
 	if x != nil {
-		return x.WebOrigin
+		return x.Source
 	}
 	return ""
 }
@@ -1705,7 +1613,7 @@ func (x *GetBiblicalReferenceTextRequest) GetFormat() string {
 
 type GetBiblicalReferenceTextResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Chapter text in markdown format
+	// Referenced text in markdown format
 	Text          string `protobuf:"bytes,1,opt,name=text,proto3" json:"text,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1713,7 +1621,7 @@ type GetBiblicalReferenceTextResponse struct {
 
 func (x *GetBiblicalReferenceTextResponse) Reset() {
 	*x = GetBiblicalReferenceTextResponse{}
-	mi := &file_bible_v1_book_proto_msgTypes[20]
+	mi := &file_bible_v1_book_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1725,7 +1633,7 @@ func (x *GetBiblicalReferenceTextResponse) String() string {
 func (*GetBiblicalReferenceTextResponse) ProtoMessage() {}
 
 func (x *GetBiblicalReferenceTextResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[20]
+	mi := &file_bible_v1_book_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1738,7 +1646,7 @@ func (x *GetBiblicalReferenceTextResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBiblicalReferenceTextResponse.ProtoReflect.Descriptor instead.
 func (*GetBiblicalReferenceTextResponse) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{20}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetBiblicalReferenceTextResponse) GetText() string {
@@ -1750,14 +1658,14 @@ func (x *GetBiblicalReferenceTextResponse) GetText() string {
 
 type GetBiblicalReferenceHtmlRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Query string
+	// Query string (e.g., "John 3:16", "Genesis 1:1-3")
 	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
-	// Version code query params
+	// Version code (required - part of unique constraint)
 	VersionCode string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	// Language code query params
-	LangCode string `protobuf:"bytes,3,opt,name=lang_code,json=langCode,proto3" json:"lang_code,omitempty"`
-	// Web origin query params
-	WebOrigin string `protobuf:"bytes,4,opt,name=web_origin,json=webOrigin,proto3" json:"web_origin,omitempty"`
+	// Language code (required - part of unique constraint)
+	Language string `protobuf:"bytes,3,opt,name=language,proto3" json:"language,omitempty"`
+	// Source (required - part of unique constraint)
+	Source string `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty"`
 	// Format query params. E.g. us, eu.
 	Format        string `protobuf:"bytes,5,opt,name=format,proto3" json:"format,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -1766,7 +1674,7 @@ type GetBiblicalReferenceHtmlRequest struct {
 
 func (x *GetBiblicalReferenceHtmlRequest) Reset() {
 	*x = GetBiblicalReferenceHtmlRequest{}
-	mi := &file_bible_v1_book_proto_msgTypes[21]
+	mi := &file_bible_v1_book_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1778,7 +1686,7 @@ func (x *GetBiblicalReferenceHtmlRequest) String() string {
 func (*GetBiblicalReferenceHtmlRequest) ProtoMessage() {}
 
 func (x *GetBiblicalReferenceHtmlRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[21]
+	mi := &file_bible_v1_book_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1791,7 +1699,7 @@ func (x *GetBiblicalReferenceHtmlRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBiblicalReferenceHtmlRequest.ProtoReflect.Descriptor instead.
 func (*GetBiblicalReferenceHtmlRequest) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{21}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetBiblicalReferenceHtmlRequest) GetQuery() string {
@@ -1808,16 +1716,16 @@ func (x *GetBiblicalReferenceHtmlRequest) GetVersionCode() string {
 	return ""
 }
 
-func (x *GetBiblicalReferenceHtmlRequest) GetLangCode() string {
+func (x *GetBiblicalReferenceHtmlRequest) GetLanguage() string {
 	if x != nil {
-		return x.LangCode
+		return x.Language
 	}
 	return ""
 }
 
-func (x *GetBiblicalReferenceHtmlRequest) GetWebOrigin() string {
+func (x *GetBiblicalReferenceHtmlRequest) GetSource() string {
 	if x != nil {
-		return x.WebOrigin
+		return x.Source
 	}
 	return ""
 }
@@ -1831,7 +1739,7 @@ func (x *GetBiblicalReferenceHtmlRequest) GetFormat() string {
 
 type GetBiblicalReferenceHtmlResponse struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Chapter text in HTML format
+	// Referenced text in HTML format
 	Html          string `protobuf:"bytes,1,opt,name=html,proto3" json:"html,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -1839,7 +1747,7 @@ type GetBiblicalReferenceHtmlResponse struct {
 
 func (x *GetBiblicalReferenceHtmlResponse) Reset() {
 	*x = GetBiblicalReferenceHtmlResponse{}
-	mi := &file_bible_v1_book_proto_msgTypes[22]
+	mi := &file_bible_v1_book_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1851,7 +1759,7 @@ func (x *GetBiblicalReferenceHtmlResponse) String() string {
 func (*GetBiblicalReferenceHtmlResponse) ProtoMessage() {}
 
 func (x *GetBiblicalReferenceHtmlResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_bible_v1_book_proto_msgTypes[22]
+	mi := &file_bible_v1_book_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1864,7 +1772,7 @@ func (x *GetBiblicalReferenceHtmlResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBiblicalReferenceHtmlResponse.ProtoReflect.Descriptor instead.
 func (*GetBiblicalReferenceHtmlResponse) Descriptor() ([]byte, []int) {
-	return file_bible_v1_book_proto_rawDescGZIP(), []int{22}
+	return file_bible_v1_book_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetBiblicalReferenceHtmlResponse) GetHtml() string {
@@ -1878,90 +1786,84 @@ var File_bible_v1_book_proto protoreflect.FileDescriptor
 
 const file_bible_v1_book_proto_rawDesc = "" +
 	"\n" +
-	"\x13bible/v1/book.proto\x12\bbible.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"\xb4\x02\n" +
+	"\x13bible/v1/book.proto\x12\bbible.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"\xbf\x02\n" +
 	"\x04Book\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
-	"\x04code\x18\x02 \x01(\tR\x04code\x12\x14\n" +
-	"\x05title\x18\x03 \x01(\tR\x05title\x12\x14\n" +
-	"\x05canon\x18\x04 \x01(\tR\x05canon\x12\x14\n" +
-	"\x05order\x18\x05 \x01(\x05R\x05order\x129\n" +
+	"\x04code\x18\x02 \x01(\tR\x04code\x12\x12\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\x12\x1c\n" +
+	"\ttestament\x18\x04 \x01(\tR\ttestament\x12\x1d\n" +
+	"\n" +
+	"book_order\x18\x05 \x01(\x05R\tbookOrder\x129\n" +
 	"\n" +
 	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x121\n" +
-	"\bchapters\x18\b \x03(\v2\x15.bible.v1.BookChapterR\bchapters\x12\x1d\n" +
+	"updated_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12-\n" +
+	"\bchapters\x18\b \x03(\v2\x11.bible.v1.ChapterR\bchapters\x12\x1d\n" +
 	"\n" +
-	"version_id\x18\t \x01(\tR\tversionId\"\xd6\x01\n" +
-	"\vBookChapter\x12\x0e\n" +
+	"version_id\x18\t \x01(\tR\tversionId\"\xf0\x01\n" +
+	"\aChapter\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
-	"\x06number\x18\x02 \x01(\x05R\x06number\x12\x10\n" +
-	"\x03ref\x18\x03 \x01(\tR\x03ref\x129\n" +
+	"\x06number\x18\x02 \x01(\x05R\x06number\x12 \n" +
+	"\taudio_url\x18\x03 \x01(\tH\x00R\baudioUrl\x88\x01\x01\x129\n" +
 	"\n" +
 	"created_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
 	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x17\n" +
-	"\abook_id\x18\x06 \x01(\tR\x06bookId\"\xd1\x02\n" +
-	"\tBookVerse\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x16\n" +
-	"\x06number\x18\x02 \x01(\x05R\x06number\x12\x18\n" +
-	"\acontent\x18\x03 \x01(\tR\acontent\x12\x14\n" +
-	"\x05order\x18\x04 \x01(\x05R\x05order\x12\x1d\n" +
+	"\abook_id\x18\x06 \x01(\tR\x06bookIdB\f\n" +
 	"\n" +
-	"par_number\x18\x05 \x01(\x05R\tparNumber\x12\x1b\n" +
-	"\tpar_index\x18\x06 \x01(\x05R\bparIndex\x12\x1b\n" +
-	"\tis_poetry\x18\a \x01(\bR\bisPoetry\x129\n" +
+	"_audio_url\"\xb7\x03\n" +
+	"\x05Verse\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04text\x18\x02 \x01(\tR\x04text\x12\x14\n" +
+	"\x05label\x18\x03 \x01(\tR\x05label\x12\x16\n" +
+	"\x06number\x18\x04 \x01(\x05R\x06number\x12&\n" +
+	"\x0fsub_verse_index\x18\x05 \x01(\x05R\rsubVerseIndex\x12)\n" +
+	"\x10paragraph_number\x18\x06 \x01(\x05R\x0fparagraphNumber\x12'\n" +
+	"\x0fparagraph_index\x18\a \x01(\x05R\x0eparagraphIndex\x12\x1b\n" +
+	"\tis_poetry\x18\b \x01(\bR\bisPoetry\x12 \n" +
+	"\taudio_url\x18\t \x01(\tH\x00R\baudioUrl\x88\x01\x01\x129\n" +
 	"\n" +
-	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"created_at\x18\n" +
+	" \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"updated_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1d\n" +
+	"updated_at\x18\v \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"chapter_id\x18\n" +
-	" \x01(\tR\tchapterId\"\xdf\x02\n" +
-	"\fBookFootnote\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n" +
-	"\acontent\x18\x02 \x01(\tR\acontent\x12\x1a\n" +
-	"\bposition\x18\x03 \x01(\x05R\bposition\x12\x14\n" +
-	"\x05order\x18\x04 \x01(\x05R\x05order\x129\n" +
+	"chapter_id\x18\f \x01(\tR\tchapterIdB\f\n" +
 	"\n" +
-	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"_audio_url\"\x88\x03\n" +
+	"\bFootnote\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04text\x18\x02 \x01(\tR\x04text\x12\x12\n" +
+	"\x04type\x18\x03 \x01(\tR\x04type\x12\x14\n" +
+	"\x05label\x18\x04 \x01(\tR\x05label\x12\x1d\n" +
 	"\n" +
-	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1e\n" +
-	"\bverse_id\x18\a \x01(\tH\x00R\averseId\x88\x01\x01\x12\"\n" +
+	"sort_order\x18\x05 \x01(\x05R\tsortOrder\x12\x1a\n" +
+	"\bposition\x18\x06 \x01(\x05R\bposition\x129\n" +
 	"\n" +
-	"heading_id\x18\b \x01(\tH\x01R\theadingId\x88\x01\x01\x12\x1d\n" +
+	"created_at\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"chapter_id\x18\t \x01(\tR\tchapterIdB\v\n" +
+	"updated_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1e\n" +
+	"\bverse_id\x18\t \x01(\tH\x00R\averseId\x88\x01\x01\x12\"\n" +
+	"\n" +
+	"heading_id\x18\n" +
+	" \x01(\tH\x01R\theadingId\x88\x01\x01\x12\x1d\n" +
+	"\n" +
+	"chapter_id\x18\v \x01(\tR\tchapterIdB\v\n" +
 	"\t_verse_idB\r\n" +
-	"\v_heading_id\"\x93\x02\n" +
-	"\vBookHeading\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n" +
-	"\acontent\x18\x02 \x01(\tR\acontent\x12\x14\n" +
-	"\x05level\x18\x03 \x01(\x05R\x05level\x12\x14\n" +
-	"\x05order\x18\x04 \x01(\x05R\x05order\x129\n" +
+	"\v_heading_id\"\x92\x02\n" +
+	"\aHeading\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04text\x18\x02 \x01(\tR\x04text\x12\x14\n" +
+	"\x05level\x18\x03 \x01(\x05R\x05level\x12\x1d\n" +
+	"\n" +
+	"sort_order\x18\x04 \x01(\x05R\tsortOrder\x129\n" +
 	"\n" +
 	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
 	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x19\n" +
 	"\bverse_id\x18\a \x01(\tR\averseId\x12\x1d\n" +
 	"\n" +
-	"chapter_id\x18\b \x01(\tR\tchapterId\"\xf2\x02\n" +
-	"\rBookReference\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n" +
-	"\acontent\x18\x02 \x01(\tR\acontent\x12\x1f\n" +
-	"\bposition\x18\x03 \x01(\x05H\x00R\bposition\x88\x01\x01\x12\x14\n" +
-	"\x05order\x18\x04 \x01(\x05R\x05order\x129\n" +
-	"\n" +
-	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
-	"\n" +
-	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1e\n" +
-	"\bverse_id\x18\a \x01(\tH\x01R\averseId\x88\x01\x01\x12\"\n" +
-	"\n" +
-	"heading_id\x18\b \x01(\tH\x02R\theadingId\x88\x01\x01\x12\x1d\n" +
-	"\n" +
-	"chapter_id\x18\t \x01(\tR\tchapterIdB\v\n" +
-	"\t_positionB\v\n" +
-	"\t_verse_idB\r\n" +
-	"\v_heading_id\"\xca\x01\n" +
+	"chapter_id\x18\b \x01(\tR\tchapterId\"\xca\x01\n" +
 	"\rPsalmMetadata\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x129\n" +
@@ -1970,91 +1872,80 @@ const file_bible_v1_book_proto_rawDesc = "" +
 	"\n" +
 	"updated_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1d\n" +
 	"\n" +
-	"chapter_id\x18\x05 \x01(\tR\tchapterId\"r\n" +
+	"chapter_id\x18\x05 \x01(\tR\tchapterId\"\x9b\x01\n" +
 	"\x11GetAllBookRequest\x12!\n" +
-	"\fversion_code\x18\x01 \x01(\tR\vversionCode\x12\x1b\n" +
-	"\tlang_code\x18\x02 \x01(\tR\blangCode\x12\x1d\n" +
+	"\fversion_code\x18\x01 \x01(\tR\vversionCode\x12\x1a\n" +
+	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x16\n" +
+	"\x06source\x18\x03 \x01(\tR\x06source\x12!\n" +
+	"\ttestament\x18\x04 \x01(\tH\x00R\ttestament\x88\x01\x01B\f\n" +
 	"\n" +
-	"web_origin\x18\x03 \x01(\tR\twebOrigin\":\n" +
+	"_testament\":\n" +
 	"\x12GetAllBookResponse\x12$\n" +
-	"\x05books\x18\x01 \x03(\v2\x0e.bible.v1.BookR\x05books\"\x8f\x01\n" +
+	"\x05books\x18\x01 \x03(\v2\x0e.bible.v1.BookR\x05books\"\x87\x01\n" +
 	"\x11GetOneBookRequest\x12\x1b\n" +
 	"\tbook_code\x18\x01 \x01(\tR\bbookCode\x12!\n" +
-	"\fversion_code\x18\x02 \x01(\tR\vversionCode\x12\x1b\n" +
-	"\tlang_code\x18\x03 \x01(\tR\blangCode\x12\x1d\n" +
-	"\n" +
-	"web_origin\x18\x04 \x01(\tR\twebOrigin\"8\n" +
+	"\fversion_code\x18\x02 \x01(\tR\vversionCode\x12\x1a\n" +
+	"\blanguage\x18\x03 \x01(\tR\blanguage\x12\x16\n" +
+	"\x06source\x18\x04 \x01(\tR\x06source\"8\n" +
 	"\x12GetOneBookResponse\x12\"\n" +
-	"\x04book\x18\x01 \x01(\v2\x0e.bible.v1.BookR\x04book\"\xb3\x01\n" +
+	"\x04book\x18\x01 \x01(\v2\x0e.bible.v1.BookR\x04book\"\xab\x01\n" +
 	"\x14GetOneChapterRequest\x12\x1b\n" +
 	"\tbook_code\x18\x01 \x01(\tR\bbookCode\x12\x1f\n" +
-	"\vchapter_num\x18\x02 \x01(\tR\n" +
+	"\vchapter_num\x18\x02 \x01(\x05R\n" +
 	"chapterNum\x12!\n" +
-	"\fversion_code\x18\x03 \x01(\tR\vversionCode\x12\x1b\n" +
-	"\tlang_code\x18\x04 \x01(\tR\blangCode\x12\x1d\n" +
-	"\n" +
-	"web_origin\x18\x05 \x01(\tR\twebOrigin\"\xfb\x02\n" +
-	"\x15GetOneChapterResponse\x12/\n" +
-	"\achapter\x18\x01 \x01(\v2\x15.bible.v1.BookChapterR\achapter\x12+\n" +
-	"\x06verses\x18\x02 \x03(\v2\x13.bible.v1.BookVerseR\x06verses\x124\n" +
-	"\tfootnotes\x18\x03 \x03(\v2\x16.bible.v1.BookFootnoteR\tfootnotes\x121\n" +
-	"\bheadings\x18\x04 \x03(\v2\x15.bible.v1.BookHeadingR\bheadings\x127\n" +
-	"\n" +
-	"references\x18\x05 \x03(\v2\x17.bible.v1.BookReferenceR\n" +
-	"references\x12>\n" +
-	"\x0epsalm_metadata\x18\x06 \x03(\v2\x17.bible.v1.PsalmMetadataR\rpsalmMetadata\x12\"\n" +
-	"\x04book\x18\a \x01(\v2\x0e.bible.v1.BookR\x04book\"\xb7\x01\n" +
+	"\fversion_code\x18\x03 \x01(\tR\vversionCode\x12\x1a\n" +
+	"\blanguage\x18\x04 \x01(\tR\blanguage\x12\x16\n" +
+	"\x06source\x18\x05 \x01(\tR\x06source\"\xb2\x02\n" +
+	"\x15GetOneChapterResponse\x12+\n" +
+	"\achapter\x18\x01 \x01(\v2\x11.bible.v1.ChapterR\achapter\x12'\n" +
+	"\x06verses\x18\x02 \x03(\v2\x0f.bible.v1.VerseR\x06verses\x120\n" +
+	"\tfootnotes\x18\x03 \x03(\v2\x12.bible.v1.FootnoteR\tfootnotes\x12-\n" +
+	"\bheadings\x18\x04 \x03(\v2\x11.bible.v1.HeadingR\bheadings\x12>\n" +
+	"\x0epsalm_metadata\x18\x05 \x03(\v2\x17.bible.v1.PsalmMetadataR\rpsalmMetadata\x12\"\n" +
+	"\x04book\x18\x06 \x01(\v2\x0e.bible.v1.BookR\x04book\"\xaf\x01\n" +
 	"\x18GetOneChapterTextRequest\x12\x1b\n" +
 	"\tbook_code\x18\x01 \x01(\tR\bbookCode\x12\x1f\n" +
-	"\vchapter_num\x18\x02 \x01(\tR\n" +
+	"\vchapter_num\x18\x02 \x01(\x05R\n" +
 	"chapterNum\x12!\n" +
-	"\fversion_code\x18\x03 \x01(\tR\vversionCode\x12\x1b\n" +
-	"\tlang_code\x18\x04 \x01(\tR\blangCode\x12\x1d\n" +
-	"\n" +
-	"web_origin\x18\x05 \x01(\tR\twebOrigin\"/\n" +
+	"\fversion_code\x18\x03 \x01(\tR\vversionCode\x12\x1a\n" +
+	"\blanguage\x18\x04 \x01(\tR\blanguage\x12\x16\n" +
+	"\x06source\x18\x05 \x01(\tR\x06source\"/\n" +
 	"\x19GetOneChapterTextResponse\x12\x12\n" +
-	"\x04text\x18\x01 \x01(\tR\x04text\"\xb7\x01\n" +
+	"\x04text\x18\x01 \x01(\tR\x04text\"\xaf\x01\n" +
 	"\x18GetOneChapterHtmlRequest\x12\x1b\n" +
 	"\tbook_code\x18\x01 \x01(\tR\bbookCode\x12\x1f\n" +
-	"\vchapter_num\x18\x02 \x01(\tR\n" +
+	"\vchapter_num\x18\x02 \x01(\x05R\n" +
 	"chapterNum\x12!\n" +
-	"\fversion_code\x18\x03 \x01(\tR\vversionCode\x12\x1b\n" +
-	"\tlang_code\x18\x04 \x01(\tR\blangCode\x12\x1d\n" +
-	"\n" +
-	"web_origin\x18\x05 \x01(\tR\twebOrigin\"/\n" +
+	"\fversion_code\x18\x03 \x01(\tR\vversionCode\x12\x1a\n" +
+	"\blanguage\x18\x04 \x01(\tR\blanguage\x12\x16\n" +
+	"\x06source\x18\x05 \x01(\tR\x06source\"/\n" +
 	"\x19GetOneChapterHtmlResponse\x12\x12\n" +
-	"\x04html\x18\x01 \x01(\tR\x04html\"\xaa\x01\n" +
+	"\x04html\x18\x01 \x01(\tR\x04html\"\xa2\x01\n" +
 	"\x1bGetBiblicalReferenceRequest\x12\x14\n" +
 	"\x05query\x18\x01 \x01(\tR\x05query\x12!\n" +
-	"\fversion_code\x18\x02 \x01(\tR\vversionCode\x12\x1b\n" +
-	"\tlang_code\x18\x03 \x01(\tR\blangCode\x12\x1d\n" +
-	"\n" +
-	"web_origin\x18\x04 \x01(\tR\twebOrigin\x12\x16\n" +
-	"\x06format\x18\x05 \x01(\tR\x06format\"\xe0\x02\n" +
-	"\x1cGetBiblicalReferenceResponse\x121\n" +
-	"\bchapters\x18\x01 \x03(\v2\x15.bible.v1.BookChapterR\bchapters\x12+\n" +
-	"\x06verses\x18\x02 \x03(\v2\x13.bible.v1.BookVerseR\x06verses\x124\n" +
-	"\tfootnotes\x18\x03 \x03(\v2\x16.bible.v1.BookFootnoteR\tfootnotes\x121\n" +
-	"\bheadings\x18\x04 \x03(\v2\x15.bible.v1.BookHeadingR\bheadings\x127\n" +
-	"\n" +
-	"references\x18\x05 \x03(\v2\x17.bible.v1.BookReferenceR\n" +
-	"references\x12>\n" +
-	"\x0epsalm_metadata\x18\x06 \x03(\v2\x17.bible.v1.PsalmMetadataR\rpsalmMetadata\"\xae\x01\n" +
+	"\fversion_code\x18\x02 \x01(\tR\vversionCode\x12\x1a\n" +
+	"\blanguage\x18\x03 \x01(\tR\blanguage\x12\x16\n" +
+	"\x06source\x18\x04 \x01(\tR\x06source\x12\x16\n" +
+	"\x06format\x18\x05 \x01(\tR\x06format\"\x97\x02\n" +
+	"\x1cGetBiblicalReferenceResponse\x12-\n" +
+	"\bchapters\x18\x01 \x03(\v2\x11.bible.v1.ChapterR\bchapters\x12'\n" +
+	"\x06verses\x18\x02 \x03(\v2\x0f.bible.v1.VerseR\x06verses\x120\n" +
+	"\tfootnotes\x18\x03 \x03(\v2\x12.bible.v1.FootnoteR\tfootnotes\x12-\n" +
+	"\bheadings\x18\x04 \x03(\v2\x11.bible.v1.HeadingR\bheadings\x12>\n" +
+	"\x0epsalm_metadata\x18\x05 \x03(\v2\x17.bible.v1.PsalmMetadataR\rpsalmMetadata\"\xa6\x01\n" +
 	"\x1fGetBiblicalReferenceTextRequest\x12\x14\n" +
 	"\x05query\x18\x01 \x01(\tR\x05query\x12!\n" +
-	"\fversion_code\x18\x02 \x01(\tR\vversionCode\x12\x1b\n" +
-	"\tlang_code\x18\x03 \x01(\tR\blangCode\x12\x1d\n" +
-	"\n" +
-	"web_origin\x18\x04 \x01(\tR\twebOrigin\x12\x16\n" +
+	"\fversion_code\x18\x02 \x01(\tR\vversionCode\x12\x1a\n" +
+	"\blanguage\x18\x03 \x01(\tR\blanguage\x12\x16\n" +
+	"\x06source\x18\x04 \x01(\tR\x06source\x12\x16\n" +
 	"\x06format\x18\x05 \x01(\tR\x06format\"6\n" +
 	" GetBiblicalReferenceTextResponse\x12\x12\n" +
-	"\x04text\x18\x01 \x01(\tR\x04text\"\xae\x01\n" +
+	"\x04text\x18\x01 \x01(\tR\x04text\"\xa6\x01\n" +
 	"\x1fGetBiblicalReferenceHtmlRequest\x12\x14\n" +
 	"\x05query\x18\x01 \x01(\tR\x05query\x12!\n" +
-	"\fversion_code\x18\x02 \x01(\tR\vversionCode\x12\x1b\n" +
-	"\tlang_code\x18\x03 \x01(\tR\blangCode\x12\x1d\n" +
-	"\n" +
-	"web_origin\x18\x04 \x01(\tR\twebOrigin\x12\x16\n" +
+	"\fversion_code\x18\x02 \x01(\tR\vversionCode\x12\x1a\n" +
+	"\blanguage\x18\x03 \x01(\tR\blanguage\x12\x16\n" +
+	"\x06source\x18\x04 \x01(\tR\x06source\x12\x16\n" +
 	"\x06format\x18\x05 \x01(\tR\x06format\"6\n" +
 	" GetBiblicalReferenceHtmlResponse\x12\x12\n" +
 	"\x04html\x18\x01 \x01(\tR\x04html2\xba\b\n" +
@@ -2091,85 +1982,80 @@ func file_bible_v1_book_proto_rawDescGZIP() []byte {
 	return file_bible_v1_book_proto_rawDescData
 }
 
-var file_bible_v1_book_proto_msgTypes = make([]protoimpl.MessageInfo, 23)
+var file_bible_v1_book_proto_msgTypes = make([]protoimpl.MessageInfo, 22)
 var file_bible_v1_book_proto_goTypes = []any{
 	(*Book)(nil),                             // 0: bible.v1.Book
-	(*BookChapter)(nil),                      // 1: bible.v1.BookChapter
-	(*BookVerse)(nil),                        // 2: bible.v1.BookVerse
-	(*BookFootnote)(nil),                     // 3: bible.v1.BookFootnote
-	(*BookHeading)(nil),                      // 4: bible.v1.BookHeading
-	(*BookReference)(nil),                    // 5: bible.v1.BookReference
-	(*PsalmMetadata)(nil),                    // 6: bible.v1.PsalmMetadata
-	(*GetAllBookRequest)(nil),                // 7: bible.v1.GetAllBookRequest
-	(*GetAllBookResponse)(nil),               // 8: bible.v1.GetAllBookResponse
-	(*GetOneBookRequest)(nil),                // 9: bible.v1.GetOneBookRequest
-	(*GetOneBookResponse)(nil),               // 10: bible.v1.GetOneBookResponse
-	(*GetOneChapterRequest)(nil),             // 11: bible.v1.GetOneChapterRequest
-	(*GetOneChapterResponse)(nil),            // 12: bible.v1.GetOneChapterResponse
-	(*GetOneChapterTextRequest)(nil),         // 13: bible.v1.GetOneChapterTextRequest
-	(*GetOneChapterTextResponse)(nil),        // 14: bible.v1.GetOneChapterTextResponse
-	(*GetOneChapterHtmlRequest)(nil),         // 15: bible.v1.GetOneChapterHtmlRequest
-	(*GetOneChapterHtmlResponse)(nil),        // 16: bible.v1.GetOneChapterHtmlResponse
-	(*GetBiblicalReferenceRequest)(nil),      // 17: bible.v1.GetBiblicalReferenceRequest
-	(*GetBiblicalReferenceResponse)(nil),     // 18: bible.v1.GetBiblicalReferenceResponse
-	(*GetBiblicalReferenceTextRequest)(nil),  // 19: bible.v1.GetBiblicalReferenceTextRequest
-	(*GetBiblicalReferenceTextResponse)(nil), // 20: bible.v1.GetBiblicalReferenceTextResponse
-	(*GetBiblicalReferenceHtmlRequest)(nil),  // 21: bible.v1.GetBiblicalReferenceHtmlRequest
-	(*GetBiblicalReferenceHtmlResponse)(nil), // 22: bible.v1.GetBiblicalReferenceHtmlResponse
-	(*timestamppb.Timestamp)(nil),            // 23: google.protobuf.Timestamp
+	(*Chapter)(nil),                          // 1: bible.v1.Chapter
+	(*Verse)(nil),                            // 2: bible.v1.Verse
+	(*Footnote)(nil),                         // 3: bible.v1.Footnote
+	(*Heading)(nil),                          // 4: bible.v1.Heading
+	(*PsalmMetadata)(nil),                    // 5: bible.v1.PsalmMetadata
+	(*GetAllBookRequest)(nil),                // 6: bible.v1.GetAllBookRequest
+	(*GetAllBookResponse)(nil),               // 7: bible.v1.GetAllBookResponse
+	(*GetOneBookRequest)(nil),                // 8: bible.v1.GetOneBookRequest
+	(*GetOneBookResponse)(nil),               // 9: bible.v1.GetOneBookResponse
+	(*GetOneChapterRequest)(nil),             // 10: bible.v1.GetOneChapterRequest
+	(*GetOneChapterResponse)(nil),            // 11: bible.v1.GetOneChapterResponse
+	(*GetOneChapterTextRequest)(nil),         // 12: bible.v1.GetOneChapterTextRequest
+	(*GetOneChapterTextResponse)(nil),        // 13: bible.v1.GetOneChapterTextResponse
+	(*GetOneChapterHtmlRequest)(nil),         // 14: bible.v1.GetOneChapterHtmlRequest
+	(*GetOneChapterHtmlResponse)(nil),        // 15: bible.v1.GetOneChapterHtmlResponse
+	(*GetBiblicalReferenceRequest)(nil),      // 16: bible.v1.GetBiblicalReferenceRequest
+	(*GetBiblicalReferenceResponse)(nil),     // 17: bible.v1.GetBiblicalReferenceResponse
+	(*GetBiblicalReferenceTextRequest)(nil),  // 18: bible.v1.GetBiblicalReferenceTextRequest
+	(*GetBiblicalReferenceTextResponse)(nil), // 19: bible.v1.GetBiblicalReferenceTextResponse
+	(*GetBiblicalReferenceHtmlRequest)(nil),  // 20: bible.v1.GetBiblicalReferenceHtmlRequest
+	(*GetBiblicalReferenceHtmlResponse)(nil), // 21: bible.v1.GetBiblicalReferenceHtmlResponse
+	(*timestamppb.Timestamp)(nil),            // 22: google.protobuf.Timestamp
 }
 var file_bible_v1_book_proto_depIdxs = []int32{
-	23, // 0: bible.v1.Book.created_at:type_name -> google.protobuf.Timestamp
-	23, // 1: bible.v1.Book.updated_at:type_name -> google.protobuf.Timestamp
-	1,  // 2: bible.v1.Book.chapters:type_name -> bible.v1.BookChapter
-	23, // 3: bible.v1.BookChapter.created_at:type_name -> google.protobuf.Timestamp
-	23, // 4: bible.v1.BookChapter.updated_at:type_name -> google.protobuf.Timestamp
-	23, // 5: bible.v1.BookVerse.created_at:type_name -> google.protobuf.Timestamp
-	23, // 6: bible.v1.BookVerse.updated_at:type_name -> google.protobuf.Timestamp
-	23, // 7: bible.v1.BookFootnote.created_at:type_name -> google.protobuf.Timestamp
-	23, // 8: bible.v1.BookFootnote.updated_at:type_name -> google.protobuf.Timestamp
-	23, // 9: bible.v1.BookHeading.created_at:type_name -> google.protobuf.Timestamp
-	23, // 10: bible.v1.BookHeading.updated_at:type_name -> google.protobuf.Timestamp
-	23, // 11: bible.v1.BookReference.created_at:type_name -> google.protobuf.Timestamp
-	23, // 12: bible.v1.BookReference.updated_at:type_name -> google.protobuf.Timestamp
-	23, // 13: bible.v1.PsalmMetadata.created_at:type_name -> google.protobuf.Timestamp
-	23, // 14: bible.v1.PsalmMetadata.updated_at:type_name -> google.protobuf.Timestamp
-	0,  // 15: bible.v1.GetAllBookResponse.books:type_name -> bible.v1.Book
-	0,  // 16: bible.v1.GetOneBookResponse.book:type_name -> bible.v1.Book
-	1,  // 17: bible.v1.GetOneChapterResponse.chapter:type_name -> bible.v1.BookChapter
-	2,  // 18: bible.v1.GetOneChapterResponse.verses:type_name -> bible.v1.BookVerse
-	3,  // 19: bible.v1.GetOneChapterResponse.footnotes:type_name -> bible.v1.BookFootnote
-	4,  // 20: bible.v1.GetOneChapterResponse.headings:type_name -> bible.v1.BookHeading
-	5,  // 21: bible.v1.GetOneChapterResponse.references:type_name -> bible.v1.BookReference
-	6,  // 22: bible.v1.GetOneChapterResponse.psalm_metadata:type_name -> bible.v1.PsalmMetadata
-	0,  // 23: bible.v1.GetOneChapterResponse.book:type_name -> bible.v1.Book
-	1,  // 24: bible.v1.GetBiblicalReferenceResponse.chapters:type_name -> bible.v1.BookChapter
-	2,  // 25: bible.v1.GetBiblicalReferenceResponse.verses:type_name -> bible.v1.BookVerse
-	3,  // 26: bible.v1.GetBiblicalReferenceResponse.footnotes:type_name -> bible.v1.BookFootnote
-	4,  // 27: bible.v1.GetBiblicalReferenceResponse.headings:type_name -> bible.v1.BookHeading
-	5,  // 28: bible.v1.GetBiblicalReferenceResponse.references:type_name -> bible.v1.BookReference
-	6,  // 29: bible.v1.GetBiblicalReferenceResponse.psalm_metadata:type_name -> bible.v1.PsalmMetadata
-	7,  // 30: bible.v1.BookService.GetAllBook:input_type -> bible.v1.GetAllBookRequest
-	9,  // 31: bible.v1.BookService.GetOneBook:input_type -> bible.v1.GetOneBookRequest
-	11, // 32: bible.v1.BookService.GetOneChapter:input_type -> bible.v1.GetOneChapterRequest
-	13, // 33: bible.v1.BookService.GetOneChapterText:input_type -> bible.v1.GetOneChapterTextRequest
-	15, // 34: bible.v1.BookService.GetOneChapterHtml:input_type -> bible.v1.GetOneChapterHtmlRequest
-	17, // 35: bible.v1.BookService.GetBiblicalReference:input_type -> bible.v1.GetBiblicalReferenceRequest
-	19, // 36: bible.v1.BookService.GetBiblicalReferenceText:input_type -> bible.v1.GetBiblicalReferenceTextRequest
-	21, // 37: bible.v1.BookService.GetBiblicalReferenceHtml:input_type -> bible.v1.GetBiblicalReferenceHtmlRequest
-	8,  // 38: bible.v1.BookService.GetAllBook:output_type -> bible.v1.GetAllBookResponse
-	10, // 39: bible.v1.BookService.GetOneBook:output_type -> bible.v1.GetOneBookResponse
-	12, // 40: bible.v1.BookService.GetOneChapter:output_type -> bible.v1.GetOneChapterResponse
-	14, // 41: bible.v1.BookService.GetOneChapterText:output_type -> bible.v1.GetOneChapterTextResponse
-	16, // 42: bible.v1.BookService.GetOneChapterHtml:output_type -> bible.v1.GetOneChapterHtmlResponse
-	18, // 43: bible.v1.BookService.GetBiblicalReference:output_type -> bible.v1.GetBiblicalReferenceResponse
-	20, // 44: bible.v1.BookService.GetBiblicalReferenceText:output_type -> bible.v1.GetBiblicalReferenceTextResponse
-	22, // 45: bible.v1.BookService.GetBiblicalReferenceHtml:output_type -> bible.v1.GetBiblicalReferenceHtmlResponse
-	38, // [38:46] is the sub-list for method output_type
-	30, // [30:38] is the sub-list for method input_type
-	30, // [30:30] is the sub-list for extension type_name
-	30, // [30:30] is the sub-list for extension extendee
-	0,  // [0:30] is the sub-list for field type_name
+	22, // 0: bible.v1.Book.created_at:type_name -> google.protobuf.Timestamp
+	22, // 1: bible.v1.Book.updated_at:type_name -> google.protobuf.Timestamp
+	1,  // 2: bible.v1.Book.chapters:type_name -> bible.v1.Chapter
+	22, // 3: bible.v1.Chapter.created_at:type_name -> google.protobuf.Timestamp
+	22, // 4: bible.v1.Chapter.updated_at:type_name -> google.protobuf.Timestamp
+	22, // 5: bible.v1.Verse.created_at:type_name -> google.protobuf.Timestamp
+	22, // 6: bible.v1.Verse.updated_at:type_name -> google.protobuf.Timestamp
+	22, // 7: bible.v1.Footnote.created_at:type_name -> google.protobuf.Timestamp
+	22, // 8: bible.v1.Footnote.updated_at:type_name -> google.protobuf.Timestamp
+	22, // 9: bible.v1.Heading.created_at:type_name -> google.protobuf.Timestamp
+	22, // 10: bible.v1.Heading.updated_at:type_name -> google.protobuf.Timestamp
+	22, // 11: bible.v1.PsalmMetadata.created_at:type_name -> google.protobuf.Timestamp
+	22, // 12: bible.v1.PsalmMetadata.updated_at:type_name -> google.protobuf.Timestamp
+	0,  // 13: bible.v1.GetAllBookResponse.books:type_name -> bible.v1.Book
+	0,  // 14: bible.v1.GetOneBookResponse.book:type_name -> bible.v1.Book
+	1,  // 15: bible.v1.GetOneChapterResponse.chapter:type_name -> bible.v1.Chapter
+	2,  // 16: bible.v1.GetOneChapterResponse.verses:type_name -> bible.v1.Verse
+	3,  // 17: bible.v1.GetOneChapterResponse.footnotes:type_name -> bible.v1.Footnote
+	4,  // 18: bible.v1.GetOneChapterResponse.headings:type_name -> bible.v1.Heading
+	5,  // 19: bible.v1.GetOneChapterResponse.psalm_metadata:type_name -> bible.v1.PsalmMetadata
+	0,  // 20: bible.v1.GetOneChapterResponse.book:type_name -> bible.v1.Book
+	1,  // 21: bible.v1.GetBiblicalReferenceResponse.chapters:type_name -> bible.v1.Chapter
+	2,  // 22: bible.v1.GetBiblicalReferenceResponse.verses:type_name -> bible.v1.Verse
+	3,  // 23: bible.v1.GetBiblicalReferenceResponse.footnotes:type_name -> bible.v1.Footnote
+	4,  // 24: bible.v1.GetBiblicalReferenceResponse.headings:type_name -> bible.v1.Heading
+	5,  // 25: bible.v1.GetBiblicalReferenceResponse.psalm_metadata:type_name -> bible.v1.PsalmMetadata
+	6,  // 26: bible.v1.BookService.GetAllBook:input_type -> bible.v1.GetAllBookRequest
+	8,  // 27: bible.v1.BookService.GetOneBook:input_type -> bible.v1.GetOneBookRequest
+	10, // 28: bible.v1.BookService.GetOneChapter:input_type -> bible.v1.GetOneChapterRequest
+	12, // 29: bible.v1.BookService.GetOneChapterText:input_type -> bible.v1.GetOneChapterTextRequest
+	14, // 30: bible.v1.BookService.GetOneChapterHtml:input_type -> bible.v1.GetOneChapterHtmlRequest
+	16, // 31: bible.v1.BookService.GetBiblicalReference:input_type -> bible.v1.GetBiblicalReferenceRequest
+	18, // 32: bible.v1.BookService.GetBiblicalReferenceText:input_type -> bible.v1.GetBiblicalReferenceTextRequest
+	20, // 33: bible.v1.BookService.GetBiblicalReferenceHtml:input_type -> bible.v1.GetBiblicalReferenceHtmlRequest
+	7,  // 34: bible.v1.BookService.GetAllBook:output_type -> bible.v1.GetAllBookResponse
+	9,  // 35: bible.v1.BookService.GetOneBook:output_type -> bible.v1.GetOneBookResponse
+	11, // 36: bible.v1.BookService.GetOneChapter:output_type -> bible.v1.GetOneChapterResponse
+	13, // 37: bible.v1.BookService.GetOneChapterText:output_type -> bible.v1.GetOneChapterTextResponse
+	15, // 38: bible.v1.BookService.GetOneChapterHtml:output_type -> bible.v1.GetOneChapterHtmlResponse
+	17, // 39: bible.v1.BookService.GetBiblicalReference:output_type -> bible.v1.GetBiblicalReferenceResponse
+	19, // 40: bible.v1.BookService.GetBiblicalReferenceText:output_type -> bible.v1.GetBiblicalReferenceTextResponse
+	21, // 41: bible.v1.BookService.GetBiblicalReferenceHtml:output_type -> bible.v1.GetBiblicalReferenceHtmlResponse
+	34, // [34:42] is the sub-list for method output_type
+	26, // [26:34] is the sub-list for method input_type
+	26, // [26:26] is the sub-list for extension type_name
+	26, // [26:26] is the sub-list for extension extendee
+	0,  // [0:26] is the sub-list for field type_name
 }
 
 func init() { file_bible_v1_book_proto_init() }
@@ -2177,15 +2063,17 @@ func file_bible_v1_book_proto_init() {
 	if File_bible_v1_book_proto != nil {
 		return
 	}
+	file_bible_v1_book_proto_msgTypes[1].OneofWrappers = []any{}
+	file_bible_v1_book_proto_msgTypes[2].OneofWrappers = []any{}
 	file_bible_v1_book_proto_msgTypes[3].OneofWrappers = []any{}
-	file_bible_v1_book_proto_msgTypes[5].OneofWrappers = []any{}
+	file_bible_v1_book_proto_msgTypes[6].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bible_v1_book_proto_rawDesc), len(file_bible_v1_book_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   23,
+			NumMessages:   22,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

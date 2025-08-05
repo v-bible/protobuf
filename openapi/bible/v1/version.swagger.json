@@ -22,38 +22,6 @@
     "application/json"
   ],
   "paths": {
-    "/v1/lang": {
-      "get": {
-        "summary": "Retrieve all languages",
-        "operationId": "VersionService_GetAllLanguage",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1GetAllLanguageResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response.",
-            "schema": {
-              "$ref": "#/definitions/rpcStatus"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "webOrigin",
-            "description": "Web origin query params",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "VersionService"
-        ]
-      }
-    },
     "/v1/version": {
       "get": {
         "summary": "Retrieve all versions",
@@ -74,24 +42,70 @@
         },
         "parameters": [
           {
+            "name": "language",
+            "description": "Language filter (optional - indexed in Prisma)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "description": "Source filter (optional - indexed in Prisma)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "formatType",
+            "description": "Format type filter (optional - indexed in Prisma)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "VersionService"
+        ]
+      }
+    },
+    "/v1/version/{versionCode}/{language}/{source}": {
+      "get": {
+        "summary": "Retrieve one version by unique constraint",
+        "operationId": "VersionService_GetOneVersion",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetOneVersionResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
             "name": "versionCode",
-            "description": "Version code query params",
-            "in": "query",
-            "required": false,
+            "description": "Version code (required - part of unique constraint)",
+            "in": "path",
+            "required": true,
             "type": "string"
           },
           {
-            "name": "langCode",
-            "description": "Language code query params",
-            "in": "query",
-            "required": false,
+            "name": "language",
+            "description": "Language code (required - part of unique constraint)",
+            "in": "path",
+            "required": true,
             "type": "string"
           },
           {
-            "name": "webOrigin",
-            "description": "Web origin query params",
-            "in": "query",
-            "required": false,
+            "name": "source",
+            "description": "Source (required - part of unique constraint)",
+            "in": "path",
+            "required": true,
             "type": "string"
           }
         ],
@@ -130,19 +144,6 @@
         }
       }
     },
-    "v1GetAllLanguageResponse": {
-      "type": "object",
-      "properties": {
-        "languages": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/v1VersionLanguage"
-          },
-          "title": "Language list"
-        }
-      }
-    },
     "v1GetAllVersionResponse": {
       "type": "object",
       "properties": {
@@ -153,6 +154,15 @@
             "$ref": "#/definitions/v1Version"
           },
           "title": "Version list"
+        }
+      }
+    },
+    "v1GetOneVersionResponse": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "$ref": "#/definitions/v1Version",
+          "title": "Version object"
         }
       }
     },
@@ -171,17 +181,33 @@
           "type": "string",
           "title": "Version name"
         },
-        "onlyNt": {
-          "type": "boolean",
-          "title": "Version only NT"
+        "language": {
+          "type": "string",
+          "title": "Version language"
         },
-        "onlyOt": {
-          "type": "boolean",
-          "title": "Version only OT"
+        "source": {
+          "type": "string",
+          "title": "Version source"
         },
-        "withApocrypha": {
+        "formatType": {
+          "type": "string",
+          "title": "Version format type"
+        },
+        "sourceUrl": {
+          "type": "string",
+          "title": "Version source URL"
+        },
+        "hasOldTestament": {
           "type": "boolean",
-          "title": "Version with apocrypha"
+          "title": "Version has old testament"
+        },
+        "hasNewTestament": {
+          "type": "boolean",
+          "title": "Version has new testament"
+        },
+        "hasApocrypha": {
+          "type": "boolean",
+          "title": "Version has apocrypha"
         },
         "createdAt": {
           "type": "string",
@@ -192,84 +218,6 @@
           "type": "string",
           "format": "date-time",
           "title": "Version last update time\nStored in UTC and follows RFC 3339 format"
-        },
-        "formats": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/v1VersionFormat"
-          },
-          "title": "Version formats"
-        },
-        "languageId": {
-          "type": "string",
-          "title": "Language ID"
-        }
-      }
-    },
-    "v1VersionFormat": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "title": "Format ID"
-        },
-        "type": {
-          "type": "string",
-          "title": "Format type"
-        },
-        "ref": {
-          "type": "string",
-          "title": "Format source reference URL"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Format creation time\nStored in UTC and follows RFC 3339 format"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Format last update time\nStored in UTC and follows RFC 3339 format"
-        },
-        "versionId": {
-          "type": "string",
-          "title": "Version ID"
-        }
-      }
-    },
-    "v1VersionLanguage": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "title": "Language ID"
-        },
-        "code": {
-          "type": "string",
-          "title": "Language code"
-        },
-        "name": {
-          "type": "string",
-          "title": "Language name"
-        },
-        "origin": {
-          "type": "string",
-          "title": "Language web origin short name"
-        },
-        "webOrigin": {
-          "type": "string",
-          "title": "Language web origin"
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Language creation time\nStored in UTC and follows RFC 3339 format"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Language last update time\nStored in UTC and follows RFC 3339 format"
         }
       }
     }

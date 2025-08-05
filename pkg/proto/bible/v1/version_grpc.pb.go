@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	VersionService_GetAllLanguage_FullMethodName = "/bible.v1.VersionService/GetAllLanguage"
-	VersionService_GetAllVersion_FullMethodName  = "/bible.v1.VersionService/GetAllVersion"
+	VersionService_GetAllVersion_FullMethodName = "/bible.v1.VersionService/GetAllVersion"
+	VersionService_GetOneVersion_FullMethodName = "/bible.v1.VersionService/GetOneVersion"
 )
 
 // VersionServiceClient is the client API for VersionService service.
@@ -29,10 +29,10 @@ const (
 //
 // Version service definition
 type VersionServiceClient interface {
-	// Retrieve all languages
-	GetAllLanguage(ctx context.Context, in *GetAllLanguageRequest, opts ...grpc.CallOption) (*GetAllLanguageResponse, error)
 	// Retrieve all versions
 	GetAllVersion(ctx context.Context, in *GetAllVersionRequest, opts ...grpc.CallOption) (*GetAllVersionResponse, error)
+	// Retrieve one version by unique constraint
+	GetOneVersion(ctx context.Context, in *GetOneVersionRequest, opts ...grpc.CallOption) (*GetOneVersionResponse, error)
 }
 
 type versionServiceClient struct {
@@ -41,16 +41,6 @@ type versionServiceClient struct {
 
 func NewVersionServiceClient(cc grpc.ClientConnInterface) VersionServiceClient {
 	return &versionServiceClient{cc}
-}
-
-func (c *versionServiceClient) GetAllLanguage(ctx context.Context, in *GetAllLanguageRequest, opts ...grpc.CallOption) (*GetAllLanguageResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetAllLanguageResponse)
-	err := c.cc.Invoke(ctx, VersionService_GetAllLanguage_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *versionServiceClient) GetAllVersion(ctx context.Context, in *GetAllVersionRequest, opts ...grpc.CallOption) (*GetAllVersionResponse, error) {
@@ -63,16 +53,26 @@ func (c *versionServiceClient) GetAllVersion(ctx context.Context, in *GetAllVers
 	return out, nil
 }
 
+func (c *versionServiceClient) GetOneVersion(ctx context.Context, in *GetOneVersionRequest, opts ...grpc.CallOption) (*GetOneVersionResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOneVersionResponse)
+	err := c.cc.Invoke(ctx, VersionService_GetOneVersion_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // VersionServiceServer is the server API for VersionService service.
 // All implementations must embed UnimplementedVersionServiceServer
 // for forward compatibility.
 //
 // Version service definition
 type VersionServiceServer interface {
-	// Retrieve all languages
-	GetAllLanguage(context.Context, *GetAllLanguageRequest) (*GetAllLanguageResponse, error)
 	// Retrieve all versions
 	GetAllVersion(context.Context, *GetAllVersionRequest) (*GetAllVersionResponse, error)
+	// Retrieve one version by unique constraint
+	GetOneVersion(context.Context, *GetOneVersionRequest) (*GetOneVersionResponse, error)
 	mustEmbedUnimplementedVersionServiceServer()
 }
 
@@ -83,11 +83,11 @@ type VersionServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedVersionServiceServer struct{}
 
-func (UnimplementedVersionServiceServer) GetAllLanguage(context.Context, *GetAllLanguageRequest) (*GetAllLanguageResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAllLanguage not implemented")
-}
 func (UnimplementedVersionServiceServer) GetAllVersion(context.Context, *GetAllVersionRequest) (*GetAllVersionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAllVersion not implemented")
+}
+func (UnimplementedVersionServiceServer) GetOneVersion(context.Context, *GetOneVersionRequest) (*GetOneVersionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOneVersion not implemented")
 }
 func (UnimplementedVersionServiceServer) mustEmbedUnimplementedVersionServiceServer() {}
 func (UnimplementedVersionServiceServer) testEmbeddedByValue()                        {}
@@ -110,24 +110,6 @@ func RegisterVersionServiceServer(s grpc.ServiceRegistrar, srv VersionServiceSer
 	s.RegisterService(&VersionService_ServiceDesc, srv)
 }
 
-func _VersionService_GetAllLanguage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAllLanguageRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(VersionServiceServer).GetAllLanguage(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: VersionService_GetAllLanguage_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(VersionServiceServer).GetAllLanguage(ctx, req.(*GetAllLanguageRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _VersionService_GetAllVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetAllVersionRequest)
 	if err := dec(in); err != nil {
@@ -146,6 +128,24 @@ func _VersionService_GetAllVersion_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _VersionService_GetOneVersion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOneVersionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(VersionServiceServer).GetOneVersion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: VersionService_GetOneVersion_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(VersionServiceServer).GetOneVersion(ctx, req.(*GetOneVersionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // VersionService_ServiceDesc is the grpc.ServiceDesc for VersionService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -154,12 +154,12 @@ var VersionService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*VersionServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetAllLanguage",
-			Handler:    _VersionService_GetAllLanguage_Handler,
-		},
-		{
 			MethodName: "GetAllVersion",
 			Handler:    _VersionService_GetAllVersion_Handler,
+		},
+		{
+			MethodName: "GetOneVersion",
+			Handler:    _VersionService_GetOneVersion_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

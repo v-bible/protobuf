@@ -14,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file bible/v1/version.proto.
  */
 export const file_bible_v1_version: GenFile = /*@__PURE__*/
-  fileDesc("ChZiaWJsZS92MS92ZXJzaW9uLnByb3RvEghiaWJsZS52MSKKAgoHVmVyc2lvbhIKCgJpZBgBIAEoCRIMCgRjb2RlGAIgASgJEgwKBG5hbWUYAyABKAkSDwoHb25seV9udBgEIAEoCBIPCgdvbmx5X290GAUgASgIEhYKDndpdGhfYXBvY3J5cGhhGAYgASgIEi4KCmNyZWF0ZWRfYXQYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEigKB2Zvcm1hdHMYCSADKAsyFy5iaWJsZS52MS5WZXJzaW9uRm9ybWF0EhMKC2xhbmd1YWdlX2lkGAogASgJIqoBCg1WZXJzaW9uRm9ybWF0EgoKAmlkGAEgASgJEgwKBHR5cGUYAiABKAkSCwoDcmVmGAMgASgJEi4KCmNyZWF0ZWRfYXQYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhIKCnZlcnNpb25faWQYBiABKAkivQEKD1ZlcnNpb25MYW5ndWFnZRIKCgJpZBgBIAEoCRIMCgRjb2RlGAIgASgJEgwKBG5hbWUYAyABKAkSDgoGb3JpZ2luGAQgASgJEhIKCndlYl9vcmlnaW4YBSABKAkSLgoKY3JlYXRlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoKdXBkYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiPwoVR2V0QWxsTGFuZ3VhZ2VSZXF1ZXN0EhcKCndlYl9vcmlnaW4YASABKAlIAIgBAUINCgtfd2ViX29yaWdpbiJGChZHZXRBbGxMYW5ndWFnZVJlc3BvbnNlEiwKCWxhbmd1YWdlcxgBIAMoCzIZLmJpYmxlLnYxLlZlcnNpb25MYW5ndWFnZSKQAQoUR2V0QWxsVmVyc2lvblJlcXVlc3QSGQoMdmVyc2lvbl9jb2RlGAEgASgJSACIAQESFgoJbGFuZ19jb2RlGAIgASgJSAGIAQESFwoKd2ViX29yaWdpbhgDIAEoCUgCiAEBQg8KDV92ZXJzaW9uX2NvZGVCDAoKX2xhbmdfY29kZUINCgtfd2ViX29yaWdpbiI8ChVHZXRBbGxWZXJzaW9uUmVzcG9uc2USIwoIdmVyc2lvbnMYASADKAsyES5iaWJsZS52MS5WZXJzaW9uMt4BCg5WZXJzaW9uU2VydmljZRJlCg5HZXRBbGxMYW5ndWFnZRIfLmJpYmxlLnYxLkdldEFsbExhbmd1YWdlUmVxdWVzdBogLmJpYmxlLnYxLkdldEFsbExhbmd1YWdlUmVzcG9uc2UiEILT5JMCChIIL3YxL2xhbmcSZQoNR2V0QWxsVmVyc2lvbhIeLmJpYmxlLnYxLkdldEFsbFZlcnNpb25SZXF1ZXN0Gh8uYmlibGUudjEuR2V0QWxsVmVyc2lvblJlc3BvbnNlIhOC0+STAg0SCy92MS92ZXJzaW9uQvoCCgxjb20uYmlibGUudjFCDFZlcnNpb25Qcm90b1ABWjZnaXRodWIuY29tL3YtYmlibGUvcHJvdG9idWYvcGtnL3Byb3RvL2JpYmxlL3YxO2JpYmxldjGiAgNCWFiqAghCaWJsZS5WMcoCCEJpYmxlXFYx4gIUQmlibGVcVjFcR1BCTWV0YWRhdGHqAglCaWJsZTo6VjGSQeEBEnAKGEJpYmxlIFZlcnNpb24gc2VydmVyIEFQSRIYQmlibGUgVmVyc2lvbiBzZXJ2ZXIgQVBJIjMKDkR1Y2t5TW9tbzIwMDEyEiFodHRwczovL2dpdGh1Yi5jb20vRHVja3lNb21vMjAwMTIyBTEuMC4wIgQvYXBpWlkKVwoGYmVhcmVyEk0IAhI4QXV0aGVudGljYXRpb24gdG9rZW4sIHByZWZpeGVkIGJ5IEJlYXJlcjogQmVhcmVyIDx0b2tlbj4aDUF1dGhvcml6YXRpb24gAmIMCgoKBmJlYXJlchIAYgZwcm90bzM", [file_google_api_annotations, file_google_protobuf_timestamp, file_protoc_gen_openapiv2_options_annotations]);
+  fileDesc("ChZiaWJsZS92MS92ZXJzaW9uLnByb3RvEghiaWJsZS52MSKpAgoHVmVyc2lvbhIKCgJpZBgBIAEoCRIMCgRjb2RlGAIgASgJEgwKBG5hbWUYAyABKAkSEAoIbGFuZ3VhZ2UYBCABKAkSDgoGc291cmNlGAUgASgJEhMKC2Zvcm1hdF90eXBlGAYgASgJEhIKCnNvdXJjZV91cmwYByABKAkSGQoRaGFzX29sZF90ZXN0YW1lbnQYCCABKAgSGQoRaGFzX25ld190ZXN0YW1lbnQYCSABKAgSFQoNaGFzX2Fwb2NyeXBoYRgKIAEoCBIuCgpjcmVhdGVkX2F0GAsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAwgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcCKEAQoUR2V0QWxsVmVyc2lvblJlcXVlc3QSFQoIbGFuZ3VhZ2UYASABKAlIAIgBARITCgZzb3VyY2UYAiABKAlIAYgBARIYCgtmb3JtYXRfdHlwZRgDIAEoCUgCiAEBQgsKCV9sYW5ndWFnZUIJCgdfc291cmNlQg4KDF9mb3JtYXRfdHlwZSI8ChVHZXRBbGxWZXJzaW9uUmVzcG9uc2USIwoIdmVyc2lvbnMYASADKAsyES5iaWJsZS52MS5WZXJzaW9uIk4KFEdldE9uZVZlcnNpb25SZXF1ZXN0EhQKDHZlcnNpb25fY29kZRgBIAEoCRIQCghsYW5ndWFnZRgCIAEoCRIOCgZzb3VyY2UYAyABKAkiOwoVR2V0T25lVmVyc2lvblJlc3BvbnNlEiIKB3ZlcnNpb24YASABKAsyES5iaWJsZS52MS5WZXJzaW9uMoICCg5WZXJzaW9uU2VydmljZRJlCg1HZXRBbGxWZXJzaW9uEh4uYmlibGUudjEuR2V0QWxsVmVyc2lvblJlcXVlc3QaHy5iaWJsZS52MS5HZXRBbGxWZXJzaW9uUmVzcG9uc2UiE4LT5JMCDRILL3YxL3ZlcnNpb24SiAEKDUdldE9uZVZlcnNpb24SHi5iaWJsZS52MS5HZXRPbmVWZXJzaW9uUmVxdWVzdBofLmJpYmxlLnYxLkdldE9uZVZlcnNpb25SZXNwb25zZSI2gtPkkwIwEi4vdjEvdmVyc2lvbi97dmVyc2lvbl9jb2RlfS97bGFuZ3VhZ2V9L3tzb3VyY2V9QvoCCgxjb20uYmlibGUudjFCDFZlcnNpb25Qcm90b1ABWjZnaXRodWIuY29tL3YtYmlibGUvcHJvdG9idWYvcGtnL3Byb3RvL2JpYmxlL3YxO2JpYmxldjGiAgNCWFiqAghCaWJsZS5WMcoCCEJpYmxlXFYx4gIUQmlibGVcVjFcR1BCTWV0YWRhdGHqAglCaWJsZTo6VjGSQeEBEnAKGEJpYmxlIFZlcnNpb24gc2VydmVyIEFQSRIYQmlibGUgVmVyc2lvbiBzZXJ2ZXIgQVBJIjMKDkR1Y2t5TW9tbzIwMDEyEiFodHRwczovL2dpdGh1Yi5jb20vRHVja3lNb21vMjAwMTIyBTEuMC4wIgQvYXBpWlkKVwoGYmVhcmVyEk0IAhI4QXV0aGVudGljYXRpb24gdG9rZW4sIHByZWZpeGVkIGJ5IEJlYXJlcjogQmVhcmVyIDx0b2tlbj4aDUF1dGhvcml6YXRpb24gAmIMCgoKBmJlYXJlchIAYgZwcm90bzM", [file_google_api_annotations, file_google_protobuf_timestamp, file_protoc_gen_openapiv2_options_annotations]);
 
 /**
  * @generated from message bible.v1.Version
@@ -42,31 +42,59 @@ export type Version = Message<"bible.v1.Version"> & {
   name: string;
 
   /**
-   * Version only NT
+   * Version language
    *
-   * @generated from field: bool only_nt = 4;
+   * @generated from field: string language = 4;
    */
-  onlyNt: boolean;
+  language: string;
 
   /**
-   * Version only OT
+   * Version source
    *
-   * @generated from field: bool only_ot = 5;
+   * @generated from field: string source = 5;
    */
-  onlyOt: boolean;
+  source: string;
 
   /**
-   * Version with apocrypha
+   * Version format type
    *
-   * @generated from field: bool with_apocrypha = 6;
+   * @generated from field: string format_type = 6;
    */
-  withApocrypha: boolean;
+  formatType: string;
+
+  /**
+   * Version source URL
+   *
+   * @generated from field: string source_url = 7;
+   */
+  sourceUrl: string;
+
+  /**
+   * Version has old testament
+   *
+   * @generated from field: bool has_old_testament = 8;
+   */
+  hasOldTestament: boolean;
+
+  /**
+   * Version has new testament
+   *
+   * @generated from field: bool has_new_testament = 9;
+   */
+  hasNewTestament: boolean;
+
+  /**
+   * Version has apocrypha
+   *
+   * @generated from field: bool has_apocrypha = 10;
+   */
+  hasApocrypha: boolean;
 
   /**
    * Version creation time
    * Stored in UTC and follows RFC 3339 format
    *
-   * @generated from field: google.protobuf.Timestamp created_at = 7;
+   * @generated from field: google.protobuf.Timestamp created_at = 11;
    */
   createdAt?: Timestamp;
 
@@ -74,23 +102,9 @@ export type Version = Message<"bible.v1.Version"> & {
    * Version last update time
    * Stored in UTC and follows RFC 3339 format
    *
-   * @generated from field: google.protobuf.Timestamp updated_at = 8;
+   * @generated from field: google.protobuf.Timestamp updated_at = 12;
    */
   updatedAt?: Timestamp;
-
-  /**
-   * Version formats
-   *
-   * @generated from field: repeated bible.v1.VersionFormat formats = 9;
-   */
-  formats: VersionFormat[];
-
-  /**
-   * Language ID
-   *
-   * @generated from field: string language_id = 10;
-   */
-  languageId: string;
 };
 
 /**
@@ -101,186 +115,29 @@ export const VersionSchema: GenMessage<Version> = /*@__PURE__*/
   messageDesc(file_bible_v1_version, 0);
 
 /**
- * @generated from message bible.v1.VersionFormat
- */
-export type VersionFormat = Message<"bible.v1.VersionFormat"> & {
-  /**
-   * Format ID
-   *
-   * @generated from field: string id = 1;
-   */
-  id: string;
-
-  /**
-   * Format type
-   *
-   * @generated from field: string type = 2;
-   */
-  type: string;
-
-  /**
-   * Format source reference URL
-   *
-   * @generated from field: string ref = 3;
-   */
-  ref: string;
-
-  /**
-   * Format creation time
-   * Stored in UTC and follows RFC 3339 format
-   *
-   * @generated from field: google.protobuf.Timestamp created_at = 4;
-   */
-  createdAt?: Timestamp;
-
-  /**
-   * Format last update time
-   * Stored in UTC and follows RFC 3339 format
-   *
-   * @generated from field: google.protobuf.Timestamp updated_at = 5;
-   */
-  updatedAt?: Timestamp;
-
-  /**
-   * Version ID
-   *
-   * @generated from field: string version_id = 6;
-   */
-  versionId: string;
-};
-
-/**
- * Describes the message bible.v1.VersionFormat.
- * Use `create(VersionFormatSchema)` to create a new message.
- */
-export const VersionFormatSchema: GenMessage<VersionFormat> = /*@__PURE__*/
-  messageDesc(file_bible_v1_version, 1);
-
-/**
- * @generated from message bible.v1.VersionLanguage
- */
-export type VersionLanguage = Message<"bible.v1.VersionLanguage"> & {
-  /**
-   * Language ID
-   *
-   * @generated from field: string id = 1;
-   */
-  id: string;
-
-  /**
-   * Language code
-   *
-   * @generated from field: string code = 2;
-   */
-  code: string;
-
-  /**
-   * Language name
-   *
-   * @generated from field: string name = 3;
-   */
-  name: string;
-
-  /**
-   * Language web origin short name
-   *
-   * @generated from field: string origin = 4;
-   */
-  origin: string;
-
-  /**
-   * Language web origin
-   *
-   * @generated from field: string web_origin = 5;
-   */
-  webOrigin: string;
-
-  /**
-   * Language creation time
-   * Stored in UTC and follows RFC 3339 format
-   *
-   * @generated from field: google.protobuf.Timestamp created_at = 6;
-   */
-  createdAt?: Timestamp;
-
-  /**
-   * Language last update time
-   * Stored in UTC and follows RFC 3339 format
-   *
-   * @generated from field: google.protobuf.Timestamp updated_at = 7;
-   */
-  updatedAt?: Timestamp;
-};
-
-/**
- * Describes the message bible.v1.VersionLanguage.
- * Use `create(VersionLanguageSchema)` to create a new message.
- */
-export const VersionLanguageSchema: GenMessage<VersionLanguage> = /*@__PURE__*/
-  messageDesc(file_bible_v1_version, 2);
-
-/**
- * @generated from message bible.v1.GetAllLanguageRequest
- */
-export type GetAllLanguageRequest = Message<"bible.v1.GetAllLanguageRequest"> & {
-  /**
-   * Web origin query params
-   *
-   * @generated from field: optional string web_origin = 1;
-   */
-  webOrigin?: string;
-};
-
-/**
- * Describes the message bible.v1.GetAllLanguageRequest.
- * Use `create(GetAllLanguageRequestSchema)` to create a new message.
- */
-export const GetAllLanguageRequestSchema: GenMessage<GetAllLanguageRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_version, 3);
-
-/**
- * @generated from message bible.v1.GetAllLanguageResponse
- */
-export type GetAllLanguageResponse = Message<"bible.v1.GetAllLanguageResponse"> & {
-  /**
-   * Language list
-   *
-   * @generated from field: repeated bible.v1.VersionLanguage languages = 1;
-   */
-  languages: VersionLanguage[];
-};
-
-/**
- * Describes the message bible.v1.GetAllLanguageResponse.
- * Use `create(GetAllLanguageResponseSchema)` to create a new message.
- */
-export const GetAllLanguageResponseSchema: GenMessage<GetAllLanguageResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_version, 4);
-
-/**
  * @generated from message bible.v1.GetAllVersionRequest
  */
 export type GetAllVersionRequest = Message<"bible.v1.GetAllVersionRequest"> & {
   /**
-   * Version code query params
+   * Language filter (optional - indexed in Prisma)
    *
-   * @generated from field: optional string version_code = 1;
+   * @generated from field: optional string language = 1;
    */
-  versionCode?: string;
+  language?: string;
 
   /**
-   * Language code query params
+   * Source filter (optional - indexed in Prisma)
    *
-   * @generated from field: optional string lang_code = 2;
+   * @generated from field: optional string source = 2;
    */
-  langCode?: string;
+  source?: string;
 
   /**
-   * Web origin query params
+   * Format type filter (optional - indexed in Prisma)
    *
-   * @generated from field: optional string web_origin = 3;
+   * @generated from field: optional string format_type = 3;
    */
-  webOrigin?: string;
+  formatType?: string;
 };
 
 /**
@@ -288,7 +145,7 @@ export type GetAllVersionRequest = Message<"bible.v1.GetAllVersionRequest"> & {
  * Use `create(GetAllVersionRequestSchema)` to create a new message.
  */
 export const GetAllVersionRequestSchema: GenMessage<GetAllVersionRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_version, 5);
+  messageDesc(file_bible_v1_version, 1);
 
 /**
  * @generated from message bible.v1.GetAllVersionResponse
@@ -307,7 +164,59 @@ export type GetAllVersionResponse = Message<"bible.v1.GetAllVersionResponse"> & 
  * Use `create(GetAllVersionResponseSchema)` to create a new message.
  */
 export const GetAllVersionResponseSchema: GenMessage<GetAllVersionResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_version, 6);
+  messageDesc(file_bible_v1_version, 2);
+
+/**
+ * @generated from message bible.v1.GetOneVersionRequest
+ */
+export type GetOneVersionRequest = Message<"bible.v1.GetOneVersionRequest"> & {
+  /**
+   * Version code (required - part of unique constraint)
+   *
+   * @generated from field: string version_code = 1;
+   */
+  versionCode: string;
+
+  /**
+   * Language code (required - part of unique constraint)
+   *
+   * @generated from field: string language = 2;
+   */
+  language: string;
+
+  /**
+   * Source (required - part of unique constraint)
+   *
+   * @generated from field: string source = 3;
+   */
+  source: string;
+};
+
+/**
+ * Describes the message bible.v1.GetOneVersionRequest.
+ * Use `create(GetOneVersionRequestSchema)` to create a new message.
+ */
+export const GetOneVersionRequestSchema: GenMessage<GetOneVersionRequest> = /*@__PURE__*/
+  messageDesc(file_bible_v1_version, 3);
+
+/**
+ * @generated from message bible.v1.GetOneVersionResponse
+ */
+export type GetOneVersionResponse = Message<"bible.v1.GetOneVersionResponse"> & {
+  /**
+   * Version object
+   *
+   * @generated from field: bible.v1.Version version = 1;
+   */
+  version?: Version;
+};
+
+/**
+ * Describes the message bible.v1.GetOneVersionResponse.
+ * Use `create(GetOneVersionResponseSchema)` to create a new message.
+ */
+export const GetOneVersionResponseSchema: GenMessage<GetOneVersionResponse> = /*@__PURE__*/
+  messageDesc(file_bible_v1_version, 4);
 
 /**
  * Version service definition
@@ -315,16 +224,6 @@ export const GetAllVersionResponseSchema: GenMessage<GetAllVersionResponse> = /*
  * @generated from service bible.v1.VersionService
  */
 export const VersionService: GenService<{
-  /**
-   * Retrieve all languages
-   *
-   * @generated from rpc bible.v1.VersionService.GetAllLanguage
-   */
-  getAllLanguage: {
-    methodKind: "unary";
-    input: typeof GetAllLanguageRequestSchema;
-    output: typeof GetAllLanguageResponseSchema;
-  },
   /**
    * Retrieve all versions
    *
@@ -334,6 +233,16 @@ export const VersionService: GenService<{
     methodKind: "unary";
     input: typeof GetAllVersionRequestSchema;
     output: typeof GetAllVersionResponseSchema;
+  },
+  /**
+   * Retrieve one version by unique constraint
+   *
+   * @generated from rpc bible.v1.VersionService.GetOneVersion
+   */
+  getOneVersion: {
+    methodKind: "unary";
+    input: typeof GetOneVersionRequestSchema;
+    output: typeof GetOneVersionResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_bible_v1_version, 0);

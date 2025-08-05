@@ -78,12 +78,12 @@ message Book {
   string id = 1;
   // Book code
   string code = 2;
-  // Book title
-  string title = 3;
-  // Book canon
-  string canon = 4;
+  // Book name
+  string name = 3;
+  // Book testament
+  string testament = 4;
   // Book order
-  int32 order = 5;
+  int32 book_order = 5;
   // Book creation time
   // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 6;
@@ -91,18 +91,18 @@ message Book {
   // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp updated_at = 7;
   // Book chapters
-  repeated BookChapter chapters = 8;
-  // Book version
+  repeated Chapter chapters = 8;
+  // Book version ID
   string version_id = 9;
 }
 
-message BookChapter {
+message Chapter {
   // Chapter ID
   string id = 1;
   // Chapter number
   int32 number = 2;
-  // Chapter source reference URL
-  string ref = 3;
+  // Chapter audio URL
+  optional string audio_url = 3;
   // Chapter creation time
   // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 4;
@@ -113,63 +113,71 @@ message BookChapter {
   string book_id = 6;
 }
 
-message BookVerse {
+message Verse {
   // Verse ID
   string id = 1;
+  // Verse text
+  string text = 2;
+  // Verse label
+  string label = 3;
   // Verse number
-  int32 number = 2;
-  // Verse content
-  string content = 3;
-  // Verse order
-  int32 order = 4;
+  int32 number = 4;
+  // Verse sub-verse index
+  int32 sub_verse_index = 5;
   // Verse paragraph number
-  int32 par_number = 5;
+  int32 paragraph_number = 6;
   // Verse paragraph index
-  int32 par_index = 6;
+  int32 paragraph_index = 7;
   // Verse is poetry
-  bool is_poetry = 7;
+  bool is_poetry = 8;
+  // Verse audio URL
+  optional string audio_url = 9;
   // Verse creation time
   // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp created_at = 10;
   // Verse last update time
   // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp updated_at = 9;
+  google.protobuf.Timestamp updated_at = 11;
   // Verse chapter ID
-  string chapter_id = 10;
+  string chapter_id = 12;
 }
 
-message BookFootnote {
+message Footnote {
   // Footnote ID
   string id = 1;
-  // Footnote content
-  string content = 2;
+  // Footnote text
+  string text = 2;
+  // Footnote type
+  string type = 3; // e.g. "footnote", "reference"
+  // Footnote label
+  string label = 4;
+  // Footnote sort order
+  int32 sort_order = 5;
   // Footnote position
-  int32 position = 3;
-  // Footnote order
-  int32 order = 4;
+  int32 position = 6;
   // Footnote creation time
   // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp created_at = 5;
+  google.protobuf.Timestamp created_at = 7;
   // Footnote last update time
   // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp updated_at = 6;
+  google.protobuf.Timestamp updated_at = 8;
   // Footnote verse ID
-  optional string verse_id = 7;
+  optional string verse_id = 9;
   // Footnote heading ID
-  optional string heading_id = 8;
+  optional string heading_id = 10;
   // Footnote chapter ID
-  string chapter_id = 9;
+  string chapter_id = 11;
 }
 
-message BookHeading {
+message Heading {
   // Heading ID
   string id = 1;
-  // Heading content
-  string content = 2;
+  // Heading text
+  string text = 2;
   // Heading level. Start from 1
   int32 level = 3;
-  // Heading position
-  int32 order = 4;
+  // Heading sort order
+  int32 sort_order = 4;
   // Heading creation time
   // Stored in UTC and follows RFC 3339 format
   google.protobuf.Timestamp created_at = 5;
@@ -181,30 +189,6 @@ message BookHeading {
   // Heading chapter ID
   string chapter_id = 8;
 }
-
-message BookReference {
-  // Reference ID
-  string id = 1;
-  // Reference content
-  string content = 2;
-  // Reference position
-  optional int32 position = 3;
-  // Reference order
-  int32 order = 4;
-  // Reference creation time
-  // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp created_at = 5;
-  // Reference last update time
-  // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp updated_at = 6;
-  // Reference verse ID
-  optional string verse_id = 7;
-  // Reference heading ID
-  optional string heading_id = 8;
-  // Reference chapter ID
-  string chapter_id = 9;
-}
-
 message PsalmMetadata {
   // Psalm metadata ID
   string id = 1;
@@ -221,12 +205,14 @@ message PsalmMetadata {
 }
 
 message GetAllBookRequest {
-  // Version code query params
+  // Version code (required - part of unique constraint)
   string version_code = 1;
-  // Language code query params
-  string lang_code = 2;
-  // Web origin query params
-  string web_origin = 3;
+  // Language code (required - part of unique constraint)
+  string language = 2;
+  // Source (required - part of unique constraint)
+  string source = 3;
+  // Testament filter (optional: ot, nt, apocrypha)
+  optional string testament = 4;
 }
 
 message GetAllBookResponse {
@@ -235,15 +221,14 @@ message GetAllBookResponse {
 }
 
 message GetOneBookRequest {
-  // Book code
+  // Book code (required)
   string book_code = 1;
-
-  // Version code query params
+  // Version code (required - part of unique constraint)
   string version_code = 2;
-  // Language code query params
-  string lang_code = 3;
-  // Web origin query params
-  string web_origin = 4;
+  // Language code (required - part of unique constraint)
+  string language = 3;
+  // Source (required - part of unique constraint)
+  string source = 4;
 }
 
 message GetOneBookResponse {
@@ -252,48 +237,44 @@ message GetOneBookResponse {
 }
 
 message GetOneChapterRequest {
-  // Book code
+  // Book code (required)
   string book_code = 1;
-  // Chapter number
-  string chapter_num = 2;
-
-  // Version code query params
+  // Chapter number (required)
+  int32 chapter_num = 2;
+  // Version code (required - part of unique constraint)
   string version_code = 3;
-  // Language code query params
-  string lang_code = 4;
-  // Web origin query params
-  string web_origin = 5;
+  // Language code (required - part of unique constraint)
+  string language = 4;
+  // Source (required - part of unique constraint)
+  string source = 5;
 }
 
 message GetOneChapterResponse {
   // Chapter object
-  BookChapter chapter = 1;
+  Chapter chapter = 1;
   // Chapter verses
-  repeated BookVerse verses = 2;
+  repeated Verse verses = 2;
   // Chapter footnotes
-  repeated BookFootnote footnotes = 3;
+  repeated Footnote footnotes = 3;
   // Chapter headings
-  repeated BookHeading headings = 4;
-  // Chapter references
-  repeated BookReference references = 5;
+  repeated Heading headings = 4;
   // Chapter psalm metadata
-  repeated PsalmMetadata psalm_metadata = 6;
-  // Book object
-  Book book = 7;
+  repeated PsalmMetadata psalm_metadata = 5;
+  // Book object for context
+  Book book = 6;
 }
 
 message GetOneChapterTextRequest {
-  // Book code
+  // Book code (required)
   string book_code = 1;
-  // Chapter number
-  string chapter_num = 2;
-
-  // Version code query params
+  // Chapter number (required)
+  int32 chapter_num = 2;
+  // Version code (required - part of unique constraint)
   string version_code = 3;
-  // Language code query params
-  string lang_code = 4;
-  // Web origin query params
-  string web_origin = 5;
+  // Language code (required - part of unique constraint)
+  string language = 4;
+  // Source (required - part of unique constraint)
+  string source = 5;
 }
 
 message GetOneChapterTextResponse {
@@ -302,17 +283,16 @@ message GetOneChapterTextResponse {
 }
 
 message GetOneChapterHtmlRequest {
-  // Book code
+  // Book code (required)
   string book_code = 1;
-  // Chapter number
-  string chapter_num = 2;
-
-  // Version code query params
+  // Chapter number (required)
+  int32 chapter_num = 2;
+  // Version code (required - part of unique constraint)
   string version_code = 3;
-  // Language code query params
-  string lang_code = 4;
-  // Web origin query params
-  string web_origin = 5;
+  // Language code (required - part of unique constraint)
+  string language = 4;
+  // Source (required - part of unique constraint)
+  string source = 5;
 }
 
 message GetOneChapterHtmlResponse {
@@ -321,68 +301,63 @@ message GetOneChapterHtmlResponse {
 }
 
 message GetBiblicalReferenceRequest {
-  // Query string
+  // Query string (e.g., "John 3:16", "Genesis 1:1-3")
   string query = 1;
-
-  // Version code query params
+  // Version code (required - part of unique constraint)
   string version_code = 2;
-  // Language code query params
-  string lang_code = 3;
-  // Web origin query params
-  string web_origin = 4;
+  // Language code (required - part of unique constraint)
+  string language = 3;
+  // Source (required - part of unique constraint)
+  string source = 4;
   // Format query params. E.g. us, eu.
   string format = 5;
 }
 
 message GetBiblicalReferenceResponse {
-  // Chapter object
-  repeated BookChapter chapters = 1;
-  // Chapter verses
-  repeated BookVerse verses = 2;
-  // Chapter footnotes
-  repeated BookFootnote footnotes = 3;
-  // Chapter headings
-  repeated BookHeading headings = 4;
-  // Chapter references
-  repeated BookReference references = 5;
+  // Referenced chapters
+  repeated Chapter chapters = 1;
+  // Referenced verses
+  repeated Verse verses = 2;
+  // Related footnotes
+  repeated Footnote footnotes = 3;
+  // Related headings
+  repeated Heading headings = 4;
   // Chapter psalm metadata
-  repeated PsalmMetadata psalm_metadata = 6;
+  repeated PsalmMetadata psalm_metadata = 5;
 }
 
 message GetBiblicalReferenceTextRequest {
-  // Query string
+  // Query string (e.g., "John 3:16", "Genesis 1:1-3")
   string query = 1;
-
-  // Version code query params
+  // Version code (required - part of unique constraint)
   string version_code = 2;
-  // Language code query params
-  string lang_code = 3;
-  // Web origin query params
-  string web_origin = 4;
+  // Language code (required - part of unique constraint)
+  string language = 3;
+  // Source (required - part of unique constraint)
+  string source = 4;
   // Format query params. E.g. us, eu.
   string format = 5;
 }
 
 message GetBiblicalReferenceTextResponse {
-  // Chapter text in markdown format
+  // Referenced text in markdown format
   string text = 1;
 }
 
 message GetBiblicalReferenceHtmlRequest {
-  // Query string
+  // Query string (e.g., "John 3:16", "Genesis 1:1-3")
   string query = 1;
-
-  // Version code query params
+  // Version code (required - part of unique constraint)
   string version_code = 2;
-  // Language code query params
-  string lang_code = 3;
-  // Web origin query params
-  string web_origin = 4;
+  // Language code (required - part of unique constraint)
+  string language = 3;
+  // Source (required - part of unique constraint)
+  string source = 4;
   // Format query params. E.g. us, eu.
   string format = 5;
 }
 
 message GetBiblicalReferenceHtmlResponse {
-  // Chapter text in HTML format
+  // Referenced text in HTML format
   string html = 1;
 }

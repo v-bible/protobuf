@@ -39,11 +39,8 @@
   
 - [bible/v1/book.proto](#bible_v1_book-proto)
     - [Book](#bible-v1-Book)
-    - [BookChapter](#bible-v1-BookChapter)
-    - [BookFootnote](#bible-v1-BookFootnote)
-    - [BookHeading](#bible-v1-BookHeading)
-    - [BookReference](#bible-v1-BookReference)
-    - [BookVerse](#bible-v1-BookVerse)
+    - [Chapter](#bible-v1-Chapter)
+    - [Footnote](#bible-v1-Footnote)
     - [GetAllBookRequest](#bible-v1-GetAllBookRequest)
     - [GetAllBookResponse](#bible-v1-GetAllBookResponse)
     - [GetBiblicalReferenceHtmlRequest](#bible-v1-GetBiblicalReferenceHtmlRequest)
@@ -60,18 +57,18 @@
     - [GetOneChapterResponse](#bible-v1-GetOneChapterResponse)
     - [GetOneChapterTextRequest](#bible-v1-GetOneChapterTextRequest)
     - [GetOneChapterTextResponse](#bible-v1-GetOneChapterTextResponse)
+    - [Heading](#bible-v1-Heading)
     - [PsalmMetadata](#bible-v1-PsalmMetadata)
+    - [Verse](#bible-v1-Verse)
   
     - [BookService](#bible-v1-BookService)
   
 - [bible/v1/version.proto](#bible_v1_version-proto)
-    - [GetAllLanguageRequest](#bible-v1-GetAllLanguageRequest)
-    - [GetAllLanguageResponse](#bible-v1-GetAllLanguageResponse)
     - [GetAllVersionRequest](#bible-v1-GetAllVersionRequest)
     - [GetAllVersionResponse](#bible-v1-GetAllVersionResponse)
+    - [GetOneVersionRequest](#bible-v1-GetOneVersionRequest)
+    - [GetOneVersionResponse](#bible-v1-GetOneVersionResponse)
     - [Version](#bible-v1-Version)
-    - [VersionFormat](#bible-v1-VersionFormat)
-    - [VersionLanguage](#bible-v1-VersionLanguage)
   
     - [VersionService](#bible-v1-VersionService)
   
@@ -558,22 +555,22 @@ Auth service definition
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Book ID |
 | code | [string](#string) |  | Book code |
-| title | [string](#string) |  | Book title |
-| canon | [string](#string) |  | Book canon |
-| order | [int32](#int32) |  | Book order |
+| name | [string](#string) |  | Book name |
+| testament | [string](#string) |  | Book testament |
+| book_order | [int32](#int32) |  | Book order |
 | created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Book creation time Stored in UTC and follows RFC 3339 format |
 | updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Book last update time Stored in UTC and follows RFC 3339 format |
-| chapters | [BookChapter](#bible-v1-BookChapter) | repeated | Book chapters |
-| version_id | [string](#string) |  | Book version |
+| chapters | [Chapter](#bible-v1-Chapter) | repeated | Book chapters |
+| version_id | [string](#string) |  | Book version ID |
 
 
 
 
 
 
-<a name="bible-v1-BookChapter"></a>
+<a name="bible-v1-Chapter"></a>
 
-### BookChapter
+### Chapter
 
 
 
@@ -581,7 +578,7 @@ Auth service definition
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Chapter ID |
 | number | [int32](#int32) |  | Chapter number |
-| ref | [string](#string) |  | Chapter source reference URL |
+| audio_url | [string](#string) | optional | Chapter audio URL |
 | created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Chapter creation time Stored in UTC and follows RFC 3339 format |
 | updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Chapter last update time Stored in UTC and follows RFC 3339 format |
 | book_id | [string](#string) |  | Book ID |
@@ -591,92 +588,27 @@ Auth service definition
 
 
 
-<a name="bible-v1-BookFootnote"></a>
+<a name="bible-v1-Footnote"></a>
 
-### BookFootnote
+### Footnote
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Footnote ID |
-| content | [string](#string) |  | Footnote content |
+| text | [string](#string) |  | Footnote text |
+| type | [string](#string) |  | Footnote type
+
+e.g. &#34;footnote&#34;, &#34;reference&#34; |
+| label | [string](#string) |  | Footnote label |
+| sort_order | [int32](#int32) |  | Footnote sort order |
 | position | [int32](#int32) |  | Footnote position |
-| order | [int32](#int32) |  | Footnote order |
 | created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Footnote creation time Stored in UTC and follows RFC 3339 format |
 | updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Footnote last update time Stored in UTC and follows RFC 3339 format |
 | verse_id | [string](#string) | optional | Footnote verse ID |
 | heading_id | [string](#string) | optional | Footnote heading ID |
 | chapter_id | [string](#string) |  | Footnote chapter ID |
-
-
-
-
-
-
-<a name="bible-v1-BookHeading"></a>
-
-### BookHeading
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Heading ID |
-| content | [string](#string) |  | Heading content |
-| level | [int32](#int32) |  | Heading level. Start from 1 |
-| order | [int32](#int32) |  | Heading position |
-| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Heading creation time Stored in UTC and follows RFC 3339 format |
-| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Heading last update time Stored in UTC and follows RFC 3339 format |
-| verse_id | [string](#string) |  | Heading verse ID |
-| chapter_id | [string](#string) |  | Heading chapter ID |
-
-
-
-
-
-
-<a name="bible-v1-BookReference"></a>
-
-### BookReference
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Reference ID |
-| content | [string](#string) |  | Reference content |
-| position | [int32](#int32) | optional | Reference position |
-| order | [int32](#int32) |  | Reference order |
-| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Reference creation time Stored in UTC and follows RFC 3339 format |
-| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Reference last update time Stored in UTC and follows RFC 3339 format |
-| verse_id | [string](#string) | optional | Reference verse ID |
-| heading_id | [string](#string) | optional | Reference heading ID |
-| chapter_id | [string](#string) |  | Reference chapter ID |
-
-
-
-
-
-
-<a name="bible-v1-BookVerse"></a>
-
-### BookVerse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Verse ID |
-| number | [int32](#int32) |  | Verse number |
-| content | [string](#string) |  | Verse content |
-| order | [int32](#int32) |  | Verse order |
-| par_number | [int32](#int32) |  | Verse paragraph number |
-| par_index | [int32](#int32) |  | Verse paragraph index |
-| is_poetry | [bool](#bool) |  | Verse is poetry |
-| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Verse creation time Stored in UTC and follows RFC 3339 format |
-| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Verse last update time Stored in UTC and follows RFC 3339 format |
-| chapter_id | [string](#string) |  | Verse chapter ID |
 
 
 
@@ -691,9 +623,10 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version_code | [string](#string) |  | Version code query params |
-| lang_code | [string](#string) |  | Language code query params |
-| web_origin | [string](#string) |  | Web origin query params |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
+| testament | [string](#string) | optional | Testament filter (optional: ot, nt, apocrypha) |
 
 
 
@@ -723,10 +656,10 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| query | [string](#string) |  | Query string |
-| version_code | [string](#string) |  | Version code query params |
-| lang_code | [string](#string) |  | Language code query params |
-| web_origin | [string](#string) |  | Web origin query params |
+| query | [string](#string) |  | Query string (e.g., &#34;John 3:16&#34;, &#34;Genesis 1:1-3&#34;) |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
 | format | [string](#string) |  | Format query params. E.g. us, eu. |
 
 
@@ -742,7 +675,7 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| html | [string](#string) |  | Chapter text in HTML format |
+| html | [string](#string) |  | Referenced text in HTML format |
 
 
 
@@ -757,10 +690,10 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| query | [string](#string) |  | Query string |
-| version_code | [string](#string) |  | Version code query params |
-| lang_code | [string](#string) |  | Language code query params |
-| web_origin | [string](#string) |  | Web origin query params |
+| query | [string](#string) |  | Query string (e.g., &#34;John 3:16&#34;, &#34;Genesis 1:1-3&#34;) |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
 | format | [string](#string) |  | Format query params. E.g. us, eu. |
 
 
@@ -776,11 +709,10 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| chapters | [BookChapter](#bible-v1-BookChapter) | repeated | Chapter object |
-| verses | [BookVerse](#bible-v1-BookVerse) | repeated | Chapter verses |
-| footnotes | [BookFootnote](#bible-v1-BookFootnote) | repeated | Chapter footnotes |
-| headings | [BookHeading](#bible-v1-BookHeading) | repeated | Chapter headings |
-| references | [BookReference](#bible-v1-BookReference) | repeated | Chapter references |
+| chapters | [Chapter](#bible-v1-Chapter) | repeated | Referenced chapters |
+| verses | [Verse](#bible-v1-Verse) | repeated | Referenced verses |
+| footnotes | [Footnote](#bible-v1-Footnote) | repeated | Related footnotes |
+| headings | [Heading](#bible-v1-Heading) | repeated | Related headings |
 | psalm_metadata | [PsalmMetadata](#bible-v1-PsalmMetadata) | repeated | Chapter psalm metadata |
 
 
@@ -796,10 +728,10 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| query | [string](#string) |  | Query string |
-| version_code | [string](#string) |  | Version code query params |
-| lang_code | [string](#string) |  | Language code query params |
-| web_origin | [string](#string) |  | Web origin query params |
+| query | [string](#string) |  | Query string (e.g., &#34;John 3:16&#34;, &#34;Genesis 1:1-3&#34;) |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
 | format | [string](#string) |  | Format query params. E.g. us, eu. |
 
 
@@ -815,7 +747,7 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| text | [string](#string) |  | Chapter text in markdown format |
+| text | [string](#string) |  | Referenced text in markdown format |
 
 
 
@@ -830,10 +762,10 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| book_code | [string](#string) |  | Book code |
-| version_code | [string](#string) |  | Version code query params |
-| lang_code | [string](#string) |  | Language code query params |
-| web_origin | [string](#string) |  | Web origin query params |
+| book_code | [string](#string) |  | Book code (required) |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
 
 
 
@@ -863,11 +795,11 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| book_code | [string](#string) |  | Book code |
-| chapter_num | [string](#string) |  | Chapter number |
-| version_code | [string](#string) |  | Version code query params |
-| lang_code | [string](#string) |  | Language code query params |
-| web_origin | [string](#string) |  | Web origin query params |
+| book_code | [string](#string) |  | Book code (required) |
+| chapter_num | [int32](#int32) |  | Chapter number (required) |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
 
 
 
@@ -897,11 +829,11 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| book_code | [string](#string) |  | Book code |
-| chapter_num | [string](#string) |  | Chapter number |
-| version_code | [string](#string) |  | Version code query params |
-| lang_code | [string](#string) |  | Language code query params |
-| web_origin | [string](#string) |  | Web origin query params |
+| book_code | [string](#string) |  | Book code (required) |
+| chapter_num | [int32](#int32) |  | Chapter number (required) |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
 
 
 
@@ -916,13 +848,12 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| chapter | [BookChapter](#bible-v1-BookChapter) |  | Chapter object |
-| verses | [BookVerse](#bible-v1-BookVerse) | repeated | Chapter verses |
-| footnotes | [BookFootnote](#bible-v1-BookFootnote) | repeated | Chapter footnotes |
-| headings | [BookHeading](#bible-v1-BookHeading) | repeated | Chapter headings |
-| references | [BookReference](#bible-v1-BookReference) | repeated | Chapter references |
+| chapter | [Chapter](#bible-v1-Chapter) |  | Chapter object |
+| verses | [Verse](#bible-v1-Verse) | repeated | Chapter verses |
+| footnotes | [Footnote](#bible-v1-Footnote) | repeated | Chapter footnotes |
+| headings | [Heading](#bible-v1-Heading) | repeated | Chapter headings |
 | psalm_metadata | [PsalmMetadata](#bible-v1-PsalmMetadata) | repeated | Chapter psalm metadata |
-| book | [Book](#bible-v1-Book) |  | Book object |
+| book | [Book](#bible-v1-Book) |  | Book object for context |
 
 
 
@@ -937,11 +868,11 @@ Auth service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| book_code | [string](#string) |  | Book code |
-| chapter_num | [string](#string) |  | Chapter number |
-| version_code | [string](#string) |  | Version code query params |
-| lang_code | [string](#string) |  | Language code query params |
-| web_origin | [string](#string) |  | Web origin query params |
+| book_code | [string](#string) |  | Book code (required) |
+| chapter_num | [int32](#int32) |  | Chapter number (required) |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
 
 
 
@@ -963,6 +894,28 @@ Auth service definition
 
 
 
+<a name="bible-v1-Heading"></a>
+
+### Heading
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Heading ID |
+| text | [string](#string) |  | Heading text |
+| level | [int32](#int32) |  | Heading level. Start from 1 |
+| sort_order | [int32](#int32) |  | Heading sort order |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Heading creation time Stored in UTC and follows RFC 3339 format |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Heading last update time Stored in UTC and follows RFC 3339 format |
+| verse_id | [string](#string) |  | Heading verse ID |
+| chapter_id | [string](#string) |  | Heading chapter ID |
+
+
+
+
+
+
 <a name="bible-v1-PsalmMetadata"></a>
 
 ### PsalmMetadata
@@ -976,6 +929,32 @@ Auth service definition
 | created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Psalm creation time Stored in UTC and follows RFC 3339 format |
 | updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Psalm last update time Stored in UTC and follows RFC |
 | chapter_id | [string](#string) |  | Psalm chapter ID |
+
+
+
+
+
+
+<a name="bible-v1-Verse"></a>
+
+### Verse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Verse ID |
+| text | [string](#string) |  | Verse text |
+| label | [string](#string) |  | Verse label |
+| number | [int32](#int32) |  | Verse number |
+| sub_verse_index | [int32](#int32) |  | Verse sub-verse index |
+| paragraph_number | [int32](#int32) |  | Verse paragraph number |
+| paragraph_index | [int32](#int32) |  | Verse paragraph index |
+| is_poetry | [bool](#bool) |  | Verse is poetry |
+| audio_url | [string](#string) | optional | Verse audio URL |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Verse creation time Stored in UTC and follows RFC 3339 format |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Verse last update time Stored in UTC and follows RFC 3339 format |
+| chapter_id | [string](#string) |  | Verse chapter ID |
 
 
 
@@ -1015,36 +994,6 @@ Book service definition
 
 
 
-<a name="bible-v1-GetAllLanguageRequest"></a>
-
-### GetAllLanguageRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| web_origin | [string](#string) | optional | Web origin query params |
-
-
-
-
-
-
-<a name="bible-v1-GetAllLanguageResponse"></a>
-
-### GetAllLanguageResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| languages | [VersionLanguage](#bible-v1-VersionLanguage) | repeated | Language list |
-
-
-
-
-
-
 <a name="bible-v1-GetAllVersionRequest"></a>
 
 ### GetAllVersionRequest
@@ -1053,9 +1002,9 @@ Book service definition
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| version_code | [string](#string) | optional | Version code query params |
-| lang_code | [string](#string) | optional | Language code query params |
-| web_origin | [string](#string) | optional | Web origin query params |
+| language | [string](#string) | optional | Language filter (optional - indexed in Prisma) |
+| source | [string](#string) | optional | Source filter (optional - indexed in Prisma) |
+| format_type | [string](#string) | optional | Format type filter (optional - indexed in Prisma) |
 
 
 
@@ -1077,6 +1026,38 @@ Book service definition
 
 
 
+<a name="bible-v1-GetOneVersionRequest"></a>
+
+### GetOneVersionRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
+
+
+
+
+
+
+<a name="bible-v1-GetOneVersionResponse"></a>
+
+### GetOneVersionResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| version | [Version](#bible-v1-Version) |  | Version object |
+
+
+
+
+
+
 <a name="bible-v1-Version"></a>
 
 ### Version
@@ -1088,54 +1069,15 @@ Book service definition
 | id | [string](#string) |  | Version ID |
 | code | [string](#string) |  | Version code |
 | name | [string](#string) |  | Version name |
-| only_nt | [bool](#bool) |  | Version only NT |
-| only_ot | [bool](#bool) |  | Version only OT |
-| with_apocrypha | [bool](#bool) |  | Version with apocrypha |
+| language | [string](#string) |  | Version language |
+| source | [string](#string) |  | Version source |
+| format_type | [string](#string) |  | Version format type |
+| source_url | [string](#string) |  | Version source URL |
+| has_old_testament | [bool](#bool) |  | Version has old testament |
+| has_new_testament | [bool](#bool) |  | Version has new testament |
+| has_apocrypha | [bool](#bool) |  | Version has apocrypha |
 | created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Version creation time Stored in UTC and follows RFC 3339 format |
 | updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Version last update time Stored in UTC and follows RFC 3339 format |
-| formats | [VersionFormat](#bible-v1-VersionFormat) | repeated | Version formats |
-| language_id | [string](#string) |  | Language ID |
-
-
-
-
-
-
-<a name="bible-v1-VersionFormat"></a>
-
-### VersionFormat
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Format ID |
-| type | [string](#string) |  | Format type |
-| ref | [string](#string) |  | Format source reference URL |
-| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Format creation time Stored in UTC and follows RFC 3339 format |
-| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Format last update time Stored in UTC and follows RFC 3339 format |
-| version_id | [string](#string) |  | Version ID |
-
-
-
-
-
-
-<a name="bible-v1-VersionLanguage"></a>
-
-### VersionLanguage
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Language ID |
-| code | [string](#string) |  | Language code |
-| name | [string](#string) |  | Language name |
-| origin | [string](#string) |  | Language web origin short name |
-| web_origin | [string](#string) |  | Language web origin |
-| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Language creation time Stored in UTC and follows RFC 3339 format |
-| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Language last update time Stored in UTC and follows RFC 3339 format |
 
 
 
@@ -1155,8 +1097,8 @@ Version service definition
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| GetAllLanguage | [GetAllLanguageRequest](#bible-v1-GetAllLanguageRequest) | [GetAllLanguageResponse](#bible-v1-GetAllLanguageResponse) | Retrieve all languages |
 | GetAllVersion | [GetAllVersionRequest](#bible-v1-GetAllVersionRequest) | [GetAllVersionResponse](#bible-v1-GetAllVersionResponse) | Retrieve all versions |
+| GetOneVersion | [GetOneVersionRequest](#bible-v1-GetOneVersionRequest) | [GetOneVersionResponse](#bible-v1-GetOneVersionResponse) | Retrieve one version by unique constraint |
 
  
 
