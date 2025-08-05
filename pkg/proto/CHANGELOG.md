@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.6.0](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.5.11...pkg/proto/v0.6.0) (2025-08-05)
+
+
+### ⚠ BREAKING CHANGES
+
+* force release
+
+### Code Refactoring
+
+* force release ([28e33e8](https://github.com/v-bible/protobuf/commit/28e33e89fd42011eda3df2ffbcfb073e2fdc7e21))
+
 ## [0.5.11](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.5.10...pkg/proto/v0.5.11) (2025-06-18)
 
 
