@@ -285,7 +285,9 @@ type GetOneVersionRequest struct {
 	// Language code (required - part of unique constraint)
 	Language string `protobuf:"bytes,2,opt,name=language,proto3" json:"language,omitempty"`
 	// Source (required - part of unique constraint)
-	Source        string `protobuf:"bytes,3,opt,name=source,proto3" json:"source,omitempty"`
+	Source string `protobuf:"bytes,3,opt,name=source,proto3" json:"source,omitempty"`
+	// Format type (required - part of unique constraint)
+	FormatType    string `protobuf:"bytes,4,opt,name=format_type,json=formatType,proto3" json:"format_type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -337,6 +339,13 @@ func (x *GetOneVersionRequest) GetLanguage() string {
 func (x *GetOneVersionRequest) GetSource() string {
 	if x != nil {
 		return x.Source
+	}
+	return ""
+}
+
+func (x *GetOneVersionRequest) GetFormatType() string {
+	if x != nil {
+		return x.FormatType
 	}
 	return ""
 }
@@ -418,16 +427,18 @@ const file_bible_v1_version_proto_rawDesc = "" +
 	"\a_sourceB\x0e\n" +
 	"\f_format_type\"F\n" +
 	"\x15GetAllVersionResponse\x12-\n" +
-	"\bversions\x18\x01 \x03(\v2\x11.bible.v1.VersionR\bversions\"m\n" +
+	"\bversions\x18\x01 \x03(\v2\x11.bible.v1.VersionR\bversions\"\x8e\x01\n" +
 	"\x14GetOneVersionRequest\x12!\n" +
 	"\fversion_code\x18\x01 \x01(\tR\vversionCode\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x16\n" +
-	"\x06source\x18\x03 \x01(\tR\x06source\"D\n" +
+	"\x06source\x18\x03 \x01(\tR\x06source\x12\x1f\n" +
+	"\vformat_type\x18\x04 \x01(\tR\n" +
+	"formatType\"D\n" +
 	"\x15GetOneVersionResponse\x12+\n" +
-	"\aversion\x18\x01 \x01(\v2\x11.bible.v1.VersionR\aversion2\x82\x02\n" +
+	"\aversion\x18\x01 \x01(\v2\x11.bible.v1.VersionR\aversion2\xed\x01\n" +
 	"\x0eVersionService\x12e\n" +
-	"\rGetAllVersion\x12\x1e.bible.v1.GetAllVersionRequest\x1a\x1f.bible.v1.GetAllVersionResponse\"\x13\x82\xd3\xe4\x93\x02\r\x12\v/v1/version\x12\x88\x01\n" +
-	"\rGetOneVersion\x12\x1e.bible.v1.GetOneVersionRequest\x1a\x1f.bible.v1.GetOneVersionResponse\"6\x82\xd3\xe4\x93\x020\x12./v1/version/{version_code}/{language}/{source}B\xfa\x02\x92A\xe1\x01\x12p\n" +
+	"\rGetAllVersion\x12\x1e.bible.v1.GetAllVersionRequest\x1a\x1f.bible.v1.GetAllVersionResponse\"\x13\x82\xd3\xe4\x93\x02\r\x12\v/v1/version\x12t\n" +
+	"\rGetOneVersion\x12\x1e.bible.v1.GetOneVersionRequest\x1a\x1f.bible.v1.GetOneVersionResponse\"\"\x82\xd3\xe4\x93\x02\x1c\x12\x1a/v1/version/{version_code}B\xfa\x02\x92A\xe1\x01\x12p\n" +
 	"\x18Bible Version server API\x12\x18Bible Version server API\"3\n" +
 	"\x0eDuckyMomo20012\x12!https://github.com/DuckyMomo200122\x051.0.0\"\x04/apiZY\n" +
 	"W\n" +
