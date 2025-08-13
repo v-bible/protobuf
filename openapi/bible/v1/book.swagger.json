@@ -851,9 +851,14 @@
           "type": "string",
           "title": "Psalm metadata ID"
         },
-        "title": {
+        "text": {
           "type": "string",
-          "title": "Psalm metadata title"
+          "title": "Psalm metadata text"
+        },
+        "sortOrder": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Psalm sort order"
         },
         "createdAt": {
           "type": "string",

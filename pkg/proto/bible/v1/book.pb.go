@@ -632,16 +632,18 @@ type PsalmMetadata struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Psalm metadata ID
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Psalm metadata title
-	Title string `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+	// Psalm metadata text
+	Text string `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
+	// Psalm sort order
+	SortOrder int32 `protobuf:"varint,3,opt,name=sort_order,json=sortOrder,proto3" json:"sort_order,omitempty"`
 	// Psalm creation time
 	// Stored in UTC and follows RFC 3339 format
-	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,3,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	CreatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	// Psalm last update time
 	// Stored in UTC and follows RFC
-	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
+	UpdatedAt *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	// Psalm chapter ID
-	ChapterId     string `protobuf:"bytes,5,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
+	ChapterId     string `protobuf:"bytes,6,opt,name=chapter_id,json=chapterId,proto3" json:"chapter_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -683,11 +685,18 @@ func (x *PsalmMetadata) GetId() string {
 	return ""
 }
 
-func (x *PsalmMetadata) GetTitle() string {
+func (x *PsalmMetadata) GetText() string {
 	if x != nil {
-		return x.Title
+		return x.Text
 	}
 	return ""
+}
+
+func (x *PsalmMetadata) GetSortOrder() int32 {
+	if x != nil {
+		return x.SortOrder
+	}
+	return 0
 }
 
 func (x *PsalmMetadata) GetCreatedAt() *timestamppb.Timestamp {
@@ -1863,16 +1872,18 @@ const file_bible_v1_book_proto_rawDesc = "" +
 	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x19\n" +
 	"\bverse_id\x18\a \x01(\tR\averseId\x12\x1d\n" +
 	"\n" +
-	"chapter_id\x18\b \x01(\tR\tchapterId\"\xca\x01\n" +
+	"chapter_id\x18\b \x01(\tR\tchapterId\"\xe7\x01\n" +
 	"\rPsalmMetadata\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\tR\x02id\x12\x14\n" +
-	"\x05title\x18\x02 \x01(\tR\x05title\x129\n" +
+	"\x02id\x18\x01 \x01(\tR\x02id\x12\x12\n" +
+	"\x04text\x18\x02 \x01(\tR\x04text\x12\x1d\n" +
 	"\n" +
-	"created_at\x18\x03 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"sort_order\x18\x03 \x01(\x05R\tsortOrder\x129\n" +
 	"\n" +
-	"updated_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1d\n" +
+	"created_at\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
 	"\n" +
-	"chapter_id\x18\x05 \x01(\tR\tchapterId\"\x9b\x01\n" +
+	"updated_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\x12\x1d\n" +
+	"\n" +
+	"chapter_id\x18\x06 \x01(\tR\tchapterId\"\x9b\x01\n" +
 	"\x11GetAllBookRequest\x12!\n" +
 	"\fversion_code\x18\x01 \x01(\tR\vversionCode\x12\x1a\n" +
 	"\blanguage\x18\x02 \x01(\tR\blanguage\x12\x16\n" +

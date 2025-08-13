@@ -45,7 +45,7 @@ service VersionService {
   }
   // Retrieve one version by unique constraint
   rpc GetOneVersion(GetOneVersionRequest) returns (GetOneVersionResponse) {
-    option (google.api.http) = {get: "/v1/version/{version_code}/{language}/{source}"};
+    option (google.api.http) = {get: "/v1/version/{version_code}"};
   }
 }
 
@@ -99,6 +99,8 @@ message GetOneVersionRequest {
   string language = 2;
   // Source (required - part of unique constraint)
   string source = 3;
+  // Format type (required - part of unique constraint)
+  string format_type = 4;
 }
 
 message GetOneVersionResponse {

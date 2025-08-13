@@ -925,7 +925,8 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | id | [string](#string) |  | Psalm metadata ID |
-| title | [string](#string) |  | Psalm metadata title |
+| text | [string](#string) |  | Psalm metadata text |
+| sort_order | [int32](#int32) |  | Psalm sort order |
 | created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Psalm creation time Stored in UTC and follows RFC 3339 format |
 | updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Psalm last update time Stored in UTC and follows RFC |
 | chapter_id | [string](#string) |  | Psalm chapter ID |
@@ -1037,6 +1038,7 @@ Book service definition
 | version_code | [string](#string) |  | Version code (required - part of unique constraint) |
 | language | [string](#string) |  | Language code (required - part of unique constraint) |
 | source | [string](#string) |  | Source (required - part of unique constraint) |
+| format_type | [string](#string) |  | Format type (required - part of unique constraint) |
 
 
 

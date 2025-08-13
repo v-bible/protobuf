@@ -192,16 +192,18 @@ message Heading {
 message PsalmMetadata {
   // Psalm metadata ID
   string id = 1;
-  // Psalm metadata title
-  string title = 2;
+  // Psalm metadata text
+  string text = 2;
+  // Psalm sort order
+  int32 sort_order = 3;
   // Psalm creation time
   // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp created_at = 3;
+  google.protobuf.Timestamp created_at = 4;
   // Psalm last update time
   // Stored in UTC and follows RFC
-  google.protobuf.Timestamp updated_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
   // Psalm chapter ID
-  string chapter_id = 5;
+  string chapter_id = 6;
 }
 
 message GetAllBookRequest {

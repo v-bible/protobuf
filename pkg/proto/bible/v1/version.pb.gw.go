@@ -70,6 +70,8 @@ func local_request_VersionService_GetAllVersion_0(ctx context.Context, marshaler
 	return msg, metadata, err
 }
 
+var filter_VersionService_GetOneVersion_0 = &utilities.DoubleArray{Encoding: map[string]int{"version_code": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+
 func request_VersionService_GetOneVersion_0(ctx context.Context, marshaler runtime.Marshaler, client VersionServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
 		protoReq GetOneVersionRequest
@@ -87,21 +89,11 @@ func request_VersionService_GetOneVersion_0(ctx context.Context, marshaler runti
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "version_code", err)
 	}
-	val, ok = pathParams["language"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "language")
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	protoReq.Language, err = runtime.String(val)
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "language", err)
-	}
-	val, ok = pathParams["source"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "source")
-	}
-	protoReq.Source, err = runtime.String(val)
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "source", err)
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_VersionService_GetOneVersion_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 	msg, err := client.GetOneVersion(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
 	return msg, metadata, err
@@ -121,21 +113,11 @@ func local_request_VersionService_GetOneVersion_0(ctx context.Context, marshaler
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "version_code", err)
 	}
-	val, ok = pathParams["language"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "language")
+	if err := req.ParseForm(); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	protoReq.Language, err = runtime.String(val)
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "language", err)
-	}
-	val, ok = pathParams["source"]
-	if !ok {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "source")
-	}
-	protoReq.Source, err = runtime.String(val)
-	if err != nil {
-		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "source", err)
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_VersionService_GetOneVersion_0); err != nil {
+		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 	msg, err := server.GetOneVersion(ctx, &protoReq)
 	return msg, metadata, err
@@ -173,7 +155,7 @@ func RegisterVersionServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/bible.v1.VersionService/GetOneVersion", runtime.WithHTTPPathPattern("/v1/version/{version_code}/{language}/{source}"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/bible.v1.VersionService/GetOneVersion", runtime.WithHTTPPathPattern("/v1/version/{version_code}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -248,7 +230,7 @@ func RegisterVersionServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/bible.v1.VersionService/GetOneVersion", runtime.WithHTTPPathPattern("/v1/version/{version_code}/{language}/{source}"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/bible.v1.VersionService/GetOneVersion", runtime.WithHTTPPathPattern("/v1/version/{version_code}"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -266,7 +248,7 @@ func RegisterVersionServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 
 var (
 	pattern_VersionService_GetAllVersion_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "version"}, ""))
-	pattern_VersionService_GetOneVersion_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 1, 0, 4, 1, 5, 3, 1, 0, 4, 1, 5, 4}, []string{"v1", "version", "version_code", "language", "source"}, ""))
+	pattern_VersionService_GetOneVersion_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "version", "version_code"}, ""))
 )
 
 var (

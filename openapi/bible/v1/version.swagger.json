@@ -68,7 +68,7 @@
         ]
       }
     },
-    "/v1/version/{versionCode}/{language}/{source}": {
+    "/v1/version/{versionCode}": {
       "get": {
         "summary": "Retrieve one version by unique constraint",
         "operationId": "VersionService_GetOneVersion",
@@ -97,15 +97,22 @@
           {
             "name": "language",
             "description": "Language code (required - part of unique constraint)",
-            "in": "path",
-            "required": true,
+            "in": "query",
+            "required": false,
             "type": "string"
           },
           {
             "name": "source",
             "description": "Source (required - part of unique constraint)",
-            "in": "path",
-            "required": true,
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "formatType",
+            "description": "Format type (required - part of unique constraint)",
+            "in": "query",
+            "required": false,
             "type": "string"
           }
         ],
