@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.6.1](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.6.0...pkg/proto/v0.6.1) (2025-08-13)
+
+
+### Bug Fixes
+
+* **bible:** update get one version params ([414aa2d](https://github.com/v-bible/protobuf/commit/414aa2d73ddcfd7729f92ee64e1ed1df2f7b5734))
+* **bible:** update get one version params ([ae8a617](https://github.com/v-bible/protobuf/commit/ae8a6171bfe079673604737da9d7718a4f639dc0))
+* **bible:** update psalm metadata ([ae8a617](https://github.com/v-bible/protobuf/commit/ae8a6171bfe079673604737da9d7718a4f639dc0))
+
 ## [0.6.0](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.5.11...pkg/proto/v0.6.0) (2025-08-05)
 
 
