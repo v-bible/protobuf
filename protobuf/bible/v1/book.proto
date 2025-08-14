@@ -82,7 +82,7 @@ message Book {
   string name = 3;
   // Book testament
   string testament = 4;
-  // Book order
+  // Book order. Starts from 1.
   int32 book_order = 5;
   // Book creation time
   // Stored in UTC and follows RFC 3339 format
@@ -99,7 +99,7 @@ message Book {
 message Chapter {
   // Chapter ID
   string id = 1;
-  // Chapter number
+  // Chapter number. Starts from 1.
   int32 number = 2;
   // Chapter audio URL
   optional string audio_url = 3;
@@ -120,13 +120,13 @@ message Verse {
   string text = 2;
   // Verse label
   string label = 3;
-  // Verse number
+  // Verse number. Starts from 1.
   int32 number = 4;
-  // Verse sub-verse index
+  // Verse sub-verse index. Starts from 0.
   int32 sub_verse_index = 5;
-  // Verse paragraph number
+  // Verse paragraph number. Starts from 0.
   int32 paragraph_number = 6;
-  // Verse paragraph index
+  // Verse paragraph index. Starts from 0.
   int32 paragraph_index = 7;
   // Verse is poetry
   bool is_poetry = 8;
@@ -151,9 +151,9 @@ message Footnote {
   string type = 3; // e.g. "footnote", "reference"
   // Footnote label
   string label = 4;
-  // Footnote sort order
+  // Footnote sort order. Starts from 0.
   int32 sort_order = 5;
-  // Footnote position
+  // Footnote position. Starts from 0.
   int32 position = 6;
   // Footnote creation time
   // Stored in UTC and follows RFC 3339 format
@@ -174,9 +174,9 @@ message Heading {
   string id = 1;
   // Heading text
   string text = 2;
-  // Heading level. Start from 1
+  // Heading level. Starts from 1
   int32 level = 3;
-  // Heading sort order
+  // Heading sort order. Starts from 0.
   int32 sort_order = 4;
   // Heading creation time
   // Stored in UTC and follows RFC 3339 format
@@ -194,7 +194,7 @@ message PsalmMetadata {
   string id = 1;
   // Psalm metadata text
   string text = 2;
-  // Psalm sort order
+  // Psalm sort order. Starts from 0.
   int32 sort_order = 3;
   // Psalm creation time
   // Stored in UTC and follows RFC 3339 format

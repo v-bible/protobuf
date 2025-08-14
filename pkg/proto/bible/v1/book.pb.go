@@ -34,7 +34,7 @@ type Book struct {
 	Name string `protobuf:"bytes,3,opt,name=name,proto3" json:"name,omitempty"`
 	// Book testament
 	Testament string `protobuf:"bytes,4,opt,name=testament,proto3" json:"testament,omitempty"`
-	// Book order
+	// Book order. Starts from 1.
 	BookOrder int32 `protobuf:"varint,5,opt,name=book_order,json=bookOrder,proto3" json:"book_order,omitempty"`
 	// Book creation time
 	// Stored in UTC and follows RFC 3339 format
@@ -147,7 +147,7 @@ type Chapter struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Chapter ID
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-	// Chapter number
+	// Chapter number. Starts from 1.
 	Number int32 `protobuf:"varint,2,opt,name=number,proto3" json:"number,omitempty"`
 	// Chapter audio URL
 	AudioUrl *string `protobuf:"bytes,3,opt,name=audio_url,json=audioUrl,proto3,oneof" json:"audio_url,omitempty"`
@@ -243,13 +243,13 @@ type Verse struct {
 	Text string `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
 	// Verse label
 	Label string `protobuf:"bytes,3,opt,name=label,proto3" json:"label,omitempty"`
-	// Verse number
+	// Verse number. Starts from 1.
 	Number int32 `protobuf:"varint,4,opt,name=number,proto3" json:"number,omitempty"`
-	// Verse sub-verse index
+	// Verse sub-verse index. Starts from 0.
 	SubVerseIndex int32 `protobuf:"varint,5,opt,name=sub_verse_index,json=subVerseIndex,proto3" json:"sub_verse_index,omitempty"`
-	// Verse paragraph number
+	// Verse paragraph number. Starts from 0.
 	ParagraphNumber int32 `protobuf:"varint,6,opt,name=paragraph_number,json=paragraphNumber,proto3" json:"paragraph_number,omitempty"`
-	// Verse paragraph index
+	// Verse paragraph index. Starts from 0.
 	ParagraphIndex int32 `protobuf:"varint,7,opt,name=paragraph_index,json=paragraphIndex,proto3" json:"paragraph_index,omitempty"`
 	// Verse is poetry
 	IsPoetry bool `protobuf:"varint,8,opt,name=is_poetry,json=isPoetry,proto3" json:"is_poetry,omitempty"`
@@ -391,9 +391,9 @@ type Footnote struct {
 	Type string `protobuf:"bytes,3,opt,name=type,proto3" json:"type,omitempty"` // e.g. "footnote", "reference"
 	// Footnote label
 	Label string `protobuf:"bytes,4,opt,name=label,proto3" json:"label,omitempty"`
-	// Footnote sort order
+	// Footnote sort order. Starts from 0.
 	SortOrder int32 `protobuf:"varint,5,opt,name=sort_order,json=sortOrder,proto3" json:"sort_order,omitempty"`
-	// Footnote position
+	// Footnote position. Starts from 0.
 	Position int32 `protobuf:"varint,6,opt,name=position,proto3" json:"position,omitempty"`
 	// Footnote creation time
 	// Stored in UTC and follows RFC 3339 format
@@ -524,9 +524,9 @@ type Heading struct {
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Heading text
 	Text string `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
-	// Heading level. Start from 1
+	// Heading level. Starts from 1
 	Level int32 `protobuf:"varint,3,opt,name=level,proto3" json:"level,omitempty"`
-	// Heading sort order
+	// Heading sort order. Starts from 0.
 	SortOrder int32 `protobuf:"varint,4,opt,name=sort_order,json=sortOrder,proto3" json:"sort_order,omitempty"`
 	// Heading creation time
 	// Stored in UTC and follows RFC 3339 format
@@ -634,7 +634,7 @@ type PsalmMetadata struct {
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// Psalm metadata text
 	Text string `protobuf:"bytes,2,opt,name=text,proto3" json:"text,omitempty"`
-	// Psalm sort order
+	// Psalm sort order. Starts from 0.
 	SortOrder int32 `protobuf:"varint,3,opt,name=sort_order,json=sortOrder,proto3" json:"sort_order,omitempty"`
 	// Psalm creation time
 	// Stored in UTC and follows RFC 3339 format

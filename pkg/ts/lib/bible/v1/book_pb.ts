@@ -49,7 +49,7 @@ export type Book = Message<"bible.v1.Book"> & {
   testament: string;
 
   /**
-   * Book order
+   * Book order. Starts from 1.
    *
    * @generated from field: int32 book_order = 5;
    */
@@ -105,7 +105,7 @@ export type Chapter = Message<"bible.v1.Chapter"> & {
   id: string;
 
   /**
-   * Chapter number
+   * Chapter number. Starts from 1.
    *
    * @generated from field: int32 number = 2;
    */
@@ -175,28 +175,28 @@ export type Verse = Message<"bible.v1.Verse"> & {
   label: string;
 
   /**
-   * Verse number
+   * Verse number. Starts from 1.
    *
    * @generated from field: int32 number = 4;
    */
   number: number;
 
   /**
-   * Verse sub-verse index
+   * Verse sub-verse index. Starts from 0.
    *
    * @generated from field: int32 sub_verse_index = 5;
    */
   subVerseIndex: number;
 
   /**
-   * Verse paragraph number
+   * Verse paragraph number. Starts from 0.
    *
    * @generated from field: int32 paragraph_number = 6;
    */
   paragraphNumber: number;
 
   /**
-   * Verse paragraph index
+   * Verse paragraph index. Starts from 0.
    *
    * @generated from field: int32 paragraph_index = 7;
    */
@@ -282,14 +282,14 @@ export type Footnote = Message<"bible.v1.Footnote"> & {
   label: string;
 
   /**
-   * Footnote sort order
+   * Footnote sort order. Starts from 0.
    *
    * @generated from field: int32 sort_order = 5;
    */
   sortOrder: number;
 
   /**
-   * Footnote position
+   * Footnote position. Starts from 0.
    *
    * @generated from field: int32 position = 6;
    */
@@ -359,14 +359,14 @@ export type Heading = Message<"bible.v1.Heading"> & {
   text: string;
 
   /**
-   * Heading level. Start from 1
+   * Heading level. Starts from 1
    *
    * @generated from field: int32 level = 3;
    */
   level: number;
 
   /**
-   * Heading sort order
+   * Heading sort order. Starts from 0.
    *
    * @generated from field: int32 sort_order = 4;
    */
@@ -429,7 +429,7 @@ export type PsalmMetadata = Message<"bible.v1.PsalmMetadata"> & {
   text: string;
 
   /**
-   * Psalm sort order
+   * Psalm sort order. Starts from 0.
    *
    * @generated from field: int32 sort_order = 3;
    */

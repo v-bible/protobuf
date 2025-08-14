@@ -543,7 +543,7 @@
         "bookOrder": {
           "type": "integer",
           "format": "int32",
-          "title": "Book order"
+          "description": "Book order. Starts from 1."
         },
         "createdAt": {
           "type": "string",
@@ -579,7 +579,7 @@
         "number": {
           "type": "integer",
           "format": "int32",
-          "title": "Chapter number"
+          "description": "Chapter number. Starts from 1."
         },
         "audioUrl": {
           "type": "string",
@@ -624,12 +624,12 @@
         "sortOrder": {
           "type": "integer",
           "format": "int32",
-          "title": "Footnote sort order"
+          "description": "Footnote sort order. Starts from 0."
         },
         "position": {
           "type": "integer",
           "format": "int32",
-          "title": "Footnote position"
+          "description": "Footnote position. Starts from 0."
         },
         "createdAt": {
           "type": "string",
@@ -817,12 +817,12 @@
         "level": {
           "type": "integer",
           "format": "int32",
-          "title": "Heading level. Start from 1"
+          "title": "Heading level. Starts from 1"
         },
         "sortOrder": {
           "type": "integer",
           "format": "int32",
-          "title": "Heading sort order"
+          "description": "Heading sort order. Starts from 0."
         },
         "createdAt": {
           "type": "string",
@@ -858,7 +858,7 @@
         "sortOrder": {
           "type": "integer",
           "format": "int32",
-          "title": "Psalm sort order"
+          "description": "Psalm sort order. Starts from 0."
         },
         "createdAt": {
           "type": "string",
@@ -894,22 +894,22 @@
         "number": {
           "type": "integer",
           "format": "int32",
-          "title": "Verse number"
+          "description": "Verse number. Starts from 1."
         },
         "subVerseIndex": {
           "type": "integer",
           "format": "int32",
-          "title": "Verse sub-verse index"
+          "description": "Verse sub-verse index. Starts from 0."
         },
         "paragraphNumber": {
           "type": "integer",
           "format": "int32",
-          "title": "Verse paragraph number"
+          "description": "Verse paragraph number. Starts from 0."
         },
         "paragraphIndex": {
           "type": "integer",
           "format": "int32",
-          "title": "Verse paragraph index"
+          "description": "Verse paragraph index. Starts from 0."
         },
         "isPoetry": {
           "type": "boolean",
