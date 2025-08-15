@@ -189,6 +189,7 @@ message Heading {
   // Heading chapter ID
   string chapter_id = 8;
 }
+
 message PsalmMetadata {
   // Psalm metadata ID
   string id = 1;
@@ -204,6 +205,28 @@ message PsalmMetadata {
   google.protobuf.Timestamp updated_at = 5;
   // Psalm chapter ID
   string chapter_id = 6;
+}
+
+message WordsOfJesus {
+  // Words of Jesus ID
+  string id = 1;
+  // Words of Jesus text start index
+  int32 text_start = 2;
+  // Words of Jesus text end index
+  int32 text_end = 3;
+  // Quotation text
+  string quotation_text = 4;
+  // Quotation sort order. Starts from 0.
+  int32 sort_order = 5;
+  // Stored in UTC and follows RFC 3339 format
+  google.protobuf.Timestamp created_at = 6;
+  // Psalm last update time
+  // Stored in UTC and follows RFC
+  google.protobuf.Timestamp updated_at = 7;
+  // Words of Jesus verse ID
+  string verse_id = 8;
+  // Words of Jesus chapter ID
+  string chapter_id = 9;
 }
 
 message GetAllBookRequest {
@@ -262,8 +285,10 @@ message GetOneChapterResponse {
   repeated Heading headings = 4;
   // Chapter psalm metadata
   repeated PsalmMetadata psalm_metadata = 5;
+  // Chapter words of Jesus
+  repeated WordsOfJesus words_of_jesus = 6;
   // Book object for context
-  Book book = 6;
+  Book book = 7;
 }
 
 message GetOneChapterTextRequest {
@@ -326,6 +351,8 @@ message GetBiblicalReferenceResponse {
   repeated Heading headings = 4;
   // Chapter psalm metadata
   repeated PsalmMetadata psalm_metadata = 5;
+  // Words of Jesus quotations
+  repeated WordsOfJesus words_of_jesus = 6;
 }
 
 message GetBiblicalReferenceTextRequest {

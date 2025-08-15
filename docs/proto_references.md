@@ -60,6 +60,7 @@
     - [Heading](#bible-v1-Heading)
     - [PsalmMetadata](#bible-v1-PsalmMetadata)
     - [Verse](#bible-v1-Verse)
+    - [WordsOfJesus](#bible-v1-WordsOfJesus)
   
     - [BookService](#bible-v1-BookService)
   
@@ -714,6 +715,7 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 | footnotes | [Footnote](#bible-v1-Footnote) | repeated | Related footnotes |
 | headings | [Heading](#bible-v1-Heading) | repeated | Related headings |
 | psalm_metadata | [PsalmMetadata](#bible-v1-PsalmMetadata) | repeated | Chapter psalm metadata |
+| words_of_jesus | [WordsOfJesus](#bible-v1-WordsOfJesus) | repeated | Words of Jesus quotations |
 
 
 
@@ -853,6 +855,7 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 | footnotes | [Footnote](#bible-v1-Footnote) | repeated | Chapter footnotes |
 | headings | [Heading](#bible-v1-Heading) | repeated | Chapter headings |
 | psalm_metadata | [PsalmMetadata](#bible-v1-PsalmMetadata) | repeated | Chapter psalm metadata |
+| words_of_jesus | [WordsOfJesus](#bible-v1-WordsOfJesus) | repeated | Chapter words of Jesus |
 | book | [Book](#bible-v1-Book) |  | Book object for context |
 
 
@@ -956,6 +959,29 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 | created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Verse creation time Stored in UTC and follows RFC 3339 format |
 | updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Verse last update time Stored in UTC and follows RFC 3339 format |
 | chapter_id | [string](#string) |  | Verse chapter ID |
+
+
+
+
+
+
+<a name="bible-v1-WordsOfJesus"></a>
+
+### WordsOfJesus
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Words of Jesus ID |
+| text_start | [int32](#int32) |  | Words of Jesus text start index |
+| text_end | [int32](#int32) |  | Words of Jesus text end index |
+| quotation_text | [string](#string) |  | Quotation text |
+| sort_order | [int32](#int32) |  | Quotation sort order. Starts from 0. |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Stored in UTC and follows RFC 3339 format |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Psalm last update time Stored in UTC and follows RFC |
+| verse_id | [string](#string) |  | Words of Jesus verse ID |
+| chapter_id | [string](#string) |  | Words of Jesus chapter ID |
 
 
 

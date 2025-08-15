@@ -719,6 +719,14 @@
             "$ref": "#/definitions/v1PsalmMetadata"
           },
           "title": "Chapter psalm metadata"
+        },
+        "wordsOfJesus": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1WordsOfJesus"
+          },
+          "title": "Words of Jesus quotations"
         }
       }
     },
@@ -787,6 +795,14 @@
             "$ref": "#/definitions/v1PsalmMetadata"
           },
           "title": "Chapter psalm metadata"
+        },
+        "wordsOfJesus": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/v1WordsOfJesus"
+          },
+          "title": "Chapter words of Jesus"
         },
         "book": {
           "$ref": "#/definitions/v1Book",
@@ -932,6 +948,52 @@
         "chapterId": {
           "type": "string",
           "title": "Verse chapter ID"
+        }
+      }
+    },
+    "v1WordsOfJesus": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Words of Jesus ID"
+        },
+        "textStart": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Words of Jesus text start index"
+        },
+        "textEnd": {
+          "type": "integer",
+          "format": "int32",
+          "title": "Words of Jesus text end index"
+        },
+        "quotationText": {
+          "type": "string",
+          "title": "Quotation text"
+        },
+        "sortOrder": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Quotation sort order. Starts from 0."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Stored in UTC and follows RFC 3339 format"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Psalm last update time\nStored in UTC and follows RFC"
+        },
+        "verseId": {
+          "type": "string",
+          "title": "Words of Jesus verse ID"
+        },
+        "chapterId": {
+          "type": "string",
+          "title": "Words of Jesus chapter ID"
         }
       }
     }
