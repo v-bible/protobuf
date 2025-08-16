@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.2](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.6.1...pkg/proto/v0.6.2) (2025-08-16)
+
+
+### Bug Fixes
+
+* **bible:** add word of jesus message ([cdc6a4d](https://github.com/v-bible/protobuf/commit/cdc6a4d9dff33ca0d8ce20a55dfd544536a936a5))
+* **bible:** add word of jesus message ([c9420c2](https://github.com/v-bible/protobuf/commit/c9420c21795bdccbfbff93ac0e68efb5cc1c61da))
+
 ## [0.6.1](https://github.com/v-bible/protobuf/compare/pkg/proto/v0.6.0...pkg/proto/v0.6.1) (2025-08-13)
 
 
