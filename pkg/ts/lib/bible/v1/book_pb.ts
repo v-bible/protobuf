@@ -14,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file bible/v1/book.proto.
  */
 export const file_bible_v1_book: GenFile = /*@__PURE__*/
-  fileDesc("ChNiaWJsZS92MS9ib29rLnByb3RvEghiaWJsZS52MSLuAQoEQm9vaxIKCgJpZBgBIAEoCRIMCgRjb2RlGAIgASgJEgwKBG5hbWUYAyABKAkSEQoJdGVzdGFtZW50GAQgASgJEhIKCmJvb2tfb3JkZXIYBSABKAUSLgoKY3JlYXRlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoKdXBkYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASIwoIY2hhcHRlcnMYCCADKAsyES5iaWJsZS52MS5DaGFwdGVyEhIKCnZlcnNpb25faWQYCSABKAkivAEKB0NoYXB0ZXISCgoCaWQYASABKAkSDgoGbnVtYmVyGAIgASgFEhYKCWF1ZGlvX3VybBgDIAEoCUgAiAEBEi4KCmNyZWF0ZWRfYXQYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEg8KB2Jvb2tfaWQYBiABKAlCDAoKX2F1ZGlvX3VybCK5AgoFVmVyc2USCgoCaWQYASABKAkSDAoEdGV4dBgCIAEoCRINCgVsYWJlbBgDIAEoCRIOCgZudW1iZXIYBCABKAUSFwoPc3ViX3ZlcnNlX2luZGV4GAUgASgFEhgKEHBhcmFncmFwaF9udW1iZXIYBiABKAUSFwoPcGFyYWdyYXBoX2luZGV4GAcgASgFEhEKCWlzX3BvZXRyeRgIIAEoCBIWCglhdWRpb191cmwYCSABKAlIAIgBARIuCgpjcmVhdGVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBISCgpjaGFwdGVyX2lkGAwgASgJQgwKCl9hdWRpb191cmwipwIKCEZvb3Rub3RlEgoKAmlkGAEgASgJEgwKBHRleHQYAiABKAkSDAoEdHlwZRgDIAEoCRINCgVsYWJlbBgEIAEoCRISCgpzb3J0X29yZGVyGAUgASgFEhAKCHBvc2l0aW9uGAYgASgFEi4KCmNyZWF0ZWRfYXQYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhUKCHZlcnNlX2lkGAkgASgJSACIAQESFwoKaGVhZGluZ19pZBgKIAEoCUgBiAEBEhIKCmNoYXB0ZXJfaWQYCyABKAlCCwoJX3ZlcnNlX2lkQg0KC19oZWFkaW5nX2lkIswBCgdIZWFkaW5nEgoKAmlkGAEgASgJEgwKBHRleHQYAiABKAkSDQoFbGV2ZWwYAyABKAUSEgoKc29ydF9vcmRlchgEIAEoBRIuCgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIQCgh2ZXJzZV9pZBgHIAEoCRISCgpjaGFwdGVyX2lkGAggASgJIrEBCg1Qc2FsbU1ldGFkYXRhEgoKAmlkGAEgASgJEgwKBHRleHQYAiABKAkSEgoKc29ydF9vcmRlchgDIAEoBRIuCgpjcmVhdGVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBISCgpjaGFwdGVyX2lkGAYgASgJInEKEUdldEFsbEJvb2tSZXF1ZXN0EhQKDHZlcnNpb25fY29kZRgBIAEoCRIQCghsYW5ndWFnZRgCIAEoCRIOCgZzb3VyY2UYAyABKAkSFgoJdGVzdGFtZW50GAQgASgJSACIAQFCDAoKX3Rlc3RhbWVudCIzChJHZXRBbGxCb29rUmVzcG9uc2USHQoFYm9va3MYASADKAsyDi5iaWJsZS52MS5Cb29rIl4KEUdldE9uZUJvb2tSZXF1ZXN0EhEKCWJvb2tfY29kZRgBIAEoCRIUCgx2ZXJzaW9uX2NvZGUYAiABKAkSEAoIbGFuZ3VhZ2UYAyABKAkSDgoGc291cmNlGAQgASgJIjIKEkdldE9uZUJvb2tSZXNwb25zZRIcCgRib29rGAEgASgLMg4uYmlibGUudjEuQm9vayJ2ChRHZXRPbmVDaGFwdGVyUmVxdWVzdBIRCglib29rX2NvZGUYASABKAkSEwoLY2hhcHRlcl9udW0YAiABKAUSFAoMdmVyc2lvbl9jb2RlGAMgASgJEhAKCGxhbmd1YWdlGAQgASgJEg4KBnNvdXJjZRgFIAEoCSL3AQoVR2V0T25lQ2hhcHRlclJlc3BvbnNlEiIKB2NoYXB0ZXIYASABKAsyES5iaWJsZS52MS5DaGFwdGVyEh8KBnZlcnNlcxgCIAMoCzIPLmJpYmxlLnYxLlZlcnNlEiUKCWZvb3Rub3RlcxgDIAMoCzISLmJpYmxlLnYxLkZvb3Rub3RlEiMKCGhlYWRpbmdzGAQgAygLMhEuYmlibGUudjEuSGVhZGluZxIvCg5wc2FsbV9tZXRhZGF0YRgFIAMoCzIXLmJpYmxlLnYxLlBzYWxtTWV0YWRhdGESHAoEYm9vaxgGIAEoCzIOLmJpYmxlLnYxLkJvb2siegoYR2V0T25lQ2hhcHRlclRleHRSZXF1ZXN0EhEKCWJvb2tfY29kZRgBIAEoCRITCgtjaGFwdGVyX251bRgCIAEoBRIUCgx2ZXJzaW9uX2NvZGUYAyABKAkSEAoIbGFuZ3VhZ2UYBCABKAkSDgoGc291cmNlGAUgASgJIikKGUdldE9uZUNoYXB0ZXJUZXh0UmVzcG9uc2USDAoEdGV4dBgBIAEoCSJ6ChhHZXRPbmVDaGFwdGVySHRtbFJlcXVlc3QSEQoJYm9va19jb2RlGAEgASgJEhMKC2NoYXB0ZXJfbnVtGAIgASgFEhQKDHZlcnNpb25fY29kZRgDIAEoCRIQCghsYW5ndWFnZRgEIAEoCRIOCgZzb3VyY2UYBSABKAkiKQoZR2V0T25lQ2hhcHRlckh0bWxSZXNwb25zZRIMCgRodG1sGAEgASgJInQKG0dldEJpYmxpY2FsUmVmZXJlbmNlUmVxdWVzdBINCgVxdWVyeRgBIAEoCRIUCgx2ZXJzaW9uX2NvZGUYAiABKAkSEAoIbGFuZ3VhZ2UYAyABKAkSDgoGc291cmNlGAQgASgJEg4KBmZvcm1hdBgFIAEoCSLhAQocR2V0QmlibGljYWxSZWZlcmVuY2VSZXNwb25zZRIjCghjaGFwdGVycxgBIAMoCzIRLmJpYmxlLnYxLkNoYXB0ZXISHwoGdmVyc2VzGAIgAygLMg8uYmlibGUudjEuVmVyc2USJQoJZm9vdG5vdGVzGAMgAygLMhIuYmlibGUudjEuRm9vdG5vdGUSIwoIaGVhZGluZ3MYBCADKAsyES5iaWJsZS52MS5IZWFkaW5nEi8KDnBzYWxtX21ldGFkYXRhGAUgAygLMhcuYmlibGUudjEuUHNhbG1NZXRhZGF0YSJ4Ch9HZXRCaWJsaWNhbFJlZmVyZW5jZVRleHRSZXF1ZXN0Eg0KBXF1ZXJ5GAEgASgJEhQKDHZlcnNpb25fY29kZRgCIAEoCRIQCghsYW5ndWFnZRgDIAEoCRIOCgZzb3VyY2UYBCABKAkSDgoGZm9ybWF0GAUgASgJIjAKIEdldEJpYmxpY2FsUmVmZXJlbmNlVGV4dFJlc3BvbnNlEgwKBHRleHQYASABKAkieAofR2V0QmlibGljYWxSZWZlcmVuY2VIdG1sUmVxdWVzdBINCgVxdWVyeRgBIAEoCRIUCgx2ZXJzaW9uX2NvZGUYAiABKAkSEAoIbGFuZ3VhZ2UYAyABKAkSDgoGc291cmNlGAQgASgJEg4KBmZvcm1hdBgFIAEoCSIwCiBHZXRCaWJsaWNhbFJlZmVyZW5jZUh0bWxSZXNwb25zZRIMCgRodG1sGAEgASgJMroICgtCb29rU2VydmljZRJZCgpHZXRBbGxCb29rEhsuYmlibGUudjEuR2V0QWxsQm9va1JlcXVlc3QaHC5iaWJsZS52MS5HZXRBbGxCb29rUmVzcG9uc2UiEILT5JMCChIIL3YxL2Jvb2sSZQoKR2V0T25lQm9vaxIbLmJpYmxlLnYxLkdldE9uZUJvb2tSZXF1ZXN0GhwuYmlibGUudjEuR2V0T25lQm9va1Jlc3BvbnNlIhyC0+STAhYSFC92MS9ib29rL3tib29rX2NvZGV9EoQBCg1HZXRPbmVDaGFwdGVyEh4uYmlibGUudjEuR2V0T25lQ2hhcHRlclJlcXVlc3QaHy5iaWJsZS52MS5HZXRPbmVDaGFwdGVyUmVzcG9uc2UiMoLT5JMCLBIqL3YxL2Jvb2sve2Jvb2tfY29kZX0vY2hhcHRlci97Y2hhcHRlcl9udW19EpUBChFHZXRPbmVDaGFwdGVyVGV4dBIiLmJpYmxlLnYxLkdldE9uZUNoYXB0ZXJUZXh0UmVxdWVzdBojLmJpYmxlLnYxLkdldE9uZUNoYXB0ZXJUZXh0UmVzcG9uc2UiN4LT5JMCMRIvL3YxL2Jvb2sve2Jvb2tfY29kZX0vY2hhcHRlci97Y2hhcHRlcl9udW19L3RleHQSlQEKEUdldE9uZUNoYXB0ZXJIdG1sEiIuYmlibGUudjEuR2V0T25lQ2hhcHRlckh0bWxSZXF1ZXN0GiMuYmlibGUudjEuR2V0T25lQ2hhcHRlckh0bWxSZXNwb25zZSI3gtPkkwIxEi8vdjEvYm9vay97Ym9va19jb2RlfS9jaGFwdGVyL3tjaGFwdGVyX251bX0vaHRtbBKDAQoUR2V0QmlibGljYWxSZWZlcmVuY2USJS5iaWJsZS52MS5HZXRCaWJsaWNhbFJlZmVyZW5jZVJlcXVlc3QaJi5iaWJsZS52MS5HZXRCaWJsaWNhbFJlZmVyZW5jZVJlc3BvbnNlIhyC0+STAhYSFC92MS9jcm9zc3JlZi97cXVlcnl9EpQBChhHZXRCaWJsaWNhbFJlZmVyZW5jZVRleHQSKS5iaWJsZS52MS5HZXRCaWJsaWNhbFJlZmVyZW5jZVRleHRSZXF1ZXN0GiouYmlibGUudjEuR2V0QmlibGljYWxSZWZlcmVuY2VUZXh0UmVzcG9uc2UiIYLT5JMCGxIZL3YxL2Nyb3NzcmVmL3txdWVyeX0vdGV4dBKUAQoYR2V0QmlibGljYWxSZWZlcmVuY2VIdG1sEikuYmlibGUudjEuR2V0QmlibGljYWxSZWZlcmVuY2VIdG1sUmVxdWVzdBoqLmJpYmxlLnYxLkdldEJpYmxpY2FsUmVmZXJlbmNlSHRtbFJlc3BvbnNlIiGC0+STAhsSGS92MS9jcm9zc3JlZi97cXVlcnl9L2h0bWxC8QIKDGNvbS5iaWJsZS52MUIJQm9va1Byb3RvUAFaNmdpdGh1Yi5jb20vdi1iaWJsZS9wcm90b2J1Zi9wa2cvcHJvdG8vYmlibGUvdjE7YmlibGV2MaICA0JYWKoCCEJpYmxlLlYxygIIQmlibGVcVjHiAhRCaWJsZVxWMVxHUEJNZXRhZGF0YeoCCUJpYmxlOjpWMZJB2wESagoVQmlibGUgQm9vayBzZXJ2ZXIgQVBJEhVCaWJsZSBCb29rIHNlcnZlciBBUEkiMwoORHVja3lNb21vMjAwMTISIWh0dHBzOi8vZ2l0aHViLmNvbS9EdWNreU1vbW8yMDAxMjIFMS4wLjAiBC9hcGlaWQpXCgZiZWFyZXISTQgCEjhBdXRoZW50aWNhdGlvbiB0b2tlbiwgcHJlZml4ZWQgYnkgQmVhcmVyOiBCZWFyZXIgPHRva2VuPhoNQXV0aG9yaXphdGlvbiACYgwKCgoGYmVhcmVyEgBiBnByb3RvMw", [file_google_api_annotations, file_google_protobuf_timestamp, file_protoc_gen_openapiv2_options_annotations]);
+  fileDesc("ChNiaWJsZS92MS9ib29rLnByb3RvEghiaWJsZS52MSLuAQoEQm9vaxIKCgJpZBgBIAEoCRIMCgRjb2RlGAIgASgJEgwKBG5hbWUYAyABKAkSEQoJdGVzdGFtZW50GAQgASgJEhIKCmJvb2tfb3JkZXIYBSABKAUSLgoKY3JlYXRlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASLgoKdXBkYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXASIwoIY2hhcHRlcnMYCCADKAsyES5iaWJsZS52MS5DaGFwdGVyEhIKCnZlcnNpb25faWQYCSABKAkivAEKB0NoYXB0ZXISCgoCaWQYASABKAkSDgoGbnVtYmVyGAIgASgFEhYKCWF1ZGlvX3VybBgDIAEoCUgAiAEBEi4KCmNyZWF0ZWRfYXQYBCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYBSABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEg8KB2Jvb2tfaWQYBiABKAlCDAoKX2F1ZGlvX3VybCK5AgoFVmVyc2USCgoCaWQYASABKAkSDAoEdGV4dBgCIAEoCRINCgVsYWJlbBgDIAEoCRIOCgZudW1iZXIYBCABKAUSFwoPc3ViX3ZlcnNlX2luZGV4GAUgASgFEhgKEHBhcmFncmFwaF9udW1iZXIYBiABKAUSFwoPcGFyYWdyYXBoX2luZGV4GAcgASgFEhEKCWlzX3BvZXRyeRgIIAEoCBIWCglhdWRpb191cmwYCSABKAlIAIgBARIuCgpjcmVhdGVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAsgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBISCgpjaGFwdGVyX2lkGAwgASgJQgwKCl9hdWRpb191cmwipwIKCEZvb3Rub3RlEgoKAmlkGAEgASgJEgwKBHRleHQYAiABKAkSDAoEdHlwZRgDIAEoCRINCgVsYWJlbBgEIAEoCRISCgpzb3J0X29yZGVyGAUgASgFEhAKCHBvc2l0aW9uGAYgASgFEi4KCmNyZWF0ZWRfYXQYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhUKCHZlcnNlX2lkGAkgASgJSACIAQESFwoKaGVhZGluZ19pZBgKIAEoCUgBiAEBEhIKCmNoYXB0ZXJfaWQYCyABKAlCCwoJX3ZlcnNlX2lkQg0KC19oZWFkaW5nX2lkIswBCgdIZWFkaW5nEgoKAmlkGAEgASgJEgwKBHRleHQYAiABKAkSDQoFbGV2ZWwYAyABKAUSEgoKc29ydF9vcmRlchgEIAEoBRIuCgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIQCgh2ZXJzZV9pZBgHIAEoCRISCgpjaGFwdGVyX2lkGAggASgJIrEBCg1Qc2FsbU1ldGFkYXRhEgoKAmlkGAEgASgJEgwKBHRleHQYAiABKAkSEgoKc29ydF9vcmRlchgDIAEoBRIuCgpjcmVhdGVkX2F0GAQgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBIuCgp1cGRhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcBISCgpjaGFwdGVyX2lkGAYgASgJIvIBCgxXb3Jkc09mSmVzdXMSCgoCaWQYASABKAkSEgoKdGV4dF9zdGFydBgCIAEoBRIQCgh0ZXh0X2VuZBgDIAEoBRIWCg5xdW90YXRpb25fdGV4dBgEIAEoCRISCgpzb3J0X29yZGVyGAUgASgFEi4KCmNyZWF0ZWRfYXQYBiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEi4KCnVwZGF0ZWRfYXQYByABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wEhAKCHZlcnNlX2lkGAggASgJEhIKCmNoYXB0ZXJfaWQYCSABKAkicQoRR2V0QWxsQm9va1JlcXVlc3QSFAoMdmVyc2lvbl9jb2RlGAEgASgJEhAKCGxhbmd1YWdlGAIgASgJEg4KBnNvdXJjZRgDIAEoCRIWCgl0ZXN0YW1lbnQYBCABKAlIAIgBAUIMCgpfdGVzdGFtZW50IjMKEkdldEFsbEJvb2tSZXNwb25zZRIdCgVib29rcxgBIAMoCzIOLmJpYmxlLnYxLkJvb2siXgoRR2V0T25lQm9va1JlcXVlc3QSEQoJYm9va19jb2RlGAEgASgJEhQKDHZlcnNpb25fY29kZRgCIAEoCRIQCghsYW5ndWFnZRgDIAEoCRIOCgZzb3VyY2UYBCABKAkiMgoSR2V0T25lQm9va1Jlc3BvbnNlEhwKBGJvb2sYASABKAsyDi5iaWJsZS52MS5Cb29rInYKFEdldE9uZUNoYXB0ZXJSZXF1ZXN0EhEKCWJvb2tfY29kZRgBIAEoCRITCgtjaGFwdGVyX251bRgCIAEoBRIUCgx2ZXJzaW9uX2NvZGUYAyABKAkSEAoIbGFuZ3VhZ2UYBCABKAkSDgoGc291cmNlGAUgASgJIqcCChVHZXRPbmVDaGFwdGVyUmVzcG9uc2USIgoHY2hhcHRlchgBIAEoCzIRLmJpYmxlLnYxLkNoYXB0ZXISHwoGdmVyc2VzGAIgAygLMg8uYmlibGUudjEuVmVyc2USJQoJZm9vdG5vdGVzGAMgAygLMhIuYmlibGUudjEuRm9vdG5vdGUSIwoIaGVhZGluZ3MYBCADKAsyES5iaWJsZS52MS5IZWFkaW5nEi8KDnBzYWxtX21ldGFkYXRhGAUgAygLMhcuYmlibGUudjEuUHNhbG1NZXRhZGF0YRIuCg53b3Jkc19vZl9qZXN1cxgGIAMoCzIWLmJpYmxlLnYxLldvcmRzT2ZKZXN1cxIcCgRib29rGAcgASgLMg4uYmlibGUudjEuQm9vayJ6ChhHZXRPbmVDaGFwdGVyVGV4dFJlcXVlc3QSEQoJYm9va19jb2RlGAEgASgJEhMKC2NoYXB0ZXJfbnVtGAIgASgFEhQKDHZlcnNpb25fY29kZRgDIAEoCRIQCghsYW5ndWFnZRgEIAEoCRIOCgZzb3VyY2UYBSABKAkiKQoZR2V0T25lQ2hhcHRlclRleHRSZXNwb25zZRIMCgR0ZXh0GAEgASgJInoKGEdldE9uZUNoYXB0ZXJIdG1sUmVxdWVzdBIRCglib29rX2NvZGUYASABKAkSEwoLY2hhcHRlcl9udW0YAiABKAUSFAoMdmVyc2lvbl9jb2RlGAMgASgJEhAKCGxhbmd1YWdlGAQgASgJEg4KBnNvdXJjZRgFIAEoCSIpChlHZXRPbmVDaGFwdGVySHRtbFJlc3BvbnNlEgwKBGh0bWwYASABKAkidAobR2V0QmlibGljYWxSZWZlcmVuY2VSZXF1ZXN0Eg0KBXF1ZXJ5GAEgASgJEhQKDHZlcnNpb25fY29kZRgCIAEoCRIQCghsYW5ndWFnZRgDIAEoCRIOCgZzb3VyY2UYBCABKAkSDgoGZm9ybWF0GAUgASgJIpECChxHZXRCaWJsaWNhbFJlZmVyZW5jZVJlc3BvbnNlEiMKCGNoYXB0ZXJzGAEgAygLMhEuYmlibGUudjEuQ2hhcHRlchIfCgZ2ZXJzZXMYAiADKAsyDy5iaWJsZS52MS5WZXJzZRIlCglmb290bm90ZXMYAyADKAsyEi5iaWJsZS52MS5Gb290bm90ZRIjCghoZWFkaW5ncxgEIAMoCzIRLmJpYmxlLnYxLkhlYWRpbmcSLwoOcHNhbG1fbWV0YWRhdGEYBSADKAsyFy5iaWJsZS52MS5Qc2FsbU1ldGFkYXRhEi4KDndvcmRzX29mX2plc3VzGAYgAygLMhYuYmlibGUudjEuV29yZHNPZkplc3VzIngKH0dldEJpYmxpY2FsUmVmZXJlbmNlVGV4dFJlcXVlc3QSDQoFcXVlcnkYASABKAkSFAoMdmVyc2lvbl9jb2RlGAIgASgJEhAKCGxhbmd1YWdlGAMgASgJEg4KBnNvdXJjZRgEIAEoCRIOCgZmb3JtYXQYBSABKAkiMAogR2V0QmlibGljYWxSZWZlcmVuY2VUZXh0UmVzcG9uc2USDAoEdGV4dBgBIAEoCSJ4Ch9HZXRCaWJsaWNhbFJlZmVyZW5jZUh0bWxSZXF1ZXN0Eg0KBXF1ZXJ5GAEgASgJEhQKDHZlcnNpb25fY29kZRgCIAEoCRIQCghsYW5ndWFnZRgDIAEoCRIOCgZzb3VyY2UYBCABKAkSDgoGZm9ybWF0GAUgASgJIjAKIEdldEJpYmxpY2FsUmVmZXJlbmNlSHRtbFJlc3BvbnNlEgwKBGh0bWwYASABKAkyuggKC0Jvb2tTZXJ2aWNlElkKCkdldEFsbEJvb2sSGy5iaWJsZS52MS5HZXRBbGxCb29rUmVxdWVzdBocLmJpYmxlLnYxLkdldEFsbEJvb2tSZXNwb25zZSIQgtPkkwIKEggvdjEvYm9vaxJlCgpHZXRPbmVCb29rEhsuYmlibGUudjEuR2V0T25lQm9va1JlcXVlc3QaHC5iaWJsZS52MS5HZXRPbmVCb29rUmVzcG9uc2UiHILT5JMCFhIUL3YxL2Jvb2sve2Jvb2tfY29kZX0ShAEKDUdldE9uZUNoYXB0ZXISHi5iaWJsZS52MS5HZXRPbmVDaGFwdGVyUmVxdWVzdBofLmJpYmxlLnYxLkdldE9uZUNoYXB0ZXJSZXNwb25zZSIygtPkkwIsEiovdjEvYm9vay97Ym9va19jb2RlfS9jaGFwdGVyL3tjaGFwdGVyX251bX0SlQEKEUdldE9uZUNoYXB0ZXJUZXh0EiIuYmlibGUudjEuR2V0T25lQ2hhcHRlclRleHRSZXF1ZXN0GiMuYmlibGUudjEuR2V0T25lQ2hhcHRlclRleHRSZXNwb25zZSI3gtPkkwIxEi8vdjEvYm9vay97Ym9va19jb2RlfS9jaGFwdGVyL3tjaGFwdGVyX251bX0vdGV4dBKVAQoRR2V0T25lQ2hhcHRlckh0bWwSIi5iaWJsZS52MS5HZXRPbmVDaGFwdGVySHRtbFJlcXVlc3QaIy5iaWJsZS52MS5HZXRPbmVDaGFwdGVySHRtbFJlc3BvbnNlIjeC0+STAjESLy92MS9ib29rL3tib29rX2NvZGV9L2NoYXB0ZXIve2NoYXB0ZXJfbnVtfS9odG1sEoMBChRHZXRCaWJsaWNhbFJlZmVyZW5jZRIlLmJpYmxlLnYxLkdldEJpYmxpY2FsUmVmZXJlbmNlUmVxdWVzdBomLmJpYmxlLnYxLkdldEJpYmxpY2FsUmVmZXJlbmNlUmVzcG9uc2UiHILT5JMCFhIUL3YxL2Nyb3NzcmVmL3txdWVyeX0SlAEKGEdldEJpYmxpY2FsUmVmZXJlbmNlVGV4dBIpLmJpYmxlLnYxLkdldEJpYmxpY2FsUmVmZXJlbmNlVGV4dFJlcXVlc3QaKi5iaWJsZS52MS5HZXRCaWJsaWNhbFJlZmVyZW5jZVRleHRSZXNwb25zZSIhgtPkkwIbEhkvdjEvY3Jvc3NyZWYve3F1ZXJ5fS90ZXh0EpQBChhHZXRCaWJsaWNhbFJlZmVyZW5jZUh0bWwSKS5iaWJsZS52MS5HZXRCaWJsaWNhbFJlZmVyZW5jZUh0bWxSZXF1ZXN0GiouYmlibGUudjEuR2V0QmlibGljYWxSZWZlcmVuY2VIdG1sUmVzcG9uc2UiIYLT5JMCGxIZL3YxL2Nyb3NzcmVmL3txdWVyeX0vaHRtbELxAgoMY29tLmJpYmxlLnYxQglCb29rUHJvdG9QAVo2Z2l0aHViLmNvbS92LWJpYmxlL3Byb3RvYnVmL3BrZy9wcm90by9iaWJsZS92MTtiaWJsZXYxogIDQlhYqgIIQmlibGUuVjHKAghCaWJsZVxWMeICFEJpYmxlXFYxXEdQQk1ldGFkYXRh6gIJQmlibGU6OlYxkkHbARJqChVCaWJsZSBCb29rIHNlcnZlciBBUEkSFUJpYmxlIEJvb2sgc2VydmVyIEFQSSIzCg5EdWNreU1vbW8yMDAxMhIhaHR0cHM6Ly9naXRodWIuY29tL0R1Y2t5TW9tbzIwMDEyMgUxLjAuMCIEL2FwaVpZClcKBmJlYXJlchJNCAISOEF1dGhlbnRpY2F0aW9uIHRva2VuLCBwcmVmaXhlZCBieSBCZWFyZXI6IEJlYXJlciA8dG9rZW4+Gg1BdXRob3JpemF0aW9uIAJiDAoKCgZiZWFyZXISAGIGcHJvdG8z", [file_google_api_annotations, file_google_protobuf_timestamp, file_protoc_gen_openapiv2_options_annotations]);
 
 /**
  * @generated from message bible.v1.Book
@@ -49,7 +49,7 @@ export type Book = Message<"bible.v1.Book"> & {
   testament: string;
 
   /**
-   * Book order
+   * Book order. Starts from 1.
    *
    * @generated from field: int32 book_order = 5;
    */
@@ -105,7 +105,7 @@ export type Chapter = Message<"bible.v1.Chapter"> & {
   id: string;
 
   /**
-   * Chapter number
+   * Chapter number. Starts from 1.
    *
    * @generated from field: int32 number = 2;
    */
@@ -175,28 +175,28 @@ export type Verse = Message<"bible.v1.Verse"> & {
   label: string;
 
   /**
-   * Verse number
+   * Verse number. Starts from 1.
    *
    * @generated from field: int32 number = 4;
    */
   number: number;
 
   /**
-   * Verse sub-verse index
+   * Verse sub-verse index. Starts from 0.
    *
    * @generated from field: int32 sub_verse_index = 5;
    */
   subVerseIndex: number;
 
   /**
-   * Verse paragraph number
+   * Verse paragraph number. Starts from 0.
    *
    * @generated from field: int32 paragraph_number = 6;
    */
   paragraphNumber: number;
 
   /**
-   * Verse paragraph index
+   * Verse paragraph index. Starts from 0.
    *
    * @generated from field: int32 paragraph_index = 7;
    */
@@ -282,14 +282,14 @@ export type Footnote = Message<"bible.v1.Footnote"> & {
   label: string;
 
   /**
-   * Footnote sort order
+   * Footnote sort order. Starts from 0.
    *
    * @generated from field: int32 sort_order = 5;
    */
   sortOrder: number;
 
   /**
-   * Footnote position
+   * Footnote position. Starts from 0.
    *
    * @generated from field: int32 position = 6;
    */
@@ -359,14 +359,14 @@ export type Heading = Message<"bible.v1.Heading"> & {
   text: string;
 
   /**
-   * Heading level. Start from 1
+   * Heading level. Starts from 1
    *
    * @generated from field: int32 level = 3;
    */
   level: number;
 
   /**
-   * Heading sort order
+   * Heading sort order. Starts from 0.
    *
    * @generated from field: int32 sort_order = 4;
    */
@@ -429,7 +429,7 @@ export type PsalmMetadata = Message<"bible.v1.PsalmMetadata"> & {
   text: string;
 
   /**
-   * Psalm sort order
+   * Psalm sort order. Starts from 0.
    *
    * @generated from field: int32 sort_order = 3;
    */
@@ -465,6 +465,82 @@ export type PsalmMetadata = Message<"bible.v1.PsalmMetadata"> & {
  */
 export const PsalmMetadataSchema: GenMessage<PsalmMetadata> = /*@__PURE__*/
   messageDesc(file_bible_v1_book, 5);
+
+/**
+ * @generated from message bible.v1.WordsOfJesus
+ */
+export type WordsOfJesus = Message<"bible.v1.WordsOfJesus"> & {
+  /**
+   * Words of Jesus ID
+   *
+   * @generated from field: string id = 1;
+   */
+  id: string;
+
+  /**
+   * Words of Jesus text start index
+   *
+   * @generated from field: int32 text_start = 2;
+   */
+  textStart: number;
+
+  /**
+   * Words of Jesus text end index
+   *
+   * @generated from field: int32 text_end = 3;
+   */
+  textEnd: number;
+
+  /**
+   * Quotation text
+   *
+   * @generated from field: string quotation_text = 4;
+   */
+  quotationText: string;
+
+  /**
+   * Quotation sort order. Starts from 0.
+   *
+   * @generated from field: int32 sort_order = 5;
+   */
+  sortOrder: number;
+
+  /**
+   * Stored in UTC and follows RFC 3339 format
+   *
+   * @generated from field: google.protobuf.Timestamp created_at = 6;
+   */
+  createdAt?: Timestamp;
+
+  /**
+   * Psalm last update time
+   * Stored in UTC and follows RFC
+   *
+   * @generated from field: google.protobuf.Timestamp updated_at = 7;
+   */
+  updatedAt?: Timestamp;
+
+  /**
+   * Words of Jesus verse ID
+   *
+   * @generated from field: string verse_id = 8;
+   */
+  verseId: string;
+
+  /**
+   * Words of Jesus chapter ID
+   *
+   * @generated from field: string chapter_id = 9;
+   */
+  chapterId: string;
+};
+
+/**
+ * Describes the message bible.v1.WordsOfJesus.
+ * Use `create(WordsOfJesusSchema)` to create a new message.
+ */
+export const WordsOfJesusSchema: GenMessage<WordsOfJesus> = /*@__PURE__*/
+  messageDesc(file_bible_v1_book, 6);
 
 /**
  * @generated from message bible.v1.GetAllBookRequest
@@ -504,7 +580,7 @@ export type GetAllBookRequest = Message<"bible.v1.GetAllBookRequest"> & {
  * Use `create(GetAllBookRequestSchema)` to create a new message.
  */
 export const GetAllBookRequestSchema: GenMessage<GetAllBookRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 6);
+  messageDesc(file_bible_v1_book, 7);
 
 /**
  * @generated from message bible.v1.GetAllBookResponse
@@ -523,7 +599,7 @@ export type GetAllBookResponse = Message<"bible.v1.GetAllBookResponse"> & {
  * Use `create(GetAllBookResponseSchema)` to create a new message.
  */
 export const GetAllBookResponseSchema: GenMessage<GetAllBookResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 7);
+  messageDesc(file_bible_v1_book, 8);
 
 /**
  * @generated from message bible.v1.GetOneBookRequest
@@ -563,7 +639,7 @@ export type GetOneBookRequest = Message<"bible.v1.GetOneBookRequest"> & {
  * Use `create(GetOneBookRequestSchema)` to create a new message.
  */
 export const GetOneBookRequestSchema: GenMessage<GetOneBookRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 8);
+  messageDesc(file_bible_v1_book, 9);
 
 /**
  * @generated from message bible.v1.GetOneBookResponse
@@ -582,7 +658,7 @@ export type GetOneBookResponse = Message<"bible.v1.GetOneBookResponse"> & {
  * Use `create(GetOneBookResponseSchema)` to create a new message.
  */
 export const GetOneBookResponseSchema: GenMessage<GetOneBookResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 9);
+  messageDesc(file_bible_v1_book, 10);
 
 /**
  * @generated from message bible.v1.GetOneChapterRequest
@@ -629,7 +705,7 @@ export type GetOneChapterRequest = Message<"bible.v1.GetOneChapterRequest"> & {
  * Use `create(GetOneChapterRequestSchema)` to create a new message.
  */
 export const GetOneChapterRequestSchema: GenMessage<GetOneChapterRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 10);
+  messageDesc(file_bible_v1_book, 11);
 
 /**
  * @generated from message bible.v1.GetOneChapterResponse
@@ -671,9 +747,16 @@ export type GetOneChapterResponse = Message<"bible.v1.GetOneChapterResponse"> & 
   psalmMetadata: PsalmMetadata[];
 
   /**
+   * Chapter words of Jesus
+   *
+   * @generated from field: repeated bible.v1.WordsOfJesus words_of_jesus = 6;
+   */
+  wordsOfJesus: WordsOfJesus[];
+
+  /**
    * Book object for context
    *
-   * @generated from field: bible.v1.Book book = 6;
+   * @generated from field: bible.v1.Book book = 7;
    */
   book?: Book;
 };
@@ -683,7 +766,7 @@ export type GetOneChapterResponse = Message<"bible.v1.GetOneChapterResponse"> & 
  * Use `create(GetOneChapterResponseSchema)` to create a new message.
  */
 export const GetOneChapterResponseSchema: GenMessage<GetOneChapterResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 11);
+  messageDesc(file_bible_v1_book, 12);
 
 /**
  * @generated from message bible.v1.GetOneChapterTextRequest
@@ -730,7 +813,7 @@ export type GetOneChapterTextRequest = Message<"bible.v1.GetOneChapterTextReques
  * Use `create(GetOneChapterTextRequestSchema)` to create a new message.
  */
 export const GetOneChapterTextRequestSchema: GenMessage<GetOneChapterTextRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 12);
+  messageDesc(file_bible_v1_book, 13);
 
 /**
  * @generated from message bible.v1.GetOneChapterTextResponse
@@ -749,7 +832,7 @@ export type GetOneChapterTextResponse = Message<"bible.v1.GetOneChapterTextRespo
  * Use `create(GetOneChapterTextResponseSchema)` to create a new message.
  */
 export const GetOneChapterTextResponseSchema: GenMessage<GetOneChapterTextResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 13);
+  messageDesc(file_bible_v1_book, 14);
 
 /**
  * @generated from message bible.v1.GetOneChapterHtmlRequest
@@ -796,7 +879,7 @@ export type GetOneChapterHtmlRequest = Message<"bible.v1.GetOneChapterHtmlReques
  * Use `create(GetOneChapterHtmlRequestSchema)` to create a new message.
  */
 export const GetOneChapterHtmlRequestSchema: GenMessage<GetOneChapterHtmlRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 14);
+  messageDesc(file_bible_v1_book, 15);
 
 /**
  * @generated from message bible.v1.GetOneChapterHtmlResponse
@@ -815,7 +898,7 @@ export type GetOneChapterHtmlResponse = Message<"bible.v1.GetOneChapterHtmlRespo
  * Use `create(GetOneChapterHtmlResponseSchema)` to create a new message.
  */
 export const GetOneChapterHtmlResponseSchema: GenMessage<GetOneChapterHtmlResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 15);
+  messageDesc(file_bible_v1_book, 16);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceRequest
@@ -862,7 +945,7 @@ export type GetBiblicalReferenceRequest = Message<"bible.v1.GetBiblicalReference
  * Use `create(GetBiblicalReferenceRequestSchema)` to create a new message.
  */
 export const GetBiblicalReferenceRequestSchema: GenMessage<GetBiblicalReferenceRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 16);
+  messageDesc(file_bible_v1_book, 17);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceResponse
@@ -902,6 +985,13 @@ export type GetBiblicalReferenceResponse = Message<"bible.v1.GetBiblicalReferenc
    * @generated from field: repeated bible.v1.PsalmMetadata psalm_metadata = 5;
    */
   psalmMetadata: PsalmMetadata[];
+
+  /**
+   * Words of Jesus quotations
+   *
+   * @generated from field: repeated bible.v1.WordsOfJesus words_of_jesus = 6;
+   */
+  wordsOfJesus: WordsOfJesus[];
 };
 
 /**
@@ -909,7 +999,7 @@ export type GetBiblicalReferenceResponse = Message<"bible.v1.GetBiblicalReferenc
  * Use `create(GetBiblicalReferenceResponseSchema)` to create a new message.
  */
 export const GetBiblicalReferenceResponseSchema: GenMessage<GetBiblicalReferenceResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 17);
+  messageDesc(file_bible_v1_book, 18);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceTextRequest
@@ -956,7 +1046,7 @@ export type GetBiblicalReferenceTextRequest = Message<"bible.v1.GetBiblicalRefer
  * Use `create(GetBiblicalReferenceTextRequestSchema)` to create a new message.
  */
 export const GetBiblicalReferenceTextRequestSchema: GenMessage<GetBiblicalReferenceTextRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 18);
+  messageDesc(file_bible_v1_book, 19);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceTextResponse
@@ -975,7 +1065,7 @@ export type GetBiblicalReferenceTextResponse = Message<"bible.v1.GetBiblicalRefe
  * Use `create(GetBiblicalReferenceTextResponseSchema)` to create a new message.
  */
 export const GetBiblicalReferenceTextResponseSchema: GenMessage<GetBiblicalReferenceTextResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 19);
+  messageDesc(file_bible_v1_book, 20);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceHtmlRequest
@@ -1022,7 +1112,7 @@ export type GetBiblicalReferenceHtmlRequest = Message<"bible.v1.GetBiblicalRefer
  * Use `create(GetBiblicalReferenceHtmlRequestSchema)` to create a new message.
  */
 export const GetBiblicalReferenceHtmlRequestSchema: GenMessage<GetBiblicalReferenceHtmlRequest> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 20);
+  messageDesc(file_bible_v1_book, 21);
 
 /**
  * @generated from message bible.v1.GetBiblicalReferenceHtmlResponse
@@ -1041,7 +1131,7 @@ export type GetBiblicalReferenceHtmlResponse = Message<"bible.v1.GetBiblicalRefe
  * Use `create(GetBiblicalReferenceHtmlResponseSchema)` to create a new message.
  */
 export const GetBiblicalReferenceHtmlResponseSchema: GenMessage<GetBiblicalReferenceHtmlResponse> = /*@__PURE__*/
-  messageDesc(file_bible_v1_book, 21);
+  messageDesc(file_bible_v1_book, 22);
 
 /**
  * Book service definition
