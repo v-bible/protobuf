@@ -40,7 +40,6 @@
 - [bible/v1/book.proto](#bible_v1_book-proto)
     - [Book](#bible-v1-Book)
     - [Chapter](#bible-v1-Chapter)
-    - [Footnote](#bible-v1-Footnote)
     - [GetAllBookRequest](#bible-v1-GetAllBookRequest)
     - [GetAllBookResponse](#bible-v1-GetAllBookResponse)
     - [GetBiblicalReferenceHtmlRequest](#bible-v1-GetBiblicalReferenceHtmlRequest)
@@ -58,9 +57,12 @@
     - [GetOneChapterTextRequest](#bible-v1-GetOneChapterTextRequest)
     - [GetOneChapterTextResponse](#bible-v1-GetOneChapterTextResponse)
     - [Heading](#bible-v1-Heading)
+    - [Mark](#bible-v1-Mark)
     - [PsalmMetadata](#bible-v1-PsalmMetadata)
     - [Verse](#bible-v1-Verse)
-    - [WordsOfJesus](#bible-v1-WordsOfJesus)
+  
+    - [MarkKind](#bible-v1-MarkKind)
+    - [MarkTargetType](#bible-v1-MarkTargetType)
   
     - [BookService](#bible-v1-BookService)
   
@@ -589,33 +591,6 @@ Auth service definition
 
 
 
-<a name="bible-v1-Footnote"></a>
-
-### Footnote
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Footnote ID |
-| text | [string](#string) |  | Footnote text |
-| type | [string](#string) |  | Footnote type
-
-e.g. &#34;footnote&#34;, &#34;reference&#34; |
-| label | [string](#string) |  | Footnote label |
-| sort_order | [int32](#int32) |  | Footnote sort order. Starts from 0. |
-| position | [int32](#int32) |  | Footnote position. Starts from 0. |
-| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Footnote creation time Stored in UTC and follows RFC 3339 format |
-| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Footnote last update time Stored in UTC and follows RFC 3339 format |
-| verse_id | [string](#string) | optional | Footnote verse ID |
-| heading_id | [string](#string) | optional | Footnote heading ID |
-| chapter_id | [string](#string) |  | Footnote chapter ID |
-
-
-
-
-
-
 <a name="bible-v1-GetAllBookRequest"></a>
 
 ### GetAllBookRequest
@@ -712,10 +687,9 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 | ----- | ---- | ----- | ----------- |
 | chapters | [Chapter](#bible-v1-Chapter) | repeated | Referenced chapters |
 | verses | [Verse](#bible-v1-Verse) | repeated | Referenced verses |
-| footnotes | [Footnote](#bible-v1-Footnote) | repeated | Related footnotes |
+| marks | [Mark](#bible-v1-Mark) | repeated | Related marks |
 | headings | [Heading](#bible-v1-Heading) | repeated | Related headings |
 | psalm_metadata | [PsalmMetadata](#bible-v1-PsalmMetadata) | repeated | Chapter psalm metadata |
-| words_of_jesus | [WordsOfJesus](#bible-v1-WordsOfJesus) | repeated | Words of Jesus quotations |
 
 
 
@@ -852,10 +826,9 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 | ----- | ---- | ----- | ----------- |
 | chapter | [Chapter](#bible-v1-Chapter) |  | Chapter object |
 | verses | [Verse](#bible-v1-Verse) | repeated | Chapter verses |
-| footnotes | [Footnote](#bible-v1-Footnote) | repeated | Chapter footnotes |
+| marks | [Mark](#bible-v1-Mark) | repeated | Chapter marks |
 | headings | [Heading](#bible-v1-Heading) | repeated | Chapter headings |
 | psalm_metadata | [PsalmMetadata](#bible-v1-PsalmMetadata) | repeated | Chapter psalm metadata |
-| words_of_jesus | [WordsOfJesus](#bible-v1-WordsOfJesus) | repeated | Chapter words of Jesus |
 | book | [Book](#bible-v1-Book) |  | Book object for context |
 
 
@@ -919,6 +892,32 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 
 
 
+<a name="bible-v1-Mark"></a>
+
+### Mark
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Mark ID |
+| content | [string](#string) |  | Mark content |
+| kind | [MarkKind](#bible-v1-MarkKind) |  | Mark kind |
+| label | [string](#string) |  | Mark label |
+| sort_order | [int32](#int32) |  | Mark sort order. Starts from 0. |
+| start_offset | [int32](#int32) |  | Mark start offset. Starts from 0. |
+| end_offset | [int32](#int32) |  | Mark end offset. Starts from 0. |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Mark creation time Stored in UTC and follows RFC 3339 format |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Mark last update time Stored in UTC and follows RFC 3339 format |
+| target_id | [string](#string) |  | Mark target ID |
+| target_type | [MarkTargetType](#bible-v1-MarkTargetType) |  | Mark target type |
+| chapter_id | [string](#string) |  | Mark chapter ID |
+
+
+
+
+
+
 <a name="bible-v1-PsalmMetadata"></a>
 
 ### PsalmMetadata
@@ -964,30 +963,34 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 
 
 
-
-<a name="bible-v1-WordsOfJesus"></a>
-
-### WordsOfJesus
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Words of Jesus ID |
-| text_start | [int32](#int32) |  | Words of Jesus text start index |
-| text_end | [int32](#int32) |  | Words of Jesus text end index |
-| quotation_text | [string](#string) |  | Quotation text |
-| sort_order | [int32](#int32) |  | Quotation sort order. Starts from 0. |
-| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Stored in UTC and follows RFC 3339 format |
-| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Psalm last update time Stored in UTC and follows RFC |
-| verse_id | [string](#string) |  | Words of Jesus verse ID |
-| chapter_id | [string](#string) |  | Words of Jesus chapter ID |
-
-
-
-
-
  
+
+
+<a name="bible-v1-MarkKind"></a>
+
+### MarkKind
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| MARK_KIND_UNSPECIFIED | 0 | Must be explicitly set - invalid default |
+| MARK_KIND_FOOTNOTE | 1 | Footnote mark |
+| MARK_KIND_REFERENCE | 2 | Cross-reference mark |
+| MARK_KIND_WORDS_OF_JESUS | 3 | Words of Jesus mark |
+
+
+
+<a name="bible-v1-MarkTargetType"></a>
+
+### MarkTargetType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| MARK_TARGET_TYPE_UNSPECIFIED | 0 | Must be explicitly set - invalid default |
+| MARK_TARGET_TYPE_VERSE | 1 | Verse target |
+| MARK_TARGET_TYPE_HEADING | 2 | Heading target |
+
 
  
 
