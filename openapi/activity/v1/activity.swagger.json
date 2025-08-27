@@ -1,0 +1,461 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Bible Activity server API",
+    "description": "Bible Activity server API",
+    "version": "1.0.0",
+    "contact": {
+      "name": "DuckyMomo20012",
+      "url": "https://github.com/DuckyMomo20012"
+    }
+  },
+  "tags": [
+    {
+      "name": "ActivityService"
+    }
+  ],
+  "basePath": "/api",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/annotation": {
+      "get": {
+        "summary": "Retrieve all annotations for authenticated user",
+        "operationId": "ActivityService_GetAllAnnotations",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetAllAnnotationsResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "accountId",
+            "description": "Account ID filter (required)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "versionCode",
+            "description": "Version code (required - part of unique constraint)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "language",
+            "description": "Language code (required - part of unique constraint)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "source",
+            "description": "Source (required - part of unique constraint)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "targetId",
+            "description": "Target ID filter (optional - filter by specific verse/heading)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "targetType",
+            "description": "Target type filter (optional - filter by verse or heading)\n\n - ANNOTATION_TARGET_TYPE_UNSPECIFIED: Must be explicitly set - invalid default\n - ANNOTATION_TARGET_TYPE_VERSE: Verse target\n - ANNOTATION_TARGET_TYPE_HEADING: Heading target",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANNOTATION_TARGET_TYPE_UNSPECIFIED",
+              "ANNOTATION_TARGET_TYPE_VERSE",
+              "ANNOTATION_TARGET_TYPE_HEADING"
+            ],
+            "default": "ANNOTATION_TARGET_TYPE_UNSPECIFIED"
+          }
+        ],
+        "tags": [
+          "ActivityService"
+        ]
+      },
+      "post": {
+        "summary": "Create one annotation for authenticated user",
+        "operationId": "ActivityService_CreateAnnotation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1CreateAnnotationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "description": "Request body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1CreateAnnotationRequestBody"
+            }
+          }
+        ],
+        "tags": [
+          "ActivityService"
+        ]
+      }
+    },
+    "/v1/annotation/{annotationId}": {
+      "get": {
+        "summary": "Retrieve one annotation by ID for authenticated user",
+        "operationId": "ActivityService_GetOneAnnotation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1GetOneAnnotationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "annotationId",
+            "description": "Annotation ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ActivityService"
+        ]
+      },
+      "delete": {
+        "summary": "Delete one annotation by ID for authenticated user",
+        "operationId": "ActivityService_DeleteAnnotation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1DeleteAnnotationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "annotationId",
+            "description": "Annotation ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "ActivityService"
+        ]
+      },
+      "put": {
+        "summary": "Update one annotation by ID for authenticated user",
+        "operationId": "ActivityService_UpdateAnnotation",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/v1UpdateAnnotationResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/rpcStatus"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "annotationId",
+            "description": "Annotation ID",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "description": "Request body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/v1UpdateAnnotationRequestBody"
+            }
+          }
+        ],
+        "tags": [
+          "ActivityService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "activityv1Annotation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Annotation ID"
+        },
+        "content": {
+          "type": "string",
+          "title": "Annotation content"
+        },
+        "kind": {
+          "$ref": "#/definitions/v1AnnotationKind",
+          "title": "Annotation kind"
+        },
+        "color": {
+          "type": "string",
+          "title": "Annotation color"
+        },
+        "startOffset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Annotation start offset. Starts from 0."
+        },
+        "endOffset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Annotation end offset. Starts from 0."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Annotation creation time\nStored in UTC and follows RFC 3339 format"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Annotation last update time\nStored in UTC and follows RFC 3339 format"
+        },
+        "targetId": {
+          "type": "string",
+          "title": "Annotation target ID"
+        },
+        "targetType": {
+          "$ref": "#/definitions/v1AnnotationTargetType",
+          "title": "Annotation target type"
+        },
+        "accountId": {
+          "type": "string",
+          "title": "Account ID"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1AnnotationKind": {
+      "type": "string",
+      "enum": [
+        "ANNOTATION_KIND_UNSPECIFIED",
+        "ANNOTATION_KIND_HIGHLIGHT",
+        "ANNOTATION_KIND_NOTE"
+      ],
+      "default": "ANNOTATION_KIND_UNSPECIFIED",
+      "title": "- ANNOTATION_KIND_UNSPECIFIED: Must be explicitly set - invalid default\n - ANNOTATION_KIND_HIGHLIGHT: Highlight annotation\n - ANNOTATION_KIND_NOTE: Note annotation"
+    },
+    "v1AnnotationTargetType": {
+      "type": "string",
+      "enum": [
+        "ANNOTATION_TARGET_TYPE_UNSPECIFIED",
+        "ANNOTATION_TARGET_TYPE_VERSE",
+        "ANNOTATION_TARGET_TYPE_HEADING"
+      ],
+      "default": "ANNOTATION_TARGET_TYPE_UNSPECIFIED",
+      "title": "- ANNOTATION_TARGET_TYPE_UNSPECIFIED: Must be explicitly set - invalid default\n - ANNOTATION_TARGET_TYPE_VERSE: Verse target\n - ANNOTATION_TARGET_TYPE_HEADING: Heading target"
+    },
+    "v1CreateAnnotationRequestBody": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "title": "Annotation content"
+        },
+        "kind": {
+          "$ref": "#/definitions/v1AnnotationKind",
+          "title": "Annotation kind"
+        },
+        "color": {
+          "type": "string",
+          "title": "Annotation color"
+        },
+        "startOffset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Annotation start offset. Starts from 0."
+        },
+        "endOffset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Annotation end offset. Starts from 0."
+        },
+        "targetId": {
+          "type": "string",
+          "title": "Annotation target ID"
+        },
+        "targetType": {
+          "$ref": "#/definitions/v1AnnotationTargetType",
+          "title": "Annotation target type"
+        }
+      },
+      "title": "Request body message"
+    },
+    "v1CreateAnnotationResponse": {
+      "type": "object",
+      "properties": {
+        "annotation": {
+          "$ref": "#/definitions/activityv1Annotation",
+          "title": "Created annotation object"
+        }
+      }
+    },
+    "v1DeleteAnnotationResponse": {
+      "type": "object",
+      "properties": {
+        "annotation": {
+          "$ref": "#/definitions/activityv1Annotation",
+          "title": "Deleted annotation object"
+        }
+      }
+    },
+    "v1GetAllAnnotationsResponse": {
+      "type": "object",
+      "properties": {
+        "annotations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/activityv1Annotation"
+          },
+          "title": "Annotation list"
+        }
+      }
+    },
+    "v1GetOneAnnotationResponse": {
+      "type": "object",
+      "properties": {
+        "annotation": {
+          "$ref": "#/definitions/activityv1Annotation",
+          "title": "Annotation object"
+        }
+      }
+    },
+    "v1UpdateAnnotationRequestBody": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "title": "Annotation content"
+        },
+        "kind": {
+          "$ref": "#/definitions/v1AnnotationKind",
+          "title": "Annotation kind"
+        },
+        "color": {
+          "type": "string",
+          "title": "Annotation color"
+        },
+        "startOffset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Annotation start offset. Starts from 0."
+        },
+        "endOffset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Annotation end offset. Starts from 0."
+        }
+      },
+      "title": "Request body message"
+    },
+    "v1UpdateAnnotationResponse": {
+      "type": "object",
+      "properties": {
+        "annotation": {
+          "$ref": "#/definitions/activityv1Annotation",
+          "title": "Updated annotation object"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "bearer": {
+      "type": "apiKey",
+      "description": "Authentication token, prefixed by Bearer: Bearer \u003ctoken\u003e",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "security": [
+    {
+      "bearer": []
+    }
+  ]
+}

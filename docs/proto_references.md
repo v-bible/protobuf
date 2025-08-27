@@ -37,6 +37,26 @@
   
     - [AuthService](#account-v1-AuthService)
   
+- [activity/v1/activity.proto](#activity_v1_activity-proto)
+    - [Annotation](#activity-v1-Annotation)
+    - [CreateAnnotationRequest](#activity-v1-CreateAnnotationRequest)
+    - [CreateAnnotationRequest.Body](#activity-v1-CreateAnnotationRequest-Body)
+    - [CreateAnnotationResponse](#activity-v1-CreateAnnotationResponse)
+    - [DeleteAnnotationRequest](#activity-v1-DeleteAnnotationRequest)
+    - [DeleteAnnotationResponse](#activity-v1-DeleteAnnotationResponse)
+    - [GetAllAnnotationsRequest](#activity-v1-GetAllAnnotationsRequest)
+    - [GetAllAnnotationsResponse](#activity-v1-GetAllAnnotationsResponse)
+    - [GetOneAnnotationRequest](#activity-v1-GetOneAnnotationRequest)
+    - [GetOneAnnotationResponse](#activity-v1-GetOneAnnotationResponse)
+    - [UpdateAnnotationRequest](#activity-v1-UpdateAnnotationRequest)
+    - [UpdateAnnotationRequest.Body](#activity-v1-UpdateAnnotationRequest-Body)
+    - [UpdateAnnotationResponse](#activity-v1-UpdateAnnotationResponse)
+  
+    - [AnnotationKind](#activity-v1-AnnotationKind)
+    - [AnnotationTargetType](#activity-v1-AnnotationTargetType)
+  
+    - [ActivityService](#activity-v1-ActivityService)
+  
 - [bible/v1/book.proto](#bible_v1_book-proto)
     - [Book](#bible-v1-Book)
     - [Chapter](#bible-v1-Chapter)
@@ -536,6 +556,283 @@ Auth service definition
 | RetrospectToken | [RetrospectTokenRequest](#account-v1-RetrospectTokenRequest) | [RetrospectTokenResponse](#account-v1-RetrospectTokenResponse) | Retrospect token |
 | DecodeAccessToken | [DecodeAccessTokenRequest](#account-v1-DecodeAccessTokenRequest) | [DecodeAccessTokenResponse](#account-v1-DecodeAccessTokenResponse) | Decode access token |
 | Logout | [LogoutRequest](#account-v1-LogoutRequest) | [LogoutResponse](#account-v1-LogoutResponse) | Logout |
+
+ 
+
+
+
+<a name="activity_v1_activity-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## activity/v1/activity.proto
+
+
+
+<a name="activity-v1-Annotation"></a>
+
+### Annotation
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Annotation ID |
+| content | [string](#string) |  | Annotation content |
+| kind | [AnnotationKind](#activity-v1-AnnotationKind) |  | Annotation kind |
+| color | [string](#string) |  | Annotation color |
+| start_offset | [int32](#int32) |  | Annotation start offset. Starts from 0. |
+| end_offset | [int32](#int32) |  | Annotation end offset. Starts from 0. |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Annotation creation time Stored in UTC and follows RFC 3339 format |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Annotation last update time Stored in UTC and follows RFC 3339 format |
+| target_id | [string](#string) |  | Annotation target ID |
+| target_type | [AnnotationTargetType](#activity-v1-AnnotationTargetType) |  | Annotation target type |
+| account_id | [string](#string) |  | Account ID |
+
+
+
+
+
+
+<a name="activity-v1-CreateAnnotationRequest"></a>
+
+### CreateAnnotationRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| body | [CreateAnnotationRequest.Body](#activity-v1-CreateAnnotationRequest-Body) |  | Request body |
+
+
+
+
+
+
+<a name="activity-v1-CreateAnnotationRequest-Body"></a>
+
+### CreateAnnotationRequest.Body
+Request body message
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| content | [string](#string) |  | Annotation content |
+| kind | [AnnotationKind](#activity-v1-AnnotationKind) |  | Annotation kind |
+| color | [string](#string) |  | Annotation color |
+| start_offset | [int32](#int32) |  | Annotation start offset. Starts from 0. |
+| end_offset | [int32](#int32) |  | Annotation end offset. Starts from 0. |
+| target_id | [string](#string) |  | Annotation target ID |
+| target_type | [AnnotationTargetType](#activity-v1-AnnotationTargetType) |  | Annotation target type |
+
+
+
+
+
+
+<a name="activity-v1-CreateAnnotationResponse"></a>
+
+### CreateAnnotationResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation | [Annotation](#activity-v1-Annotation) |  | Created annotation object |
+
+
+
+
+
+
+<a name="activity-v1-DeleteAnnotationRequest"></a>
+
+### DeleteAnnotationRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation_id | [string](#string) |  | Annotation ID |
+
+
+
+
+
+
+<a name="activity-v1-DeleteAnnotationResponse"></a>
+
+### DeleteAnnotationResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation | [Annotation](#activity-v1-Annotation) |  | Deleted annotation object |
+
+
+
+
+
+
+<a name="activity-v1-GetAllAnnotationsRequest"></a>
+
+### GetAllAnnotationsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| account_id | [string](#string) |  | Account ID filter (required) |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
+| target_id | [string](#string) | optional | Target ID filter (optional - filter by specific verse/heading) |
+| target_type | [AnnotationTargetType](#activity-v1-AnnotationTargetType) | optional | Target type filter (optional - filter by verse or heading) |
+
+
+
+
+
+
+<a name="activity-v1-GetAllAnnotationsResponse"></a>
+
+### GetAllAnnotationsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotations | [Annotation](#activity-v1-Annotation) | repeated | Annotation list |
+
+
+
+
+
+
+<a name="activity-v1-GetOneAnnotationRequest"></a>
+
+### GetOneAnnotationRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation_id | [string](#string) |  | Annotation ID |
+
+
+
+
+
+
+<a name="activity-v1-GetOneAnnotationResponse"></a>
+
+### GetOneAnnotationResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation | [Annotation](#activity-v1-Annotation) |  | Annotation object |
+
+
+
+
+
+
+<a name="activity-v1-UpdateAnnotationRequest"></a>
+
+### UpdateAnnotationRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation_id | [string](#string) |  | Annotation ID |
+| body | [UpdateAnnotationRequest.Body](#activity-v1-UpdateAnnotationRequest-Body) |  | Request body |
+
+
+
+
+
+
+<a name="activity-v1-UpdateAnnotationRequest-Body"></a>
+
+### UpdateAnnotationRequest.Body
+Request body message
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| content | [string](#string) | optional | Annotation content |
+| kind | [AnnotationKind](#activity-v1-AnnotationKind) | optional | Annotation kind |
+| color | [string](#string) | optional | Annotation color |
+| start_offset | [int32](#int32) | optional | Annotation start offset. Starts from 0. |
+| end_offset | [int32](#int32) | optional | Annotation end offset. Starts from 0. |
+
+
+
+
+
+
+<a name="activity-v1-UpdateAnnotationResponse"></a>
+
+### UpdateAnnotationResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation | [Annotation](#activity-v1-Annotation) |  | Updated annotation object |
+
+
+
+
+
+ 
+
+
+<a name="activity-v1-AnnotationKind"></a>
+
+### AnnotationKind
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ANNOTATION_KIND_UNSPECIFIED | 0 | Must be explicitly set - invalid default |
+| ANNOTATION_KIND_HIGHLIGHT | 1 | Highlight annotation |
+| ANNOTATION_KIND_NOTE | 2 | Note annotation |
+
+
+
+<a name="activity-v1-AnnotationTargetType"></a>
+
+### AnnotationTargetType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ANNOTATION_TARGET_TYPE_UNSPECIFIED | 0 | Must be explicitly set - invalid default |
+| ANNOTATION_TARGET_TYPE_VERSE | 1 | Verse target |
+| ANNOTATION_TARGET_TYPE_HEADING | 2 | Heading target |
+
+
+ 
+
+ 
+
+
+<a name="activity-v1-ActivityService"></a>
+
+### ActivityService
+Activity service definition
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| GetAllAnnotations | [GetAllAnnotationsRequest](#activity-v1-GetAllAnnotationsRequest) | [GetAllAnnotationsResponse](#activity-v1-GetAllAnnotationsResponse) | Retrieve all annotations for authenticated user |
+| GetOneAnnotation | [GetOneAnnotationRequest](#activity-v1-GetOneAnnotationRequest) | [GetOneAnnotationResponse](#activity-v1-GetOneAnnotationResponse) | Retrieve one annotation by ID for authenticated user |
+| CreateAnnotation | [CreateAnnotationRequest](#activity-v1-CreateAnnotationRequest) | [CreateAnnotationResponse](#activity-v1-CreateAnnotationResponse) | Create one annotation for authenticated user |
+| UpdateAnnotation | [UpdateAnnotationRequest](#activity-v1-UpdateAnnotationRequest) | [UpdateAnnotationResponse](#activity-v1-UpdateAnnotationResponse) | Update one annotation by ID for authenticated user |
+| DeleteAnnotation | [DeleteAnnotationRequest](#activity-v1-DeleteAnnotationRequest) | [DeleteAnnotationResponse](#activity-v1-DeleteAnnotationResponse) | Delete one annotation by ID for authenticated user |
 
  
 
