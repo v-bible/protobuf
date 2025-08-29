@@ -11,8 +11,8 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
     version: "1.0.0"
-    title: "Bible Activity server API"
-    description: "Bible Activity server API"
+    title: "Bible Annotation server API"
+    description: "Bible Annotation server API"
     contact: {
       name: "DuckyMomo20012"
       url: "https://github.com/DuckyMomo20012"
@@ -37,8 +37,8 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   }
 };
 
-// Activity service definition
-service ActivityService {
+// Annotation service definition
+service AnnotationService {
   // Retrieve all annotations for authenticated user
   rpc GetAllAnnotations(GetAllAnnotationsRequest) returns (GetAllAnnotationsResponse) {
     option (google.api.http) = {get: "/v1/annotation"};
@@ -159,6 +159,8 @@ message CreateAnnotationRequest {
     string target_id = 6;
     // Annotation target type
     AnnotationTargetType target_type = 7;
+    // Account ID
+    string account_id = 8;
   }
   // Request body
   Body body = 1;

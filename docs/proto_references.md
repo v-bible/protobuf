@@ -37,7 +37,7 @@
   
     - [AuthService](#account-v1-AuthService)
   
-- [activity/v1/activity.proto](#activity_v1_activity-proto)
+- [activity/v1/annotation.proto](#activity_v1_annotation-proto)
     - [Annotation](#activity-v1-Annotation)
     - [CreateAnnotationRequest](#activity-v1-CreateAnnotationRequest)
     - [CreateAnnotationRequest.Body](#activity-v1-CreateAnnotationRequest-Body)
@@ -55,7 +55,7 @@
     - [AnnotationKind](#activity-v1-AnnotationKind)
     - [AnnotationTargetType](#activity-v1-AnnotationTargetType)
   
-    - [ActivityService](#activity-v1-ActivityService)
+    - [AnnotationService](#activity-v1-AnnotationService)
   
 - [bible/v1/book.proto](#bible_v1_book-proto)
     - [Book](#bible-v1-Book)
@@ -561,10 +561,10 @@ Auth service definition
 
 
 
-<a name="activity_v1_activity-proto"></a>
+<a name="activity_v1_annotation-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## activity/v1/activity.proto
+## activity/v1/annotation.proto
 
 
 
@@ -623,6 +623,7 @@ Request body message
 | end_offset | [int32](#int32) |  | Annotation end offset. Starts from 0. |
 | target_id | [string](#string) |  | Annotation target ID |
 | target_type | [AnnotationTargetType](#activity-v1-AnnotationTargetType) |  | Annotation target type |
+| account_id | [string](#string) |  | Account ID |
 
 
 
@@ -821,10 +822,10 @@ Request body message
  
 
 
-<a name="activity-v1-ActivityService"></a>
+<a name="activity-v1-AnnotationService"></a>
 
-### ActivityService
-Activity service definition
+### AnnotationService
+Annotation service definition
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
