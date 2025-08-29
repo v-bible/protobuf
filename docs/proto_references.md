@@ -37,7 +37,7 @@
   
     - [AuthService](#account-v1-AuthService)
   
-- [activity/v1/activity.proto](#activity_v1_activity-proto)
+- [activity/v1/annotation.proto](#activity_v1_annotation-proto)
     - [Annotation](#activity-v1-Annotation)
     - [CreateAnnotationRequest](#activity-v1-CreateAnnotationRequest)
     - [CreateAnnotationRequest.Body](#activity-v1-CreateAnnotationRequest-Body)
@@ -55,7 +55,7 @@
     - [AnnotationKind](#activity-v1-AnnotationKind)
     - [AnnotationTargetType](#activity-v1-AnnotationTargetType)
   
-    - [ActivityService](#activity-v1-ActivityService)
+    - [AnnotationService](#activity-v1-AnnotationService)
   
 - [bible/v1/book.proto](#bible_v1_book-proto)
     - [Book](#bible-v1-Book)
@@ -561,10 +561,10 @@ Auth service definition
 
 
 
-<a name="activity_v1_activity-proto"></a>
+<a name="activity_v1_annotation-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## activity/v1/activity.proto
+## activity/v1/annotation.proto
 
 
 
@@ -623,6 +623,7 @@ Request body message
 | end_offset | [int32](#int32) |  | Annotation end offset. Starts from 0. |
 | target_id | [string](#string) |  | Annotation target ID |
 | target_type | [AnnotationTargetType](#activity-v1-AnnotationTargetType) |  | Annotation target type |
+| account_id | [string](#string) |  | Account ID |
 
 
 
@@ -683,9 +684,6 @@ Request body message
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | account_id | [string](#string) |  | Account ID filter (required) |
-| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
-| language | [string](#string) |  | Language code (required - part of unique constraint) |
-| source | [string](#string) |  | Source (required - part of unique constraint) |
 | target_id | [string](#string) | optional | Target ID filter (optional - filter by specific verse/heading) |
 | target_type | [AnnotationTargetType](#activity-v1-AnnotationTargetType) | optional | Target type filter (optional - filter by verse or heading) |
 
@@ -717,7 +715,8 @@ Request body message
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| annotation_id | [string](#string) |  | Annotation ID |
+| account_id | [string](#string) |  | Account ID filter (required) |
+| annotation_id | [string](#string) |  | Annotation ID (required) |
 
 
 
@@ -763,11 +762,12 @@ Request body message
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| annotation_id | [string](#string) |  | Annotation ID |
 | content | [string](#string) | optional | Annotation content |
-| kind | [AnnotationKind](#activity-v1-AnnotationKind) | optional | Annotation kind |
 | color | [string](#string) | optional | Annotation color |
 | start_offset | [int32](#int32) | optional | Annotation start offset. Starts from 0. |
 | end_offset | [int32](#int32) | optional | Annotation end offset. Starts from 0. |
+| account_id | [string](#string) |  | Account ID |
 
 
 
@@ -821,14 +821,14 @@ Request body message
  
 
 
-<a name="activity-v1-ActivityService"></a>
+<a name="activity-v1-AnnotationService"></a>
 
-### ActivityService
-Activity service definition
+### AnnotationService
+Annotation service definition
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| GetAllAnnotations | [GetAllAnnotationsRequest](#activity-v1-GetAllAnnotationsRequest) | [GetAllAnnotationsResponse](#activity-v1-GetAllAnnotationsResponse) | Retrieve all annotations for authenticated user |
+| GetAllAnnotation | [GetAllAnnotationsRequest](#activity-v1-GetAllAnnotationsRequest) | [GetAllAnnotationsResponse](#activity-v1-GetAllAnnotationsResponse) | Retrieve all annotations for authenticated user |
 | GetOneAnnotation | [GetOneAnnotationRequest](#activity-v1-GetOneAnnotationRequest) | [GetOneAnnotationResponse](#activity-v1-GetOneAnnotationResponse) | Retrieve one annotation by ID for authenticated user |
 | CreateAnnotation | [CreateAnnotationRequest](#activity-v1-CreateAnnotationRequest) | [CreateAnnotationResponse](#activity-v1-CreateAnnotationResponse) | Create one annotation for authenticated user |
 | UpdateAnnotation | [UpdateAnnotationRequest](#activity-v1-UpdateAnnotationRequest) | [UpdateAnnotationResponse](#activity-v1-UpdateAnnotationResponse) | Update one annotation by ID for authenticated user |
