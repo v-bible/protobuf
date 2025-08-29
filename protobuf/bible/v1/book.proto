@@ -142,31 +142,53 @@ message Verse {
   string chapter_id = 12;
 }
 
-message Footnote {
-  // Footnote ID
+enum MarkKind {
+  // Must be explicitly set - invalid default
+  MARK_KIND_UNSPECIFIED = 0;
+  // Footnote mark
+  MARK_KIND_FOOTNOTE = 1;
+  // Cross-reference mark
+  MARK_KIND_REFERENCE = 2;
+  // Words of Jesus mark
+  MARK_KIND_WORDS_OF_JESUS = 3;
+}
+
+enum MarkTargetType {
+  // Must be explicitly set - invalid default
+  MARK_TARGET_TYPE_UNSPECIFIED = 0;
+  // Verse target
+  MARK_TARGET_TYPE_VERSE = 1;
+  // Heading target
+  MARK_TARGET_TYPE_HEADING = 2;
+}
+
+message Mark {
+  // Mark ID
   string id = 1;
-  // Footnote text
-  string text = 2;
-  // Footnote type
-  string type = 3; // e.g. "footnote", "reference"
-  // Footnote label
+  // Mark content
+  string content = 2;
+  // Mark kind
+  MarkKind kind = 3;
+  // Mark label
   string label = 4;
-  // Footnote sort order. Starts from 0.
+  // Mark sort order. Starts from 0.
   int32 sort_order = 5;
-  // Footnote position. Starts from 0.
-  int32 position = 6;
-  // Footnote creation time
+  // Mark start offset. Starts from 0.
+  int32 start_offset = 6;
+  // Mark end offset. Starts from 0.
+  int32 end_offset = 7;
+  // Mark creation time
   // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp created_at = 7;
-  // Footnote last update time
+  google.protobuf.Timestamp created_at = 8;
+  // Mark last update time
   // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp updated_at = 8;
-  // Footnote verse ID
-  optional string verse_id = 9;
-  // Footnote heading ID
-  optional string heading_id = 10;
-  // Footnote chapter ID
-  string chapter_id = 11;
+  google.protobuf.Timestamp updated_at = 9;
+  // Mark target ID
+  string target_id = 10;
+  // Mark target type
+  MarkTargetType target_type = 11;
+  // Mark chapter ID
+  string chapter_id = 12;
 }
 
 message Heading {
@@ -205,28 +227,6 @@ message PsalmMetadata {
   google.protobuf.Timestamp updated_at = 5;
   // Psalm chapter ID
   string chapter_id = 6;
-}
-
-message WordsOfJesus {
-  // Words of Jesus ID
-  string id = 1;
-  // Words of Jesus text start index
-  int32 text_start = 2;
-  // Words of Jesus text end index
-  int32 text_end = 3;
-  // Quotation text
-  string quotation_text = 4;
-  // Quotation sort order. Starts from 0.
-  int32 sort_order = 5;
-  // Stored in UTC and follows RFC 3339 format
-  google.protobuf.Timestamp created_at = 6;
-  // Psalm last update time
-  // Stored in UTC and follows RFC
-  google.protobuf.Timestamp updated_at = 7;
-  // Words of Jesus verse ID
-  string verse_id = 8;
-  // Words of Jesus chapter ID
-  string chapter_id = 9;
 }
 
 message GetAllBookRequest {
@@ -279,16 +279,14 @@ message GetOneChapterResponse {
   Chapter chapter = 1;
   // Chapter verses
   repeated Verse verses = 2;
-  // Chapter footnotes
-  repeated Footnote footnotes = 3;
+  // Chapter marks
+  repeated Mark marks = 3;
   // Chapter headings
   repeated Heading headings = 4;
   // Chapter psalm metadata
   repeated PsalmMetadata psalm_metadata = 5;
-  // Chapter words of Jesus
-  repeated WordsOfJesus words_of_jesus = 6;
   // Book object for context
-  Book book = 7;
+  Book book = 6;
 }
 
 message GetOneChapterTextRequest {
@@ -345,14 +343,12 @@ message GetBiblicalReferenceResponse {
   repeated Chapter chapters = 1;
   // Referenced verses
   repeated Verse verses = 2;
-  // Related footnotes
-  repeated Footnote footnotes = 3;
+  // Related marks
+  repeated Mark marks = 3;
   // Related headings
   repeated Heading headings = 4;
   // Chapter psalm metadata
   repeated PsalmMetadata psalm_metadata = 5;
-  // Words of Jesus quotations
-  repeated WordsOfJesus words_of_jesus = 6;
 }
 
 message GetBiblicalReferenceTextRequest {

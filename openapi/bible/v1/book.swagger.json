@@ -601,60 +601,6 @@
         }
       }
     },
-    "v1Footnote": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "title": "Footnote ID"
-        },
-        "text": {
-          "type": "string",
-          "title": "Footnote text"
-        },
-        "type": {
-          "type": "string",
-          "description": "e.g. \"footnote\", \"reference\"",
-          "title": "Footnote type"
-        },
-        "label": {
-          "type": "string",
-          "title": "Footnote label"
-        },
-        "sortOrder": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Footnote sort order. Starts from 0."
-        },
-        "position": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Footnote position. Starts from 0."
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Footnote creation time\nStored in UTC and follows RFC 3339 format"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Footnote last update time\nStored in UTC and follows RFC 3339 format"
-        },
-        "verseId": {
-          "type": "string",
-          "title": "Footnote verse ID"
-        },
-        "headingId": {
-          "type": "string",
-          "title": "Footnote heading ID"
-        },
-        "chapterId": {
-          "type": "string",
-          "title": "Footnote chapter ID"
-        }
-      }
-    },
     "v1GetAllBookResponse": {
       "type": "object",
       "properties": {
@@ -696,13 +642,13 @@
           },
           "title": "Referenced verses"
         },
-        "footnotes": {
+        "marks": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/v1Footnote"
+            "$ref": "#/definitions/v1Mark"
           },
-          "title": "Related footnotes"
+          "title": "Related marks"
         },
         "headings": {
           "type": "array",
@@ -719,14 +665,6 @@
             "$ref": "#/definitions/v1PsalmMetadata"
           },
           "title": "Chapter psalm metadata"
-        },
-        "wordsOfJesus": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/v1WordsOfJesus"
-          },
-          "title": "Words of Jesus quotations"
         }
       }
     },
@@ -772,13 +710,13 @@
           },
           "title": "Chapter verses"
         },
-        "footnotes": {
+        "marks": {
           "type": "array",
           "items": {
             "type": "object",
-            "$ref": "#/definitions/v1Footnote"
+            "$ref": "#/definitions/v1Mark"
           },
-          "title": "Chapter footnotes"
+          "title": "Chapter marks"
         },
         "headings": {
           "type": "array",
@@ -795,14 +733,6 @@
             "$ref": "#/definitions/v1PsalmMetadata"
           },
           "title": "Chapter psalm metadata"
-        },
-        "wordsOfJesus": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "$ref": "#/definitions/v1WordsOfJesus"
-          },
-          "title": "Chapter words of Jesus"
         },
         "book": {
           "$ref": "#/definitions/v1Book",
@@ -859,6 +789,85 @@
           "title": "Heading chapter ID"
         }
       }
+    },
+    "v1Mark": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "title": "Mark ID"
+        },
+        "content": {
+          "type": "string",
+          "title": "Mark content"
+        },
+        "kind": {
+          "$ref": "#/definitions/v1MarkKind",
+          "title": "Mark kind"
+        },
+        "label": {
+          "type": "string",
+          "title": "Mark label"
+        },
+        "sortOrder": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Mark sort order. Starts from 0."
+        },
+        "startOffset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Mark start offset. Starts from 0."
+        },
+        "endOffset": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Mark end offset. Starts from 0."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Mark creation time\nStored in UTC and follows RFC 3339 format"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "title": "Mark last update time\nStored in UTC and follows RFC 3339 format"
+        },
+        "targetId": {
+          "type": "string",
+          "title": "Mark target ID"
+        },
+        "targetType": {
+          "$ref": "#/definitions/v1MarkTargetType",
+          "title": "Mark target type"
+        },
+        "chapterId": {
+          "type": "string",
+          "title": "Mark chapter ID"
+        }
+      }
+    },
+    "v1MarkKind": {
+      "type": "string",
+      "enum": [
+        "MARK_KIND_UNSPECIFIED",
+        "MARK_KIND_FOOTNOTE",
+        "MARK_KIND_REFERENCE",
+        "MARK_KIND_WORDS_OF_JESUS"
+      ],
+      "default": "MARK_KIND_UNSPECIFIED",
+      "title": "- MARK_KIND_UNSPECIFIED: Must be explicitly set - invalid default\n - MARK_KIND_FOOTNOTE: Footnote mark\n - MARK_KIND_REFERENCE: Cross-reference mark\n - MARK_KIND_WORDS_OF_JESUS: Words of Jesus mark"
+    },
+    "v1MarkTargetType": {
+      "type": "string",
+      "enum": [
+        "MARK_TARGET_TYPE_UNSPECIFIED",
+        "MARK_TARGET_TYPE_VERSE",
+        "MARK_TARGET_TYPE_HEADING"
+      ],
+      "default": "MARK_TARGET_TYPE_UNSPECIFIED",
+      "title": "- MARK_TARGET_TYPE_UNSPECIFIED: Must be explicitly set - invalid default\n - MARK_TARGET_TYPE_VERSE: Verse target\n - MARK_TARGET_TYPE_HEADING: Heading target"
     },
     "v1PsalmMetadata": {
       "type": "object",
@@ -948,52 +957,6 @@
         "chapterId": {
           "type": "string",
           "title": "Verse chapter ID"
-        }
-      }
-    },
-    "v1WordsOfJesus": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string",
-          "title": "Words of Jesus ID"
-        },
-        "textStart": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Words of Jesus text start index"
-        },
-        "textEnd": {
-          "type": "integer",
-          "format": "int32",
-          "title": "Words of Jesus text end index"
-        },
-        "quotationText": {
-          "type": "string",
-          "title": "Quotation text"
-        },
-        "sortOrder": {
-          "type": "integer",
-          "format": "int32",
-          "description": "Quotation sort order. Starts from 0."
-        },
-        "createdAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Stored in UTC and follows RFC 3339 format"
-        },
-        "updatedAt": {
-          "type": "string",
-          "format": "date-time",
-          "title": "Psalm last update time\nStored in UTC and follows RFC"
-        },
-        "verseId": {
-          "type": "string",
-          "title": "Words of Jesus verse ID"
-        },
-        "chapterId": {
-          "type": "string",
-          "title": "Words of Jesus chapter ID"
         }
       }
     }

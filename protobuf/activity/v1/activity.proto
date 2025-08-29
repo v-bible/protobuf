@@ -1,0 +1,205 @@
+syntax = "proto3";
+
+package activity.v1;
+
+import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+// Ref:
+// https://grpc-ecosystem.github.io/grpc-gateway/docs/development/grpc-gateway_v2_migration_guide/
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+  info: {
+    version: "1.0.0"
+    title: "Bible Activity server API"
+    description: "Bible Activity server API"
+    contact: {
+      name: "DuckyMomo20012"
+      url: "https://github.com/DuckyMomo20012"
+    }
+  }
+  // NOTE: This is default mount point in internal/common/server/gateway.go
+  base_path: "/api"
+
+  security_definitions: {
+    security: {
+      key: "bearer"
+      value: {
+        type: TYPE_API_KEY
+        in: IN_HEADER
+        name: "Authorization"
+        description: "Authentication token, prefixed by Bearer: Bearer <token>"
+      }
+    }
+  }
+  security: {
+    security_requirement: {key: "bearer"}
+  }
+};
+
+// Activity service definition
+service ActivityService {
+  // Retrieve all annotations for authenticated user
+  rpc GetAllAnnotations(GetAllAnnotationsRequest) returns (GetAllAnnotationsResponse) {
+    option (google.api.http) = {get: "/v1/annotation"};
+  }
+  // Retrieve one annotation by ID for authenticated user
+  rpc GetOneAnnotation(GetOneAnnotationRequest) returns (GetOneAnnotationResponse) {
+    option (google.api.http) = {get: "/v1/annotation/{annotation_id}"};
+  }
+  // Create one annotation for authenticated user
+  rpc CreateAnnotation(CreateAnnotationRequest) returns (CreateAnnotationResponse) {
+    option (google.api.http) = {
+      post: "/v1/annotation"
+      body: "body"
+    };
+  }
+  // Update one annotation by ID for authenticated user
+  rpc UpdateAnnotation(UpdateAnnotationRequest) returns (UpdateAnnotationResponse) {
+    option (google.api.http) = {
+      put: "/v1/annotation/{annotation_id}"
+      body: "body"
+    };
+  }
+  // Delete one annotation by ID for authenticated user
+  rpc DeleteAnnotation(DeleteAnnotationRequest) returns (DeleteAnnotationResponse) {
+    option (google.api.http) = {delete: "/v1/annotation/{annotation_id}"};
+  }
+}
+
+enum AnnotationKind {
+  // Must be explicitly set - invalid default
+  ANNOTATION_KIND_UNSPECIFIED = 0;
+  // Highlight annotation
+  ANNOTATION_KIND_HIGHLIGHT = 1;
+  // Note annotation
+  ANNOTATION_KIND_NOTE = 2;
+}
+
+enum AnnotationTargetType {
+  // Must be explicitly set - invalid default
+  ANNOTATION_TARGET_TYPE_UNSPECIFIED = 0;
+  // Verse target
+  ANNOTATION_TARGET_TYPE_VERSE = 1;
+  // Heading target
+  ANNOTATION_TARGET_TYPE_HEADING = 2;
+}
+
+message Annotation {
+  // Annotation ID
+  string id = 1;
+  // Annotation content
+  string content = 2;
+  // Annotation kind
+  AnnotationKind kind = 3;
+  // Annotation color
+  string color = 4;
+  // Annotation start offset. Starts from 0.
+  int32 start_offset = 5;
+  // Annotation end offset. Starts from 0.
+  int32 end_offset = 6;
+  // Annotation creation time
+  // Stored in UTC and follows RFC 3339 format
+  google.protobuf.Timestamp created_at = 7;
+  // Annotation last update time
+  // Stored in UTC and follows RFC 3339 format
+  google.protobuf.Timestamp updated_at = 8;
+  // Annotation target ID
+  string target_id = 9;
+  // Annotation target type
+  AnnotationTargetType target_type = 10;
+  // Account ID
+  string account_id = 11;
+}
+
+message GetAllAnnotationsRequest {
+  // Account ID filter (required)
+  string account_id = 1;
+  // Version code (required - part of unique constraint)
+  string version_code = 2;
+  // Language code (required - part of unique constraint)
+  string language = 3;
+  // Source (required - part of unique constraint)
+  string source = 4;
+  // Target ID filter (optional - filter by specific verse/heading)
+  optional string target_id = 5;
+  // Target type filter (optional - filter by verse or heading)
+  optional AnnotationTargetType target_type = 6;
+}
+
+message GetAllAnnotationsResponse {
+  // Annotation list
+  repeated Annotation annotations = 1;
+}
+
+message GetOneAnnotationRequest {
+  // Annotation ID
+  string annotation_id = 1;
+}
+
+message GetOneAnnotationResponse {
+  // Annotation object
+  Annotation annotation = 1;
+}
+
+message CreateAnnotationRequest {
+  // Request body message
+  message Body {
+    // Annotation content
+    string content = 1;
+    // Annotation kind
+    AnnotationKind kind = 2;
+    // Annotation color
+    string color = 3;
+    // Annotation start offset. Starts from 0.
+    int32 start_offset = 4;
+    // Annotation end offset. Starts from 0.
+    int32 end_offset = 5;
+    // Annotation target ID
+    string target_id = 6;
+    // Annotation target type
+    AnnotationTargetType target_type = 7;
+  }
+  // Request body
+  Body body = 1;
+}
+
+message CreateAnnotationResponse {
+  // Created annotation object
+  Annotation annotation = 1;
+}
+
+message UpdateAnnotationRequest {
+  // Request body message
+  message Body {
+    // Annotation content
+    optional string content = 1;
+    // Annotation kind
+    optional AnnotationKind kind = 2;
+    // Annotation color
+    optional string color = 3;
+    // Annotation start offset. Starts from 0.
+    optional int32 start_offset = 4;
+    // Annotation end offset. Starts from 0.
+    optional int32 end_offset = 5;
+  }
+  // Annotation ID
+  string annotation_id = 1;
+  // Request body
+  Body body = 2;
+}
+
+message UpdateAnnotationResponse {
+  // Updated annotation object
+  Annotation annotation = 1;
+}
+
+message DeleteAnnotationRequest {
+  // Annotation ID
+  string annotation_id = 1;
+}
+
+message DeleteAnnotationResponse {
+  // Deleted annotation object
+  Annotation annotation = 1;
+}

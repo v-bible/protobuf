@@ -37,10 +37,29 @@
   
     - [AuthService](#account-v1-AuthService)
   
+- [activity/v1/activity.proto](#activity_v1_activity-proto)
+    - [Annotation](#activity-v1-Annotation)
+    - [CreateAnnotationRequest](#activity-v1-CreateAnnotationRequest)
+    - [CreateAnnotationRequest.Body](#activity-v1-CreateAnnotationRequest-Body)
+    - [CreateAnnotationResponse](#activity-v1-CreateAnnotationResponse)
+    - [DeleteAnnotationRequest](#activity-v1-DeleteAnnotationRequest)
+    - [DeleteAnnotationResponse](#activity-v1-DeleteAnnotationResponse)
+    - [GetAllAnnotationsRequest](#activity-v1-GetAllAnnotationsRequest)
+    - [GetAllAnnotationsResponse](#activity-v1-GetAllAnnotationsResponse)
+    - [GetOneAnnotationRequest](#activity-v1-GetOneAnnotationRequest)
+    - [GetOneAnnotationResponse](#activity-v1-GetOneAnnotationResponse)
+    - [UpdateAnnotationRequest](#activity-v1-UpdateAnnotationRequest)
+    - [UpdateAnnotationRequest.Body](#activity-v1-UpdateAnnotationRequest-Body)
+    - [UpdateAnnotationResponse](#activity-v1-UpdateAnnotationResponse)
+  
+    - [AnnotationKind](#activity-v1-AnnotationKind)
+    - [AnnotationTargetType](#activity-v1-AnnotationTargetType)
+  
+    - [ActivityService](#activity-v1-ActivityService)
+  
 - [bible/v1/book.proto](#bible_v1_book-proto)
     - [Book](#bible-v1-Book)
     - [Chapter](#bible-v1-Chapter)
-    - [Footnote](#bible-v1-Footnote)
     - [GetAllBookRequest](#bible-v1-GetAllBookRequest)
     - [GetAllBookResponse](#bible-v1-GetAllBookResponse)
     - [GetBiblicalReferenceHtmlRequest](#bible-v1-GetBiblicalReferenceHtmlRequest)
@@ -58,9 +77,12 @@
     - [GetOneChapterTextRequest](#bible-v1-GetOneChapterTextRequest)
     - [GetOneChapterTextResponse](#bible-v1-GetOneChapterTextResponse)
     - [Heading](#bible-v1-Heading)
+    - [Mark](#bible-v1-Mark)
     - [PsalmMetadata](#bible-v1-PsalmMetadata)
     - [Verse](#bible-v1-Verse)
-    - [WordsOfJesus](#bible-v1-WordsOfJesus)
+  
+    - [MarkKind](#bible-v1-MarkKind)
+    - [MarkTargetType](#bible-v1-MarkTargetType)
   
     - [BookService](#bible-v1-BookService)
   
@@ -539,6 +561,283 @@ Auth service definition
 
 
 
+<a name="activity_v1_activity-proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## activity/v1/activity.proto
+
+
+
+<a name="activity-v1-Annotation"></a>
+
+### Annotation
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Annotation ID |
+| content | [string](#string) |  | Annotation content |
+| kind | [AnnotationKind](#activity-v1-AnnotationKind) |  | Annotation kind |
+| color | [string](#string) |  | Annotation color |
+| start_offset | [int32](#int32) |  | Annotation start offset. Starts from 0. |
+| end_offset | [int32](#int32) |  | Annotation end offset. Starts from 0. |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Annotation creation time Stored in UTC and follows RFC 3339 format |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Annotation last update time Stored in UTC and follows RFC 3339 format |
+| target_id | [string](#string) |  | Annotation target ID |
+| target_type | [AnnotationTargetType](#activity-v1-AnnotationTargetType) |  | Annotation target type |
+| account_id | [string](#string) |  | Account ID |
+
+
+
+
+
+
+<a name="activity-v1-CreateAnnotationRequest"></a>
+
+### CreateAnnotationRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| body | [CreateAnnotationRequest.Body](#activity-v1-CreateAnnotationRequest-Body) |  | Request body |
+
+
+
+
+
+
+<a name="activity-v1-CreateAnnotationRequest-Body"></a>
+
+### CreateAnnotationRequest.Body
+Request body message
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| content | [string](#string) |  | Annotation content |
+| kind | [AnnotationKind](#activity-v1-AnnotationKind) |  | Annotation kind |
+| color | [string](#string) |  | Annotation color |
+| start_offset | [int32](#int32) |  | Annotation start offset. Starts from 0. |
+| end_offset | [int32](#int32) |  | Annotation end offset. Starts from 0. |
+| target_id | [string](#string) |  | Annotation target ID |
+| target_type | [AnnotationTargetType](#activity-v1-AnnotationTargetType) |  | Annotation target type |
+
+
+
+
+
+
+<a name="activity-v1-CreateAnnotationResponse"></a>
+
+### CreateAnnotationResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation | [Annotation](#activity-v1-Annotation) |  | Created annotation object |
+
+
+
+
+
+
+<a name="activity-v1-DeleteAnnotationRequest"></a>
+
+### DeleteAnnotationRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation_id | [string](#string) |  | Annotation ID |
+
+
+
+
+
+
+<a name="activity-v1-DeleteAnnotationResponse"></a>
+
+### DeleteAnnotationResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation | [Annotation](#activity-v1-Annotation) |  | Deleted annotation object |
+
+
+
+
+
+
+<a name="activity-v1-GetAllAnnotationsRequest"></a>
+
+### GetAllAnnotationsRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| account_id | [string](#string) |  | Account ID filter (required) |
+| version_code | [string](#string) |  | Version code (required - part of unique constraint) |
+| language | [string](#string) |  | Language code (required - part of unique constraint) |
+| source | [string](#string) |  | Source (required - part of unique constraint) |
+| target_id | [string](#string) | optional | Target ID filter (optional - filter by specific verse/heading) |
+| target_type | [AnnotationTargetType](#activity-v1-AnnotationTargetType) | optional | Target type filter (optional - filter by verse or heading) |
+
+
+
+
+
+
+<a name="activity-v1-GetAllAnnotationsResponse"></a>
+
+### GetAllAnnotationsResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotations | [Annotation](#activity-v1-Annotation) | repeated | Annotation list |
+
+
+
+
+
+
+<a name="activity-v1-GetOneAnnotationRequest"></a>
+
+### GetOneAnnotationRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation_id | [string](#string) |  | Annotation ID |
+
+
+
+
+
+
+<a name="activity-v1-GetOneAnnotationResponse"></a>
+
+### GetOneAnnotationResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation | [Annotation](#activity-v1-Annotation) |  | Annotation object |
+
+
+
+
+
+
+<a name="activity-v1-UpdateAnnotationRequest"></a>
+
+### UpdateAnnotationRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation_id | [string](#string) |  | Annotation ID |
+| body | [UpdateAnnotationRequest.Body](#activity-v1-UpdateAnnotationRequest-Body) |  | Request body |
+
+
+
+
+
+
+<a name="activity-v1-UpdateAnnotationRequest-Body"></a>
+
+### UpdateAnnotationRequest.Body
+Request body message
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| content | [string](#string) | optional | Annotation content |
+| kind | [AnnotationKind](#activity-v1-AnnotationKind) | optional | Annotation kind |
+| color | [string](#string) | optional | Annotation color |
+| start_offset | [int32](#int32) | optional | Annotation start offset. Starts from 0. |
+| end_offset | [int32](#int32) | optional | Annotation end offset. Starts from 0. |
+
+
+
+
+
+
+<a name="activity-v1-UpdateAnnotationResponse"></a>
+
+### UpdateAnnotationResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| annotation | [Annotation](#activity-v1-Annotation) |  | Updated annotation object |
+
+
+
+
+
+ 
+
+
+<a name="activity-v1-AnnotationKind"></a>
+
+### AnnotationKind
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ANNOTATION_KIND_UNSPECIFIED | 0 | Must be explicitly set - invalid default |
+| ANNOTATION_KIND_HIGHLIGHT | 1 | Highlight annotation |
+| ANNOTATION_KIND_NOTE | 2 | Note annotation |
+
+
+
+<a name="activity-v1-AnnotationTargetType"></a>
+
+### AnnotationTargetType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ANNOTATION_TARGET_TYPE_UNSPECIFIED | 0 | Must be explicitly set - invalid default |
+| ANNOTATION_TARGET_TYPE_VERSE | 1 | Verse target |
+| ANNOTATION_TARGET_TYPE_HEADING | 2 | Heading target |
+
+
+ 
+
+ 
+
+
+<a name="activity-v1-ActivityService"></a>
+
+### ActivityService
+Activity service definition
+
+| Method Name | Request Type | Response Type | Description |
+| ----------- | ------------ | ------------- | ------------|
+| GetAllAnnotations | [GetAllAnnotationsRequest](#activity-v1-GetAllAnnotationsRequest) | [GetAllAnnotationsResponse](#activity-v1-GetAllAnnotationsResponse) | Retrieve all annotations for authenticated user |
+| GetOneAnnotation | [GetOneAnnotationRequest](#activity-v1-GetOneAnnotationRequest) | [GetOneAnnotationResponse](#activity-v1-GetOneAnnotationResponse) | Retrieve one annotation by ID for authenticated user |
+| CreateAnnotation | [CreateAnnotationRequest](#activity-v1-CreateAnnotationRequest) | [CreateAnnotationResponse](#activity-v1-CreateAnnotationResponse) | Create one annotation for authenticated user |
+| UpdateAnnotation | [UpdateAnnotationRequest](#activity-v1-UpdateAnnotationRequest) | [UpdateAnnotationResponse](#activity-v1-UpdateAnnotationResponse) | Update one annotation by ID for authenticated user |
+| DeleteAnnotation | [DeleteAnnotationRequest](#activity-v1-DeleteAnnotationRequest) | [DeleteAnnotationResponse](#activity-v1-DeleteAnnotationResponse) | Delete one annotation by ID for authenticated user |
+
+ 
+
+
+
 <a name="bible_v1_book-proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
@@ -583,33 +882,6 @@ Auth service definition
 | created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Chapter creation time Stored in UTC and follows RFC 3339 format |
 | updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Chapter last update time Stored in UTC and follows RFC 3339 format |
 | book_id | [string](#string) |  | Book ID |
-
-
-
-
-
-
-<a name="bible-v1-Footnote"></a>
-
-### Footnote
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Footnote ID |
-| text | [string](#string) |  | Footnote text |
-| type | [string](#string) |  | Footnote type
-
-e.g. &#34;footnote&#34;, &#34;reference&#34; |
-| label | [string](#string) |  | Footnote label |
-| sort_order | [int32](#int32) |  | Footnote sort order. Starts from 0. |
-| position | [int32](#int32) |  | Footnote position. Starts from 0. |
-| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Footnote creation time Stored in UTC and follows RFC 3339 format |
-| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Footnote last update time Stored in UTC and follows RFC 3339 format |
-| verse_id | [string](#string) | optional | Footnote verse ID |
-| heading_id | [string](#string) | optional | Footnote heading ID |
-| chapter_id | [string](#string) |  | Footnote chapter ID |
 
 
 
@@ -712,10 +984,9 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 | ----- | ---- | ----- | ----------- |
 | chapters | [Chapter](#bible-v1-Chapter) | repeated | Referenced chapters |
 | verses | [Verse](#bible-v1-Verse) | repeated | Referenced verses |
-| footnotes | [Footnote](#bible-v1-Footnote) | repeated | Related footnotes |
+| marks | [Mark](#bible-v1-Mark) | repeated | Related marks |
 | headings | [Heading](#bible-v1-Heading) | repeated | Related headings |
 | psalm_metadata | [PsalmMetadata](#bible-v1-PsalmMetadata) | repeated | Chapter psalm metadata |
-| words_of_jesus | [WordsOfJesus](#bible-v1-WordsOfJesus) | repeated | Words of Jesus quotations |
 
 
 
@@ -852,10 +1123,9 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 | ----- | ---- | ----- | ----------- |
 | chapter | [Chapter](#bible-v1-Chapter) |  | Chapter object |
 | verses | [Verse](#bible-v1-Verse) | repeated | Chapter verses |
-| footnotes | [Footnote](#bible-v1-Footnote) | repeated | Chapter footnotes |
+| marks | [Mark](#bible-v1-Mark) | repeated | Chapter marks |
 | headings | [Heading](#bible-v1-Heading) | repeated | Chapter headings |
 | psalm_metadata | [PsalmMetadata](#bible-v1-PsalmMetadata) | repeated | Chapter psalm metadata |
-| words_of_jesus | [WordsOfJesus](#bible-v1-WordsOfJesus) | repeated | Chapter words of Jesus |
 | book | [Book](#bible-v1-Book) |  | Book object for context |
 
 
@@ -919,6 +1189,32 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 
 
 
+<a name="bible-v1-Mark"></a>
+
+### Mark
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | Mark ID |
+| content | [string](#string) |  | Mark content |
+| kind | [MarkKind](#bible-v1-MarkKind) |  | Mark kind |
+| label | [string](#string) |  | Mark label |
+| sort_order | [int32](#int32) |  | Mark sort order. Starts from 0. |
+| start_offset | [int32](#int32) |  | Mark start offset. Starts from 0. |
+| end_offset | [int32](#int32) |  | Mark end offset. Starts from 0. |
+| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Mark creation time Stored in UTC and follows RFC 3339 format |
+| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Mark last update time Stored in UTC and follows RFC 3339 format |
+| target_id | [string](#string) |  | Mark target ID |
+| target_type | [MarkTargetType](#bible-v1-MarkTargetType) |  | Mark target type |
+| chapter_id | [string](#string) |  | Mark chapter ID |
+
+
+
+
+
+
 <a name="bible-v1-PsalmMetadata"></a>
 
 ### PsalmMetadata
@@ -964,30 +1260,34 @@ e.g. &#34;footnote&#34;, &#34;reference&#34; |
 
 
 
-
-<a name="bible-v1-WordsOfJesus"></a>
-
-### WordsOfJesus
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | Words of Jesus ID |
-| text_start | [int32](#int32) |  | Words of Jesus text start index |
-| text_end | [int32](#int32) |  | Words of Jesus text end index |
-| quotation_text | [string](#string) |  | Quotation text |
-| sort_order | [int32](#int32) |  | Quotation sort order. Starts from 0. |
-| created_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Stored in UTC and follows RFC 3339 format |
-| updated_at | [google.protobuf.Timestamp](#google-protobuf-Timestamp) |  | Psalm last update time Stored in UTC and follows RFC |
-| verse_id | [string](#string) |  | Words of Jesus verse ID |
-| chapter_id | [string](#string) |  | Words of Jesus chapter ID |
-
-
-
-
-
  
+
+
+<a name="bible-v1-MarkKind"></a>
+
+### MarkKind
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| MARK_KIND_UNSPECIFIED | 0 | Must be explicitly set - invalid default |
+| MARK_KIND_FOOTNOTE | 1 | Footnote mark |
+| MARK_KIND_REFERENCE | 2 | Cross-reference mark |
+| MARK_KIND_WORDS_OF_JESUS | 3 | Words of Jesus mark |
+
+
+
+<a name="bible-v1-MarkTargetType"></a>
+
+### MarkTargetType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| MARK_TARGET_TYPE_UNSPECIFIED | 0 | Must be explicitly set - invalid default |
+| MARK_TARGET_TYPE_VERSE | 1 | Verse target |
+| MARK_TARGET_TYPE_HEADING | 2 | Heading target |
+
 
  
 
