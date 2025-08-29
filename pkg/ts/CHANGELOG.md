@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.6.3](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.6.2...pkg/ts/v0.6.3) (2025-08-29)
+
+
+### Bug Fixes
+
+* add activity service ([9daaa12](https://github.com/v-bible/protobuf/commit/9daaa12f5f59b568061934f7ee9e24e48cecec4a))
+* merge into mark message ([2faa9b8](https://github.com/v-bible/protobuf/commit/2faa9b850460fc810f5ad2b79f0e8c57ba747e8b))
+* merge into mark message ([5455561](https://github.com/v-bible/protobuf/commit/54555619a8a5860dabebd9888673e723a21dc1e3))
+
 ## [0.6.2](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.6.1...pkg/ts/v0.6.2) (2025-08-16)
 
 
