@@ -4,6 +4,7 @@
 
 export * from "./account/v1/account_pb";
 export * from "./account/v1/auth_pb";
+export * from "./activity/v1/annotation_pb";
 export * from "./bible/v1/book_pb";
 export * from "./bible/v1/version_pb";
 export * from "./google/api/annotations_pb";

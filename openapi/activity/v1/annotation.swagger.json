@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Bible Activity server API",
-    "description": "Bible Activity server API",
+    "title": "Bible Annotation server API",
+    "description": "Bible Annotation server API",
     "version": "1.0.0",
     "contact": {
       "name": "DuckyMomo20012",
@@ -11,7 +11,7 @@
   },
   "tags": [
     {
-      "name": "ActivityService"
+      "name": "AnnotationService"
     }
   ],
   "basePath": "/api",
@@ -25,7 +25,7 @@
     "/v1/annotation": {
       "get": {
         "summary": "Retrieve all annotations for authenticated user",
-        "operationId": "ActivityService_GetAllAnnotations",
+        "operationId": "AnnotationService_GetAllAnnotation",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -44,27 +44,6 @@
           {
             "name": "accountId",
             "description": "Account ID filter (required)",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "versionCode",
-            "description": "Version code (required - part of unique constraint)",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "language",
-            "description": "Language code (required - part of unique constraint)",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "source",
-            "description": "Source (required - part of unique constraint)",
             "in": "query",
             "required": false,
             "type": "string"
@@ -91,12 +70,12 @@
           }
         ],
         "tags": [
-          "ActivityService"
+          "AnnotationService"
         ]
       },
       "post": {
         "summary": "Create one annotation for authenticated user",
-        "operationId": "ActivityService_CreateAnnotation",
+        "operationId": "AnnotationService_CreateAnnotation",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -123,14 +102,14 @@
           }
         ],
         "tags": [
-          "ActivityService"
+          "AnnotationService"
         ]
       }
     },
     "/v1/annotation/{annotationId}": {
       "get": {
         "summary": "Retrieve one annotation by ID for authenticated user",
-        "operationId": "ActivityService_GetOneAnnotation",
+        "operationId": "AnnotationService_GetOneAnnotation",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -148,19 +127,26 @@
         "parameters": [
           {
             "name": "annotationId",
-            "description": "Annotation ID",
+            "description": "Annotation ID (required)",
             "in": "path",
             "required": true,
+            "type": "string"
+          },
+          {
+            "name": "accountId",
+            "description": "Account ID filter (required)",
+            "in": "query",
+            "required": false,
             "type": "string"
           }
         ],
         "tags": [
-          "ActivityService"
+          "AnnotationService"
         ]
       },
       "delete": {
         "summary": "Delete one annotation by ID for authenticated user",
-        "operationId": "ActivityService_DeleteAnnotation",
+        "operationId": "AnnotationService_DeleteAnnotation",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -185,12 +171,12 @@
           }
         ],
         "tags": [
-          "ActivityService"
+          "AnnotationService"
         ]
       },
       "put": {
         "summary": "Update one annotation by ID for authenticated user",
-        "operationId": "ActivityService_UpdateAnnotation",
+        "operationId": "AnnotationService_UpdateAnnotation",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -224,7 +210,7 @@
           }
         ],
         "tags": [
-          "ActivityService"
+          "AnnotationService"
         ]
       }
     }
@@ -363,6 +349,10 @@
         "targetType": {
           "$ref": "#/definitions/v1AnnotationTargetType",
           "title": "Annotation target type"
+        },
+        "accountId": {
+          "type": "string",
+          "title": "Account ID"
         }
       },
       "title": "Request body message"
@@ -410,13 +400,13 @@
     "v1UpdateAnnotationRequestBody": {
       "type": "object",
       "properties": {
+        "annotationId": {
+          "type": "string",
+          "title": "Annotation ID"
+        },
         "content": {
           "type": "string",
           "title": "Annotation content"
-        },
-        "kind": {
-          "$ref": "#/definitions/v1AnnotationKind",
-          "title": "Annotation kind"
         },
         "color": {
           "type": "string",
@@ -431,6 +421,10 @@
           "type": "integer",
           "format": "int32",
           "description": "Annotation end offset. Starts from 0."
+        },
+        "accountId": {
+          "type": "string",
+          "title": "Account ID"
         }
       },
       "title": "Request body message"

@@ -11,8 +11,8 @@ import "protoc-gen-openapiv2/options/annotations.proto";
 option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   info: {
     version: "1.0.0"
-    title: "Bible Activity server API"
-    description: "Bible Activity server API"
+    title: "Bible Annotation server API"
+    description: "Bible Annotation server API"
     contact: {
       name: "DuckyMomo20012"
       url: "https://github.com/DuckyMomo20012"
@@ -37,10 +37,10 @@ option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
   }
 };
 
-// Activity service definition
-service ActivityService {
+// Annotation service definition
+service AnnotationService {
   // Retrieve all annotations for authenticated user
-  rpc GetAllAnnotations(GetAllAnnotationsRequest) returns (GetAllAnnotationsResponse) {
+  rpc GetAllAnnotation(GetAllAnnotationsRequest) returns (GetAllAnnotationsResponse) {
     option (google.api.http) = {get: "/v1/annotation"};
   }
   // Retrieve one annotation by ID for authenticated user
@@ -115,16 +115,10 @@ message Annotation {
 message GetAllAnnotationsRequest {
   // Account ID filter (required)
   string account_id = 1;
-  // Version code (required - part of unique constraint)
-  string version_code = 2;
-  // Language code (required - part of unique constraint)
-  string language = 3;
-  // Source (required - part of unique constraint)
-  string source = 4;
   // Target ID filter (optional - filter by specific verse/heading)
-  optional string target_id = 5;
+  optional string target_id = 2;
   // Target type filter (optional - filter by verse or heading)
-  optional AnnotationTargetType target_type = 6;
+  optional AnnotationTargetType target_type = 3;
 }
 
 message GetAllAnnotationsResponse {
@@ -133,8 +127,10 @@ message GetAllAnnotationsResponse {
 }
 
 message GetOneAnnotationRequest {
-  // Annotation ID
-  string annotation_id = 1;
+  // Account ID filter (required)
+  string account_id = 1;
+  // Annotation ID (required)
+  string annotation_id = 2;
 }
 
 message GetOneAnnotationResponse {
@@ -159,6 +155,8 @@ message CreateAnnotationRequest {
     string target_id = 6;
     // Annotation target type
     AnnotationTargetType target_type = 7;
+    // Account ID
+    string account_id = 8;
   }
   // Request body
   Body body = 1;
@@ -172,16 +170,18 @@ message CreateAnnotationResponse {
 message UpdateAnnotationRequest {
   // Request body message
   message Body {
+    // Annotation ID
+    string annotation_id = 1;
     // Annotation content
-    optional string content = 1;
-    // Annotation kind
-    optional AnnotationKind kind = 2;
+    optional string content = 2;
     // Annotation color
-    optional string color = 3;
+    optional string color = 4;
     // Annotation start offset. Starts from 0.
-    optional int32 start_offset = 4;
+    optional int32 start_offset = 5;
     // Annotation end offset. Starts from 0.
-    optional int32 end_offset = 5;
+    optional int32 end_offset = 6;
+    // Account ID
+    string account_id = 7;
   }
   // Annotation ID
   string annotation_id = 1;

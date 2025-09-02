@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.8
 // 	protoc        (unknown)
-// source: activity/v1/activity.proto
+// source: activity/v1/annotation.proto
 
 package activityv1
 
@@ -60,11 +60,11 @@ func (x AnnotationKind) String() string {
 }
 
 func (AnnotationKind) Descriptor() protoreflect.EnumDescriptor {
-	return file_activity_v1_activity_proto_enumTypes[0].Descriptor()
+	return file_activity_v1_annotation_proto_enumTypes[0].Descriptor()
 }
 
 func (AnnotationKind) Type() protoreflect.EnumType {
-	return &file_activity_v1_activity_proto_enumTypes[0]
+	return &file_activity_v1_annotation_proto_enumTypes[0]
 }
 
 func (x AnnotationKind) Number() protoreflect.EnumNumber {
@@ -73,7 +73,7 @@ func (x AnnotationKind) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AnnotationKind.Descriptor instead.
 func (AnnotationKind) EnumDescriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{0}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{0}
 }
 
 type AnnotationTargetType int32
@@ -112,11 +112,11 @@ func (x AnnotationTargetType) String() string {
 }
 
 func (AnnotationTargetType) Descriptor() protoreflect.EnumDescriptor {
-	return file_activity_v1_activity_proto_enumTypes[1].Descriptor()
+	return file_activity_v1_annotation_proto_enumTypes[1].Descriptor()
 }
 
 func (AnnotationTargetType) Type() protoreflect.EnumType {
-	return &file_activity_v1_activity_proto_enumTypes[1]
+	return &file_activity_v1_annotation_proto_enumTypes[1]
 }
 
 func (x AnnotationTargetType) Number() protoreflect.EnumNumber {
@@ -125,7 +125,7 @@ func (x AnnotationTargetType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AnnotationTargetType.Descriptor instead.
 func (AnnotationTargetType) EnumDescriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{1}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{1}
 }
 
 type Annotation struct {
@@ -160,7 +160,7 @@ type Annotation struct {
 
 func (x *Annotation) Reset() {
 	*x = Annotation{}
-	mi := &file_activity_v1_activity_proto_msgTypes[0]
+	mi := &file_activity_v1_annotation_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -172,7 +172,7 @@ func (x *Annotation) String() string {
 func (*Annotation) ProtoMessage() {}
 
 func (x *Annotation) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[0]
+	mi := &file_activity_v1_annotation_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -185,7 +185,7 @@ func (x *Annotation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Annotation.ProtoReflect.Descriptor instead.
 func (*Annotation) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{0}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Annotation) GetId() string {
@@ -269,23 +269,17 @@ type GetAllAnnotationsRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Account ID filter (required)
 	AccountId string `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
-	// Version code (required - part of unique constraint)
-	VersionCode string `protobuf:"bytes,2,opt,name=version_code,json=versionCode,proto3" json:"version_code,omitempty"`
-	// Language code (required - part of unique constraint)
-	Language string `protobuf:"bytes,3,opt,name=language,proto3" json:"language,omitempty"`
-	// Source (required - part of unique constraint)
-	Source string `protobuf:"bytes,4,opt,name=source,proto3" json:"source,omitempty"`
 	// Target ID filter (optional - filter by specific verse/heading)
-	TargetId *string `protobuf:"bytes,5,opt,name=target_id,json=targetId,proto3,oneof" json:"target_id,omitempty"`
+	TargetId *string `protobuf:"bytes,2,opt,name=target_id,json=targetId,proto3,oneof" json:"target_id,omitempty"`
 	// Target type filter (optional - filter by verse or heading)
-	TargetType    *AnnotationTargetType `protobuf:"varint,6,opt,name=target_type,json=targetType,proto3,enum=activity.v1.AnnotationTargetType,oneof" json:"target_type,omitempty"`
+	TargetType    *AnnotationTargetType `protobuf:"varint,3,opt,name=target_type,json=targetType,proto3,enum=activity.v1.AnnotationTargetType,oneof" json:"target_type,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetAllAnnotationsRequest) Reset() {
 	*x = GetAllAnnotationsRequest{}
-	mi := &file_activity_v1_activity_proto_msgTypes[1]
+	mi := &file_activity_v1_annotation_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -297,7 +291,7 @@ func (x *GetAllAnnotationsRequest) String() string {
 func (*GetAllAnnotationsRequest) ProtoMessage() {}
 
 func (x *GetAllAnnotationsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[1]
+	mi := &file_activity_v1_annotation_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -310,33 +304,12 @@ func (x *GetAllAnnotationsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllAnnotationsRequest.ProtoReflect.Descriptor instead.
 func (*GetAllAnnotationsRequest) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{1}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GetAllAnnotationsRequest) GetAccountId() string {
 	if x != nil {
 		return x.AccountId
-	}
-	return ""
-}
-
-func (x *GetAllAnnotationsRequest) GetVersionCode() string {
-	if x != nil {
-		return x.VersionCode
-	}
-	return ""
-}
-
-func (x *GetAllAnnotationsRequest) GetLanguage() string {
-	if x != nil {
-		return x.Language
-	}
-	return ""
-}
-
-func (x *GetAllAnnotationsRequest) GetSource() string {
-	if x != nil {
-		return x.Source
 	}
 	return ""
 }
@@ -365,7 +338,7 @@ type GetAllAnnotationsResponse struct {
 
 func (x *GetAllAnnotationsResponse) Reset() {
 	*x = GetAllAnnotationsResponse{}
-	mi := &file_activity_v1_activity_proto_msgTypes[2]
+	mi := &file_activity_v1_annotation_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -377,7 +350,7 @@ func (x *GetAllAnnotationsResponse) String() string {
 func (*GetAllAnnotationsResponse) ProtoMessage() {}
 
 func (x *GetAllAnnotationsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[2]
+	mi := &file_activity_v1_annotation_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -390,7 +363,7 @@ func (x *GetAllAnnotationsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAllAnnotationsResponse.ProtoReflect.Descriptor instead.
 func (*GetAllAnnotationsResponse) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{2}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetAllAnnotationsResponse) GetAnnotations() []*Annotation {
@@ -402,15 +375,17 @@ func (x *GetAllAnnotationsResponse) GetAnnotations() []*Annotation {
 
 type GetOneAnnotationRequest struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
-	// Annotation ID
-	AnnotationId  string `protobuf:"bytes,1,opt,name=annotation_id,json=annotationId,proto3" json:"annotation_id,omitempty"`
+	// Account ID filter (required)
+	AccountId string `protobuf:"bytes,1,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
+	// Annotation ID (required)
+	AnnotationId  string `protobuf:"bytes,2,opt,name=annotation_id,json=annotationId,proto3" json:"annotation_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *GetOneAnnotationRequest) Reset() {
 	*x = GetOneAnnotationRequest{}
-	mi := &file_activity_v1_activity_proto_msgTypes[3]
+	mi := &file_activity_v1_annotation_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -422,7 +397,7 @@ func (x *GetOneAnnotationRequest) String() string {
 func (*GetOneAnnotationRequest) ProtoMessage() {}
 
 func (x *GetOneAnnotationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[3]
+	mi := &file_activity_v1_annotation_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -435,7 +410,14 @@ func (x *GetOneAnnotationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneAnnotationRequest.ProtoReflect.Descriptor instead.
 func (*GetOneAnnotationRequest) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{3}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetOneAnnotationRequest) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
 }
 
 func (x *GetOneAnnotationRequest) GetAnnotationId() string {
@@ -455,7 +437,7 @@ type GetOneAnnotationResponse struct {
 
 func (x *GetOneAnnotationResponse) Reset() {
 	*x = GetOneAnnotationResponse{}
-	mi := &file_activity_v1_activity_proto_msgTypes[4]
+	mi := &file_activity_v1_annotation_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -467,7 +449,7 @@ func (x *GetOneAnnotationResponse) String() string {
 func (*GetOneAnnotationResponse) ProtoMessage() {}
 
 func (x *GetOneAnnotationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[4]
+	mi := &file_activity_v1_annotation_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -480,7 +462,7 @@ func (x *GetOneAnnotationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneAnnotationResponse.ProtoReflect.Descriptor instead.
 func (*GetOneAnnotationResponse) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{4}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetOneAnnotationResponse) GetAnnotation() *Annotation {
@@ -500,7 +482,7 @@ type CreateAnnotationRequest struct {
 
 func (x *CreateAnnotationRequest) Reset() {
 	*x = CreateAnnotationRequest{}
-	mi := &file_activity_v1_activity_proto_msgTypes[5]
+	mi := &file_activity_v1_annotation_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -512,7 +494,7 @@ func (x *CreateAnnotationRequest) String() string {
 func (*CreateAnnotationRequest) ProtoMessage() {}
 
 func (x *CreateAnnotationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[5]
+	mi := &file_activity_v1_annotation_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -525,7 +507,7 @@ func (x *CreateAnnotationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAnnotationRequest.ProtoReflect.Descriptor instead.
 func (*CreateAnnotationRequest) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{5}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CreateAnnotationRequest) GetBody() *CreateAnnotationRequest_Body {
@@ -545,7 +527,7 @@ type CreateAnnotationResponse struct {
 
 func (x *CreateAnnotationResponse) Reset() {
 	*x = CreateAnnotationResponse{}
-	mi := &file_activity_v1_activity_proto_msgTypes[6]
+	mi := &file_activity_v1_annotation_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -557,7 +539,7 @@ func (x *CreateAnnotationResponse) String() string {
 func (*CreateAnnotationResponse) ProtoMessage() {}
 
 func (x *CreateAnnotationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[6]
+	mi := &file_activity_v1_annotation_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -570,7 +552,7 @@ func (x *CreateAnnotationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAnnotationResponse.ProtoReflect.Descriptor instead.
 func (*CreateAnnotationResponse) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{6}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *CreateAnnotationResponse) GetAnnotation() *Annotation {
@@ -592,7 +574,7 @@ type UpdateAnnotationRequest struct {
 
 func (x *UpdateAnnotationRequest) Reset() {
 	*x = UpdateAnnotationRequest{}
-	mi := &file_activity_v1_activity_proto_msgTypes[7]
+	mi := &file_activity_v1_annotation_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -604,7 +586,7 @@ func (x *UpdateAnnotationRequest) String() string {
 func (*UpdateAnnotationRequest) ProtoMessage() {}
 
 func (x *UpdateAnnotationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[7]
+	mi := &file_activity_v1_annotation_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -617,7 +599,7 @@ func (x *UpdateAnnotationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAnnotationRequest.ProtoReflect.Descriptor instead.
 func (*UpdateAnnotationRequest) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{7}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *UpdateAnnotationRequest) GetAnnotationId() string {
@@ -644,7 +626,7 @@ type UpdateAnnotationResponse struct {
 
 func (x *UpdateAnnotationResponse) Reset() {
 	*x = UpdateAnnotationResponse{}
-	mi := &file_activity_v1_activity_proto_msgTypes[8]
+	mi := &file_activity_v1_annotation_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -656,7 +638,7 @@ func (x *UpdateAnnotationResponse) String() string {
 func (*UpdateAnnotationResponse) ProtoMessage() {}
 
 func (x *UpdateAnnotationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[8]
+	mi := &file_activity_v1_annotation_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -669,7 +651,7 @@ func (x *UpdateAnnotationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAnnotationResponse.ProtoReflect.Descriptor instead.
 func (*UpdateAnnotationResponse) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{8}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *UpdateAnnotationResponse) GetAnnotation() *Annotation {
@@ -689,7 +671,7 @@ type DeleteAnnotationRequest struct {
 
 func (x *DeleteAnnotationRequest) Reset() {
 	*x = DeleteAnnotationRequest{}
-	mi := &file_activity_v1_activity_proto_msgTypes[9]
+	mi := &file_activity_v1_annotation_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -701,7 +683,7 @@ func (x *DeleteAnnotationRequest) String() string {
 func (*DeleteAnnotationRequest) ProtoMessage() {}
 
 func (x *DeleteAnnotationRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[9]
+	mi := &file_activity_v1_annotation_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -714,7 +696,7 @@ func (x *DeleteAnnotationRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAnnotationRequest.ProtoReflect.Descriptor instead.
 func (*DeleteAnnotationRequest) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{9}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *DeleteAnnotationRequest) GetAnnotationId() string {
@@ -734,7 +716,7 @@ type DeleteAnnotationResponse struct {
 
 func (x *DeleteAnnotationResponse) Reset() {
 	*x = DeleteAnnotationResponse{}
-	mi := &file_activity_v1_activity_proto_msgTypes[10]
+	mi := &file_activity_v1_annotation_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -746,7 +728,7 @@ func (x *DeleteAnnotationResponse) String() string {
 func (*DeleteAnnotationResponse) ProtoMessage() {}
 
 func (x *DeleteAnnotationResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[10]
+	mi := &file_activity_v1_annotation_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -759,7 +741,7 @@ func (x *DeleteAnnotationResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAnnotationResponse.ProtoReflect.Descriptor instead.
 func (*DeleteAnnotationResponse) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{10}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DeleteAnnotationResponse) GetAnnotation() *Annotation {
@@ -785,14 +767,16 @@ type CreateAnnotationRequest_Body struct {
 	// Annotation target ID
 	TargetId string `protobuf:"bytes,6,opt,name=target_id,json=targetId,proto3" json:"target_id,omitempty"`
 	// Annotation target type
-	TargetType    AnnotationTargetType `protobuf:"varint,7,opt,name=target_type,json=targetType,proto3,enum=activity.v1.AnnotationTargetType" json:"target_type,omitempty"`
+	TargetType AnnotationTargetType `protobuf:"varint,7,opt,name=target_type,json=targetType,proto3,enum=activity.v1.AnnotationTargetType" json:"target_type,omitempty"`
+	// Account ID
+	AccountId     string `protobuf:"bytes,8,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CreateAnnotationRequest_Body) Reset() {
 	*x = CreateAnnotationRequest_Body{}
-	mi := &file_activity_v1_activity_proto_msgTypes[11]
+	mi := &file_activity_v1_annotation_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -804,7 +788,7 @@ func (x *CreateAnnotationRequest_Body) String() string {
 func (*CreateAnnotationRequest_Body) ProtoMessage() {}
 
 func (x *CreateAnnotationRequest_Body) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[11]
+	mi := &file_activity_v1_annotation_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -817,7 +801,7 @@ func (x *CreateAnnotationRequest_Body) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAnnotationRequest_Body.ProtoReflect.Descriptor instead.
 func (*CreateAnnotationRequest_Body) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{5, 0}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{5, 0}
 }
 
 func (x *CreateAnnotationRequest_Body) GetContent() string {
@@ -869,26 +853,35 @@ func (x *CreateAnnotationRequest_Body) GetTargetType() AnnotationTargetType {
 	return AnnotationTargetType_ANNOTATION_TARGET_TYPE_UNSPECIFIED
 }
 
+func (x *CreateAnnotationRequest_Body) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
+}
+
 // Request body message
 type UpdateAnnotationRequest_Body struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
+	// Annotation ID
+	AnnotationId string `protobuf:"bytes,1,opt,name=annotation_id,json=annotationId,proto3" json:"annotation_id,omitempty"`
 	// Annotation content
-	Content *string `protobuf:"bytes,1,opt,name=content,proto3,oneof" json:"content,omitempty"`
-	// Annotation kind
-	Kind *AnnotationKind `protobuf:"varint,2,opt,name=kind,proto3,enum=activity.v1.AnnotationKind,oneof" json:"kind,omitempty"`
+	Content *string `protobuf:"bytes,2,opt,name=content,proto3,oneof" json:"content,omitempty"`
 	// Annotation color
-	Color *string `protobuf:"bytes,3,opt,name=color,proto3,oneof" json:"color,omitempty"`
+	Color *string `protobuf:"bytes,4,opt,name=color,proto3,oneof" json:"color,omitempty"`
 	// Annotation start offset. Starts from 0.
-	StartOffset *int32 `protobuf:"varint,4,opt,name=start_offset,json=startOffset,proto3,oneof" json:"start_offset,omitempty"`
+	StartOffset *int32 `protobuf:"varint,5,opt,name=start_offset,json=startOffset,proto3,oneof" json:"start_offset,omitempty"`
 	// Annotation end offset. Starts from 0.
-	EndOffset     *int32 `protobuf:"varint,5,opt,name=end_offset,json=endOffset,proto3,oneof" json:"end_offset,omitempty"`
+	EndOffset *int32 `protobuf:"varint,6,opt,name=end_offset,json=endOffset,proto3,oneof" json:"end_offset,omitempty"`
+	// Account ID
+	AccountId     string `protobuf:"bytes,7,opt,name=account_id,json=accountId,proto3" json:"account_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *UpdateAnnotationRequest_Body) Reset() {
 	*x = UpdateAnnotationRequest_Body{}
-	mi := &file_activity_v1_activity_proto_msgTypes[12]
+	mi := &file_activity_v1_annotation_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -900,7 +893,7 @@ func (x *UpdateAnnotationRequest_Body) String() string {
 func (*UpdateAnnotationRequest_Body) ProtoMessage() {}
 
 func (x *UpdateAnnotationRequest_Body) ProtoReflect() protoreflect.Message {
-	mi := &file_activity_v1_activity_proto_msgTypes[12]
+	mi := &file_activity_v1_annotation_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -913,7 +906,14 @@ func (x *UpdateAnnotationRequest_Body) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAnnotationRequest_Body.ProtoReflect.Descriptor instead.
 func (*UpdateAnnotationRequest_Body) Descriptor() ([]byte, []int) {
-	return file_activity_v1_activity_proto_rawDescGZIP(), []int{7, 0}
+	return file_activity_v1_annotation_proto_rawDescGZIP(), []int{7, 0}
+}
+
+func (x *UpdateAnnotationRequest_Body) GetAnnotationId() string {
+	if x != nil {
+		return x.AnnotationId
+	}
+	return ""
 }
 
 func (x *UpdateAnnotationRequest_Body) GetContent() string {
@@ -921,13 +921,6 @@ func (x *UpdateAnnotationRequest_Body) GetContent() string {
 		return *x.Content
 	}
 	return ""
-}
-
-func (x *UpdateAnnotationRequest_Body) GetKind() AnnotationKind {
-	if x != nil && x.Kind != nil {
-		return *x.Kind
-	}
-	return AnnotationKind_ANNOTATION_KIND_UNSPECIFIED
 }
 
 func (x *UpdateAnnotationRequest_Body) GetColor() string {
@@ -951,11 +944,18 @@ func (x *UpdateAnnotationRequest_Body) GetEndOffset() int32 {
 	return 0
 }
 
-var File_activity_v1_activity_proto protoreflect.FileDescriptor
+func (x *UpdateAnnotationRequest_Body) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
+}
 
-const file_activity_v1_activity_proto_rawDesc = "" +
+var File_activity_v1_annotation_proto protoreflect.FileDescriptor
+
+const file_activity_v1_annotation_proto_rawDesc = "" +
 	"\n" +
-	"\x1aactivity/v1/activity.proto\x12\vactivity.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"\xb5\x03\n" +
+	"\x1cactivity/v1/annotation.proto\x12\vactivity.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a.protoc-gen-openapiv2/options/annotations.proto\"\xb5\x03\n" +
 	"\n" +
 	"Annotation\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x18\n" +
@@ -974,29 +974,28 @@ const file_activity_v1_activity_proto_rawDesc = "" +
 	" \x01(\x0e2!.activity.v1.AnnotationTargetTypeR\n" +
 	"targetType\x12\x1d\n" +
 	"\n" +
-	"account_id\x18\v \x01(\tR\taccountId\"\x99\x02\n" +
+	"account_id\x18\v \x01(\tR\taccountId\"\xc2\x01\n" +
 	"\x18GetAllAnnotationsRequest\x12\x1d\n" +
 	"\n" +
-	"account_id\x18\x01 \x01(\tR\taccountId\x12!\n" +
-	"\fversion_code\x18\x02 \x01(\tR\vversionCode\x12\x1a\n" +
-	"\blanguage\x18\x03 \x01(\tR\blanguage\x12\x16\n" +
-	"\x06source\x18\x04 \x01(\tR\x06source\x12 \n" +
-	"\ttarget_id\x18\x05 \x01(\tH\x00R\btargetId\x88\x01\x01\x12G\n" +
-	"\vtarget_type\x18\x06 \x01(\x0e2!.activity.v1.AnnotationTargetTypeH\x01R\n" +
+	"account_id\x18\x01 \x01(\tR\taccountId\x12 \n" +
+	"\ttarget_id\x18\x02 \x01(\tH\x00R\btargetId\x88\x01\x01\x12G\n" +
+	"\vtarget_type\x18\x03 \x01(\x0e2!.activity.v1.AnnotationTargetTypeH\x01R\n" +
 	"targetType\x88\x01\x01B\f\n" +
 	"\n" +
 	"_target_idB\x0e\n" +
 	"\f_target_type\"V\n" +
 	"\x19GetAllAnnotationsResponse\x129\n" +
-	"\vannotations\x18\x01 \x03(\v2\x17.activity.v1.AnnotationR\vannotations\">\n" +
-	"\x17GetOneAnnotationRequest\x12#\n" +
-	"\rannotation_id\x18\x01 \x01(\tR\fannotationId\"S\n" +
+	"\vannotations\x18\x01 \x03(\v2\x17.activity.v1.AnnotationR\vannotations\"]\n" +
+	"\x17GetOneAnnotationRequest\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\x01 \x01(\tR\taccountId\x12#\n" +
+	"\rannotation_id\x18\x02 \x01(\tR\fannotationId\"S\n" +
 	"\x18GetOneAnnotationResponse\x127\n" +
 	"\n" +
 	"annotation\x18\x01 \x01(\v2\x17.activity.v1.AnnotationR\n" +
-	"annotation\"\xe5\x02\n" +
+	"annotation\"\x84\x03\n" +
 	"\x17CreateAnnotationRequest\x12=\n" +
-	"\x04body\x18\x01 \x01(\v2).activity.v1.CreateAnnotationRequest.BodyR\x04body\x1a\x8a\x02\n" +
+	"\x04body\x18\x01 \x01(\v2).activity.v1.CreateAnnotationRequest.BodyR\x04body\x1a\xa9\x02\n" +
 	"\x04Body\x12\x18\n" +
 	"\acontent\x18\x01 \x01(\tR\acontent\x12/\n" +
 	"\x04kind\x18\x02 \x01(\x0e2\x1b.activity.v1.AnnotationKindR\x04kind\x12\x14\n" +
@@ -1006,24 +1005,27 @@ const file_activity_v1_activity_proto_rawDesc = "" +
 	"end_offset\x18\x05 \x01(\x05R\tendOffset\x12\x1b\n" +
 	"\ttarget_id\x18\x06 \x01(\tR\btargetId\x12B\n" +
 	"\vtarget_type\x18\a \x01(\x0e2!.activity.v1.AnnotationTargetTypeR\n" +
-	"targetType\"S\n" +
+	"targetType\x12\x1d\n" +
+	"\n" +
+	"account_id\x18\b \x01(\tR\taccountId\"S\n" +
 	"\x18CreateAnnotationResponse\x127\n" +
 	"\n" +
 	"annotation\x18\x01 \x01(\v2\x17.activity.v1.AnnotationR\n" +
-	"annotation\"\x81\x03\n" +
+	"annotation\"\x86\x03\n" +
 	"\x17UpdateAnnotationRequest\x12#\n" +
 	"\rannotation_id\x18\x01 \x01(\tR\fannotationId\x12=\n" +
-	"\x04body\x18\x02 \x01(\v2).activity.v1.UpdateAnnotationRequest.BodyR\x04body\x1a\x81\x02\n" +
-	"\x04Body\x12\x1d\n" +
-	"\acontent\x18\x01 \x01(\tH\x00R\acontent\x88\x01\x01\x124\n" +
-	"\x04kind\x18\x02 \x01(\x0e2\x1b.activity.v1.AnnotationKindH\x01R\x04kind\x88\x01\x01\x12\x19\n" +
-	"\x05color\x18\x03 \x01(\tH\x02R\x05color\x88\x01\x01\x12&\n" +
-	"\fstart_offset\x18\x04 \x01(\x05H\x03R\vstartOffset\x88\x01\x01\x12\"\n" +
+	"\x04body\x18\x02 \x01(\v2).activity.v1.UpdateAnnotationRequest.BodyR\x04body\x1a\x86\x02\n" +
+	"\x04Body\x12#\n" +
+	"\rannotation_id\x18\x01 \x01(\tR\fannotationId\x12\x1d\n" +
+	"\acontent\x18\x02 \x01(\tH\x00R\acontent\x88\x01\x01\x12\x19\n" +
+	"\x05color\x18\x04 \x01(\tH\x01R\x05color\x88\x01\x01\x12&\n" +
+	"\fstart_offset\x18\x05 \x01(\x05H\x02R\vstartOffset\x88\x01\x01\x12\"\n" +
 	"\n" +
-	"end_offset\x18\x05 \x01(\x05H\x04R\tendOffset\x88\x01\x01B\n" +
+	"end_offset\x18\x06 \x01(\x05H\x03R\tendOffset\x88\x01\x01\x12\x1d\n" +
 	"\n" +
-	"\b_contentB\a\n" +
-	"\x05_kindB\b\n" +
+	"account_id\x18\a \x01(\tR\taccountIdB\n" +
+	"\n" +
+	"\b_contentB\b\n" +
 	"\x06_colorB\x0f\n" +
 	"\r_start_offsetB\r\n" +
 	"\v_end_offset\"S\n" +
@@ -1044,37 +1046,37 @@ const file_activity_v1_activity_proto_rawDesc = "" +
 	"\x14AnnotationTargetType\x12&\n" +
 	"\"ANNOTATION_TARGET_TYPE_UNSPECIFIED\x10\x00\x12 \n" +
 	"\x1cANNOTATION_TARGET_TYPE_VERSE\x10\x01\x12\"\n" +
-	"\x1eANNOTATION_TARGET_TYPE_HEADING\x10\x022\xb0\x05\n" +
-	"\x0fActivityService\x12z\n" +
-	"\x11GetAllAnnotations\x12%.activity.v1.GetAllAnnotationsRequest\x1a&.activity.v1.GetAllAnnotationsResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/v1/annotation\x12\x87\x01\n" +
+	"\x1eANNOTATION_TARGET_TYPE_HEADING\x10\x022\xb1\x05\n" +
+	"\x11AnnotationService\x12y\n" +
+	"\x10GetAllAnnotation\x12%.activity.v1.GetAllAnnotationsRequest\x1a&.activity.v1.GetAllAnnotationsResponse\"\x16\x82\xd3\xe4\x93\x02\x10\x12\x0e/v1/annotation\x12\x87\x01\n" +
 	"\x10GetOneAnnotation\x12$.activity.v1.GetOneAnnotationRequest\x1a%.activity.v1.GetOneAnnotationResponse\"&\x82\xd3\xe4\x93\x02 \x12\x1e/v1/annotation/{annotation_id}\x12}\n" +
 	"\x10CreateAnnotation\x12$.activity.v1.CreateAnnotationRequest\x1a%.activity.v1.CreateAnnotationResponse\"\x1c\x82\xd3\xe4\x93\x02\x16:\x04body\"\x0e/v1/annotation\x12\x8d\x01\n" +
 	"\x10UpdateAnnotation\x12$.activity.v1.UpdateAnnotationRequest\x1a%.activity.v1.UpdateAnnotationResponse\",\x82\xd3\xe4\x93\x02&:\x04body\x1a\x1e/v1/annotation/{annotation_id}\x12\x87\x01\n" +
-	"\x10DeleteAnnotation\x12$.activity.v1.DeleteAnnotationRequest\x1a%.activity.v1.DeleteAnnotationResponse\"&\x82\xd3\xe4\x93\x02 *\x1e/v1/annotation/{annotation_id}B\x92\x03\x92A\xe3\x01\x12r\n" +
-	"\x19Bible Activity server API\x12\x19Bible Activity server API\"3\n" +
+	"\x10DeleteAnnotation\x12$.activity.v1.DeleteAnnotationRequest\x1a%.activity.v1.DeleteAnnotationResponse\"&\x82\xd3\xe4\x93\x02 *\x1e/v1/annotation/{annotation_id}B\x98\x03\x92A\xe7\x01\x12v\n" +
+	"\x1bBible Annotation server API\x12\x1bBible Annotation server API\"3\n" +
 	"\x0eDuckyMomo20012\x12!https://github.com/DuckyMomo200122\x051.0.0\"\x04/apiZY\n" +
 	"W\n" +
 	"\x06bearer\x12M\b\x02\x128Authentication token, prefixed by Bearer: Bearer <token>\x1a\rAuthorization \x02b\f\n" +
 	"\n" +
 	"\n" +
 	"\x06bearer\x12\x00\n" +
-	"\x0fcom.activity.v1B\rActivityProtoP\x01Z<github.com/v-bible/protobuf/pkg/proto/activity/v1;activityv1\xa2\x02\x03AXX\xaa\x02\vActivity.V1\xca\x02\vActivity\\V1\xe2\x02\x17Activity\\V1\\GPBMetadata\xea\x02\fActivity::V1b\x06proto3"
+	"\x0fcom.activity.v1B\x0fAnnotationProtoP\x01Z<github.com/v-bible/protobuf/pkg/proto/activity/v1;activityv1\xa2\x02\x03AXX\xaa\x02\vActivity.V1\xca\x02\vActivity\\V1\xe2\x02\x17Activity\\V1\\GPBMetadata\xea\x02\fActivity::V1b\x06proto3"
 
 var (
-	file_activity_v1_activity_proto_rawDescOnce sync.Once
-	file_activity_v1_activity_proto_rawDescData []byte
+	file_activity_v1_annotation_proto_rawDescOnce sync.Once
+	file_activity_v1_annotation_proto_rawDescData []byte
 )
 
-func file_activity_v1_activity_proto_rawDescGZIP() []byte {
-	file_activity_v1_activity_proto_rawDescOnce.Do(func() {
-		file_activity_v1_activity_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_activity_v1_activity_proto_rawDesc), len(file_activity_v1_activity_proto_rawDesc)))
+func file_activity_v1_annotation_proto_rawDescGZIP() []byte {
+	file_activity_v1_annotation_proto_rawDescOnce.Do(func() {
+		file_activity_v1_annotation_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_activity_v1_annotation_proto_rawDesc), len(file_activity_v1_annotation_proto_rawDesc)))
 	})
-	return file_activity_v1_activity_proto_rawDescData
+	return file_activity_v1_annotation_proto_rawDescData
 }
 
-var file_activity_v1_activity_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_activity_v1_activity_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
-var file_activity_v1_activity_proto_goTypes = []any{
+var file_activity_v1_annotation_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_activity_v1_annotation_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
+var file_activity_v1_annotation_proto_goTypes = []any{
 	(AnnotationKind)(0),                  // 0: activity.v1.AnnotationKind
 	(AnnotationTargetType)(0),            // 1: activity.v1.AnnotationTargetType
 	(*Annotation)(nil),                   // 2: activity.v1.Annotation
@@ -1092,7 +1094,7 @@ var file_activity_v1_activity_proto_goTypes = []any{
 	(*UpdateAnnotationRequest_Body)(nil), // 14: activity.v1.UpdateAnnotationRequest.Body
 	(*timestamppb.Timestamp)(nil),        // 15: google.protobuf.Timestamp
 }
-var file_activity_v1_activity_proto_depIdxs = []int32{
+var file_activity_v1_annotation_proto_depIdxs = []int32{
 	0,  // 0: activity.v1.Annotation.kind:type_name -> activity.v1.AnnotationKind
 	15, // 1: activity.v1.Annotation.created_at:type_name -> google.protobuf.Timestamp
 	15, // 2: activity.v1.Annotation.updated_at:type_name -> google.protobuf.Timestamp
@@ -1107,47 +1109,46 @@ var file_activity_v1_activity_proto_depIdxs = []int32{
 	2,  // 11: activity.v1.DeleteAnnotationResponse.annotation:type_name -> activity.v1.Annotation
 	0,  // 12: activity.v1.CreateAnnotationRequest.Body.kind:type_name -> activity.v1.AnnotationKind
 	1,  // 13: activity.v1.CreateAnnotationRequest.Body.target_type:type_name -> activity.v1.AnnotationTargetType
-	0,  // 14: activity.v1.UpdateAnnotationRequest.Body.kind:type_name -> activity.v1.AnnotationKind
-	3,  // 15: activity.v1.ActivityService.GetAllAnnotations:input_type -> activity.v1.GetAllAnnotationsRequest
-	5,  // 16: activity.v1.ActivityService.GetOneAnnotation:input_type -> activity.v1.GetOneAnnotationRequest
-	7,  // 17: activity.v1.ActivityService.CreateAnnotation:input_type -> activity.v1.CreateAnnotationRequest
-	9,  // 18: activity.v1.ActivityService.UpdateAnnotation:input_type -> activity.v1.UpdateAnnotationRequest
-	11, // 19: activity.v1.ActivityService.DeleteAnnotation:input_type -> activity.v1.DeleteAnnotationRequest
-	4,  // 20: activity.v1.ActivityService.GetAllAnnotations:output_type -> activity.v1.GetAllAnnotationsResponse
-	6,  // 21: activity.v1.ActivityService.GetOneAnnotation:output_type -> activity.v1.GetOneAnnotationResponse
-	8,  // 22: activity.v1.ActivityService.CreateAnnotation:output_type -> activity.v1.CreateAnnotationResponse
-	10, // 23: activity.v1.ActivityService.UpdateAnnotation:output_type -> activity.v1.UpdateAnnotationResponse
-	12, // 24: activity.v1.ActivityService.DeleteAnnotation:output_type -> activity.v1.DeleteAnnotationResponse
-	20, // [20:25] is the sub-list for method output_type
-	15, // [15:20] is the sub-list for method input_type
-	15, // [15:15] is the sub-list for extension type_name
-	15, // [15:15] is the sub-list for extension extendee
-	0,  // [0:15] is the sub-list for field type_name
+	3,  // 14: activity.v1.AnnotationService.GetAllAnnotation:input_type -> activity.v1.GetAllAnnotationsRequest
+	5,  // 15: activity.v1.AnnotationService.GetOneAnnotation:input_type -> activity.v1.GetOneAnnotationRequest
+	7,  // 16: activity.v1.AnnotationService.CreateAnnotation:input_type -> activity.v1.CreateAnnotationRequest
+	9,  // 17: activity.v1.AnnotationService.UpdateAnnotation:input_type -> activity.v1.UpdateAnnotationRequest
+	11, // 18: activity.v1.AnnotationService.DeleteAnnotation:input_type -> activity.v1.DeleteAnnotationRequest
+	4,  // 19: activity.v1.AnnotationService.GetAllAnnotation:output_type -> activity.v1.GetAllAnnotationsResponse
+	6,  // 20: activity.v1.AnnotationService.GetOneAnnotation:output_type -> activity.v1.GetOneAnnotationResponse
+	8,  // 21: activity.v1.AnnotationService.CreateAnnotation:output_type -> activity.v1.CreateAnnotationResponse
+	10, // 22: activity.v1.AnnotationService.UpdateAnnotation:output_type -> activity.v1.UpdateAnnotationResponse
+	12, // 23: activity.v1.AnnotationService.DeleteAnnotation:output_type -> activity.v1.DeleteAnnotationResponse
+	19, // [19:24] is the sub-list for method output_type
+	14, // [14:19] is the sub-list for method input_type
+	14, // [14:14] is the sub-list for extension type_name
+	14, // [14:14] is the sub-list for extension extendee
+	0,  // [0:14] is the sub-list for field type_name
 }
 
-func init() { file_activity_v1_activity_proto_init() }
-func file_activity_v1_activity_proto_init() {
-	if File_activity_v1_activity_proto != nil {
+func init() { file_activity_v1_annotation_proto_init() }
+func file_activity_v1_annotation_proto_init() {
+	if File_activity_v1_annotation_proto != nil {
 		return
 	}
-	file_activity_v1_activity_proto_msgTypes[1].OneofWrappers = []any{}
-	file_activity_v1_activity_proto_msgTypes[12].OneofWrappers = []any{}
+	file_activity_v1_annotation_proto_msgTypes[1].OneofWrappers = []any{}
+	file_activity_v1_annotation_proto_msgTypes[12].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_activity_v1_activity_proto_rawDesc), len(file_activity_v1_activity_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_activity_v1_annotation_proto_rawDesc), len(file_activity_v1_annotation_proto_rawDesc)),
 			NumEnums:      2,
 			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_activity_v1_activity_proto_goTypes,
-		DependencyIndexes: file_activity_v1_activity_proto_depIdxs,
-		EnumInfos:         file_activity_v1_activity_proto_enumTypes,
-		MessageInfos:      file_activity_v1_activity_proto_msgTypes,
+		GoTypes:           file_activity_v1_annotation_proto_goTypes,
+		DependencyIndexes: file_activity_v1_annotation_proto_depIdxs,
+		EnumInfos:         file_activity_v1_annotation_proto_enumTypes,
+		MessageInfos:      file_activity_v1_annotation_proto_msgTypes,
 	}.Build()
-	File_activity_v1_activity_proto = out.File
-	file_activity_v1_activity_proto_goTypes = nil
-	file_activity_v1_activity_proto_depIdxs = nil
+	File_activity_v1_annotation_proto = out.File
+	file_activity_v1_annotation_proto_goTypes = nil
+	file_activity_v1_annotation_proto_depIdxs = nil
 }
