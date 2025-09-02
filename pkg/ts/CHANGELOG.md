@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.6.4](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.6.3...pkg/ts/v0.6.4) (2025-09-02)
+
+
+### Bug Fixes
+
+* **annotation:** update proto ([e383903](https://github.com/v-bible/protobuf/commit/e383903a3b1107bf94a0e80762d6bb766abea2b8))
+* **annotation:** update proto ([82f47b4](https://github.com/v-bible/protobuf/commit/82f47b4eed182539d7f1fb96e3c342ebc5fa78a6))
+
 ## [0.6.3](https://github.com/v-bible/protobuf/compare/pkg/ts/v0.6.2...pkg/ts/v0.6.3) (2025-08-29)
 
 
